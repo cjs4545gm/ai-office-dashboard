@@ -311,18 +311,24 @@
     return `${Math.floor(diffSec / 86400)}일 전`;
   }
 
-  // ---- 사이드바 / 로그 (office_v2.html과 동일 로직) ----
+  // status.json은 스크래핑/claude CLI가 생성한 텍스트(헤드라인 요약 등)를 담을 수 있어
+  // innerHTML에 그대로 꽂으면 저장형 XSS로 이어질 수 있다 — 반드시 이스케이프 후 삽입.
+  function escapeHtml(str){
+    return String(str ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+  }
+
+  // ---- 사이드바 / 로그 ----
   function occupantHTML(id, emp){
     const status = (emp && emp.status) || "idle";
-    const sub = status === "standby" ? "자동화 대기" : `${(emp && emp.last_action) || "-"} · ${timeAgo(emp && emp.since)}`;
+    const sub = status === "standby" ? "자동화 대기" : `${escapeHtml((emp && emp.last_action) || "-")} · ${timeAgo(emp && emp.since)}`;
     const emoji = { workflow:"⏰", research:"🔍", data:"📡", risk:"⚠️", feedback:"🗂️" }[emp && emp.room] || "🙂";
     return `
       <div class="occupant${status === "standby" ? " standby" : ""}">
         <div class="avatar">${emoji}</div>
-        <span class="rank">${(emp && emp.rank) || ""}</span>
+        <span class="rank">${escapeHtml((emp && emp.rank) || "")}</span>
         <div class="who">
-          <div class="name">${(emp && emp.name) || id}</div>
-          <div class="role">${(emp && emp.role) || ""}</div>
+          <div class="name">${escapeHtml((emp && emp.name) || id)}</div>
+          <div class="role">${escapeHtml((emp && emp.role) || "")}</div>
           <div class="action">${sub}</div>
         </div>
         <span class="badge ${status}">${STATUS_LABEL[status] || status}</span>
@@ -350,7 +356,7 @@
       const t = new Date(e.time);
       const hh = String(t.getHours()).padStart(2, "0");
       const mm = String(t.getMinutes()).padStart(2, "0");
-      return `<div class="log-row"><span class="meta"><span class="time">${hh}:${mm}</span> · <span class="who">${e.name}</span></span><span class="action">${e.action}</span></div>`;
+      return `<div class="log-row"><span class="meta"><span class="time">${hh}:${mm}</span> · <span class="who">${escapeHtml(e.name)}</span></span><span class="action">${escapeHtml(e.action)}</span></div>`;
     });
     list.innerHTML = rows.join("");
   }
@@ -387,8 +393,8 @@
     el.innerHTML = working.map(e => `
       <div class="task-row">
         <span class="spinner"></span>
-        <span class="who">${e.name}</span>
-        <span class="what">${e.last_action || "-"}</span>
+        <span class="who">${escapeHtml(e.name)}</span>
+        <span class="what">${escapeHtml(e.last_action || "-")}</span>
       </div>`).join("");
   }
 
@@ -402,8 +408,8 @@
     el.innerHTML = done.map(e => `
       <div class="done-row">
         <span class="check">✓</span>
-        <span class="who">${e.name}</span>
-        <span class="what">${e.action}</span>
+        <span class="who">${escapeHtml(e.name)}</span>
+        <span class="what">${escapeHtml(e.action)}</span>
       </div>`).join("");
   }
 
@@ -416,7 +422,7 @@
     return `
       <div class="stock-row">
         <div class="stock-line1">
-          <span class="stock-name">${name}</span>
+          <span class="stock-name">${escapeHtml(name)}</span>
           <span class="stock-rate ${rateClass}">${rateText}</span>
         </div>
         <div class="stock-line2">${detail}</div>
