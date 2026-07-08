@@ -122,6 +122,7 @@
   .task-row .what{ color:var(--cream); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .done-row{ display:flex; align-items:baseline; gap:6px; padding:5px 0; font-size:11px; }
   .done-row .check{ color:var(--done); flex:none; }
+  .done-row .time{ color:var(--muted); font-family:var(--mono); font-size:10px; flex:none; }
   .done-row .who{ color:var(--muted); font-family:var(--mono); font-size:10px; flex:none; }
   .done-row .what{ color:var(--cream); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .panel-empty{ font-family:var(--mono); font-size:11px; color:var(--muted); }
@@ -405,12 +406,18 @@
       el.innerHTML = '<div class="panel-empty">완료 기록 없음</div>';
       return;
     }
-    el.innerHTML = done.map(e => `
+    el.innerHTML = done.map(e => {
+      const t = new Date(e.time);
+      const hh = String(t.getHours()).padStart(2, "0");
+      const mm = String(t.getMinutes()).padStart(2, "0");
+      return `
       <div class="done-row">
         <span class="check">✓</span>
+        <span class="time">${hh}:${mm}</span>
         <span class="who">${escapeHtml(e.name)}</span>
         <span class="what">${escapeHtml(e.action)}</span>
-      </div>`).join("");
+      </div>`;
+    }).join("");
   }
 
   let latestEmployees = {};
