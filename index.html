@@ -7,8 +7,9 @@
 <style>
   :root{
     --bg-deep:  #0e0b12;
-    --wall-2:   #1a1428;
-    --wall-3:   #241c36;
+    --wall:     #1a1428;
+    --wall-2:   #241c36;
+    --wall-3:   #2b2140;
     --line:     #34293f;
     --cream:    #f1e7da;
     --muted:    #a89bb0;
@@ -17,7 +18,11 @@
     --done:     #3ecf5e;
     --error:    #ef6b63;
     --vacant:   #4a4058;
-    --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    --sky-top:  #263a63;
+    --sky-mid:  #a85a72;
+    --sky-low:  #f0a44e;
+    --bezel:    #050409;
+    --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Roboto Mono", "Liberation Mono", Menlo, Consolas, monospace;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   }
   *{ box-sizing:border-box; }
@@ -31,34 +36,35 @@
   }
   .monitor{
     width:100%;
-    max-width:1120px;
+    max-width:1300px;
     margin:0 auto;
-    background:#050409;
+    background:var(--bezel);
     border-radius:22px;
     padding:14px 14px 20px;
     box-shadow:0 1px 0 rgba(255,255,255,0.05) inset, 0 30px 60px -20px rgba(0,0,0,0.7);
   }
+
   .signboard{
     display:flex; align-items:center; justify-content:space-between; gap:12px;
     padding:12px 16px; margin-bottom:12px; border-radius:12px;
     background:linear-gradient(180deg, #17101f, #0c0812); border:1px solid #2c2138;
   }
-  .signboard h1{ margin:0; font-family:var(--mono); font-size:16px; letter-spacing:0.05em; }
-  .signboard .sub{ font-family:var(--mono); font-size:10px; color:var(--muted); margin-top:2px; }
-  .signboard .live{ font-family:var(--mono); font-size:10.5px; color:var(--muted); display:flex; align-items:center; gap:6px; }
+  .logo{ display:flex; align-items:center; gap:10px; }
+  .logo .bars{ display:flex; align-items:flex-end; gap:2px; height:22px; }
+  .logo .bars i{ display:block; width:4px; border-radius:1px; }
+  .logo .bars i:nth-child(1){ height:40%; background:var(--error); }
+  .logo .bars i:nth-child(2){ height:75%; background:var(--done); }
+  .logo .bars i:nth-child(3){ height:55%; background:var(--error); }
+  .logo .bars i:nth-child(4){ height:95%; background:var(--done); }
+  .logo h1{ margin:0; font-family:var(--mono); font-size:17px; font-weight:700; letter-spacing:0.06em; color:var(--cream);
+    text-shadow:0 0 6px rgba(240,169,78,0.55), 0 0 18px rgba(95,208,176,0.35); }
+  .logo .sub{ font-family:var(--mono); font-size:10px; letter-spacing:0.1em; color:var(--muted); margin-top:2px; }
+  .signboard .live{ font-family:var(--mono); font-size:10.5px; color:var(--muted); display:flex; align-items:center; gap:6px; white-space:nowrap; }
   .live .pulse{ width:8px; height:8px; border-radius:50%; background:var(--done); box-shadow:0 0 8px var(--done); animation:pulse 1.6s infinite; }
   @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.3; } }
 
-  .layout{
-    display:grid;
-    grid-template-columns:1fr 250px;
-    gap:10px;
-    margin:0 4px 14px;
-    align-items:start;
-  }
-  @media (max-width:860px){
-    .layout{ grid-template-columns:1fr; }
-  }
+  .layout{ display:grid; grid-template-columns:1fr 250px; gap:10px; margin:0 4px 14px; align-items:start; }
+  @media (max-width:900px){ .layout{ grid-template-columns:1fr; } }
 
   .org{
     display:grid;
@@ -73,26 +79,48 @@
     .org{ grid-template-columns:1fr; grid-template-areas:"wf" "research" "data" "risk" "feedback"; }
   }
 
+  .dept-room{ background:var(--wall-2); border:1px solid var(--line); border-radius:12px; padding:10px 12px 12px; min-width:0; }
+  .dept-room[data-room="workflow"]{ grid-area:wf; }
+  .dept-room[data-room="research"]{ grid-area:research; }
+  .dept-room[data-room="data"]{ grid-area:data; }
+  .dept-room[data-room="risk"]{ grid-area:risk; }
+  .dept-room[data-room="feedback"]{ grid-area:feedback; }
+
+  .dept-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:6px; }
+  .dept-head h2{ margin:0; font-size:13px; }
+  .dept-head .dept-desc{ font-family:var(--mono); font-size:9.5px; color:var(--muted); }
+
+  .dept-scene{ position:relative; border-radius:8px; overflow:hidden; border:1px solid #2a2038; background:var(--wall); margin-bottom:8px; }
+  .dept-scene canvas{ display:block; width:100%; height:auto; }
+
+  .occupant-list{ display:flex; flex-direction:column; gap:7px; }
+  .occupant{ display:flex; align-items:center; gap:8px; }
+  .occupant .avatar{
+    width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:13px; background:var(--wall-3); border:1px solid var(--line); flex:none;
+  }
+  .occupant .who{ flex:1; min-width:0; }
+  .occupant .name{ font-weight:700; font-size:11.5px; }
+  .occupant .role{ font-family:var(--mono); font-size:9px; color:var(--muted); }
+  .occupant .action{ font-family:var(--mono); font-size:9.5px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .rank{ font-family:var(--mono); font-size:8px; letter-spacing:0.03em; color:var(--muted); border:1px solid var(--line); border-radius:4px; padding:1px 4px; flex:none; }
+  .badge{ font-family:var(--mono); font-size:8.5px; letter-spacing:0.02em; padding:1px 6px; border-radius:999px; flex:none; white-space:nowrap; }
+  .badge.idle{ background:rgba(107,100,120,0.25); color:var(--idle); border:1px solid var(--idle); }
+  .badge.working{ background:rgba(240,169,78,0.18); color:var(--working); border:1px solid var(--working); }
+  .badge.done{ background:rgba(62,207,94,0.18); color:var(--done); border:1px solid var(--done); }
+  .badge.error{ background:rgba(239,107,99,0.18); color:var(--error); border:1px solid var(--error); }
+  .badge.standby{ background:transparent; color:var(--vacant); border:1px dashed var(--vacant); }
+  .occupant.standby{ opacity:0.68; }
+
   .sidebar{ display:flex; flex-direction:column; gap:10px; min-width:0; }
-  .side-panel{
-    background:var(--wall-2); border:1px solid var(--line); border-radius:12px;
-    padding:12px 14px; min-width:0; overflow:hidden;
-  }
+  .side-panel{ background:var(--wall-2); border:1px solid var(--line); border-radius:12px; padding:12px 14px; min-width:0; overflow:hidden; }
   .side-panel h2{ margin:0 0 8px; font-size:12px; color:var(--muted); font-weight:600; }
-  .task-row{
-    display:flex; align-items:baseline; gap:6px; padding:6px 0;
-    border-bottom:1px dashed var(--line); font-size:11.5px;
-  }
+  .task-row{ display:flex; align-items:baseline; gap:6px; padding:6px 0; border-bottom:1px dashed var(--line); font-size:11.5px; }
   .task-row:last-child{ border-bottom:none; }
-  .task-row .spinner{
-    width:7px; height:7px; border-radius:50%; background:var(--working); flex:none;
-    box-shadow:0 0 6px var(--working); animation:pulse 1.2s infinite;
-  }
+  .task-row .spinner{ width:7px; height:7px; border-radius:50%; background:var(--working); flex:none; box-shadow:0 0 6px var(--working); animation:pulse 1.2s infinite; }
   .task-row .who{ color:var(--working); font-family:var(--mono); font-size:10.5px; flex:none; }
   .task-row .what{ color:var(--cream); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .done-row{
-    display:flex; align-items:baseline; gap:6px; padding:5px 0; font-size:11px;
-  }
+  .done-row{ display:flex; align-items:baseline; gap:6px; padding:5px 0; font-size:11px; }
   .done-row .check{ color:var(--done); flex:none; }
   .done-row .who{ color:var(--muted); font-family:var(--mono); font-size:10px; flex:none; }
   .done-row .what{ color:var(--cream); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -107,63 +135,14 @@
   .stock-stats{ margin-top:10px; border-top:1px dashed var(--line); padding-top:8px; }
   .stock-row{ padding:4px 0; font-family:var(--mono); min-width:0; }
   .stock-row .stock-line1{ display:flex; align-items:baseline; gap:6px; font-size:11px; min-width:0; }
-  .stock-row .stock-name{ color:var(--cream); font-family:var(--sans); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .stock-row .stock-name{ color:var(--cream); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .stock-row .stock-rate{ color:var(--done); flex:none; font-weight:700; }
   .stock-row .stock-rate.low{ color:var(--error); }
   .stock-row .stock-rate.na{ color:var(--muted); }
   .stock-row .stock-line2{ font-size:9.5px; color:var(--muted); margin-top:1px; }
-  .room{
-    background:var(--wall-2);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:12px 14px;
-    min-width:0;
-  }
-  .room[data-room="workflow"]{ grid-area:wf; }
-  .room[data-room="research"]{ grid-area:research; }
-  .room[data-room="data"]{ grid-area:data; }
-  .room[data-room="risk"]{ grid-area:risk; }
-  .room[data-room="feedback"]{ grid-area:feedback; }
 
-  .room h2{ margin:0 0 2px; font-size:13.5px; }
-  .room .desc{ font-family:var(--mono); font-size:10px; color:var(--muted); margin-bottom:10px; }
-  .trader-explain{ font-size:10.5px; line-height:1.5; color:var(--muted); margin:2px 0 10px; padding:8px 10px; background:rgba(255,255,255,0.04); border-radius:8px; }
-
-  .occupant{ display:flex; align-items:center; gap:10px; }
-  .occupant .avatar{
-    width:34px; height:34px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    font-size:16px; background:var(--wall-3); border:1px solid var(--line); flex:none;
-  }
-  .occupant .who{ flex:1; min-width:0; }
-  .occupant .name{ font-weight:700; font-size:13.5px; }
-  .occupant .role{ font-family:var(--mono); font-size:10px; color:var(--muted); }
-  .occupant .action{
-    font-family:var(--mono); font-size:11px; color:var(--cream); margin-top:3px;
-    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  }
-  .badge{
-    font-family:var(--mono); font-size:10px; letter-spacing:0.03em;
-    padding:2px 8px; border-radius:999px; flex:none; white-space:nowrap;
-  }
-  .badge.idle{ background:rgba(107,100,120,0.25); color:var(--idle); border:1px solid var(--idle); }
-  .badge.working{ background:rgba(240,169,78,0.18); color:var(--working); border:1px solid var(--working); }
-  .badge.done{ background:rgba(62,207,94,0.18); color:var(--done); border:1px solid var(--done); }
-  .badge.error{ background:rgba(239,107,99,0.18); color:var(--error); border:1px solid var(--error); }
-  .badge.standby{ background:transparent; color:var(--vacant); border:1px dashed var(--vacant); }
-
-  .occupant.standby{ opacity:0.72; }
-  .rank{
-    font-family:var(--mono); font-size:9px; letter-spacing:0.04em; color:var(--muted);
-    border:1px solid var(--line); border-radius:4px; padding:1px 5px; flex:none;
-  }
-  .occupant-list{ display:flex; flex-direction:column; gap:9px; }
-
-  .log-list{ display:flex; flex-direction:column; gap:7px; max-height:320px; overflow-y:auto; }
-  .log-row{
-    display:flex; flex-direction:column; gap:1px; padding-bottom:6px;
-    border-bottom:1px dashed var(--line); font-family:var(--mono); font-size:10.5px;
-  }
+  .log-list{ display:flex; flex-direction:column; gap:7px; max-height:280px; overflow-y:auto; }
+  .log-row{ display:flex; flex-direction:column; gap:1px; padding-bottom:6px; border-bottom:1px dashed var(--line); font-family:var(--mono); font-size:10.5px; }
   .log-row:last-child{ border-bottom:none; padding-bottom:0; }
   .log-row .meta{ color:var(--muted); }
   .log-row .time{ color:var(--muted); }
@@ -173,48 +152,59 @@
   .next-up{ font-family:var(--mono); font-size:10.5px; color:var(--muted); line-height:1.6; }
   .next-up b{ color:var(--cream); font-family:var(--sans); }
 
-  .foot-note{
-    font-family:var(--mono); font-size:10px; color:var(--muted); text-align:center;
-    margin-top:14px; letter-spacing:0.02em;
+  .dept-links{ display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; margin:14px 4px 2px; }
+  @media (max-width:820px){ .dept-links{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:480px){ .dept-links{ grid-template-columns:1fr; } }
+  .dept-link{
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    font-family:var(--sans); font-size:11.5px; font-weight:600; color:var(--bg-deep);
+    background:var(--cream); border:none; border-radius:8px; padding:8px 10px;
+    text-decoration:none; text-align:center; transition:transform 0.15s ease, filter 0.15s ease;
   }
+  .dept-link:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+
+  .foot-note{ font-family:var(--mono); font-size:10px; color:var(--muted); text-align:center; margin-top:14px; letter-spacing:0.02em; }
 </style>
 </head>
 <body>
 
 <div class="monitor">
   <div class="signboard">
-    <div>
-      <h1>부서 현황판</h1>
-      <div class="sub">개인 AI 투자 보조 시스템 · status.json 실시간 연동</div>
+    <div class="logo">
+      <span class="bars"><i></i><i></i><i></i><i></i></span>
+      <div>
+        <h1>준석 시장브리핑 오피스</h1>
+        <div class="sub">5개 부서 · 15명 · status.json 실시간 연동</div>
+      </div>
     </div>
     <div class="live"><span class="pulse"></span><span id="updated-at">연결 중...</span></div>
   </div>
 
   <div class="layout">
     <div class="org">
-      <div class="room" data-room="workflow">
-        <h2>⏰ 워크플로우·스케줄링</h2>
-        <div class="desc">데일리·이벤트 트리거</div>
+      <div class="dept-room" data-room="workflow">
+        <div class="dept-head"><h2>⏰ 워크플로우·스케줄링</h2><span class="dept-desc">데일리·이벤트 트리거</span></div>
+        <div class="dept-scene"><canvas class="scene" data-room="workflow" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-workflow"></div>
       </div>
-      <div class="room" data-room="research">
-        <h2>🔍 AI 리서치</h2>
-        <div class="desc">종목·산업·자금흐름</div>
+      <div class="dept-room" data-room="research">
+        <div class="dept-head"><h2>🔍 AI 리서치</h2><span class="dept-desc">종목·산업·자금흐름</span></div>
+        <div class="dept-scene"><canvas class="scene" data-room="research" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-research"></div>
       </div>
-      <div class="room" data-room="data">
-        <h2>📡 데이터 인프라</h2>
-        <div class="desc">시세·공시·뉴스</div>
+      <div class="dept-room" data-room="data">
+        <div class="dept-head"><h2>📡 데이터 인프라</h2><span class="dept-desc">시세·공시·뉴스</span></div>
+        <div class="dept-scene"><canvas class="scene" data-room="data" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-data"></div>
       </div>
-      <div class="room" data-room="risk">
-        <h2>⚠️ 리스크 스크리닝</h2>
-        <div class="desc">위험 신호 점검</div>
+      <div class="dept-room" data-room="risk">
+        <div class="dept-head"><h2>⚠️ 리스크 스크리닝</h2><span class="dept-desc">위험 신호 점검</span></div>
+        <div class="dept-scene"><canvas class="scene" data-room="risk" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-risk"></div>
       </div>
-      <div class="room" data-room="feedback">
-        <h2>🗂️ 결과 추적·피드백</h2>
-        <div class="desc">판단 정확도 검증, 리서치에 반영</div>
+      <div class="dept-room" data-room="feedback">
+        <div class="dept-head"><h2>🗂️ 결과 추적·피드백</h2><span class="dept-desc">판단 정확도 검증, 리서치에 반영</span></div>
+        <div class="dept-scene"><canvas class="scene" data-room="feedback" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-feedback"></div>
       </div>
     </div>
@@ -230,7 +220,6 @@
       </div>
       <div class="side-panel">
         <h2>📈 트레이더 콜 적중률</h2>
-        <div class="trader-explain">탐·베라·주노·카이·제이드 5명이 따로 판단하는 게 아니라, AI 1회 호출로 5명의 의견 + 레오의 최종 콜을 한 번에 생성 — 적중률은 레오의 최종 콜만 추적</div>
         <div id="trader-stats"><div class="panel-empty">아직 검증된 콜 없음</div></div>
       </div>
       <div class="side-panel log-panel">
@@ -240,17 +229,133 @@
     </div>
   </div>
 
-  <div class="foot-note">각 직원 스크립트가 실행될 때마다 office_status.py가 이 값을 갱신합니다 · 4초마다 새로고침</div>
+  <div class="dept-links">
+    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EC%9B%8C%ED%81%AC%ED%94%8C%EB%A1%9C%EC%9A%B0%C2%B7%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81">⏰ 워크플로우·스케줄링</a>
+    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/AI%20%EB%A6%AC%EC%84%9C%EC%B9%98">🔍 AI 리서치</a>
+    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9D%B8%ED%94%84%EB%9D%BC">📡 데이터 인프라</a>
+    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EC%8A%A4%ED%81%AC%EB%A6%AC%EB%8B%9D">⚠️ 리스크 스크리닝</a>
+    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EA%B2%B0%EA%B3%BC%20%EC%B6%94%EC%A0%81%C2%B7%ED%94%BC%EB%93%9C%EB%B0%B1">🗂️ 결과 추적·피드백</a>
+  </div>
+
+  <div class="foot-note">각 직원 스크립트가 실행될 때마다 office_status.py가 status.json을 갱신 · 4초마다 새로고침 · 전원 자동화됨</div>
 </div>
 
 <script>
 (() => {
   const STATUS_LABEL = { idle: "대기", working: "작업중", done: "완료", error: "오류", standby: "자동화 대기" };
   const RANK_ORDER = { "팀장": 0, "선임": 1, "주니어": 2 };
-  const ROOMS = ["workflow", "research", "data", "risk", "feedback"];
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 실제 launchd 스케줄(매시 00/05/10분) — 진행중인 작업이 없을 때 "멈춘 것처럼" 보이지 않도록
-  // 다음 실행이 언제·누구인지 보여준다. 가짜 숫자가 아니라 실제 cron 배치 그대로.
+  // 화면에 그릴 5개 부서 방과 소속 직원 — 색상/액세서리는 부서·계급을 반영한 것이고,
+  // 실시간 상태(status/last_action/since)는 status.json에서 채워진다.
+  const ROOMS = [
+    { key: "workflow", color: "#f0a94e", dim: "#6b5330", members: [
+      { id: "oz", hair: "crown" }, { id: "bri", hair: "cap" }, { id: "nix", hair: "badge" },
+    ]},
+    { key: "research", color: "#5fd0b0", dim: "#2f5a4d", members: [
+      { id: "vera", hair: "crown" }, { id: "tam", hair: "glasses" }, { id: "juno", hair: "badge" },
+    ]},
+    { key: "data", color: "#b79bf0", dim: "#5c4d7a", members: [
+      { id: "hank", hair: "crown" }, { id: "scout", hair: "bag" }, { id: "milo", hair: "badge" },
+    ]},
+    { key: "risk", color: "#ef6b63", dim: "#7a3a35", members: [
+      { id: "jade", hair: "crown" }, { id: "kai", hair: "visor" },
+    ]},
+    { key: "feedback", color: "#8fa6c2", dim: "#4a5a70", members: [
+      { id: "dawn", hair: "crown" }, { id: "rewind", hair: "book" }, { id: "sage", hair: "badge" }, { id: "leo", hair: "tie" },
+    ]},
+  ];
+
+  // Obsidian 밖(공유 웹링크)에서는 로컬 status.json을 가져올 수 없으므로,
+  // fetch 실패 시 마지막으로 알려진 스냅샷을 보여준다 — 실시간 값은 Obsidian 버전 기준.
+  const FALLBACK_DATA = {
+    updated_at: "2026-07-07T13:10:00",
+    is_snapshot: true,
+    employees: {
+      oz:     { name: "오즈", rank: "팀장", role: "전체 스케줄 총괄", room: "workflow", status: "done", last_action: "이상없음", since: "2026-07-07T13:05:00" },
+      bri:    { name: "브리", rank: "선임", role: "데일리 애널리스트", room: "workflow", status: "done", last_action: "데일리 시장 브리핑 작성 완료", since: "2026-07-07T13:05:00" },
+      nix:    { name: "닉스", rank: "주니어", role: "실행 로그·타임라인 기록", room: "workflow", status: "done", last_action: "이벤트 기록 누적", since: "2026-07-07T13:05:00" },
+
+      vera:   { name: "베라", rank: "팀장", role: "리서치 총괄·품질 검수", room: "research", status: "working", last_action: "리서치 품질 검수 중", since: "2026-07-07T13:10:00" },
+      tam:    { name: "탐", rank: "선임", role: "리서치 분석가", room: "research", status: "working", last_action: "보유종목 6개 리서치 분석 중", since: "2026-07-07T13:10:00" },
+      juno:   { name: "주노", rank: "주니어", role: "업종별 협회·통계 리서처", room: "research", status: "done", last_action: "업종 2개 협회·통계 조사 완료", since: "2026-07-07T13:10:00" },
+
+      hank:   { name: "행크", rank: "팀장", role: "데이터 품질 관리", room: "data", status: "done", last_action: "이상없음", since: "2026-07-07T13:00:00" },
+      scout:  { name: "스카우트", rank: "선임", role: "정보 수집원", room: "data", status: "done", last_action: "신규 리포트 3건, 헤드라인 8건 수집", since: "2026-07-07T13:00:00" },
+      milo:   { name: "마일로", rank: "주니어", role: "기관·외국인 수급 데이터", room: "data", status: "done", last_action: "보유종목 6개 수급 데이터 갱신", since: "2026-07-07T13:00:00" },
+
+      jade:   { name: "제이드", rank: "팀장", role: "리스크 총괄", room: "risk", status: "working", last_action: "리스크 시그널 종합 중", since: "2026-07-07T13:10:00" },
+      kai:    { name: "카이", rank: "선임", role: "이상거래·급락 감지", room: "risk", status: "done", last_action: "특이사항 없음", since: "2026-07-07T13:10:00" },
+
+      dawn:   { name: "던", rank: "팀장", role: "월간 총괄·회고 검수", room: "feedback", status: "idle", last_action: "다음 결산 대기", since: "2026-07-04T17:00:00" },
+      rewind: { name: "리와인드", rank: "선임", role: "결산 담당", room: "feedback", status: "idle", last_action: "일간 결산 저장 완료", since: "2026-07-04T15:30:00" },
+      sage:   { name: "세이지", rank: "주니어", role: "판단 정확도 추적", room: "feedback", status: "idle", last_action: "검증 완료", since: "2026-07-04T15:30:00" },
+      leo:    { name: "레오", rank: "트레이더", role: "매수/매도 의견 종합", room: "feedback", status: "idle", last_action: "종합 완료", since: "2026-07-04T15:30:00" },
+    },
+    activity_log: [
+      { time: "2026-07-07T13:10:00", employee: "tam", name: "탐", status: "working", action: "보유종목 6개 리서치 분석 중" },
+      { time: "2026-07-07T13:05:00", employee: "bri", name: "브리", status: "done", action: "데일리 시장 브리핑 작성 완료" },
+      { time: "2026-07-07T13:00:00", employee: "scout", name: "스카우트", status: "done", action: "신규 리포트 3건, 헤드라인 8건 수집" },
+    ],
+    // 실제 적중률 데이터가 쌓이기 전까지는 그럴듯한 가짜 숫자 대신 null로 둬서
+    // "샘플 데이터"인데도 진짜처럼 보이는 혼동을 없앤다 — 실사용자가 이 값을 실제로 오인해서 문의한 적 있음.
+    trader_stats: null,
+  };
+
+  function timeAgo(iso){
+    if (!iso) return "";
+    const diffSec = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
+    if (diffSec < 60) return `${diffSec}초 전`;
+    if (diffSec < 3600) return `${Math.floor(diffSec / 60)}분 전`;
+    if (diffSec < 86400) return `${Math.floor(diffSec / 3600)}시간 전`;
+    return `${Math.floor(diffSec / 86400)}일 전`;
+  }
+
+  // ---- 사이드바 / 로그 (office_v2.html과 동일 로직) ----
+  function occupantHTML(id, emp){
+    const status = (emp && emp.status) || "idle";
+    const sub = status === "standby" ? "자동화 대기" : `${(emp && emp.last_action) || "-"} · ${timeAgo(emp && emp.since)}`;
+    const emoji = { workflow:"⏰", research:"🔍", data:"📡", risk:"⚠️", feedback:"🗂️" }[emp && emp.room] || "🙂";
+    return `
+      <div class="occupant${status === "standby" ? " standby" : ""}">
+        <div class="avatar">${emoji}</div>
+        <span class="rank">${(emp && emp.rank) || ""}</span>
+        <div class="who">
+          <div class="name">${(emp && emp.name) || id}</div>
+          <div class="role">${(emp && emp.role) || ""}</div>
+          <div class="action">${sub}</div>
+        </div>
+        <span class="badge ${status}">${STATUS_LABEL[status] || status}</span>
+      </div>`;
+  }
+
+  function renderRooms(employees){
+    ROOMS.forEach(room => {
+      const el = document.getElementById(`room-${room.key}`);
+      if (!el) return;
+      const members = room.members
+        .map(m => ({ id: m.id, emp: (employees || {})[m.id] }))
+        .sort((a, b) => (RANK_ORDER[a.emp && a.emp.rank] ?? 9) - (RANK_ORDER[b.emp && b.emp.rank] ?? 9));
+      el.innerHTML = members.map(m => occupantHTML(m.id, m.emp)).join("");
+    });
+  }
+
+  function renderLog(entries){
+    const list = document.getElementById("log-list");
+    if (!entries || entries.length === 0){
+      list.innerHTML = '<div class="log-empty">아직 기록 없음</div>';
+      return;
+    }
+    const rows = entries.slice().reverse().slice(0, 24).map(e => {
+      const t = new Date(e.time);
+      const hh = String(t.getHours()).padStart(2, "0");
+      const mm = String(t.getMinutes()).padStart(2, "0");
+      return `<div class="log-row"><span class="meta"><span class="time">${hh}:${mm}</span> · <span class="who">${e.name}</span></span><span class="action">${e.action}</span></div>`;
+    });
+    list.innerHTML = rows.join("");
+  }
+
+  // 실제 launchd 스케줄(매시 00/05/10분) — 진행중인 작업이 없을 때 다음 실행이 언제·누구인지 보여준다.
   const SCHEDULE = [
     { minute: 0,  label: "행크·스카우트·마일로", desc: "리포트·뉴스·수급 수집" },
     { minute: 5,  label: "오즈·브리",           desc: "헬스체크·시장 브리핑" },
@@ -271,96 +376,6 @@
     return { time: `${hh}:${mm}`, label: best.label, desc: best.desc };
   }
 
-  // Obsidian 밖(예: 공유 웹링크)에서는 로컬 status.json을 가져올 수 없으므로,
-  // fetch 실패 시 마지막으로 알려진 스냅샷을 보여준다 — 실시간 값은 Obsidian 버전 기준.
-  const FALLBACK_DATA = {
-    updated_at: "2026-07-07T11:25:48",
-    is_snapshot: true,
-    employees: {
-      oz:     { name: "오즈", rank: "팀장", role: "전체 스케줄 총괄", emoji: "🧭", room: "workflow", status: "standby" },
-      bri:    { name: "브리", rank: "선임", role: "데일리 애널리스트", emoji: "☀️", room: "workflow", status: "done", last_action: "데일리 시장 브리핑 작성 완료", since: "2026-07-07T11:25:48" },
-      nix:    { name: "닉스", rank: "주니어", role: "실행 로그·타임라인 기록", emoji: "📝", room: "workflow", status: "standby" },
-
-      vera:   { name: "베라", rank: "팀장", role: "리서치 총괄·품질 검수", emoji: "🧠", room: "research", status: "standby" },
-      tam:    { name: "탐", rank: "선임", role: "리서치 분석가", emoji: "🔍", room: "research", status: "working", last_action: "보유종목 6개 리서치 분석 중", since: "2026-07-07T11:25:48" },
-      juno:   { name: "주노", rank: "주니어", role: "업종별 협회·통계 리서처", emoji: "🏛️", room: "research", status: "idle" },
-
-      hank:   { name: "행크", rank: "팀장", role: "데이터 품질 관리", emoji: "🗄️", room: "data", status: "standby" },
-      scout:  { name: "스카우트", rank: "선임", role: "정보 수집원", emoji: "📡", room: "data", status: "done", last_action: "신규 리포트 3건, 헤드라인 8건 수집", since: "2026-07-07T11:25:48" },
-      milo:   { name: "마일로", rank: "주니어", role: "기관·외국인 수급 데이터", emoji: "📊", room: "data", status: "idle" },
-
-      jade:   { name: "제이드", rank: "팀장", role: "리스크 총괄", emoji: "🛡️", room: "risk", status: "standby" },
-      kai:    { name: "카이", rank: "선임", role: "이상거래·급락 감지", emoji: "📉", room: "risk", status: "standby" },
-
-      dawn:   { name: "던", rank: "팀장", role: "월간 총괄·회고 검수", emoji: "🌅", room: "feedback", status: "standby" },
-      rewind: { name: "리와인드", rank: "선임", role: "결산 담당", emoji: "🗂️", room: "feedback", status: "idle", last_action: "대기중", since: "2026-07-07T11:25:48" },
-      sage:   { name: "세이지", rank: "주니어", role: "판단 정확도 추적", emoji: "🎯", room: "feedback", status: "standby" },
-      leo:    { name: "레오", rank: "트레이더", role: "매수/매도 의견 종합", emoji: "📈", room: "feedback", status: "standby" },
-    },
-    activity_log: [
-      { time: "2026-07-07T11:25:48", employee: "scout", name: "스카우트", status: "done", action: "신규 리포트 3건, 헤드라인 8건 수집" },
-      { time: "2026-07-07T11:25:48", employee: "bri", name: "브리", status: "done", action: "데일리 시장 브리핑 작성 완료" },
-      { time: "2026-07-07T11:25:48", employee: "tam", name: "탐", status: "working", action: "보유종목 6개 리서치 분석 중" },
-    ],
-    // 실제 적중률 데이터가 쌓이기 전까지는 그럴듯한 가짜 숫자 대신 null로 둬서
-    // "샘플 데이터"인데도 진짜처럼 보이는 혼동을 없앤다 — 실사용자가 이 값을 실제로 오인해서 문의한 적 있음.
-    trader_stats: null,
-  };
-
-  function timeAgo(iso){
-    if (!iso) return "";
-    const diffSec = Math.max(0, Math.floor((Date.now() - new Date(iso).getTime()) / 1000));
-    if (diffSec < 60) return `${diffSec}초 전`;
-    if (diffSec < 3600) return `${Math.floor(diffSec / 60)}분 전`;
-    if (diffSec < 86400) return `${Math.floor(diffSec / 3600)}시간 전`;
-    return `${Math.floor(diffSec / 86400)}일 전`;
-  }
-
-  function occupantHTML(emp){
-    const status = emp.status || "idle";
-    const sub = status === "standby" ? "자동화 대기" : `${emp.last_action || "-"} · ${timeAgo(emp.since)}`;
-    return `
-      <div class="occupant${status === "standby" ? " standby" : ""}">
-        <div class="avatar">${emp.emoji || "🙂"}</div>
-        <span class="rank">${emp.rank || ""}</span>
-        <div class="who">
-          <div class="name">${emp.name}</div>
-          <div class="role">${emp.role || ""}</div>
-          <div class="action">${sub}</div>
-        </div>
-        <span class="badge ${status}">${STATUS_LABEL[status] || status}</span>
-      </div>`;
-  }
-
-  function renderRooms(employees){
-    const byRoom = {};
-    ROOMS.forEach(r => byRoom[r] = []);
-    Object.values(employees || {}).forEach(emp => {
-      if (byRoom[emp.room]) byRoom[emp.room].push(emp);
-    });
-    ROOMS.forEach(room => {
-      const el = document.getElementById(`room-${room}`);
-      if (!el) return;
-      const members = byRoom[room].sort((a, b) => (RANK_ORDER[a.rank] ?? 9) - (RANK_ORDER[b.rank] ?? 9));
-      el.innerHTML = members.map(occupantHTML).join("") || '<div class="log-empty">배치된 직원 없음</div>';
-    });
-  }
-
-  function renderLog(entries){
-    const list = document.getElementById("log-list");
-    if (!entries || entries.length === 0){
-      list.innerHTML = '<div class="log-empty">아직 기록 없음</div>';
-      return;
-    }
-    const rows = entries.slice().reverse().slice(0, 30).map(e => {
-      const t = new Date(e.time);
-      const hh = String(t.getHours()).padStart(2, "0");
-      const mm = String(t.getMinutes()).padStart(2, "0");
-      return `<div class="log-row"><span class="meta"><span class="time">${hh}:${mm}</span> · <span class="who">${e.name}</span></span><span class="action">${e.action}</span></div>`;
-    });
-    list.innerHTML = rows.join("");
-  }
-
   function renderTasksInProgress(employees){
     const el = document.getElementById("tasks-progress");
     const working = Object.values(employees || {}).filter(e => e.status === "working");
@@ -379,7 +394,7 @@
 
   function renderTasksDone(entries){
     const el = document.getElementById("tasks-done");
-    const done = (entries || []).filter(e => e.status === "done").slice().reverse().slice(0, 12);
+    const done = (entries || []).filter(e => e.status === "done").slice().reverse().slice(0, 10);
     if (done.length === 0){
       el.innerHTML = '<div class="panel-empty">완료 기록 없음</div>';
       return;
@@ -391,6 +406,8 @@
         <span class="what">${e.action}</span>
       </div>`).join("");
   }
+
+  let latestEmployees = {};
 
   function stockRowHTML(name, s){
     const rateClass = s.hit_rate === null ? "na" : (s.hit_rate < 50 ? "low" : "");
@@ -431,8 +448,9 @@
       ? `샘플 데이터 (실시간 연동은 Obsidian 버전 참고)`
       : (data.updated_at ? `업데이트 ${timeAgo(data.updated_at)}` : "대기중");
     document.getElementById("updated-at").textContent = label;
-    renderRooms(data.employees);
-    renderTasksInProgress(data.employees);
+    latestEmployees = data.employees || {};
+    renderRooms(latestEmployees);
+    renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
     renderTraderStats(data.trader_stats);
     renderLog(data.activity_log);
@@ -449,8 +467,186 @@
     }
   }
 
+  // ---- 픽셀아트 캐릭터 (부서별 3명, 걷지 않고 제자리에서 숨쉬듯 bob) ----
+  function roundRect(c, x, y, w, h, r){
+    c.beginPath();
+    c.moveTo(x + r, y);
+    c.arcTo(x + w, y, x + w, y + h, r);
+    c.arcTo(x + w, y + h, x, y + h, r);
+    c.arcTo(x, y + h, x, y, r);
+    c.arcTo(x, y, x + w, y, r);
+    c.closePath();
+  }
+
+  function drawSceneBackdrop(ctx, W, H, color){
+    ctx.fillStyle = "#1a1428";
+    ctx.fillRect(0, 0, W, H);
+    ctx.save();
+    ctx.globalAlpha = 0.14;
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, W, H * 0.55);
+    ctx.restore();
+    const floorY = H - 34;
+    ctx.fillStyle = "#241c36";
+    ctx.fillRect(0, floorY, W, H - floorY);
+    ctx.strokeStyle = "rgba(0,0,0,0.25)";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, floorY); ctx.lineTo(W, floorY); ctx.stroke();
+    return floorY;
+  }
+
+  function drawDeskMini(ctx, cx, floorY, color){
+    const w = 46, h = 20;
+    ctx.fillStyle = "#3a2a20";
+    roundRect(ctx, cx - w / 2, floorY - h, w, h, 3);
+    ctx.fill();
+    ctx.fillStyle = color;
+    ctx.globalAlpha = 0.7;
+    ctx.fillRect(cx - w / 2, floorY - h, w, 3);
+    ctx.globalAlpha = 1;
+  }
+
+  function drawCharacter(ctx, cx, floorY, color, dim, hair, status, t){
+    const walking = false;
+    const isStandby = status === "standby";
+    const bob = isStandby ? 0 : Math.sin(t * 2.2 + cx) * 1.6;
+    const y = floorY - 2;
+
+    ctx.save();
+    ctx.translate(cx, y + bob);
+    if (isStandby) ctx.globalAlpha = 0.45;
+
+    // shadow
+    ctx.beginPath();
+    ctx.ellipse(0, 2, 11, 3, 0, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0,0,0,0.35)";
+    ctx.fill();
+
+    // legs
+    ctx.strokeStyle = "#1c1620";
+    ctx.lineWidth = 4.5;
+    ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(-3, -4); ctx.lineTo(-3, -17); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(3, -4); ctx.lineTo(3, -17); ctx.stroke();
+
+    // body
+    ctx.fillStyle = isStandby ? "#4a4058" : color;
+    roundRect(ctx, -10, -38, 20, 23, 8);
+    ctx.fill();
+
+    // arms
+    ctx.strokeStyle = isStandby ? "#4a4058" : dim;
+    ctx.lineWidth = 3.5;
+    const armSwing = walking ? 0 : Math.sin(t * 1.1 + cx) * 1.4;
+    ctx.beginPath(); ctx.moveTo(-9, -29); ctx.lineTo(-12 + armSwing, -18); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(9, -29); ctx.lineTo(12 - armSwing, -18); ctx.stroke();
+
+    // head
+    ctx.fillStyle = "#f4d9b8";
+    ctx.beginPath(); ctx.arc(0, -46, 9.5, 0, Math.PI * 2); ctx.fill();
+
+    // hair base
+    ctx.fillStyle = isStandby ? "#4a4058" : dim;
+    ctx.beginPath();
+    ctx.arc(0, -49, 9.8, Math.PI * 0.95, Math.PI * 2.05);
+    ctx.fill();
+
+    // eyes
+    ctx.fillStyle = "#241b1a";
+    ctx.beginPath(); ctx.arc(-3, -45, 1, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(3, -45, 1, 0, Math.PI * 2); ctx.fill();
+
+    // accessory by rank/employee
+    const accColor = isStandby ? "#786e8a" : dim;
+    if (hair === "cap"){
+      ctx.fillStyle = accColor;
+      ctx.beginPath(); ctx.arc(0, -50, 9.9, Math.PI, Math.PI * 2); ctx.fill();
+      ctx.fillRect(-9.5, -51, 19, 3.5);
+    } else if (hair === "glasses"){
+      ctx.strokeStyle = "#241b1a";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(-6, -47, 4.5, 3.6);
+      ctx.strokeRect(1.5, -47, 4.5, 3.6);
+      ctx.beginPath(); ctx.moveTo(-1.5, -45.2); ctx.lineTo(1.5, -45.2); ctx.stroke();
+    } else if (hair === "visor"){
+      ctx.fillStyle = accColor;
+      ctx.globalAlpha *= 0.9;
+      ctx.fillRect(-6.5, -47, 13, 2.6);
+      ctx.globalAlpha = isStandby ? 0.45 : 1;
+    } else if (hair === "bag"){
+      ctx.strokeStyle = accColor;
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(-6, -34); ctx.lineTo(7, -18); ctx.stroke();
+      ctx.fillStyle = accColor;
+      roundRect(ctx, 3, -20, 8, 9, 2);
+      ctx.fill();
+    } else if (hair === "book"){
+      ctx.fillStyle = accColor;
+      roundRect(ctx, -8, -26, 10, 7, 1.5);
+      ctx.fill();
+    } else if (hair === "crown"){
+      ctx.fillStyle = "#ffd76a";
+      ctx.globalAlpha = isStandby ? 0.45 : 0.95;
+      ctx.beginPath();
+      ctx.moveTo(-7, -55); ctx.lineTo(-4, -60); ctx.lineTo(0, -55);
+      ctx.lineTo(4, -60); ctx.lineTo(7, -55);
+      ctx.lineTo(6, -52); ctx.lineTo(-6, -52);
+      ctx.closePath(); ctx.fill();
+      ctx.globalAlpha = isStandby ? 0.45 : 1;
+    } else if (hair === "badge"){
+      ctx.fillStyle = accColor;
+      ctx.beginPath(); ctx.arc(-5, -30, 3, 0, Math.PI * 2); ctx.fill();
+    } else if (hair === "tie"){
+      ctx.fillStyle = "#c0392b";
+      ctx.globalAlpha = isStandby ? 0.45 : 1;
+      ctx.beginPath();
+      ctx.moveTo(-2.5, -37); ctx.lineTo(2.5, -37); ctx.lineTo(1.5, -20); ctx.lineTo(0, -16); ctx.lineTo(-1.5, -20);
+      ctx.closePath(); ctx.fill();
+    }
+
+    // status dot above head (standby는 표시 안함 — occupant-list의 배지로 충분)
+    if (!isStandby && status){
+      const dotColor = { working: "#f0a94e", done: "#3ecf5e", idle: "#6b6478", error: "#ef6b63" }[status] || "#6b6478";
+      ctx.globalAlpha = status === "working" ? 0.6 + Math.sin(t * 6) * 0.35 : 1;
+      ctx.fillStyle = dotColor;
+      ctx.beginPath(); ctx.arc(0, -60, 2.4, 0, Math.PI * 2); ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    ctx.restore();
+  }
+
+  const canvases = Array.from(document.querySelectorAll("canvas.scene")).map(canvas => {
+    const room = ROOMS.find(r => r.key === canvas.dataset.room);
+    const ctx = canvas.getContext("2d");
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const cssW = canvas.width, cssH = canvas.height;
+    canvas.width = cssW * dpr;
+    canvas.height = cssH * dpr;
+    ctx.scale(dpr, dpr);
+    return { canvas, ctx, room, W: cssW, H: cssH };
+  });
+
+  function frame(now){
+    const t = now / 1000;
+    canvases.forEach(({ ctx, room, W, H }) => {
+      const floorY = drawSceneBackdrop(ctx, W, H, room.color);
+      const n = room.members.length;
+      const slots = room.members.map((_, i) => W * ((i + 1) / (n + 1)));
+      room.members.forEach((m, i) => drawDeskMini(ctx, slots[i], floorY, room.color));
+      room.members.forEach((m, i) => {
+        const emp = latestEmployees[m.id];
+        const status = emp ? emp.status : undefined;
+        drawCharacter(ctx, slots[i], floorY, room.color, room.dim, m.hair, status, t);
+      });
+    });
+    if (!reduceMotion) requestAnimationFrame(frame);
+  }
+
   refresh();
   setInterval(refresh, 4000);
+  requestAnimationFrame(frame);
+  if (reduceMotion) frame(0);
 })();
 </script>
 </body>
