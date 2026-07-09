@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T17:00:21",
+  "updated_at": "2026-07-09T17:05:07",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:05:07",
-      "last_action": "이슈 3건 감지"
+      "since": "2026-07-09T17:05:07",
+      "last_action": "이슈 1건 감지"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:05:07",
+      "since": "2026-07-09T17:05:07",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T17:00:21",
-      "last_action": "행크 이벤트 기록 (누적 410건)"
+      "since": "2026-07-09T17:05:07",
+      "last_action": "오즈 이벤트 기록 (누적 414건)"
     },
     "vera": {
       "name": "베라",
@@ -168,38 +168,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 0건 · 리스크 5건 종합 완료"
-    },
-    {
-      "time": "2026-07-09T15:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-09T15:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-09T15:00:15",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
     {
       "time": "2026-07-09T15:00:15",
       "employee": "milo",
@@ -567,6 +535,38 @@
       "role": "데이터 품질 관리",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-07-09T17:05:03",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-09T17:05:07",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-09T17:05:07",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-09T17:05:07",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 1건 감지"
     }
   ],
   "trader_stats": {
