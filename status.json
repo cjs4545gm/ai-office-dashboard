@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T15:31:40",
+  "updated_at": "2026-07-09T17:00:21",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:31:40",
-      "last_action": "레오 이벤트 기록 (누적 402건)"
+      "since": "2026-07-09T17:00:21",
+      "last_action": "행크 이벤트 기록 (누적 410건)"
     },
     "vera": {
       "name": "베라",
@@ -75,7 +75,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:00:19",
+      "since": "2026-07-09T17:00:21",
       "last_action": "이상없음"
     },
     "scout": {
@@ -86,8 +86,8 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:00:19",
-      "last_action": "IR 일정 공지 1건 감지: 삼성전기(2026-07-30 13:30)"
+      "since": "2026-07-09T17:00:21",
+      "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
       "name": "마일로",
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:00:15",
+      "since": "2026-07-09T17:00:18",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -168,70 +168,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-09T14:13:32",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-09T14:14:49",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 5건 감지"
-    },
     {
       "time": "2026-07-09T14:14:49",
       "employee": "jade",
@@ -567,6 +503,70 @@
       "role": "매수/매도 의견 종합",
       "status": "done",
       "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-09T17:00:06",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-09T17:00:06",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-09T17:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-07-09T17:00:18",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-09T17:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-09T17:00:21",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-09T17:00:21",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-09T17:00:21",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": {
