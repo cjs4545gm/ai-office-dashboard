@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T15:14:35",
+  "updated_at": "2026-07-09T15:31:40",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:14:35",
-      "last_action": "제이드 이벤트 기록 (누적 396건)"
+      "since": "2026-07-09T15:31:40",
+      "last_action": "레오 이벤트 기록 (누적 402건)"
     },
     "vera": {
       "name": "베라",
@@ -141,7 +141,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-07T15:30:41",
+      "since": "2026-07-09T15:30:44",
       "last_action": "일간 결산 저장 완료"
     },
     "sage": {
@@ -152,7 +152,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-07T15:31:23",
+      "since": "2026-07-09T15:31:40",
       "last_action": "검증 완료"
     },
     "leo": {
@@ -163,59 +163,11 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:14:35",
-      "last_action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
+      "since": "2026-07-09T15:31:40",
+      "last_action": "검증 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-09T14:11:36",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-09T14:12:09",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 분석 중"
-    },
-    {
-      "time": "2026-07-09T14:12:09",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-09T14:12:52",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 분석 중"
-    },
-    {
-      "time": "2026-07-09T14:12:52",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 3건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-09T14:13:32",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
     {
       "time": "2026-07-09T14:13:32",
       "employee": "tam",
@@ -567,7 +519,105 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 6건 종합 완료"
+    },
+    {
+      "time": "2026-07-09T15:30:05",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-07-09T15:30:44",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-07-09T15:30:44",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-07-09T15:31:40",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-09T15:31:40",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-07-09T15:31:40",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "검증 완료"
     }
   ],
-  "trader_stats": null
+  "trader_stats": {
+    "total": 6,
+    "hit": 2,
+    "miss": 2,
+    "hold": 2,
+    "hit_rate": 50.0,
+    "by_stock": {
+      "삼성전자": {
+        "total": 1,
+        "hit": 1,
+        "miss": 0,
+        "hold": 0,
+        "hit_rate": 100.0
+      },
+      "SK하이닉스": {
+        "total": 1,
+        "hit": 0,
+        "miss": 1,
+        "hold": 0,
+        "hit_rate": 0.0
+      },
+      "삼성전기": {
+        "total": 1,
+        "hit": 0,
+        "miss": 1,
+        "hold": 0,
+        "hit_rate": 0.0
+      },
+      "현대차": {
+        "total": 1,
+        "hit": 1,
+        "miss": 0,
+        "hold": 0,
+        "hit_rate": 100.0
+      },
+      "SK스퀘어": {
+        "total": 1,
+        "hit": 0,
+        "miss": 0,
+        "hold": 1,
+        "hit_rate": null
+      },
+      "LG이노텍": {
+        "total": 1,
+        "hit": 0,
+        "miss": 0,
+        "hold": 1,
+        "hit_rate": null
+      }
+    }
+  }
 }
