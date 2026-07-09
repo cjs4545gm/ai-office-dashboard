@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-09T23:17:43",
+  "updated_at": "2026-07-10T00:00:11",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T23:17:43",
-      "last_action": "오즈 이벤트 기록 (누적 614건)"
+      "since": "2026-07-10T00:00:11",
+      "last_action": "행크 이벤트 기록 (누적 622건)"
     },
     "vera": {
       "name": "베라",
@@ -75,7 +75,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T23:01:57",
+      "since": "2026-07-10T00:00:11",
       "last_action": "이상없음"
     },
     "scout": {
@@ -86,7 +86,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T23:01:57",
+      "since": "2026-07-10T00:00:11",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T23:01:55",
+      "since": "2026-07-10T00:00:09",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -168,70 +168,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-09T21:19:49",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이슈 2건 감지"
-    },
-    {
-      "time": "2026-07-09T22:00:45",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-09T22:00:45",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-09T22:00:54",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-09T22:00:54",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-09T22:00:54",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-07-09T22:00:57",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-09T22:00:57",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
     {
       "time": "2026-07-09T22:00:57",
       "employee": "hank",
@@ -567,6 +503,70 @@
       "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이슈 2건 감지"
+    },
+    {
+      "time": "2026-07-10T00:00:01",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-10T00:00:01",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-10T00:00:09",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 0건 수집"
+    },
+    {
+      "time": "2026-07-10T00:00:09",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-10T00:00:09",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-10T00:00:11",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-10T00:00:11",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-10T00:00:11",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": {
