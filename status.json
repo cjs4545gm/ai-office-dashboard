@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T13:00:22",
+  "updated_at": "2026-07-10T13:05:10",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T12:10:40",
-      "last_action": "이슈 4건 감지"
+      "since": "2026-07-10T13:05:10",
+      "last_action": "이슈 3건 감지"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T12:10:40",
+      "since": "2026-07-10T13:05:10",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T13:00:22",
-      "last_action": "캘리 이벤트 기록 (누적 993건)"
+      "since": "2026-07-10T13:05:10",
+      "last_action": "오즈 이벤트 기록 (누적 997건)"
     },
     "vera": {
       "name": "베라",
@@ -190,38 +190,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이슈 2건 감지"
-    },
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 5건 감지"
-    },
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 2건 · 리스크 5건 종합 완료"
-    },
-    {
-      "time": "2026-07-10T12:00:26",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
     {
       "time": "2026-07-10T12:00:26",
       "employee": "milo",
@@ -589,6 +557,38 @@
       "role": "실적발표 예상 시기 추적",
       "status": "done",
       "action": "10일 이내 예상 발표 없음"
+    },
+    {
+      "time": "2026-07-10T13:05:05",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-10T13:05:10",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-10T13:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-10T13:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 3건 감지"
     }
   ],
   "trader_stats": {
