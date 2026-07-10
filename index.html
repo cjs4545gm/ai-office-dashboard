@@ -150,9 +150,13 @@
   .log-row .who{ color:var(--working); }
   .log-row .action{ color:var(--cream); font-family:var(--sans); font-size:11px; white-space:normal; }
   .log-empty{ font-family:var(--mono); font-size:11px; color:var(--muted); }
-  .log-detail{ list-style:none; margin:2px 0 0; padding:0 0 0 10px; display:flex; flex-direction:column; gap:2px; }
+  .log-detail{ list-style:none; margin:4px 0 0; padding:0 0 0 10px; display:none; flex-direction:column; gap:2px; }
+  .log-row.expanded .log-detail{ display:flex; }
   .log-detail li{ font-family:var(--sans); font-size:10px; color:var(--muted); white-space:normal; }
   .log-detail li::before{ content:"– "; }
+  .log-row.has-detail{ cursor:pointer; }
+  .log-row .toggle-hint{ font-family:var(--sans); font-size:9.5px; color:var(--accent, #6ea8fe); margin-left:6px; }
+  .log-row.expanded .toggle-hint{ opacity:0.7; }
   .next-up{ font-family:var(--mono); font-size:10.5px; color:var(--muted); line-height:1.6; }
   .next-up b{ color:var(--cream); font-family:var(--sans); }
 
@@ -352,6 +356,12 @@
     });
   }
 
+  const expandedLogKeys = new Set();
+
+  function logEntryKey(e){
+    return `${e.time}|${e.employee || e.name}|${e.action}`;
+  }
+
   function renderLog(entries){
     const list = document.getElementById("log-list");
     if (!entries || entries.length === 0){
@@ -362,13 +372,31 @@
       const t = new Date(e.time);
       const hh = String(t.getHours()).padStart(2, "0");
       const mm = String(t.getMinutes()).padStart(2, "0");
-      const detailHtml = (e.detail && e.detail.length)
+      const hasDetail = !!(e.detail && e.detail.length);
+      const key = logEntryKey(e);
+      const expanded = hasDetail && expandedLogKeys.has(key);
+      const rowClass = `log-row${hasDetail ? " has-detail" : ""}${expanded ? " expanded" : ""}`;
+      const hint = hasDetail ? `<span class="toggle-hint">${expanded ? "▾ 접기" : "▸ 상세보기"}</span>` : "";
+      const detailHtml = hasDetail
         ? `<ul class="log-detail">${e.detail.map(d => `<li>${escapeHtml(d)}</li>`).join("")}</ul>`
         : "";
-      return `<div class="log-row"><span class="meta"><span class="time">${hh}:${mm}</span> · <span class="who">${escapeHtml(e.name)}</span></span><span class="action">${escapeHtml(e.action)}</span>${detailHtml}</div>`;
+      return `<div class="${rowClass}" ${hasDetail ? `data-key="${escapeHtml(key)}"` : ""}><span class="meta"><span class="time">${hh}:${mm}</span> · <span class="who">${escapeHtml(e.name)}</span></span><span class="action">${escapeHtml(e.action)}${hint}</span>${detailHtml}</div>`;
     });
     list.innerHTML = rows.join("");
   }
+
+  // 활동 로그는 4초마다 통째로 다시 그려지므로, 펼침 상태는 expandedLogKeys에 따로 저장해두고
+  // 클릭은 이벤트 위임(log-list 컨테이너는 재생성되지 않음)으로 처리한다.
+  document.getElementById("log-list").addEventListener("click", (ev) => {
+    const row = ev.target.closest(".log-row.has-detail");
+    if (!row) return;
+    const key = row.dataset.key;
+    if (expandedLogKeys.has(key)) expandedLogKeys.delete(key);
+    else expandedLogKeys.add(key);
+    row.classList.toggle("expanded");
+    const hint = row.querySelector(".toggle-hint");
+    if (hint) hint.textContent = row.classList.contains("expanded") ? "▾ 접기" : "▸ 상세보기";
+  });
 
   // 실제 launchd 스케줄(매시 00/05/10분) — 진행중인 작업이 없을 때 다음 실행이 언제·누구인지 보여준다.
   const SCHEDULE = [
