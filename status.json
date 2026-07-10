@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T15:16:46",
+  "updated_at": "2026-07-10T16:00:53",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:16:46",
-      "last_action": "제이드 이벤트 기록 (누적 1107건)"
+      "since": "2026-07-10T16:00:53",
+      "last_action": "던 이벤트 기록 (누적 1125건)"
     },
     "vera": {
       "name": "베라",
@@ -75,7 +75,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:00:25",
+      "since": "2026-07-10T16:00:20",
       "last_action": "이상없음"
     },
     "scout": {
@@ -86,7 +86,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:00:25",
+      "since": "2026-07-10T16:00:20",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:00:21",
+      "since": "2026-07-10T16:00:16",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -129,9 +129,9 @@
       "emoji": "🌅",
       "room": "feedback",
       "automated": true,
-      "status": "standby",
-      "since": null,
-      "last_action": "자동화 대기"
+      "status": "done",
+      "since": "2026-07-10T16:00:53",
+      "last_action": "✅ 검수 통과"
     },
     "rewind": {
       "name": "리와인드",
@@ -141,7 +141,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:30:44",
+      "since": "2026-07-10T15:45:39",
       "last_action": "일간 결산 저장 완료"
     },
     "sage": {
@@ -152,7 +152,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-09T15:31:40",
+      "since": "2026-07-10T16:00:44",
       "last_action": "검증 완료"
     },
     "leo": {
@@ -163,8 +163,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:16:05",
-      "last_action": "매수 1 · 보유 5 · 매도 0 종합 완료 (장마감 확정)"
+      "since": "2026-07-10T16:00:44",
+      "last_action": "검증 완료"
     },
     "nova": {
       "name": "노바",
@@ -185,155 +185,11 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:00:29",
+      "since": "2026-07-10T16:00:24",
       "last_action": "10일 이내 예상 발표 없음"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-10T14:23:44",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-07-10T14:23:44",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이슈 1건 감지"
-    },
-    {
-      "time": "2026-07-10T14:23:44",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 5건 감지"
-    },
-    {
-      "time": "2026-07-10T14:23:44",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "done",
-      "action": "경보 1건 감지"
-    },
-    {
-      "time": "2026-07-10T14:23:44",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 1건 · 리스크 6건 종합 완료"
-    },
-    {
-      "time": "2026-07-10T15:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-10T15:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-10T15:00:21",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-10T15:00:21",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-10T15:00:21",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-07-10T15:00:25",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-10T15:00:25",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-07-10T15:00:25",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-10T15:00:25",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "working",
-      "action": "실적발표 예상 시기 추정 중"
-    },
-    {
-      "time": "2026-07-10T15:00:29",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "done",
-      "action": "10일 이내 예상 발표 없음"
-    },
-    {
-      "time": "2026-07-10T15:05:05",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-10T15:05:08",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-07-10T15:05:08",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
     {
       "time": "2026-07-10T15:05:08",
       "employee": "oz",
@@ -596,28 +452,172 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 5건 종합 완료"
+    },
+    {
+      "time": "2026-07-10T15:45:00",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-07-10T15:45:39",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-07-10T15:45:39",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-07-10T16:00:05",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-10T16:00:05",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-10T16:00:16",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-07-10T16:00:16",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-10T16:00:16",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-10T16:00:20",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-10T16:00:20",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-10T16:00:20",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-10T16:00:20",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 예상 시기 추적",
+      "status": "working",
+      "action": "실적발표 예상 시기 추정 중"
+    },
+    {
+      "time": "2026-07-10T16:00:24",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 예상 시기 추적",
+      "status": "done",
+      "action": "10일 이내 예상 발표 없음"
+    },
+    {
+      "time": "2026-07-10T16:00:44",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-10T16:00:44",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-07-10T16:00:44",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-10T16:00:44",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "일간 결산 검수 중"
+    },
+    {
+      "time": "2026-07-10T16:00:53",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
     }
   ],
   "trader_stats": {
-    "total": 6,
-    "hit": 2,
-    "miss": 2,
+    "total": 8,
+    "hit": 3,
+    "miss": 3,
     "hold": 2,
     "hit_rate": 50.0,
     "by_stock": {
       "삼성전자": {
-        "total": 1,
+        "total": 2,
         "hit": 1,
-        "miss": 0,
-        "hold": 0,
-        "hit_rate": 100.0
-      },
-      "SK하이닉스": {
-        "total": 1,
-        "hit": 0,
         "miss": 1,
         "hold": 0,
-        "hit_rate": 0.0
+        "hit_rate": 50.0
+      },
+      "SK하이닉스": {
+        "total": 2,
+        "hit": 1,
+        "miss": 1,
+        "hold": 0,
+        "hit_rate": 50.0
       },
       "삼성전기": {
         "total": 1,
@@ -645,6 +645,57 @@
         "hit": 0,
         "miss": 0,
         "hold": 1,
+        "hit_rate": null
+      }
+    }
+  },
+  "sage_stats": {
+    "total": 17,
+    "hit": 3,
+    "miss": 4,
+    "hold": 9,
+    "hit_rate": 42.9,
+    "by_stock": {
+      "삼성전자": {
+        "total": 2,
+        "hit": 0,
+        "miss": 2,
+        "hold": 0,
+        "hit_rate": 0.0
+      },
+      "SK하이닉스": {
+        "total": 3,
+        "hit": 1,
+        "miss": 1,
+        "hold": 1,
+        "hit_rate": 50.0
+      },
+      "삼성전기": {
+        "total": 3,
+        "hit": 1,
+        "miss": 0,
+        "hold": 2,
+        "hit_rate": 100.0
+      },
+      "현대차": {
+        "total": 3,
+        "hit": 0,
+        "miss": 1,
+        "hold": 2,
+        "hit_rate": 0.0
+      },
+      "SK스퀘어": {
+        "total": 3,
+        "hit": 1,
+        "miss": 0,
+        "hold": 2,
+        "hit_rate": 100.0
+      },
+      "LG이노텍": {
+        "total": 3,
+        "hit": 0,
+        "miss": 0,
+        "hold": 2,
         "hit_rate": null
       }
     }
