@@ -230,6 +230,10 @@
         <h2>📈 트레이더 콜 적중률</h2>
         <div id="trader-stats"><div class="panel-empty">아직 검증된 콜 없음</div></div>
       </div>
+      <div class="side-panel">
+        <h2>🎯 세이지 판단 정확도</h2>
+        <div id="sage-stats"><div class="panel-empty">아직 검증된 판단 없음</div></div>
+      </div>
       <div class="side-panel log-panel">
         <h2>📋 활동 로그</h2>
         <div class="log-list" id="log-list"><div class="log-empty">아직 기록 없음</div></div>
@@ -310,6 +314,7 @@
     // 실제 적중률 데이터가 쌓이기 전까지는 그럴듯한 가짜 숫자 대신 null로 둬서
     // "샘플 데이터"인데도 진짜처럼 보이는 혼동을 없앤다 — 실사용자가 이 값을 실제로 오인해서 문의한 적 있음.
     trader_stats: null,
+    sage_stats: null,
   };
 
   function timeAgo(iso){
@@ -472,10 +477,10 @@
       </div>`;
   }
 
-  function renderTraderStats(stats){
-    const el = document.getElementById("trader-stats");
+  function renderStatsPanel(elId, stats, emptyText){
+    const el = document.getElementById(elId);
     if (!stats || stats.total === 0){
-      el.innerHTML = '<div class="panel-empty">아직 검증된 콜 없음</div>';
+      el.innerHTML = `<div class="panel-empty">${emptyText}</div>`;
       return;
     }
     const rateText = stats.hit_rate === null || stats.hit_rate === undefined ? "-" : stats.hit_rate.toFixed(1);
@@ -501,7 +506,8 @@
     renderRooms(latestEmployees);
     renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
-    renderTraderStats(data.trader_stats);
+    renderStatsPanel("trader-stats", data.trader_stats, "아직 검증된 콜 없음");
+    renderStatsPanel("sage-stats", data.sage_stats, "아직 검증된 판단 없음");
     renderLog(data.activity_log);
   }
 
