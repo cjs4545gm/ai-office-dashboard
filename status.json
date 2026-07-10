@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T14:21:54",
+  "updated_at": "2026-07-10T14:23:44",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T14:21:54",
-      "last_action": "탐 이벤트 기록 (누적 1052건)"
+      "since": "2026-07-10T14:23:44",
+      "last_action": "제이드 이벤트 기록 (누적 1062건)"
     },
     "vera": {
       "name": "베라",
@@ -42,8 +42,8 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T13:14:47",
-      "last_action": "이상없음"
+      "since": "2026-07-10T14:23:44",
+      "last_action": "이슈 1건 감지"
     },
     "tam": {
       "name": "탐",
@@ -52,9 +52,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-10T14:21:54",
-      "last_action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
+      "status": "done",
+      "since": "2026-07-10T14:23:08",
+      "last_action": "6개 종목 리서치 노트 작성 완료"
     },
     "juno": {
       "name": "주노",
@@ -108,8 +108,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T13:14:47",
-      "last_action": "품질 0건 · 리스크 6건 종합 완료"
+      "since": "2026-07-10T14:23:44",
+      "last_action": "품질 1건 · 리스크 6건 종합 완료"
     },
     "kai": {
       "name": "카이",
@@ -119,8 +119,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T13:14:47",
-      "last_action": "경보 6건 감지"
+      "since": "2026-07-10T14:23:44",
+      "last_action": "경보 5건 감지"
     },
     "dawn": {
       "name": "던",
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T13:14:47",
+      "since": "2026-07-10T14:23:08",
       "last_action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
     },
     "nova": {
@@ -174,8 +174,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T13:14:47",
-      "last_action": "특이사항 없음"
+      "since": "2026-07-10T14:23:44",
+      "last_action": "경보 1건 감지"
     },
     "callie": {
       "name": "캘리",
@@ -190,86 +190,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-10T13:11:09",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 분석 중"
-    },
-    {
-      "time": "2026-07-10T13:11:09",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-10T13:11:55",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 분석 중"
-    },
-    {
-      "time": "2026-07-10T13:11:55",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-10T13:12:24",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 분석 중"
-    },
-    {
-      "time": "2026-07-10T13:12:24",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-10T13:13:00",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 분석 중"
-    },
-    {
-      "time": "2026-07-10T13:13:00",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 3건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-10T13:13:27",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-07-10T13:13:27",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
     {
       "time": "2026-07-10T13:14:47",
       "employee": "tam",
@@ -589,6 +509,86 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-10T14:23:08",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "done",
+      "action": "6개 종목 리서치 노트 작성 완료"
+    },
+    {
+      "time": "2026-07-10T14:23:08",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
+    },
+    {
+      "time": "2026-07-10T14:23:08",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "working",
+      "action": "리서치 품질 검수 중"
+    },
+    {
+      "time": "2026-07-10T14:23:08",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "working",
+      "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-07-10T14:23:44",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-07-10T14:23:44",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-07-10T14:23:44",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이슈 1건 감지"
+    },
+    {
+      "time": "2026-07-10T14:23:44",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 5건 감지"
+    },
+    {
+      "time": "2026-07-10T14:23:44",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "경보 1건 감지"
+    },
+    {
+      "time": "2026-07-10T14:23:44",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "품질 1건 · 리스크 6건 종합 완료"
     }
   ],
   "trader_stats": {
