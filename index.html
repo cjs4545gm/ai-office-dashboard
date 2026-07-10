@@ -175,7 +175,7 @@
       <span class="bars"><i></i><i></i><i></i><i></i></span>
       <div>
         <h1>준석 시장브리핑 오피스</h1>
-        <div class="sub">5개 부서 · 16명 · status.json 실시간 연동</div>
+        <div class="sub">5개 부서 · 17명 · status.json 실시간 연동</div>
       </div>
     </div>
     <div class="live"><span class="pulse"></span><span id="updated-at">연결 중...</span></div>
@@ -251,7 +251,7 @@
   // 실시간 상태(status/last_action/since)는 status.json에서 채워진다.
   const ROOMS = [
     { key: "workflow", color: "#f0a94e", dim: "#6b5330", members: [
-      { id: "oz", hair: "crown" }, { id: "bri", hair: "cap" }, { id: "nix", hair: "badge" },
+      { id: "oz", hair: "crown" }, { id: "bri", hair: "cap" }, { id: "nix", hair: "badge" }, { id: "callie", hair: "book" },
     ]},
     { key: "research", color: "#5fd0b0", dim: "#2f5a4d", members: [
       { id: "vera", hair: "crown" }, { id: "tam", hair: "glasses" }, { id: "juno", hair: "badge" },
@@ -276,6 +276,7 @@
       oz:     { name: "오즈", rank: "팀장", role: "전체 스케줄 총괄", room: "workflow", status: "done", last_action: "이상없음", since: "2026-07-07T13:05:00" },
       bri:    { name: "브리", rank: "선임", role: "데일리 애널리스트", room: "workflow", status: "done", last_action: "데일리 시장 브리핑 작성 완료", since: "2026-07-07T13:05:00" },
       nix:    { name: "닉스", rank: "주니어", role: "실행 로그·타임라인 기록", room: "workflow", status: "done", last_action: "이벤트 기록 누적", since: "2026-07-07T13:05:00" },
+      callie: { name: "캘리", rank: "캘린더 담당", role: "실적발표 예상 시기 추적", room: "workflow", status: "done", last_action: "10일 이내 예상 발표 없음", since: "2026-07-07T13:00:00" },
 
       vera:   { name: "베라", rank: "팀장", role: "리서치 총괄·품질 검수", room: "research", status: "working", last_action: "리서치 품질 검수 중", since: "2026-07-07T13:10:00" },
       tam:    { name: "탐", rank: "선임", role: "리서치 분석가", room: "research", status: "working", last_action: "보유종목 6개 리서치 분석 중", since: "2026-07-07T13:10:00" },

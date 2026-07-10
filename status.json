@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T12:23:52",
+  "updated_at": "2026-07-10T13:00:22",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T12:23:52",
-      "last_action": "노바 이벤트 기록 (누적 983건)"
+      "since": "2026-07-10T13:00:22",
+      "last_action": "캘리 이벤트 기록 (누적 993건)"
     },
     "vera": {
       "name": "베라",
@@ -75,7 +75,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T12:00:37",
+      "since": "2026-07-10T13:00:18",
       "last_action": "이상없음"
     },
     "scout": {
@@ -86,7 +86,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T12:00:37",
+      "since": "2026-07-10T13:00:18",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T12:00:35",
+      "since": "2026-07-10T13:00:15",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -176,89 +176,20 @@
       "status": "idle",
       "since": "2026-07-10T12:23:52",
       "last_action": "대기 — 다음 실행(매시 10분)까지 대기"
+    },
+    "callie": {
+      "name": "캘리",
+      "rank": "캘린더 담당",
+      "role": "실적발표 예상 시기 추적",
+      "emoji": "📅",
+      "room": "workflow",
+      "automated": true,
+      "status": "done",
+      "since": "2026-07-10T13:00:22",
+      "last_action": "10일 이내 예상 발표 없음"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-10T11:13:10",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-10T11:13:10",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-07-10T11:13:14",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-10T11:13:14",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-07-10T11:13:14",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "4개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 1 · 보유 3 · 매도 0 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-07-10T11:28:33",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
     {
       "time": "2026-07-10T11:28:33",
       "employee": "vera",
@@ -578,6 +509,86 @@
       "role": "금리·환율 매크로 감지",
       "status": "idle",
       "action": "대기 — 다음 실행(매시 10분)까지 대기"
+    },
+    {
+      "time": "2026-07-10T13:00:05",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-10T13:00:05",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-10T13:00:15",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-07-10T13:00:15",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-10T13:00:15",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-10T13:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-10T13:00:18",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-10T13:00:18",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-10T13:00:18",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 예상 시기 추적",
+      "status": "working",
+      "action": "실적발표 예상 시기 추정 중"
+    },
+    {
+      "time": "2026-07-10T13:00:22",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 예상 시기 추적",
+      "status": "done",
+      "action": "10일 이내 예상 발표 없음"
     }
   ],
   "trader_stats": {
