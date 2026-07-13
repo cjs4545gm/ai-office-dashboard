@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T14:00:20",
+  "updated_at": "2026-07-13T14:05:08",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T13:15:44",
+      "since": "2026-07-13T14:05:08",
       "last_action": "이슈 1건 감지"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T13:15:44",
+      "since": "2026-07-13T14:05:08",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T14:00:20",
-      "last_action": "캘리 이벤트 기록 (누적 1359건)"
+      "since": "2026-07-13T14:05:08",
+      "last_action": "오즈 이벤트 기록 (누적 1363건)"
     },
     "vera": {
       "name": "베라",
@@ -201,38 +201,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-13T13:00:17",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "done",
-      "action": "임박 1건: LG이노텍(D-10)"
-    },
-    {
-      "time": "2026-07-13T13:15:41",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-13T13:15:43",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-13T13:15:43",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
     {
       "time": "2026-07-13T13:15:43",
       "employee": "juno",
@@ -622,6 +590,38 @@
       "role": "실적발표 예상 시기 추적",
       "status": "done",
       "action": "임박 1건: LG이노텍(D-10)"
+    },
+    {
+      "time": "2026-07-13T14:05:04",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-13T14:05:08",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-13T14:05:08",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-13T14:05:08",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 1건 감지"
     }
   ],
   "trader_stats": {
