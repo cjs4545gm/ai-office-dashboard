@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T20:15:51",
+  "updated_at": "2026-07-13T20:17:02",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T20:15:51",
-      "last_action": "레오 이벤트 기록 (누적 1578건)"
+      "since": "2026-07-13T20:16:53",
+      "last_action": "리나 이벤트 기록 (누적 1584건)"
     },
     "vera": {
       "name": "베라",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-13T20:11:52",
+      "since": "2026-07-13T20:16:53",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-13T20:11:52",
+      "since": "2026-07-13T20:16:53",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,59 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-13T20:11:52",
+      "since": "2026-07-13T20:16:53",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-13T20:00:13",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-07-13T20:00:15",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-13T20:00:15",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-07-13T20:00:15",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-13T20:00:53",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-13T20:00:53",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
     {
       "time": "2026-07-13T20:00:53",
       "employee": "rina",
@@ -633,6 +585,54 @@
       "role": "매수/매도 의견 종합",
       "status": "working",
       "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-13T20:16:53",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-13T20:16:53",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-13T20:16:53",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-13T20:16:53",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-13T20:16:53",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-13T20:16:53",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
     }
   ],
   "trader_stats": {
@@ -740,8 +740,8 @@
   "trader_calls": {
     "삼성전자": {
       "call": "보유",
-      "buy": null,
-      "sell": null
+      "buy": "현재가보다 낮은 눌림목 구간 — 추가 낙폭·수급 전환 확인 전 진입은 이르다는 의견(탐·주노)이 다수라 지금 추격 매수할 근거는 부족",
+      "sell": "특별한 매도 신호 없음, 250,000원대 이탈 시 재검토 — 개별 실적·공시 악재가 없는 업종발 급락(제이드)이라 패닉 매도 근거는 약하나, 이 구간 이탈 시 단기 추세 훼손(베라)으로 판단해 재점검 필요"
     },
     "SK하이닉스": {
       "call": "매도",
