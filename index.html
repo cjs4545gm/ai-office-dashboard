@@ -156,24 +156,29 @@
   .alert-list{ display:flex; flex-direction:column; gap:6px; }
   .alert-row{ font-size:11px; color:var(--error); background:rgba(239,107,99,0.1); border:1px solid rgba(239,107,99,0.35); border-radius:6px; padding:5px 8px; }
 
-  .strategy-form{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+  .strategy-panel-full{ background:var(--wall-2); border:1px solid var(--line); border-radius:12px; padding:14px 18px 18px; margin:0 4px 14px; }
+  .strategy-panel-full .dept-head{ margin-bottom:10px; }
+  .strategy-panel-full .dept-head h2{ font-size:15px; }
+
+  .strategy-form{ display:flex; flex-direction:column; gap:8px; margin-bottom:10px; max-width:720px; }
   .strategy-form textarea{
-    width:100%; min-height:54px; resize:vertical; border-radius:6px; padding:6px 8px;
+    width:100%; min-height:72px; resize:vertical; border-radius:8px; padding:10px 12px;
     background:var(--wall); border:1px solid var(--line); color:var(--cream);
-    font-family:var(--sans); font-size:11.5px;
+    font-family:var(--sans); font-size:14px;
   }
   .strategy-form button{
-    align-self:flex-end; font-family:var(--sans); font-size:11px; font-weight:600;
-    background:var(--cream); color:var(--bg-deep); border:none; border-radius:6px;
-    padding:6px 12px; cursor:pointer;
+    align-self:flex-end; font-family:var(--sans); font-size:13px; font-weight:700;
+    background:var(--cream); color:var(--bg-deep); border:none; border-radius:8px;
+    padding:9px 16px; cursor:pointer;
   }
   .strategy-form button:hover{ filter:brightness(1.08); }
-  .strategy-hint{ font-family:var(--mono); font-size:9.5px; color:var(--muted); margin:-4px 0 8px; line-height:1.5; }
-  .strategy-qa{ border-top:1px dashed var(--line); padding-top:8px; display:flex; flex-direction:column; gap:8px; }
-  .qa-row .qa-q{ font-size:11px; color:var(--cream); font-weight:600; }
-  .qa-row .qa-a{ font-family:var(--mono); font-size:9.5px; color:var(--muted); margin-top:2px; white-space:pre-line; max-height:80px; overflow-y:auto; }
-  .qa-row .qa-time{ font-family:var(--mono); font-size:9px; color:var(--muted); }
-  .qa-pending{ font-family:var(--mono); font-size:10.5px; color:var(--working); margin-bottom:6px; }
+  .strategy-hint{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin:-2px 0 14px; line-height:1.6; max-width:720px; }
+  .strategy-qa{ border-top:1px dashed var(--line); padding-top:12px; display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:14px; }
+  .qa-row{ background:var(--wall); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+  .qa-row .qa-q{ font-size:14px; color:var(--cream); font-weight:700; margin-bottom:6px; }
+  .qa-row .qa-a{ font-family:var(--sans); font-size:12.5px; line-height:1.6; color:var(--cream); opacity:0.9; margin-top:2px; white-space:pre-line; max-height:none; }
+  .qa-row .qa-time{ font-family:var(--mono); font-size:10px; color:var(--muted); margin-top:8px; display:block; }
+  .qa-pending{ font-family:var(--mono); font-size:12px; color:var(--working); margin-bottom:10px; }
 
   .log-list{ display:flex; flex-direction:column; gap:7px; max-height:280px; overflow-y:auto; }
   .log-row{ display:flex; flex-direction:column; gap:1px; padding-bottom:6px; border-bottom:1px dashed var(--line); font-family:var(--mono); font-size:10.5px; }
@@ -280,20 +285,21 @@
         <h2>🎯 세이지 판단 정확도</h2>
         <div id="sage-stats"><div class="panel-empty">아직 검증된 판단 없음</div></div>
       </div>
-      <div class="side-panel">
-        <h2>🧭 전략실에 물어보기</h2>
-        <div class="strategy-form">
-          <textarea id="strategy-input" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
-          <button id="strategy-submit" type="button">질문 남기기 (GitHub로 이동)</button>
-        </div>
-        <div class="strategy-hint">제출하면 GitHub 이슈 작성 화면으로 이동합니다(본인 GitHub 로그인 필요, 1회 확인 클릭). 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 이슈에 답변을 남깁니다.</div>
-        <div id="strategy-qa"><div class="panel-empty">아직 남긴 질문 없음</div></div>
-      </div>
       <div class="side-panel log-panel">
         <h2>📋 활동 로그</h2>
         <div class="log-list" id="log-list"><div class="log-empty">아직 기록 없음</div></div>
       </div>
     </div>
+  </div>
+
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>🧭 전략실에 물어보기</h2><span class="dept-desc">아이비·맥스·리나 — 5~10분 내 검토 후 답변</span></div>
+    <div class="strategy-form">
+      <textarea id="strategy-input" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
+      <button id="strategy-submit" type="button">질문 남기기 (GitHub로 이동)</button>
+    </div>
+    <div class="strategy-hint">제출하면 GitHub 이슈 작성 화면으로 이동합니다(본인 GitHub 로그인 필요, 1회 확인 클릭). 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 이슈에 답변을 남깁니다.</div>
+    <div id="strategy-qa"><div class="panel-empty">아직 남긴 질문 없음</div></div>
   </div>
 
   <div class="dept-links">
