@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T20:00:54",
+  "updated_at": "2026-07-13T20:05:08",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T19:05:09",
-      "last_action": "이슈 6건 감지"
+      "since": "2026-07-13T20:05:08",
+      "last_action": "이슈 3건 감지"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T19:05:09",
+      "since": "2026-07-13T20:05:08",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T20:00:54",
-      "last_action": "리나 이벤트 기록 (누적 1538건)"
+      "since": "2026-07-13T20:05:08",
+      "last_action": "오즈 이벤트 기록 (누적 1545건)"
     },
     "vera": {
       "name": "베라",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-13T20:00:54",
-      "last_action": "질문 검토 중: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
+      "status": "done",
+      "since": "2026-07-13T20:01:48",
+      "last_action": "답변 완료: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-13T20:00:54",
-      "last_action": "질문 검토 중: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
+      "status": "done",
+      "since": "2026-07-13T20:01:48",
+      "last_action": "답변 완료: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
     },
     "rina": {
       "name": "리나",
@@ -228,71 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-13T20:00:54",
-      "last_action": "질문 검토 중: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
+      "status": "done",
+      "since": "2026-07-13T20:01:48",
+      "last_action": "답변 완료: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-13T19:22:25",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "done",
-      "action": "경보 1건 감지",
-      "detail": [
-        "원달러환율 급락 -0.92% (현재 1,492.1원)"
-      ]
-    },
-    {
-      "time": "2026-07-13T19:22:25",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 0건 · 리스크 7건 종합 완료"
-    },
-    {
-      "time": "2026-07-13T19:24:38",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-13T19:24:38",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-13T19:24:38",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-13T19:24:48",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "error",
-      "action": "질문 조회 실패: 401 Client Error: Unauthorized for url: https://api.github.com/repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc"
-    },
-    {
-      "time": "2026-07-13T19:24:48",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "error",
-      "action": "질문 조회 실패: 401 Client Error: Unauthorized for url: https://api.github.com/repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc"
-    },
     {
       "time": "2026-07-13T19:24:48",
       "employee": "rina",
@@ -636,6 +577,62 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "working",
       "action": "질문 검토 중: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
+    },
+    {
+      "time": "2026-07-13T20:01:48",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "done",
+      "action": "답변 완료: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
+    },
+    {
+      "time": "2026-07-13T20:01:48",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "done",
+      "action": "답변 완료: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
+    },
+    {
+      "time": "2026-07-13T20:01:48",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "done",
+      "action": "답변 완료: [테스트] 지금 SK하이닉스 비중을 늘려도 될까요?"
+    },
+    {
+      "time": "2026-07-13T20:05:04",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-13T20:05:08",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-13T20:05:08",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-13T20:05:08",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 3건 감지"
     }
   ],
   "trader_stats": {
@@ -775,6 +772,13 @@
   "priority_alerts": [],
   "strategy_room": {
     "pending": 0,
-    "recent": []
+    "recent": [
+      {
+        "question": "오피스 웹 기능 테스트용 질문입니다. 지금 SK하이닉스 비중을 늘려도 될까요?",
+        "answer": "## 🧭 아이비 (수석 전략가)\n오늘 SK하이닉스 -15.37%는 개별 기업 문제라기보다 (1) 미국 ADR 신주 발행에 따른 기존 주주 지분 희석 우려, (2) 2분기 실적 컨센서스 하회 전망과 HBM4 출하 지연 우려, (3) 호르무즈 해협 봉쇄·이란 공습 등 지정학 리스크發 유가 급등, (4) AI 밸류에이션 버블 경계감이 겹치며 코스피 전체가 -9%대 서킷브레이커까지 발동한 업종·시장 전반의 패닉성 하락입니다. 트레이더 콜도 \"외국인·기관 순매도세 진정 확인 전 신규 매수 근거 부족\"으로 매도 의견이고, 이미 반도체 비중(삼성전자·SK하이닉스·삼성전기)이 포트폴리오에 집중돼 있어 지금은 비중 확대보다 수급 안정 신호를 기다리는 관망이 큰 그림에서 맞습니다.\n\n## 🛡️ 맥스 (리스크 전략가)\n경보 6건(이상거래·급락)과 매크로 경보 1건이 동시에 뜬 상태에서 미국채 10년물 금리도 4.57%(+0.66%)로 오르고 있어 위험자산 전반에 부담이 커지는 국면입니다. 이미 반도체 3종목(삼성전자·SK하이닉스·삼성전기)이 오늘 나란히 급락하며 포트폴리오 내 상관관계가 높은 리스크가 한꺼번에 노출됐는데, 여기서 SK하이닉스 비중까지 늘리면 반도체 섹터 집중도가",
+        "issue_url": "https://github.com/cjs4545gm/ai-office-dashboard/issues/1",
+        "answered_at": "2026-07-13T20:01:48+09:00"
+      }
+    ]
   }
 }
