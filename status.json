@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T16:00:53",
+  "updated_at": "2026-07-10T16:05:04",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:05:08",
+      "since": "2026-07-10T16:05:04",
       "last_action": "이상없음"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:05:08",
+      "since": "2026-07-10T16:05:04",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T16:00:53",
-      "last_action": "던 이벤트 기록 (누적 1125건)"
+      "since": "2026-07-10T16:05:04",
+      "last_action": "오즈 이벤트 기록 (누적 1129건)"
     },
     "vera": {
       "name": "베라",
@@ -190,38 +190,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-10T15:05:08",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-10T15:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-10T15:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-10T15:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
     {
       "time": "2026-07-10T15:10:08",
       "employee": "tam",
@@ -596,6 +564,38 @@
       "role": "월간 총괄·회고 검수",
       "status": "done",
       "action": "✅ 검수 통과"
+    },
+    {
+      "time": "2026-07-10T16:05:00",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-10T16:05:04",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-10T16:05:04",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-10T16:05:04",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": {
