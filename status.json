@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T10:17:16",
+  "updated_at": "2026-07-13T10:18:33",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T10:17:16",
-      "last_action": "카이 이벤트 기록 (누적 1158건)"
+      "since": "2026-07-13T10:18:33",
+      "last_action": "제이드 이벤트 기록 (누적 1164건)"
     },
     "vera": {
       "name": "베라",
@@ -41,9 +41,9 @@
       "emoji": "🧠",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-13T10:17:16",
-      "last_action": "리서치 품질 검수 중"
+      "status": "done",
+      "since": "2026-07-13T10:18:33",
+      "last_action": "이슈 3건 감지"
     },
     "tam": {
       "name": "탐",
@@ -108,8 +108,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:16:46",
-      "last_action": "품질 0건 · 리스크 5건 종합 완료"
+      "since": "2026-07-13T10:18:33",
+      "last_action": "🔴 우선확인 3건 · 품질 3건 · 리스크 4건 종합 완료"
     },
     "kai": {
       "name": "카이",
@@ -118,9 +118,9 @@
       "emoji": "📉",
       "room": "risk",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-13T10:17:16",
-      "last_action": "이상거래·급락 감지 중"
+      "status": "done",
+      "since": "2026-07-13T10:18:33",
+      "last_action": "경보 4건 감지"
     },
     "dawn": {
       "name": "던",
@@ -174,7 +174,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T15:16:46",
+      "since": "2026-07-13T10:18:33",
       "last_action": "특이사항 없음"
     },
     "callie": {
@@ -190,54 +190,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-10T15:45:39",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "결산 담당",
-      "status": "done",
-      "action": "일간 결산 저장 완료"
-    },
-    {
-      "time": "2026-07-10T15:45:39",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 정확도 추적",
-      "status": "working",
-      "action": "전일 리서치 판단 정확도 검증 중"
-    },
-    {
-      "time": "2026-07-10T16:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-10T16:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-10T16:00:16",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-10T16:00:16",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
     {
       "time": "2026-07-10T16:00:16",
       "employee": "scout",
@@ -589,6 +541,70 @@
       "role": "이상거래·급락 감지",
       "status": "working",
       "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-07-13T10:18:33",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-07-13T10:18:33",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-07-13T10:18:33",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이슈 3건 감지",
+      "detail": [
+        "삼성전기: 인사이트 부족 의심(claude 판정) — 오늘 급락 원인 설명 못함",
+        "SK스퀘어: 인사이트 부족 의심(claude 판정) — 구체적 원인분석 없이 판단 유보만 반복",
+        "LG이노텍: 인사이트 부족 의심(claude 판정) — 뉴스·수급 모두 과거 재탕, 원인 미제시"
+      ]
+    },
+    {
+      "time": "2026-07-13T10:18:33",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 4건 감지",
+      "detail": [
+        "SK하이닉스: 급락 -8.26% (코스피도 동반 -3.03%)",
+        "삼성전기: 급락 -10.10% (코스피도 동반 -3.03%), 기관 3거래일 연속 순매도",
+        "SK스퀘어: 급락 -9.65% (코스피도 동반 -3.03%)",
+        "LG이노텍: 급락 -4.45% (코스피도 동반 -3.03%), 기관 3거래일 연속 순매도"
+      ]
+    },
+    {
+      "time": "2026-07-13T10:18:33",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "특이사항 없음"
+    },
+    {
+      "time": "2026-07-13T10:18:33",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "🔴 우선확인 3건 · 품질 3건 · 리스크 4건 종합 완료",
+      "detail": [
+        "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
+        "SK스퀘어: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
+        "삼성전기: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+      ]
     }
   ],
   "trader_stats": {
