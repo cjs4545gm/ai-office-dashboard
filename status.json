@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T11:00:27",
+  "updated_at": "2026-07-13T11:05:09",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T10:05:09",
-      "last_action": "이슈 10건 감지"
+      "since": "2026-07-13T11:05:09",
+      "last_action": "이상없음"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T10:05:09",
+      "since": "2026-07-13T11:05:09",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:00:27",
-      "last_action": "캘리 이벤트 기록 (누적 1212건)"
+      "since": "2026-07-13T11:05:09",
+      "last_action": "오즈 이벤트 기록 (누적 1216건)"
     },
     "vera": {
       "name": "베라",
@@ -190,43 +190,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-13T10:18:33",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "done",
-      "action": "특이사항 없음"
-    },
-    {
-      "time": "2026-07-13T10:18:33",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "🔴 우선확인 3건 · 품질 3건 · 리스크 4건 종합 완료",
-      "detail": [
-        "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
-        "SK스퀘어: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
-        "삼성전기: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
-      ]
-    },
-    {
-      "time": "2026-07-13T10:45:57",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-13T10:45:57",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
     {
       "time": "2026-07-13T10:45:57",
       "employee": "juno",
@@ -609,6 +572,38 @@
       "role": "실적발표 예상 시기 추적",
       "status": "done",
       "action": "임박 1건: LG이노텍(D-10)"
+    },
+    {
+      "time": "2026-07-13T11:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-13T11:05:09",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-13T11:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-13T11:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": {
