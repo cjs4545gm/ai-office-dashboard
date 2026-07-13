@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T10:53:40",
+  "updated_at": "2026-07-13T11:00:27",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T10:53:40",
-      "last_action": "제이드 이벤트 기록 (누적 1200건)"
+      "since": "2026-07-13T11:00:27",
+      "last_action": "캘리 이벤트 기록 (누적 1212건)"
     },
     "vera": {
       "name": "베라",
@@ -75,7 +75,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T16:00:20",
+      "since": "2026-07-13T11:00:22",
       "last_action": "이상없음"
     },
     "scout": {
@@ -86,8 +86,8 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T16:00:20",
-      "last_action": "새 IR 일정 공지 없음"
+      "since": "2026-07-13T11:00:22",
+      "last_action": "IR 일정 공지 1건 감지: 현대차(2026-08-26 14:00)"
     },
     "milo": {
       "name": "마일로",
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T16:00:16",
+      "since": "2026-07-13T11:00:17",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -185,118 +185,11 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-10T16:00:24",
-      "last_action": "10일 이내 예상 발표 없음"
+      "since": "2026-07-13T11:00:27",
+      "last_action": "임박 1건: LG이노텍(D-10)"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-13T10:15:28",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T10:15:40",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-07-13T10:15:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-13T10:16:11",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T10:17:16",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-07-13T10:17:16",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 1 · 보유 4 · 매도 1 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-07-13T10:17:16",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-07-13T10:17:16",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-07-13T10:18:33",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-07-13T10:18:33",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-07-13T10:18:33",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이슈 3건 감지",
-      "detail": [
-        "삼성전기: 인사이트 부족 의심(claude 판정) — 오늘 급락 원인 설명 못함",
-        "SK스퀘어: 인사이트 부족 의심(claude 판정) — 구체적 원인분석 없이 판단 유보만 반복",
-        "LG이노텍: 인사이트 부족 의심(claude 판정) — 뉴스·수급 모두 과거 재탕, 원인 미제시"
-      ]
-    },
-    {
-      "time": "2026-07-13T10:18:33",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 4건 감지",
-      "detail": [
-        "SK하이닉스: 급락 -8.26% (코스피도 동반 -3.03%)",
-        "삼성전기: 급락 -10.10% (코스피도 동반 -3.03%), 기관 3거래일 연속 순매도",
-        "SK스퀘어: 급락 -9.65% (코스피도 동반 -3.03%)",
-        "LG이노텍: 급락 -4.45% (코스피도 동반 -3.03%), 기관 3거래일 연속 순매도"
-      ]
-    },
     {
       "time": "2026-07-13T10:18:33",
       "employee": "nova",
@@ -620,6 +513,102 @@
         "삼성전기: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
         "삼성전자: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
       ]
+    },
+    {
+      "time": "2026-07-13T11:00:05",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-13T11:00:05",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-13T11:00:17",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 2건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-07-13T11:00:17",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-13T11:00:17",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "유튜브 종목 언급 확인 중"
+    },
+    {
+      "time": "2026-07-13T11:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 유튜브 언급 없음"
+    },
+    {
+      "time": "2026-07-13T11:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-13T11:00:22",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "IR 일정 공지 1건 감지: 현대차(2026-08-26 14:00)"
+    },
+    {
+      "time": "2026-07-13T11:00:22",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-13T11:00:22",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-13T11:00:22",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 예상 시기 추적",
+      "status": "working",
+      "action": "실적발표 예상 시기 추정 중"
+    },
+    {
+      "time": "2026-07-13T11:00:27",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 예상 시기 추적",
+      "status": "done",
+      "action": "임박 1건: LG이노텍(D-10)"
     }
   ],
   "trader_stats": {
