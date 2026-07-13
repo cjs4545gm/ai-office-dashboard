@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-13T12:05:09",
+  "updated_at": "2026-07-13T12:13:05",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T12:05:09",
-      "last_action": "오즈 이벤트 기록 (누적 1265건)"
+      "since": "2026-07-13T12:13:05",
+      "last_action": "제이드 이벤트 기록 (누적 1296건)"
     },
     "vera": {
       "name": "베라",
@@ -42,8 +42,8 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:17:57",
-      "last_action": "이슈 1건 감지"
+      "since": "2026-07-13T12:13:05",
+      "last_action": "이슈 5건 감지"
     },
     "tam": {
       "name": "탐",
@@ -53,8 +53,8 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:17:17",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "since": "2026-07-13T12:13:03",
+      "last_action": "2개 종목 리서치 노트 작성 완료"
     },
     "juno": {
       "name": "주노",
@@ -64,7 +64,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:10:08",
+      "since": "2026-07-13T12:10:06",
       "last_action": "업종 2개 협회·통계 조사 완료"
     },
     "hank": {
@@ -108,8 +108,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:17:57",
-      "last_action": "🔴 우선확인 1건 · 품질 1건 · 리스크 5건 종합 완료"
+      "since": "2026-07-13T12:13:05",
+      "last_action": "🔴 우선확인 4건 · 품질 5건 · 리스크 5건 종합 완료"
     },
     "kai": {
       "name": "카이",
@@ -119,7 +119,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:17:57",
+      "since": "2026-07-13T12:13:05",
       "last_action": "경보 5건 감지"
     },
     "dawn": {
@@ -163,8 +163,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:17:17",
-      "last_action": "매수 0 · 보유 5 · 매도 1 종합 완료 (장마감 확정)"
+      "since": "2026-07-13T12:13:03",
+      "last_action": "매수 0 · 보유 1 · 매도 0 종합 완료 (장마감 확정)"
     },
     "nova": {
       "name": "노바",
@@ -174,7 +174,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-13T11:17:57",
+      "since": "2026-07-13T12:13:05",
       "last_action": "특이사항 없음"
     },
     "callie": {
@@ -201,264 +201,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-13T11:05:09",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-13T11:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-13T11:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-13T11:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
-    {
-      "time": "2026-07-13T11:10:08",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-07-13T11:10:08",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 5건, 리포트 1건)"
-    },
-    {
-      "time": "2026-07-13T11:11:26",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T11:11:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 분석 중"
-    },
-    {
-      "time": "2026-07-13T11:11:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-13T11:12:21",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T11:12:33",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 분석 중"
-    },
-    {
-      "time": "2026-07-13T11:12:33",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-13T11:13:08",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T11:13:26",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 분석 중"
-    },
-    {
-      "time": "2026-07-13T11:13:26",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-13T11:14:09",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[4/6] 현대차 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T11:14:21",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 분석 중"
-    },
-    {
-      "time": "2026-07-13T11:14:22",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 3건, 리포트 1건)"
-    },
-    {
-      "time": "2026-07-13T11:15:10",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T11:15:26",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-07-13T11:15:26",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-13T11:16:01",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-13T11:17:17",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-07-13T11:17:17",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 0 · 보유 5 · 매도 1 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-07-13T11:17:17",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-07-13T11:17:17",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-07-13T11:17:57",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-07-13T11:17:57",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-07-13T11:17:57",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이슈 1건 감지",
-      "detail": [
-        "SK스퀘어: 다른 종목명 혼입 의심(SK하이닉스 3회 > 자기 종목명 1회)"
-      ]
-    },
-    {
-      "time": "2026-07-13T11:17:57",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 5건 감지",
-      "detail": [
-        "삼성전자: 급락 -6.67% (코스피도 동반 -5.83%)",
-        "SK하이닉스: 급락 -10.14% (코스피도 동반 -5.83%)",
-        "삼성전기: 급락 -14.39% (코스피도 동반 -5.83%), 기관 3거래일 연속 순매도",
-        "SK스퀘어: 급락 -12.70% (코스피도 동반 -5.83%)",
-        "LG이노텍: 급락 -8.63% (코스피도 동반 -5.83%), 기관 3거래일 연속 순매도"
-      ]
-    },
-    {
-      "time": "2026-07-13T11:17:57",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "done",
-      "action": "특이사항 없음"
-    },
     {
       "time": "2026-07-13T11:17:57",
       "employee": "jade",
@@ -613,6 +355,274 @@
       "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-07-13T12:10:06",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-13T12:10:06",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-13T12:10:06",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 조사 완료"
+    },
+    {
+      "time": "2026-07-13T12:10:06",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-07-13T12:10:06",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 5건, 리포트 1건)"
+    },
+    {
+      "time": "2026-07-13T12:11:40",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-13T12:11:56",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-07-13T12:11:56",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 5건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-13T12:12:52",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-13T12:12:54",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-07-13T12:12:54",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 5건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-13T12:12:56",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 실패 — 다음 종목 진행"
+    },
+    {
+      "time": "2026-07-13T12:12:56",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 분석 중"
+    },
+    {
+      "time": "2026-07-13T12:12:56",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 5건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-13T12:12:58",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 분석 실패 — 다음 종목 진행"
+    },
+    {
+      "time": "2026-07-13T12:12:58",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 분석 중"
+    },
+    {
+      "time": "2026-07-13T12:12:58",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 3건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-13T12:12:59",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 분석 실패 — 다음 종목 진행"
+    },
+    {
+      "time": "2026-07-13T12:12:59",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 분석 중"
+    },
+    {
+      "time": "2026-07-13T12:12:59",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-13T12:13:01",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 분석 실패 — 다음 종목 진행"
+    },
+    {
+      "time": "2026-07-13T12:13:03",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "done",
+      "action": "2개 종목 리서치 노트 작성 완료"
+    },
+    {
+      "time": "2026-07-13T12:13:03",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "매수 0 · 보유 1 · 매도 0 종합 완료 (장마감 확정)"
+    },
+    {
+      "time": "2026-07-13T12:13:03",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "working",
+      "action": "리서치 품질 검수 중"
+    },
+    {
+      "time": "2026-07-13T12:13:03",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "working",
+      "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-07-13T12:13:05",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-07-13T12:13:05",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-07-13T12:13:05",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이슈 5건 감지",
+      "detail": [
+        "SK하이닉스: 트레이더 콜 파싱 실패(\"최종 의견: 매수/보유/매도\" 형식 확인 필요)",
+        "삼성전기: 리서치 노트 미작성",
+        "현대차: 리서치 노트 미작성",
+        "SK스퀘어: 리서치 노트 미작성",
+        "LG이노텍: 리서치 노트 미작성"
+      ]
+    },
+    {
+      "time": "2026-07-13T12:13:05",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 5건 감지",
+      "detail": [
+        "삼성전자: 급락 -7.72% (코스피도 동반 -6.78%)",
+        "SK하이닉스: 급락 -12.39% (코스피도 동반 -6.78%)",
+        "삼성전기: 급락 -16.67% (코스피도 동반 -6.78%), 기관 3거래일 연속 순매도",
+        "SK스퀘어: 급락 -14.62% (코스피도 동반 -6.78%)",
+        "LG이노텍: 급락 -10.51% (코스피도 동반 -6.78%), 기관 3거래일 연속 순매도"
+      ]
+    },
+    {
+      "time": "2026-07-13T12:13:05",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "특이사항 없음"
+    },
+    {
+      "time": "2026-07-13T12:13:05",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "🔴 우선확인 4건 · 품질 5건 · 리스크 5건 종합 완료",
+      "detail": [
+        "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
+        "SK스퀘어: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
+        "SK하이닉스: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
+        "삼성전기: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+      ]
     }
   ],
   "trader_stats": {
