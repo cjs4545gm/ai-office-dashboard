@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T22:04:26",
+  "updated_at": "2026-07-14T22:05:09",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T21:05:09",
+      "since": "2026-07-14T22:05:09",
       "last_action": "이상없음"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T21:05:09",
+      "since": "2026-07-14T22:05:09",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T22:02:27",
-      "last_action": "리나 이벤트 기록 (누적 2110건)"
+      "since": "2026-07-14T22:05:09",
+      "last_action": "오즈 이벤트 기록 (누적 2114건)"
     },
     "vera": {
       "name": "베라",
@@ -234,38 +234,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-14T21:35:51",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T21:35:51",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T21:35:51",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T21:35:51",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
     {
       "time": "2026-07-14T21:35:51",
       "employee": "rina",
@@ -633,6 +601,38 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "idle",
       "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-14T22:05:09",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-14T22:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-14T22:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": {
