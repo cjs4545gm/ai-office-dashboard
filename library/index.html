@@ -83,6 +83,28 @@
 
   .empty{ text-align:center; padding:60px 20px; color:var(--muted); font-size:14px; }
   .foot-note{ text-align:center; color:var(--muted); font-size:11.5px; margin-top:24px; }
+
+  .add-panel{
+    padding:16px 20px; margin-bottom:20px; border-radius:14px;
+    background:linear-gradient(180deg, #17101f, #0c0812); border:1px solid #2c2138;
+  }
+  .add-panel h2{ margin:0 0 12px; font-size:15px; }
+  .add-form{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .add-form input, .add-form select{
+    padding:9px 12px; border-radius:8px; border:1px solid var(--line);
+    background:var(--card); color:var(--cream); font-size:14px;
+  }
+  .add-form input#book-title{ flex:1; min-width:180px; }
+  .add-form input#book-tags{ flex:1; min-width:140px; }
+  .add-form button{
+    padding:9px 16px; border-radius:8px; border:none; background:var(--accent);
+    color:#231a08; font-weight:600; font-size:14px; cursor:pointer;
+  }
+  .add-form button:disabled{ opacity:0.6; cursor:default; }
+  .add-hint{ margin-top:8px; font-size:12px; color:var(--muted); }
+  .add-message{ margin-top:8px; font-size:13px; }
+  .add-message.error{ color:#f0a94e; }
+  .add-message.success{ color:var(--done); }
 </style>
 </head>
 <body>
@@ -90,6 +112,22 @@
   <div class="head">
     <h1>📚 책 서재</h1>
     <span class="count" id="count-label">불러오는 중...</span>
+  </div>
+
+  <div class="add-panel">
+    <h2>+ 책 추가</h2>
+    <div class="add-form">
+      <input id="book-title" type="text" placeholder="책 제목">
+      <select id="book-status">
+        <option value="읽고 싶음">읽고 싶음</option>
+        <option value="읽는 중">읽는 중</option>
+        <option value="완료">완료</option>
+      </select>
+      <input id="book-tags" type="text" placeholder="태그(쉼표로 구분, 선택)">
+      <button id="book-submit" type="button">추가하기</button>
+    </div>
+    <div class="add-hint" id="add-hint">확인 중...</div>
+    <div class="add-message" id="add-message"></div>
   </div>
 
   <div class="controls">
