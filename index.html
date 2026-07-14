@@ -623,8 +623,8 @@
     }
     el.innerHTML = `
       <div class="qa-row">
-        <div class="qa-q"><a href="${escapeHtml(pick.url)}" target="_blank" rel="noopener" style="color:inherit;">${escapeHtml(pick.title)}</a></div>
-        <div class="qa-time">${escapeHtml(pick.channel)} · ${escapeHtml(pick.date || "")}</div>
+        <div class="qa-q">${escapeHtml(pick.title)}</div>
+        <div class="qa-time">${escapeHtml(pick.channel)} · ${escapeHtml(pick.date || "")} · <a href="${escapeHtml(pick.url)}" target="_blank" rel="noopener" style="color:inherit;">유튜브에서 보기 ↗</a></div>
       </div>`;
   }
 
