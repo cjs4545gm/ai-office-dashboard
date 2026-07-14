@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T17:06:47",
+  "updated_at": "2026-07-14T17:13:14",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T17:06:47",
-      "last_action": "리나 이벤트 기록 (누적 1748건)"
+      "since": "2026-07-14T17:13:14",
+      "last_action": "레오 이벤트 기록 (누적 1784건)"
     },
     "vera": {
       "name": "베라",
@@ -52,9 +52,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-14T16:20:20",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-07-14T17:12:30",
+      "last_action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 5건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -64,7 +64,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T16:12:34",
+      "since": "2026-07-14T17:10:05",
       "last_action": "업종 2개 협회·통계 조사 완료"
     },
     "hank": {
@@ -162,9 +162,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-14T16:52:27",
-      "last_action": "검증 완료"
+      "status": "working",
+      "since": "2026-07-14T17:13:14",
+      "last_action": "[3/6] 삼성전기 트레이더 콜 종합 중"
     },
     "nova": {
       "name": "노바",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-14T17:06:47",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10ce5c980>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "done",
+      "since": "2026-07-14T17:12:37",
+      "last_action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-14T17:06:47",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10ce5c980>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "done",
+      "since": "2026-07-14T17:12:37",
+      "last_action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
     },
     "rina": {
       "name": "리나",
@@ -228,300 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-14T17:06:47",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10ce5c980>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "done",
+      "since": "2026-07-14T17:12:37",
+      "last_action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-14T16:49:20",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "질문 검토 중: [디버그 테스트] 로컬 제출 파이프라인 점검용 질문입니…"
-    },
-    {
-      "time": "2026-07-14T16:49:20",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "질문 검토 중: [디버그 테스트] 로컬 제출 파이프라인 점검용 질문입니…"
-    },
-    {
-      "time": "2026-07-14T16:49:20",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "질문 검토 중: [디버그 테스트] 로컬 제출 파이프라인 점검용 질문입니…"
-    },
-    {
-      "time": "2026-07-14T16:49:52",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "done",
-      "action": "답변 완료: [디버그 테스트] 로컬 제출 파이프라인 점검용 질문입니…"
-    },
-    {
-      "time": "2026-07-14T16:49:52",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "done",
-      "action": "답변 완료: [디버그 테스트] 로컬 제출 파이프라인 점검용 질문입니…"
-    },
-    {
-      "time": "2026-07-14T16:49:52",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "done",
-      "action": "답변 완료: [디버그 테스트] 로컬 제출 파이프라인 점검용 질문입니…"
-    },
-    {
-      "time": "2026-07-14T16:50:56",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "결산 담당",
-      "status": "working",
-      "action": "일간 결산 작성 중"
-    },
-    {
-      "time": "2026-07-14T16:51:26",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "결산 담당",
-      "status": "done",
-      "action": "일간 결산 저장 완료"
-    },
-    {
-      "time": "2026-07-14T16:51:26",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 정확도 추적",
-      "status": "working",
-      "action": "전일 리서치 판단 정확도 검증 중"
-    },
-    {
-      "time": "2026-07-14T16:52:27",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 정확도 추적",
-      "status": "done",
-      "action": "검증 완료"
-    },
-    {
-      "time": "2026-07-14T16:52:27",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "전일 트레이더 콜 적중률 검증 중"
-    },
-    {
-      "time": "2026-07-14T16:52:27",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "검증 완료"
-    },
-    {
-      "time": "2026-07-14T16:52:27",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "working",
-      "action": "일간 결산 검수 중"
-    },
-    {
-      "time": "2026-07-14T16:52:32",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "done",
-      "action": "✅ 검수 통과"
-    },
-    {
-      "time": "2026-07-14T16:54:54",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T16:54:54",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T16:54:54",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T16:54:54",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T16:54:54",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T16:54:54",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T17:00:06",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-14T17:00:06",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-14T17:00:19",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 3건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-14T17:00:19",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-14T17:00:19",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "유튜브 종목 언급 확인 중"
-    },
-    {
-      "time": "2026-07-14T17:00:19",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 유튜브 언급 없음"
-    },
-    {
-      "time": "2026-07-14T17:00:19",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-07-14T17:00:47",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
-    {
-      "time": "2026-07-14T17:00:47",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-07-14T17:00:50",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-14T17:00:50",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-07-14T17:00:50",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-14T17:00:50",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "working",
-      "action": "실적발표 예상 시기 추정 중"
-    },
-    {
-      "time": "2026-07-14T17:00:55",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "done",
-      "action": "임박 3건: LG이노텍(D-9), SK하이닉스(D-10), 현대차(D-10)"
-    },
-    {
-      "time": "2026-07-14T17:01:26",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T17:01:26",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
     {
       "time": "2026-07-14T17:01:26",
       "employee": "rina",
@@ -633,6 +345,294 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "error",
       "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10ce5c980>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-07-14T17:09:30",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T17:09:30",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T17:09:30",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T17:09:31",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%여서 손절하고 삼성전자 하이…"
+    },
+    {
+      "time": "2026-07-14T17:09:31",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%여서 손절하고 삼성전자 하이…"
+    },
+    {
+      "time": "2026-07-14T17:09:31",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%여서 손절하고 삼성전자 하이…"
+    },
+    {
+      "time": "2026-07-14T17:10:05",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-14T17:10:05",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-14T17:10:05",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 조사 완료"
+    },
+    {
+      "time": "2026-07-14T17:10:05",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-07-14T17:10:05",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 5건, 리포트 1건)"
+    },
+    {
+      "time": "2026-07-14T17:10:50",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-14T17:11:10",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%여서 손절하고 삼성전자 하이…"
+    },
+    {
+      "time": "2026-07-14T17:11:10",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%여서 손절하고 삼성전자 하이…"
+    },
+    {
+      "time": "2026-07-14T17:11:10",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%여서 손절하고 삼성전자 하이…"
+    },
+    {
+      "time": "2026-07-14T17:11:10",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:11:10",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:11:10",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:11:14",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-07-14T17:11:14",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 5건, 리포트 1건)"
+    },
+    {
+      "time": "2026-07-14T17:11:48",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T17:11:48",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T17:11:48",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T17:11:49",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:11:49",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:11:49",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:11:59",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-14T17:12:29",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:12:29",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:12:29",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:12:29",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-07-14T17:12:30",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 5건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-14T17:12:37",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:12:37",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:12:37",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "done",
+      "action": "답변 완료: 나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼…"
+    },
+    {
+      "time": "2026-07-14T17:13:14",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
     }
   ],
   "trader_stats": {
@@ -801,6 +801,20 @@
         "issue_url": "https://github.com/cjs4545gm/ai-office-dashboard/issues/4",
         "asked_at": "2026-07-14T07:46:26Z",
         "answered_at": "2026-07-14T16:49:52+09:00"
+      },
+      {
+        "question": "나 이노텍이 마이너스 40%여서 손절하고 삼성전자 하이닉스 비중을 늘릴려고하는데 생각을 말해줘",
+        "answer": "웹서치로 오늘 시장 배경을 확인했습니다. 이번 반도체·이노텍 급락은 개별 기업 문제라기보다 미-이란 긴장에 따른 유가 급등(브렌트유 +9.6%)과 이에 따른 위험회피 심리가 SK하이닉스發 급락을 거쳐 미국·한국 반도체 섹터 전반을 덮친 매크로 이벤트 성격이 강합니다. LG이노텍도 실적(1분기 영업이익 +136%) 자체보다 외국인·기관의 차익실현·프로그램 매도가 하락의 주된 원인으로 분석되고 있습니다.\n\n## 🧭 아이비 (수석 전략가)\nLG이노텍 손절 자체는 트레이더 콜(매도, 641,000원대)과도 방향이 일치해 근거가 있습니다. 다만 그 자금을 삼성전자·SK하이닉스로 옮기는 건 \"리스크 분산\"이 아니라 \"같은 반도체 섹터에 대한 베팅을 한 번 더 얹는 것\"에 가깝습니다. 오늘의 셀오프 자체가 미-이란 긴장발 반도체 섹터 전체 이벤트였다는 점을 감안하면, 포트폴리오는 이미 삼성전자·하이닉스·삼성전기·SK스퀘어·LG이노텍까지 반도체·전자 밸류체인에 상당히 집중돼 있습니다. 여기에 비중을 더 얹기 전에 \"이번 결정으로 포트폴리오 섹터 집중도가 얼마나 더 올라가는가\"를 먼저 짚어볼 필요가 있습니다. 또한 삼성전자는 오늘 품질 이슈+리스크 신호가 겹쳐 '우선 확인 필요' 플래그가 떠 있어, 지금은 비중 확대보다 정보 확인이 우선입니다.\n\n## 🛡️ 맥스 (리스크 전략가)\n삼성전자·SK하이닉스 트레이더 콜 모두 \"현재가보다 낮은 눌림목에서 재확인 후 진입\"을 권하고 있어, 오늘 당장 추격 매수하는 것은 콜 자체와도 맞지 않습니다. 게다가 SK하이닉스는 D-10, 삼성전자 섹터 전반은 실적 캘린더가 임박했고, 미 10년물 금리는 4.61%(+0.88%)로 인플레이션·추가 긴축 우려가 살아있는 구간입니다. 여기에 카이의 이상거래 경보 6건까지 겹쳐 있어, 손절한 자금을 한 번에 몰아넣기보다 트레이더 콜대로 조정 확인 후 분할 진입하는 편이 하방 리스크 관리 측면에서 낫습니다. \"손절 = 즉시 재배치\"로 붙일 필요는 없습니다.\n\n## 🧘 리나 (행동재무 코치)\n-40%라는 숫자는 심리적으로 매우 아프기 때문에, \"손실을 끊고 싶다\"는 마음과 \"이제라도 오르는 종목에 타야 한다\"는 마음이 동시에 작동하기 쉬운 시점입니다. 오늘 삼성전자(+3.34%), SK스퀘어(+2.50%) 반등을 보면서 \"지금 안 타면 놓친다\"는 FOMO가 섞였는지 스스로 점검해볼 필요가 있습니다. 손절 결정과 재투자 타이밍 결정은 서로 다른 판단입니다 — 이노텍을 정리하는 것과 그 돈을 오늘 바로 삼성전자·하이닉스에 넣는 것은 별개로 나눠서, 급하게 같은 날 몰아서 처리하지 않아도 됩니다.\n\n## 종합\nLG이노텍 손절은 트레이더 콜·수급 데이터와 방향이 일치해 리스크 관리 관점에서 무리가 없어 보이지만, 그 대체처를 삼성전자·SK하이닉스로 즉시·전액 옮기는 것은 재고할 부분이 있습니다. 오늘의 급락이 개별 종목이 아니라 미-이란 긴장·유가발 반도체 섹터 전체 이벤트였다는 점, 두 종목 모두 트레이더 콜이 \"추격 매수보다 눌림목 재확인 후 진입\"을 권한다는 점, 삼성전자는 별도로 '우선 확인 필요' 신호가 떠 있다는 점, 실적 발표(D-10)와 금리 불확실성이 임박했다는 점을 고려하면 손절 자금을 한 번에 밀어넣기보다 콜에서 제시한 눌림목 구간을 확인하며 분할로 접근하는 편이 안전해 보입니다. 이는 참고 의견이며 실제 매매 실행 여부와 타이밍은 준석님이 직접 결정하셔야 합니다.\n\nSources:\n- [LG이노텍, 실적은 좋은데 왜 8% 넘게 급락했을까?](https://www.threads.com/@mortarea12/post/DaPTchAEWEE/lg%EC%9D%B4%EB%85%B8%ED%85%8D-%EC%8B%A4%EC%A0%81%EC%9D%80-%EC%A2%8B%EC%9D%80%EB%8D%B0-%EC%99%9C-8-%EB%84%98%EA%B2%8C-%EA%B8%89%EB%9D%BD%ED%96%88%EC%9D%84%EA%B9%8C7%EC%9B%94-1%EC%9D%BC-%EC%98%A4%ED%9B%84-2%EC%8B%9C-30%EB%B6%84-%EC%A0%84%ED%9B%84-lg%EC%9D%B4%EB%85%B8%ED%85%8D%EC%9D%80-90%EB%A7%8C1000%EC%9B%90-815%EA%B9%8C%EC%A7%80-%EB%B0%80%EB%A0%B8%EC%8A%B5%EB%8B%88%EB%8B%A4%EC%9D%B4%EB%B2%88-%ED%95%98%EB%9D%BD%EC%9D%80-%EC%8B%A4/)\n- [“지금이 기회인가” 153만→96만원 급락에도…외국인 몰린 LG이노텍](https://v.daum.net/v/20260625095631575?f=p)\n- [뉴욕증시, 이란 긴장 고조에 위험 회피…반도체주 급락하며 3대 지수 '풀썩'](https://www.newspim.com/news/view/20260714000011)\n- [美 반도체주 급락·이란 공습…코스피 하락 출발 전망](https://view.asiae.co.kr/article/2026070808035548651)\n- [중동 긴장 고조에 AI 반도체주 급락…유가 급등](https://www.hankyung.com/article/2026071429906)\n- [[마켓 프리뷰] 미·이란 충돌 재점화에 유가 급등…코스피 투심 위축될까](https://www.ajunews.com/view/20260713083515901)",
+        "issue_url": "https://github.com/cjs4545gm/ai-office-dashboard/issues/5",
+        "asked_at": "2026-07-14T08:03:51Z",
+        "answered_at": "2026-07-14T17:11:10+09:00"
+      },
+      {
+        "question": "나 이노텍이 마이너스 40%라서 손절하고 하이닉스랑 삼성전자 비중 늘리려고하는데 어떻게 생각해?",
+        "answer": "## 🧭 아이비 (수석 전략가)\nLG이노텍 손절은 오늘 트레이더 콜의 매도희망가(641,000원대)·기관 매도세 지속·구조적 매도압력이라는 근거와 방향이 일치해 판단 자체는 합리적입니다. 다만 그 자금을 곧바로 삼성전자·SK하이닉스로 옮기는 건 신규 분산이 아니라 이미 반도체 비중이 높은 포트폴리오(삼성전자·하이닉스·삼성전기)를 한 섹터에 더 몰아주는 결정이라는 점을 짚고 싶습니다. 두 종목 모두 오늘 콜에서 \"매수희망가는 현재가보다 낮은 눌림목 구간\"으로 제시돼 있어, 지금 시점은 자산배분 관점에서 \"갈아타기 타이밍\"이라기보다는 \"대기 후 재진입 타이밍\"에 가깝습니다.\n\n## 🛡️ 맥스 (리스크 전략가)\n삼성전자는 \"품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요\" 상태이고, 카이 경보가 6건 감지된 상황에서 확인 없이 비중부터 늘리는 건 하방 리스크를 키웁니다. SK하이닉스는 실적발표가 D-10으로 임박했고, 오늘 미국 증시에서 반도체주가 미-이란 긴장·유가 급등 영향으로 약세를 보였다는 뉴스까지 겹쳐 있어 이벤트 변동성이 낮지 않은 구간입니다. 트레이더 콜상 두 종목 다 \"추격매수보다 조정 확인 후 진입\"을 권고하고 있으므로, 손절대금을 한 번에 투입하기보다 조정 확인 후 분할 매수로 접근하는 편이 리스크 관리 측면에서 낫습니다.\n\n## 🧘 리나 (행동재무 코치)\n\"마이너스 40%라서 손절한다\"는 표현 자체가 손실회피 편향의 전형적 신호입니다 — 다행히 이번엔 트레이더 콜의 매도 근거(구조적 매도압력)와 결과적으로 일치하지만, 판단 기준이 \"손실률\"이 되면 다음번엔 근거 없이 물타기/손절을 반복할 위험이 있습니다. 또 손실을 본 종목을 팔자마자 다른 종목 비중을 늘리는 흐름은 \"빨리 만회하고 싶다\"는 조급함(보상 추구)일 수 있어 경계가 필요합니다. 이노텍 매도 판단 자체는 유지하되, 재투자는 오늘 콜이 제시한 눌림목 확인·분할 접근 원칙을 그대로 지키시길 권합니다.\n\n## 종합\nLG이노텍 손절은 오늘 트레이더 콜의 매도 신호와 방향이 일치해 근거가 있는 판단으로 보이지만, 그 자금을 즉시 삼성전자·SK하이닉스 비중 확대에 투입하는 것은 서두를 이유가 부족해 보입니다. 삼성전자는 품질 이슈·리스크 신호로 우선 확인이 필요한 상태이고, SK하이닉스는 실적발표(D-10)를 앞두고 미국 반도체주 약세까지 겹친 변동성 구간이며, 두 종목 모두 콜상 \"현재가보다 낮은 눌림목에서 재진입\"이 권고되고 있습니다. 손절 후에는 현금(또는 대기) 비중으로 두었다가 조정 확인 시 분할로 접근하시는 편을 참고해보시되, 이는 실행 지시가 아닌 참고 의견이며 최종 판단과 매매는 준석님의 몫입니다.",
+        "issue_url": "https://github.com/cjs4545gm/ai-office-dashboard/issues/6",
+        "asked_at": "2026-07-14T08:05:21Z",
+        "answered_at": "2026-07-14T17:12:37+09:00"
       }
     ]
   }
