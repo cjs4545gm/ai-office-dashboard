@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T22:52:37",
+  "updated_at": "2026-07-14T22:57:38",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T22:52:37",
-      "last_action": "리나 이벤트 기록 (누적 2205건)"
+      "since": "2026-07-14T22:57:38",
+      "last_action": "리나 이벤트 기록 (누적 2211건)"
     },
     "vera": {
       "name": "베라",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T22:52:37",
+      "since": "2026-07-14T22:57:38",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T22:52:37",
+      "since": "2026-07-14T22:57:38",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,67 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T22:52:37",
+      "since": "2026-07-14T22:57:38",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-14T22:17:30",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:17:30",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:17:50",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-07-14T22:17:50",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-07-14T22:17:50",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-14T22:17:50",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 6건 감지",
-      "detail": [
-        "삼성전자: 급등 +5.30%",
-        "SK하이닉스: 급등 +5.20%",
-        "삼성전기: 기관 3거래일 연속 순매도",
-        "현대차: 급락 -3.94%",
-        "SK스퀘어: 급등 +4.48%, 기관 3거래일 연속 순매도",
-        "LG이노텍: 기관 3거래일 연속 순매도"
-      ]
-    },
     {
       "time": "2026-07-14T22:17:50",
       "employee": "nova",
@@ -639,6 +583,54 @@
     },
     {
       "time": "2026-07-14T22:52:37",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:57:37",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:57:37",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:57:37",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:57:38",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:57:38",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:57:38",
       "employee": "rina",
       "name": "리나",
       "role": "판단 편향·매매 심리 점검",

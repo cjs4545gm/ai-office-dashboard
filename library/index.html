@@ -214,16 +214,94 @@
     });
   });
 
-  fetch("books.json")
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
-    .then(data => {
-      allBooks = data;
-      render();
-    })
-    .catch(() => {
-      document.getElementById("count-label").textContent = "books.json을 불러오지 못했습니다";
-      document.getElementById("grid").innerHTML = `<div class="empty">books.json을 찾을 수 없습니다.<br>book-notes/add_book.py 를 한 번 실행해서 인덱스를 생성해주세요.</div>`;
-    });
+  function loadBooks(){
+    fetch(`books.json?t=${Date.now()}`, { cache: "no-store" })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        allBooks = data;
+        render();
+      })
+      .catch(() => {
+        document.getElementById("count-label").textContent = "books.json을 불러오지 못했습니다";
+        document.getElementById("grid").innerHTML = `<div class="empty">books.json을 찾을 수 없습니다.<br>book-notes/add_book.py 를 한 번 실행해서 인덱스를 생성해주세요.</div>`;
+      });
+  }
+
+  // 로컬(Obsidian)에서 열었을 때는 127.0.0.1의 book_submit_server.py가 책을 바로 추가해줘서
+  // 화면 이동 없이 인덱스가 갱신된다. 공개 GitHub Pages 버전 등 로컬 서버가 없는 환경에서는
+  // GitHub 이슈(book-request 라벨) 생성으로 자동 폴백하고, book_request_watcher.py가 5분 간격으로
+  // 확인해 대신 추가한다 — strategy_advisor.py의 질문 제출과 동일한 패턴.
+  const LOCAL_SUBMIT_ORIGIN = "http://127.0.0.1:8766";
+  let localSubmitAvailable = null;
+
+  async function checkLocalSubmit(){
+    try {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/health`, { signal: AbortSignal.timeout(1500) });
+      localSubmitAvailable = resp.ok;
+    } catch (e) {
+      localSubmitAvailable = false;
+    }
+    const hint = document.getElementById("add-hint");
+    hint.textContent = localSubmitAvailable
+      ? "추가하면 화면 이동 없이 바로 서재에 반영됩니다."
+      : "추가하면 GitHub 이슈 작성 화면으로 이동합니다(본인 GitHub 로그인 필요, 1회 확인 클릭). 5분 내 서재에 반영됩니다.";
+  }
+  checkLocalSubmit();
+
+  function openGithubIssueFallback(title){
+    const body = `${title}\n\n---\n서재 웹에서 남긴 책 추가 요청입니다.`;
+    const url = `https://github.com/cjs4545gm/ai-office-dashboard/issues/new?labels=book-request&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+    window.open(url, "_blank", "noopener");
+  }
+
+  function showAddMessage(text, kind){
+    const el = document.getElementById("add-message");
+    el.textContent = text;
+    el.className = `add-message ${kind}`;
+  }
+
+  document.getElementById("book-submit").addEventListener("click", async () => {
+    const titleInput = document.getElementById("book-title");
+    const statusInput = document.getElementById("book-status");
+    const tagsInput = document.getElementById("book-tags");
+    const button = document.getElementById("book-submit");
+    const title = titleInput.value.trim();
+    if (!title) return;
+
+    if (localSubmitAvailable === null) await checkLocalSubmit();
+
+    if (!localSubmitAvailable){
+      openGithubIssueFallback(title);
+      titleInput.value = "";
+      tagsInput.value = "";
+      showAddMessage("GitHub 이슈 작성 화면을 열었습니다. 제출 후 5분 내 서재에 반영됩니다.", "success");
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "추가 중...";
+    try {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, status: statusInput.value, tags: tagsInput.value }),
+        signal: AbortSignal.timeout(20000),
+      });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "추가 실패");
+      titleInput.value = "";
+      tagsInput.value = "";
+      showAddMessage(`'${title}' 서재에 추가했습니다.`, "success");
+      loadBooks();
+    } catch (e) {
+      showAddMessage(`추가하지 못했습니다: ${e.message}`, "error");
+    } finally {
+      button.disabled = false;
+      button.textContent = "추가하기";
+    }
+  });
+
+  loadBooks();
 })();
 </script>
 </body>
