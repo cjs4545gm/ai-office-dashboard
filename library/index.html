@@ -105,6 +105,37 @@
   .add-message{ margin-top:8px; font-size:13px; }
   .add-message.error{ color:#f0a94e; }
   .add-message.success{ color:var(--done); }
+
+  .candidate-list{ margin-top:12px; display:flex; flex-direction:column; gap:6px; }
+  .candidate-row{
+    display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:8px;
+    background:var(--card); border:1px solid var(--line);
+  }
+  .candidate-cover{ width:32px; height:44px; object-fit:cover; border-radius:3px; background:#150f1f; flex-shrink:0; }
+  .candidate-cover-fallback{
+    width:32px; height:44px; border-radius:3px; background:#150f1f; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--muted);
+  }
+  .candidate-info{ flex:1; min-width:0; }
+  .candidate-title{ font-size:13px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .candidate-author{ font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .candidate-row button{
+    padding:6px 12px; border-radius:6px; border:none; background:var(--accent);
+    color:#231a08; font-weight:600; font-size:12px; cursor:pointer; flex-shrink:0;
+  }
+  .candidate-blank{
+    padding:8px 10px; font-size:12.5px; color:var(--muted); background:transparent;
+    border:1px dashed var(--line); border-radius:8px; text-align:center; cursor:pointer;
+  }
+  .candidate-blank:hover{ border-color:var(--accent); color:var(--cream); }
+
+  .book-card{ position:relative; }
+  .book-delete{
+    position:absolute; top:6px; left:6px; width:22px; height:22px; border-radius:6px;
+    border:none; background:rgba(14,11,18,0.75); color:var(--cream); font-size:12px;
+    cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:1;
+  }
+  .book-delete:hover{ background:#c0392b; }
 </style>
 </head>
 <body>
@@ -124,10 +155,11 @@
         <option value="완료">완료</option>
       </select>
       <input id="book-tags" type="text" placeholder="태그(쉼표로 구분, 선택)">
-      <button id="book-submit" type="button">추가하기</button>
+      <button id="book-submit" type="button">검색</button>
     </div>
     <div class="add-hint" id="add-hint">확인 중...</div>
     <div class="add-message" id="add-message"></div>
+    <div class="candidate-list" id="candidate-list"></div>
   </div>
 
   <div class="controls">
@@ -171,14 +203,17 @@
     const badge = book.status ? `<span class="status-badge ${statusClass(book.status)}">${escapeHtml(book.status)}</span>` : "";
     const tags = (book.tags || []).map(t => `<span class="tag-chip">${escapeHtml(t)}</span>`).join("");
     return `
-      <a class="book-card" href="${obsidianLink(book.file)}">
-        <div class="cover-box">${cover}${badge}</div>
-        <div class="book-info">
-          <div class="book-title">${escapeHtml(book.title)}</div>
-          <div class="book-author">${escapeHtml(book.author || "저자 미상")}</div>
-          <div class="book-tags">${tags}</div>
-        </div>
-      </a>`;
+      <div class="book-card" data-file="${escapeHtml(book.file)}" data-title="${escapeHtml(book.title)}">
+        <button class="book-delete" title="삭제">✕</button>
+        <a href="${obsidianLink(book.file)}" style="color:inherit;text-decoration:none;display:contents;">
+          <div class="cover-box">${cover}${badge}</div>
+          <div class="book-info">
+            <div class="book-title">${escapeHtml(book.title)}</div>
+            <div class="book-author">${escapeHtml(book.author || "저자 미상")}</div>
+            <div class="book-tags">${tags}</div>
+          </div>
+        </a>
+      </div>`;
   }
 
   function render(){
@@ -212,6 +247,35 @@
       statusFilter = btn.dataset.status;
       render();
     });
+  });
+
+  // 카드는 검색/필터 때마다 통째로 다시 그려지므로, 삭제 버튼은 grid 컨테이너에 이벤트
+  // 위임으로 한 번만 붙인다(office.html의 활동로그 펼치기와 동일한 패턴).
+  document.getElementById("grid").addEventListener("click", async (ev) => {
+    const delBtn = ev.target.closest(".book-delete");
+    if (!delBtn) return;
+    ev.preventDefault();
+    const card = delBtn.closest(".book-card");
+    const file = card.dataset.file;
+    const title = card.dataset.title;
+    if (localSubmitAvailable !== true){
+      showAddMessage("삭제는 이 서재 파일이 있는 기기(로컬)에서만 가능합니다.", "error");
+      return;
+    }
+    if (!confirm(`'${title}'을(를) 서재에서 삭제할까요?`)) return;
+    try {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/delete`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ file }),
+        signal: AbortSignal.timeout(10000),
+      });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "삭제 실패");
+      loadBooks();
+    } catch (e) {
+      showAddMessage(`삭제하지 못했습니다: ${e.message}`, "error");
+    }
   });
 
   function loadBooks(){

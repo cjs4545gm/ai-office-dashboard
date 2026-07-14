@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T22:57:38",
+  "updated_at": "2026-07-14T23:02:39",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T22:57:38",
-      "last_action": "리나 이벤트 기록 (누적 2211건)"
+      "since": "2026-07-14T23:02:39",
+      "last_action": "리나 이벤트 기록 (누적 2229건)"
     },
     "vera": {
       "name": "베라",
@@ -75,7 +75,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T22:00:15",
+      "since": "2026-07-14T23:00:12",
       "last_action": "이상없음"
     },
     "scout": {
@@ -86,7 +86,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T22:00:15",
+      "since": "2026-07-14T23:00:12",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T22:00:12",
+      "since": "2026-07-14T23:00:10",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -196,7 +196,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T22:00:12",
+      "since": "2026-07-14T23:00:10",
       "last_action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
     },
     "ivy": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T22:57:38",
+      "since": "2026-07-14T23:02:39",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T22:57:38",
+      "since": "2026-07-14T23:02:39",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,32 +229,365 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T22:57:38",
+      "since": "2026-07-14T23:02:39",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
     {
-      "time": "2026-07-14T22:17:50",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
+      "time": "2026-07-14T22:32:33",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:32:33",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:37:33",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:37:33",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:37:33",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:37:34",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:37:34",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:37:34",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:42:34",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:42:34",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:42:34",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:42:35",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:42:35",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:42:35",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:47:35",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:47:35",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:47:35",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:47:36",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:47:36",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:47:36",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:52:36",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:52:36",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:52:36",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:52:37",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:52:37",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:52:37",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:57:37",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:57:37",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:57:37",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T22:57:38",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:57:38",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T22:57:38",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T23:00:00",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-14T23:00:00",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-14T23:00:10",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
       "status": "done",
-      "action": "경보 1건 감지",
-      "detail": [
-        "원달러환율 급락 -0.71% (현재 1,487.8원)"
-      ]
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
     },
     {
-      "time": "2026-07-14T22:17:50",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
+      "time": "2026-07-14T23:00:10",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
       "status": "done",
-      "action": "품질 0건 · 리스크 7건 종합 완료"
+      "action": "보유종목 6개 수급 데이터 갱신"
     },
     {
-      "time": "2026-07-14T22:22:31",
+      "time": "2026-07-14T23:00:10",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "유튜브 종목 언급 확인 중"
+    },
+    {
+      "time": "2026-07-14T23:00:10",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 유튜브 언급 없음"
+    },
+    {
+      "time": "2026-07-14T23:00:10",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
+    },
+    {
+      "time": "2026-07-14T23:00:10",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
+    },
+    {
+      "time": "2026-07-14T23:00:10",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-14T23:00:12",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-14T23:00:12",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-14T23:00:12",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-14T23:02:38",
       "employee": "ivy",
       "name": "아이비",
       "role": "포트폴리오 전체 방향·자산배분 상담",
@@ -262,7 +595,7 @@
       "action": "새 질문 확인 중"
     },
     {
-      "time": "2026-07-14T22:22:31",
+      "time": "2026-07-14T23:02:38",
       "employee": "max",
       "name": "맥스",
       "role": "포지션 크기·하방 방어 상담",
@@ -270,7 +603,7 @@
       "action": "새 질문 확인 중"
     },
     {
-      "time": "2026-07-14T22:22:31",
+      "time": "2026-07-14T23:02:38",
       "employee": "rina",
       "name": "리나",
       "role": "판단 편향·매매 심리 점검",
@@ -278,7 +611,7 @@
       "action": "새 질문 확인 중"
     },
     {
-      "time": "2026-07-14T22:22:31",
+      "time": "2026-07-14T23:02:39",
       "employee": "ivy",
       "name": "아이비",
       "role": "포트폴리오 전체 방향·자산배분 상담",
@@ -286,7 +619,7 @@
       "action": "질문 대기 중"
     },
     {
-      "time": "2026-07-14T22:22:31",
+      "time": "2026-07-14T23:02:39",
       "employee": "max",
       "name": "맥스",
       "role": "포지션 크기·하방 방어 상담",
@@ -294,343 +627,7 @@
       "action": "질문 대기 중"
     },
     {
-      "time": "2026-07-14T22:22:31",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:27:32",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:27:32",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:27:32",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:27:32",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:27:32",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:27:32",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:32:33",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:32:33",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:32:33",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:32:33",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:32:33",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:32:33",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:37:33",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:37:33",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:37:33",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:37:34",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:37:34",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:37:34",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:42:34",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:42:34",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:42:34",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:42:35",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:42:35",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:42:35",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:47:35",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:47:35",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:47:35",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:47:36",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:47:36",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:47:36",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:52:36",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:52:36",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:52:36",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:52:37",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:52:37",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:52:37",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:57:37",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:57:37",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:57:37",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T22:57:38",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:57:38",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T22:57:38",
+      "time": "2026-07-14T23:02:39",
       "employee": "rina",
       "name": "리나",
       "role": "판단 편향·매매 심리 점검",
