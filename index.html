@@ -279,6 +279,10 @@
         <div id="priority-alerts"><div class="panel-empty">현재 우선 확인 필요 종목 없음</div></div>
       </div>
       <div class="side-panel">
+        <h2>🎬 오늘의 추천 영상</h2>
+        <div id="youtube-pick"><div class="panel-empty">아직 선정된 영상 없음</div></div>
+      </div>
+      <div class="side-panel">
         <h2>📈 트레이더 콜 적중률</h2>
         <div id="trader-stats"><div class="panel-empty">아직 검증된 콜 없음</div></div>
       </div>
@@ -611,6 +615,19 @@
     el.innerHTML = `<div class="alert-list">${alerts.map(a => `<div class="alert-row">${escapeHtml(a)}</div>`).join("")}</div>`;
   }
 
+  function renderYoutubePick(pick){
+    const el = document.getElementById("youtube-pick");
+    if (!pick){
+      el.innerHTML = '<div class="panel-empty">아직 선정된 영상 없음</div>';
+      return;
+    }
+    el.innerHTML = `
+      <div class="qa-row">
+        <div class="qa-q"><a href="${escapeHtml(pick.url)}" target="_blank" rel="noopener" style="color:inherit;">${escapeHtml(pick.title)}</a></div>
+        <div class="qa-time">${escapeHtml(pick.channel)} · ${escapeHtml(pick.date || "")}</div>
+      </div>`;
+  }
+
   function formatClockTime(iso){
     if (!iso) return "";
     try {
@@ -735,6 +752,7 @@
     renderStatsPanel("sage-stats", data.sage_stats, "아직 검증된 판단 없음");
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
+    renderYoutubePick(data.youtube_pick);
     renderStrategyPanel(data.strategy_room);
     renderLog(data.activity_log);
   }
