@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T16:27:48",
+  "updated_at": "2026-07-14T16:32:49",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T16:27:48",
-      "last_action": "리나 이벤트 기록 (누적 1674건)"
+      "since": "2026-07-14T16:32:49",
+      "last_action": "리나 이벤트 기록 (누적 1680건)"
     },
     "vera": {
       "name": "베라",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T16:27:47",
+      "since": "2026-07-14T16:32:49",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T16:27:48",
+      "since": "2026-07-14T16:32:49",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,59 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-14T16:27:48",
+      "since": "2026-07-14T16:32:49",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-14T16:12:34",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
-    {
-      "time": "2026-07-14T16:12:34",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-07-14T16:12:35",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-14T16:13:33",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-14T16:13:59",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 분석 중"
-    },
-    {
-      "time": "2026-07-14T16:13:59",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
     {
       "time": "2026-07-14T16:14:52",
       "employee": "leo",
@@ -647,6 +599,54 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "idle",
       "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T16:32:48",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T16:32:48",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T16:32:48",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T16:32:49",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T16:32:49",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T16:32:49",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
     }
   ],
   "trader_stats": {
@@ -788,6 +788,7 @@
   ],
   "strategy_room": {
     "pending": 0,
+    "pending_list": [],
     "recent": [
       {
         "question": "오피스 웹 기능 테스트용 질문입니다. 지금 SK하이닉스 비중을 늘려도 될까요?",

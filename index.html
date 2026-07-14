@@ -177,6 +177,7 @@
   .qa-row{ background:var(--wall); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
   .qa-row .qa-q{ font-size:14px; color:var(--cream); font-weight:700; margin-bottom:6px; }
   .qa-row .qa-a{ font-family:var(--sans); font-size:12.5px; line-height:1.6; color:var(--cream); opacity:0.9; margin-top:2px; white-space:pre-line; max-height:none; }
+  .qa-row .qa-a.qa-waiting{ font-family:var(--mono); color:var(--working); opacity:1; font-weight:600; }
   .qa-row .qa-time{ font-family:var(--mono); font-size:10px; color:var(--muted); margin-top:8px; display:block; }
   .qa-pending{ font-family:var(--mono); font-size:12px; color:var(--working); margin-bottom:10px; }
 
@@ -610,28 +611,50 @@
     el.innerHTML = `<div class="alert-list">${alerts.map(a => `<div class="alert-row">${escapeHtml(a)}</div>`).join("")}</div>`;
   }
 
+  function formatClockTime(iso){
+    if (!iso) return "";
+    try {
+      return new Date(iso).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit", hour12: false });
+    } catch (e) {
+      return "";
+    }
+  }
+
   function renderStrategyPanel(room){
     const el = document.getElementById("strategy-qa");
     if (!room){
       el.innerHTML = '<div class="panel-empty">아직 남긴 질문 없음</div>';
       return;
     }
-    const pendingHtml = room.pending > 0 ? `<div class="qa-pending">🕐 검토 중인 질문 ${room.pending}건 (5~10분 내 답변)</div>` : "";
-    const recent = (room.recent || []).slice().reverse().slice(0, 5);
-    if (recent.length === 0){
-      el.innerHTML = pendingHtml + '<div class="panel-empty">아직 답변된 질문 없음</div>';
+
+    // 답변 대기 중(pending_list) + 답변 완료(recent)를 남긴 시각(asked_at) 기준으로 합쳐
+    // "내가 남긴 질문" 하나의 목록으로 보여준다 — 답변이 있으면 그 밑에 바로 표시.
+    const pendingItems = (room.pending_list || []).map(qa => ({ ...qa, answered: false }));
+    const answeredItems = (room.recent || []).map(qa => ({ ...qa, answered: true }));
+    const merged = pendingItems.concat(answeredItems)
+      .sort((a, b) => new Date(b.asked_at || 0) - new Date(a.asked_at || 0))
+      .slice(0, 8);
+
+    if (merged.length === 0){
+      el.innerHTML = '<div class="panel-empty">아직 남긴 질문 없음</div>';
       return;
     }
-    const rows = recent.map(qa => {
-      const t = qa.answered_at ? timeAgo(qa.answered_at) : "";
+
+    const rows = merged.map(qa => {
+      const askedTime = formatClockTime(qa.asked_at);
+      const askedLabel = askedTime ? `${askedTime} 제출` : "";
+      const answerHtml = qa.answered
+        ? `<div class="qa-a">${escapeHtml(qa.answer)}</div>
+           <div class="qa-time">${askedLabel} · ${timeAgo(qa.answered_at)} 답변 · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">전체 보기 ↗</a></div>`
+        : `<div class="qa-a qa-waiting">🕐 답변 대기 중 (5~10분 내)</div>
+           <div class="qa-time">${askedLabel} · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">이슈 보기 ↗</a></div>`;
       return `
         <div class="qa-row">
           <div class="qa-q">Q. ${escapeHtml(qa.question)}</div>
-          <div class="qa-a">${escapeHtml(qa.answer)}</div>
-          <div class="qa-time">${t} · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">전체 보기 ↗</a></div>
+          ${answerHtml}
         </div>`;
     }).join("");
-    el.innerHTML = pendingHtml + `<div class="strategy-qa">${rows}</div>`;
+    el.innerHTML = `<div class="strategy-qa">${rows}</div>`;
   }
 
   // 로컬(Obsidian)에서 열었을 때는 127.0.0.1의 strategy_submit_server.py가 GitHub 이슈를
