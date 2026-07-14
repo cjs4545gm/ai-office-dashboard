@@ -779,14 +779,23 @@
     renderLog(data.activity_log);
   }
 
+  let hasLoadedRealData = false;
+
   async function refresh(){
     try {
       const res = await fetch(`status.json?t=${Date.now()}`, { cache: "no-store" });
       if (!res.ok) throw new Error(res.status);
       const data = await res.json();
+      hasLoadedRealData = true;
       applyData(data);
     } catch (e) {
-      applyData(FALLBACK_DATA);
+      // 최초 로드가 실패했을 때만(Obsidian 밖 공유 링크 등, 진짜 status.json에 접근 못하는
+      // 경우) 2026-07-07자 하드코딩 샘플로 대체한다. 한 번이라도 실제 데이터를 받아온 뒤에는
+      // 이후 폴링에서 일시적으로 fetch가 실패해도(파일 교체 찰나의 레이스 등) 오래된 샘플로
+      // 덮어쓰지 않고 마지막으로 성공한 화면을 그대로 유지한다 — 전에는 이 순간에 전략실
+      // 질문/답변이 통째로 사라진 것처럼 보였다(2026-07-14 실측 발견: FALLBACK_DATA엔 애초에
+      // strategy_room 자체가 없어서 방금 답변된 질문도 화면에서 사라져 보였음).
+      if (!hasLoadedRealData) applyData(FALLBACK_DATA);
     }
   }
 
