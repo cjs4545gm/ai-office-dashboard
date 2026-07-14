@@ -296,9 +296,9 @@
     <div class="dept-head"><h2>🧭 전략실에 물어보기</h2><span class="dept-desc">아이비·맥스·리나 — 5~10분 내 검토 후 답변</span></div>
     <div class="strategy-form">
       <textarea id="strategy-input" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
-      <button id="strategy-submit" type="button">질문 남기기 (GitHub로 이동)</button>
+      <button id="strategy-submit" type="button">질문 남기기</button>
     </div>
-    <div class="strategy-hint">제출하면 GitHub 이슈 작성 화면으로 이동합니다(본인 GitHub 로그인 필요, 1회 확인 클릭). 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 이슈에 답변을 남깁니다.</div>
+    <div class="strategy-hint" id="strategy-hint">로컬 서버로 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 GitHub 이슈에 답변을 남깁니다.</div>
     <div id="strategy-qa"><div class="panel-empty">아직 남긴 질문 없음</div></div>
   </div>
 
@@ -634,15 +634,69 @@
     el.innerHTML = pendingHtml + `<div class="strategy-qa">${rows}</div>`;
   }
 
-  document.getElementById("strategy-submit").addEventListener("click", () => {
-    const input = document.getElementById("strategy-input");
-    const text = input.value.trim();
-    if (!text) return;
+  // 로컬(Obsidian)에서 열었을 때는 127.0.0.1의 strategy_submit_server.py가 GitHub 이슈를
+  // 대신 만들어줘서 화면 이동 없이 바로 접수된다. 공개 GitHub Pages 버전 등 로컬 서버가 없는
+  // 환경에서는 기존처럼 github.com 이슈 작성 화면으로 이동하는 방식으로 자동 폴백한다.
+  const LOCAL_SUBMIT_ORIGIN = "http://127.0.0.1:8765";
+  let localSubmitAvailable = null;
+
+  async function checkLocalSubmit(){
+    try {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/health`, { signal: AbortSignal.timeout(1500) });
+      localSubmitAvailable = resp.ok;
+    } catch (e) {
+      localSubmitAvailable = false;
+    }
+    const hint = document.getElementById("strategy-hint");
+    hint.textContent = localSubmitAvailable
+      ? "제출하면 화면 이동 없이 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 GitHub 이슈에 답변을 남깁니다."
+      : "제출하면 GitHub 이슈 작성 화면으로 이동합니다(본인 GitHub 로그인 필요, 1회 확인 클릭). 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 이슈에 답변을 남깁니다.";
+  }
+  checkLocalSubmit();
+
+  function openGithubIssueFallback(text){
     const title = text.length > 60 ? text.slice(0, 60) + "…" : text;
     const body = `${text}\n\n---\n오피스 웹에서 남긴 질문입니다. 전략실(아이비·맥스·리나)이 5~10분 내 검토 후 이 이슈에 댓글로 답변합니다.`;
     const url = `https://github.com/cjs4545gm/ai-office-dashboard/issues/new?labels=strategy-question&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
     window.open(url, "_blank", "noopener");
-    input.value = "";
+  }
+
+  document.getElementById("strategy-submit").addEventListener("click", async () => {
+    const input = document.getElementById("strategy-input");
+    const button = document.getElementById("strategy-submit");
+    const text = input.value.trim();
+    if (!text) return;
+
+    if (localSubmitAvailable === null) await checkLocalSubmit();
+
+    if (!localSubmitAvailable){
+      openGithubIssueFallback(text);
+      input.value = "";
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "접수 중...";
+    try {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: text }),
+        signal: AbortSignal.timeout(15000),
+      });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "제출 실패");
+      input.value = "";
+      button.textContent = "✅ 접수 완료";
+      setTimeout(() => { button.textContent = "질문 남기기"; }, 2000);
+    } catch (e) {
+      // 로컬 서버가 방금 죽었거나 응답이 늦는 등 실패 시에도 질문을 잃지 않도록 기존 방식으로 폴백
+      openGithubIssueFallback(text);
+      input.value = "";
+      button.textContent = "질문 남기기";
+    } finally {
+      button.disabled = false;
+    }
   });
 
   function applyData(data){
