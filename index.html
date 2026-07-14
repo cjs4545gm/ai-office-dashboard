@@ -637,18 +637,38 @@
     }
   }
 
+  // 로컬 제출 성공 직후엔 strategy_advisor.py의 다음 5분 폴링이 status.json에 반영하기
+  // 전까지 목록에 아무것도 안 뜨는 것처럼 보였다(2026-07-14, 실측: 제출 성공했는데도 "무슨
+  // 질문인지도 안 뜨고 답변도 안 온다"는 리포트 — 실제론 폴링 전이라 정상이었지만, 사용자
+  // 입장에선 접수됐다는 확신이 없어 보임). 그래서 로컬 제출이 성공하면 issue_url을 여기 바로
+  // 넣어 폴링을 기다리지 않고 즉시 "답변 대기 중"으로 보여주고, room 데이터에 같은
+  // issue_url이 나타나면(폴링이 따라잡으면) 그걸로 교체한다.
+  let lastStrategyRoom = null;
+  const optimisticQuestions = [];
+
   function renderStrategyPanel(room){
+    lastStrategyRoom = room;
     const el = document.getElementById("strategy-qa");
-    if (!room){
+    if (!room && optimisticQuestions.length === 0){
       el.innerHTML = '<div class="panel-empty">아직 남긴 질문 없음</div>';
       return;
     }
 
     // 답변 대기 중(pending_list) + 답변 완료(recent)를 남긴 시각(asked_at) 기준으로 합쳐
     // "내가 남긴 질문" 하나의 목록으로 보여준다 — 답변이 있으면 그 밑에 바로 표시.
-    const pendingItems = (room.pending_list || []).map(qa => ({ ...qa, answered: false }));
-    const answeredItems = (room.recent || []).map(qa => ({ ...qa, answered: true }));
-    const merged = pendingItems.concat(answeredItems)
+    const knownUrls = new Set([
+      ...((room && room.pending_list) || []).map(q => q.issue_url),
+      ...((room && room.recent) || []).map(q => q.issue_url),
+    ]);
+    // 서버가 이미 같은 이슈를 인식했으면(폴링이 따라잡음) 임시 항목은 버린다.
+    for (let i = optimisticQuestions.length - 1; i >= 0; i--){
+      if (knownUrls.has(optimisticQuestions[i].issue_url)) optimisticQuestions.splice(i, 1);
+    }
+
+    const pendingItems = ((room && room.pending_list) || []).map(qa => ({ ...qa, answered: false }));
+    const answeredItems = ((room && room.recent) || []).map(qa => ({ ...qa, answered: true }));
+    const optimisticItems = optimisticQuestions.map(qa => ({ ...qa, answered: false }));
+    const merged = pendingItems.concat(answeredItems, optimisticItems)
       .sort((a, b) => new Date(b.asked_at || 0) - new Date(a.asked_at || 0))
       .slice(0, 8);
 
@@ -728,6 +748,8 @@
       if (!resp.ok || !data.ok) throw new Error(data.error || "제출 실패");
       input.value = "";
       button.textContent = "✅ 접수 완료";
+      optimisticQuestions.push({ question: text, asked_at: new Date().toISOString(), issue_url: data.issue_url });
+      renderStrategyPanel(lastStrategyRoom);
       setTimeout(() => { button.textContent = "질문 남기기"; }, 2000);
     } catch (e) {
       // 로컬 서버가 방금 죽었거나 응답이 늦는 등 실패 시에도 질문을 잃지 않도록 기존 방식으로 폴백
