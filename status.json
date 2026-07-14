@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T16:22:46",
+  "updated_at": "2026-07-14T16:27:48",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T16:22:45",
-      "last_action": "리나 이벤트 기록 (누적 1668건)"
+      "since": "2026-07-14T16:27:48",
+      "last_action": "리나 이벤트 기록 (누적 1674건)"
     },
     "vera": {
       "name": "베라",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-14T16:22:45",
-      "last_action": "답변 완료: 나 이노텍이 지금 마이너스 40%인데 이거 다 손절하고…"
+      "status": "idle",
+      "since": "2026-07-14T16:27:47",
+      "last_action": "질문 대기 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-14T16:22:45",
-      "last_action": "답변 완료: 나 이노텍이 지금 마이너스 40%인데 이거 다 손절하고…"
+      "status": "idle",
+      "since": "2026-07-14T16:27:48",
+      "last_action": "질문 대기 중"
     },
     "rina": {
       "name": "리나",
@@ -228,60 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-14T16:22:45",
-      "last_action": "답변 완료: 나 이노텍이 지금 마이너스 40%인데 이거 다 손절하고…"
+      "status": "idle",
+      "since": "2026-07-14T16:27:48",
+      "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-14T16:11:12",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T16:11:12",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-14T16:11:13",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T16:11:13",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T16:11:13",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-14T16:11:16",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
     {
       "time": "2026-07-14T16:12:34",
       "employee": "juno",
@@ -647,6 +599,54 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "done",
       "action": "답변 완료: 나 이노텍이 지금 마이너스 40%인데 이거 다 손절하고…"
+    },
+    {
+      "time": "2026-07-14T16:27:47",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T16:27:47",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T16:27:47",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T16:27:47",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T16:27:48",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "idle",
+      "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-14T16:27:48",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "idle",
+      "action": "질문 대기 중"
     }
   ],
   "trader_stats": {
