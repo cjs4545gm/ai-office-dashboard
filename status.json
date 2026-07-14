@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T20:24:00",
+  "updated_at": "2026-07-14T21:03:27",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T20:23:59",
-      "last_action": "리나 이벤트 기록 (누적 1973건)"
+      "since": "2026-07-14T21:03:27",
+      "last_action": "리나 이벤트 기록 (누적 1991건)"
     },
     "vera": {
       "name": "베라",
@@ -75,8 +75,8 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T20:08:09",
-      "last_action": "이슈 2건 감지"
+      "since": "2026-07-14T21:00:24",
+      "last_action": "이상없음"
     },
     "scout": {
       "name": "스카우트",
@@ -86,7 +86,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T20:08:09",
+      "since": "2026-07-14T21:00:24",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T20:08:09",
+      "since": "2026-07-14T21:00:18",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -196,7 +196,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-14T20:08:09",
+      "since": "2026-07-14T21:00:18",
       "last_action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
     },
     "ivy": {
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-14T20:23:59",
-      "last_action": "답변 생성 실패: claude CLI 실패 (code 1): "
+      "status": "working",
+      "since": "2026-07-14T21:03:27",
+      "last_action": "질문 검토 중: 나 이노텍 마이너스 40%인데 이거 손절하고 하이닉스 …"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-14T20:23:59",
-      "last_action": "답변 생성 실패: claude CLI 실패 (code 1): "
+      "status": "working",
+      "since": "2026-07-14T21:03:27",
+      "last_action": "질문 검토 중: 나 이노텍 마이너스 40%인데 이거 손절하고 하이닉스 …"
     },
     "rina": {
       "name": "리나",
@@ -228,160 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-14T20:23:59",
-      "last_action": "답변 생성 실패: claude CLI 실패 (code 1): "
+      "status": "working",
+      "since": "2026-07-14T21:03:27",
+      "last_action": "질문 검토 중: 나 이노텍 마이너스 40%인데 이거 손절하고 하이닉스 …"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 0건 수집"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "유튜브 종목 언급 확인 중"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 유튜브 언급 없음"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이슈 3건 감지"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-07-14T20:08:09",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이슈 2건 감지",
-      "detail": [
-        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석",
-        "수급 데이터 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍"
-      ]
-    },
-    {
-      "time": "2026-07-14T20:14:41",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-14T20:14:41",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-14T20:14:41",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
-    {
-      "time": "2026-07-14T20:14:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-07-14T20:14:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 0건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-14T20:21:48",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 기존 노트 유지 — 재분석 실패"
-    },
-    {
-      "time": "2026-07-14T20:21:48",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 분석 중"
-    },
-    {
-      "time": "2026-07-14T20:21:48",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 0건, 리포트 0건)"
-    },
     {
       "time": "2026-07-14T20:21:50",
       "employee": "tam",
@@ -659,6 +511,150 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "error",
       "action": "답변 생성 실패: claude CLI 실패 (code 1): "
+    },
+    {
+      "time": "2026-07-14T21:00:03",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-14T21:00:03",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-14T21:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-07-14T21:00:18",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-14T21:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "유튜브 종목 언급 확인 중"
+    },
+    {
+      "time": "2026-07-14T21:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 유튜브 언급 없음"
+    },
+    {
+      "time": "2026-07-14T21:00:18",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
+    },
+    {
+      "time": "2026-07-14T21:00:18",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
+    },
+    {
+      "time": "2026-07-14T21:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-14T21:00:24",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-14T21:00:24",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-14T21:00:24",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-14T21:03:26",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T21:03:26",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T21:03:26",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "새 질문 확인 중"
+    },
+    {
+      "time": "2026-07-14T21:03:27",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍 마이너스 40%인데 이거 손절하고 하이닉스 …"
+    },
+    {
+      "time": "2026-07-14T21:03:27",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍 마이너스 40%인데 이거 손절하고 하이닉스 …"
+    },
+    {
+      "time": "2026-07-14T21:03:27",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "질문 검토 중: 나 이노텍 마이너스 40%인데 이거 손절하고 하이닉스 …"
     }
   ],
   "trader_stats": {
