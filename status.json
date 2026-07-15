@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-15T12:01:02",
+  "updated_at": "2026-07-15T12:06:03",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-15T11:05:06",
-      "last_action": "이슈 6건 감지"
+      "since": "2026-07-15T12:05:03",
+      "last_action": "이상없음"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-15T11:05:06",
+      "since": "2026-07-15T12:05:03",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리나 이벤트 기록 (누적 2439건)",
-      "since": "2026-07-15T12:01:02"
+      "last_action": "오즈 이벤트 기록 (누적 2443건)",
+      "since": "2026-07-15T12:05:03"
     },
     "callie": {
       "name": "캘리",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-15T12:01:02",
+      "since": "2026-07-15T12:06:03",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-15T12:01:02",
+      "since": "2026-07-15T12:06:03",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,43 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-15T12:01:02",
+      "since": "2026-07-15T12:06:03",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-15T11:30:57",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-15T11:30:57",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "idle",
-      "action": "질문 대기 중"
-    },
-    {
-      "time": "2026-07-15T11:35:57",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
-    {
-      "time": "2026-07-15T11:35:57",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "working",
-      "action": "새 질문 확인 중"
-    },
     {
       "time": "2026-07-15T11:35:57",
       "employee": "rina",
@@ -633,6 +601,38 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "idle",
       "action": "질문 대기 중"
+    },
+    {
+      "time": "2026-07-15T12:05:00",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-15T12:05:03",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-15T12:05:03",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-15T12:05:03",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": null,
