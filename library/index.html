@@ -516,6 +516,67 @@
     });
   }
 
+  // OpenLibrary(openlibrary.org/search.json) — 키 불필요, add_book.py의
+  // search_openlibrary_candidates()와 동일한 매핑(2026-07-15 추가). Google Books 결과가
+  // 없을 때(할당량 소진 포함) 폴백으로만 호출된다.
+  async function searchOpenLibraryDirect(title){
+    const resp = await fetch(
+      `https://openlibrary.org/search.json?q=${encodeURIComponent(title)}&limit=5`,
+      { signal: AbortSignal.timeout(15000) },
+    );
+    if (!resp.ok) throw new Error(`OpenLibrary 조회 실패 (${resp.status})`);
+    const data = await resp.json();
+    return (data.docs || []).slice(0, 5).map(doc => {
+      const coverId = doc.cover_i;
+      const isbns = doc.isbn || [];
+      return {
+        title: doc.title || title,
+        author: (doc.author_name || []).join(", "),
+        publisher: (doc.publisher || [""])[0],
+        cover: coverId ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` : "",
+        isbn: isbns[0] || "",
+        source: "openlibrary",
+      };
+    });
+  }
+
+  // NDL Search(일본 국립국회도서관, ndlsearch.ndl.go.jp) — 키 불필요, 일본어 도서 커버리지가
+  // Google Books/OpenLibrary보다 훨씬 좋다. add_book.py의 search_ndl_candidates()와 동일한
+  // 매핑을 XML(DOMParser)로 재현(2026-07-15 추가). <category>가 "図書"인 item만 책으로 채택.
+  async function searchNdlDirect(title){
+    const resp = await fetch(
+      `https://ndlsearch.ndl.go.jp/api/opensearch?title=${encodeURIComponent(title)}&cnt=15`,
+      { signal: AbortSignal.timeout(15000) },
+    );
+    if (!resp.ok) throw new Error(`NDL 조회 실패 (${resp.status})`);
+    const xmlText = await resp.text();
+    const xmlDoc = new DOMParser().parseFromString(xmlText, "application/xml");
+    if (xmlDoc.querySelector("parsererror")) throw new Error("NDL 응답 파싱 실패");
+    const candidates = [];
+    for (const item of Array.from(xmlDoc.getElementsByTagName("item"))) {
+      const categories = Array.from(item.getElementsByTagName("category")).map(c => c.textContent);
+      if (!categories.includes("図書")) continue;
+      const dcTitle = item.getElementsByTagName("dc:title")[0];
+      const dcCreator = item.getElementsByTagName("dc:creator")[0];
+      const dcPublisher = item.getElementsByTagName("dc:publisher")[0];
+      let isbn = "";
+      for (const ident of Array.from(item.getElementsByTagName("dc:identifier"))) {
+        const text = (ident.textContent || "").trim();
+        if (/^[\d-]{9,17}$/.test(text)) { isbn = text; break; }
+      }
+      candidates.push({
+        title: (dcTitle && dcTitle.textContent) || title,
+        author: ((dcCreator && dcCreator.textContent) || "").trim(),
+        publisher: ((dcPublisher && dcPublisher.textContent) || "").trim(),
+        cover: "",
+        isbn,
+        source: "ndl",
+      });
+      if (candidates.length >= 5) break;
+    }
+    return candidates;
+  }
+
   function openGithubIssueFallback(title, meta){
     let body = `${title}\n\n---\n서재 웹에서 남긴 책 추가 요청입니다.`;
     if (meta) {
@@ -642,7 +703,17 @@
         if (!resp.ok || !data.ok) throw new Error(data.error || "검색 실패");
         candidates = data.candidates || [];
       } else {
-        candidates = await searchGoogleBooksDirect(title);
+        // add_book.py의 search_candidates()와 동일한 순서: Google Books를 먼저 시도하고
+        // (실패해도 예외를 던지지 않고 빈 배열로 처리 — 할당량 소진 429가 흔함), 결과가
+        // 없을 때만 OpenLibrary+NDL을 추가로 시도해 합친다.
+        candidates = await searchGoogleBooksDirect(title).catch(() => []);
+        if (candidates.length === 0){
+          const [olResults, ndlResults] = await Promise.all([
+            searchOpenLibraryDirect(title).catch(() => []),
+            searchNdlDirect(title).catch(() => []),
+          ]);
+          candidates = olResults.concat(ndlResults).slice(0, 5);
+        }
       }
       lastCandidates = candidates;
       const list = document.getElementById("candidate-list");
