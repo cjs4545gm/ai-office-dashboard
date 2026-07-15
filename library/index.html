@@ -566,9 +566,11 @@
   // Google Books/OpenLibrary보다 훨씬 좋다. add_book.py의 search_ndl_candidates()와 동일한
   // 매핑을 XML(DOMParser)로 재현(2026-07-15 추가). <category>가 "図書"인 item만 책으로 채택.
   async function searchNdlDirect(title){
+    // 길고 복잡한 검색어는 NDL 응답이 12초 넘게 걸리기도 해서(2026-07-15 실측, add_book.py의
+    // search_ndl_candidates()와 동일한 이유) 25초로 넉넉히 잡는다.
     const resp = await fetch(
       `https://ndlsearch.ndl.go.jp/api/opensearch?title=${encodeURIComponent(title)}&cnt=15`,
-      { signal: AbortSignal.timeout(15000) },
+      { signal: AbortSignal.timeout(25000) },
     );
     if (!resp.ok) throw new Error(`NDL 조회 실패 (${resp.status})`);
     const xmlText = await resp.text();
