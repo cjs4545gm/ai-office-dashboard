@@ -194,6 +194,26 @@
   .modal-message.error{ color:#f0a94e; }
   .modal-message.success{ color:var(--done); }
   .modal-readonly-note{ font-size:12px; color:var(--muted); font-style:italic; }
+
+  .confirm-modal{ max-width:420px; }
+  .confirm-covers{ display:flex; gap:12px; align-items:flex-start; margin-bottom:14px; }
+  .confirm-cover{ width:72px; height:100px; object-fit:cover; border-radius:6px; background:#150f1f; flex-shrink:0; }
+  .confirm-cover-fallback{
+    width:72px; height:100px; border-radius:6px; background:#150f1f; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:26px; color:var(--muted);
+  }
+  .confirm-photo-preview{ width:72px; height:100px; object-fit:cover; border-radius:6px; background:#150f1f; flex-shrink:0; }
+  .confirm-title{ font-size:14.5px; font-weight:700; margin-bottom:2px; }
+  .confirm-author{ font-size:12.5px; color:var(--muted); }
+  .confirm-photo-label{ font-size:12.5px; color:var(--muted); display:block; margin:10px 0 6px; }
+  .confirm-photo-input{ font-size:12.5px; color:var(--cream); }
+  .reading-log-entry{
+    padding:8px 10px; border-radius:8px; background:var(--card); border:1px solid var(--line);
+    margin-bottom:6px;
+  }
+  .reading-log-date{ font-size:11.5px; color:var(--muted); font-weight:600; margin-bottom:3px; }
+  .reading-log-text{ font-size:13px; white-space:pre-wrap; line-height:1.5; }
+  .modal-photo-row{ display:flex; gap:10px; margin-bottom:14px; }
 </style>
 </head>
 <body>
@@ -273,8 +293,10 @@
   }
 
   function cardHTML(book){
-    const cover = book.cover
-      ? `<img src="${escapeHtml(book.cover)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'cover-fallback\\'>📖</div>'">`
+    // 내 사진이 있으면 공식 표지 대신 카드 썸네일로 우선 표시("실제 내 책을 보는 느낌", 2026-07-15).
+    const thumbSrc = book.photo || book.cover;
+    const cover = thumbSrc
+      ? `<img src="${escapeHtml(thumbSrc)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'cover-fallback\\'>📖</div>'">`
       : `<div class="cover-fallback">📖</div>`;
     const badge = book.status ? `<span class="status-badge ${statusClass(book.status)}">${escapeHtml(book.status)}</span>` : "";
     const obsidianBtn = `<a class="book-obsidian-link" href="${obsidianLink(book.file)}" title="Obsidian에서 열기" onclick="event.stopPropagation()">📓</a>`;
