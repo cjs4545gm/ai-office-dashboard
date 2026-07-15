@@ -258,6 +258,7 @@
     const card = delBtn.closest(".book-card");
     const file = card.dataset.file;
     const title = card.dataset.title;
+    await checkLocalSubmit();  // 캐시된 값을 믿지 않고 매번 다시 확인(위 검색/추가와 동일한 이유)
     if (localSubmitAvailable !== true){
       showAddMessage("삭제는 이 서재 파일이 있는 기기(로컬)에서만 가능합니다.", "error");
       return;
@@ -393,7 +394,12 @@
     const title = titleInput.value.trim();
     if (!title) return;
 
-    if (localSubmitAvailable === null) await checkLocalSubmit();
+    // 페이지 로드 시점의 1회성 헬스체크 결과를 영구 캐시하지 않고 제출 직전에 매번 다시 확인—
+    // 로드 당시 서버가 막 재시작 중이었거나 순간적으로 응답이 늦었을 경우, 그 뒤로 서버가
+    // 멀쩡히 떠 있어도 이 페이지에서는 계속 GitHub 폴백만 타는 문제를 방지한다
+    // (2026-07-14 실측 재현: book-submit-server를 여러 번 재시작하며 테스트하던 중 사용자가
+    // 페이지를 열어 최초 체크가 실패로 캐시된 채 이후 클릭에서도 계속 GitHub로 넘어갔음).
+    await checkLocalSubmit();
 
     if (!localSubmitAvailable){
       openGithubIssueFallback(title);
