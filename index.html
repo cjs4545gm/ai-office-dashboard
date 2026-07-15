@@ -807,7 +807,11 @@
     const text = input.value.trim();
     if (!text) return;
 
-    if (localSubmitAvailable === null) await checkLocalSubmit();
+    // 페이지 로드 시점의 1회성 헬스체크 결과를 영구 캐시하지 않고 제출 직전에 매번 다시 확인 —
+    // 서재.html의 검색/추가와 동일한 이유(2026-07-15 실측: 서버는 멀쩡히 떠 있는데 로드 당시
+    // 순간적인 응답 지연으로 false가 캐시된 채 이후 질문마다 계속 GitHub 폴백만 탐 + 낙관적
+    // 표시(optimisticQuestions)도 로컬 경로에서만 동작해서 "기록이 안 남는다"는 증상까지 겹침).
+    await checkLocalSubmit();
 
     if (!localSubmitAvailable){
       openGithubIssueFallback(text);
