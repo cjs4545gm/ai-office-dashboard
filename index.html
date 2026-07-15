@@ -760,11 +760,20 @@
     const rows = merged.map(qa => {
       const askedTime = formatClockTime(qa.asked_at);
       const askedLabel = askedTime ? `${askedTime} 제출` : "";
+      const issueLink = qa.issue_url
+        ? ` · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">이슈 보기 ↗</a>`
+        : "";
       const answerHtml = qa.answered
         ? `<div class="qa-a">${escapeHtml(qa.answer)}</div>
            <div class="qa-time">${askedLabel} · ${timeAgo(qa.answered_at)} 답변 · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">전체 보기 ↗</a></div>`
+        : qa.status === "submitting"
+        ? `<div class="qa-a qa-waiting">⏳ 접수 중...</div>
+           <div class="qa-time">${askedLabel}</div>`
+        : qa.status === "failed"
+        ? `<div class="qa-a qa-waiting">⚠️ 접수 실패 — 로컬 서버 연결 안 됨. 다시 시도해주세요.</div>
+           <div class="qa-time">${askedLabel}</div>`
         : `<div class="qa-a qa-waiting">🕐 답변 대기 중 (5~10분 내)</div>
-           <div class="qa-time">${askedLabel} · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">이슈 보기 ↗</a></div>`;
+           <div class="qa-time">${askedLabel}${issueLink}</div>`;
       return `
         <div class="qa-row">
           <div class="qa-q">Q. ${escapeHtml(qa.question)}</div>
@@ -774,9 +783,10 @@
     el.innerHTML = `<div class="strategy-qa">${rows}</div>`;
   }
 
-  // 로컬(Obsidian)에서 열었을 때는 127.0.0.1의 strategy_submit_server.py가 GitHub 이슈를
-  // 대신 만들어줘서 화면 이동 없이 바로 접수된다. 공개 GitHub Pages 버전 등 로컬 서버가 없는
-  // 환경에서는 기존처럼 github.com 이슈 작성 화면으로 이동하는 방식으로 자동 폴백한다.
+  // 127.0.0.1의 strategy_submit_server.py가 GitHub 이슈를 대신 만들어줘서 화면 이동 없이
+  // 바로 접수된다. 예전엔 로컬 서버가 안 잡히면 github.com 이슈 작성 화면으로 새 탭을 여는
+  // 폴백이 있었는데, 화면 전환 자체가 원치 않는 동작이라 없앴다(2026-07-15) — 이제 로컬
+  // 서버에 연결이 안 되면 그냥 목록에 "접수 실패"로 표시하고 끝, 어디로도 이동하지 않는다.
   const LOCAL_SUBMIT_ORIGIN = "http://127.0.0.1:8765";
   let localSubmitAvailable = null;
 
@@ -789,17 +799,10 @@
     }
     const hint = document.getElementById("strategy-hint");
     hint.textContent = localSubmitAvailable
-      ? "제출하면 화면 이동 없이 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 GitHub 이슈에 답변을 남깁니다."
-      : "제출하면 GitHub 이슈 작성 화면으로 이동합니다(본인 GitHub 로그인 필요, 1회 확인 클릭). 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 이슈에 답변을 남깁니다.";
+      ? "제출하면 화면 이동 없이 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 답변을 남깁니다."
+      : "⚠️ 로컬 서버(Mac)에 연결할 수 없어 지금은 질문을 접수할 수 없습니다. Mac에서 오피스가 켜져 있는지 확인해주세요.";
   }
   checkLocalSubmit();
-
-  function openGithubIssueFallback(text){
-    const title = text.length > 60 ? text.slice(0, 60) + "…" : text;
-    const body = `${text}\n\n---\n오피스 웹에서 남긴 질문입니다. 전략실(아이비·맥스·리나)이 5~10분 내 검토 후 이 이슈에 댓글로 답변합니다.`;
-    const url = `https://github.com/cjs4545gm/ai-office-dashboard/issues/new?labels=strategy-question&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
-    window.open(url, "_blank", "noopener");
-  }
 
   document.getElementById("strategy-submit").addEventListener("click", async () => {
     const input = document.getElementById("strategy-input");
@@ -807,20 +810,30 @@
     const text = input.value.trim();
     if (!text) return;
 
+    // 제출 요청이 끝나기 전에도 "무슨 질문을 남겼는지" 바로 밑에 보이도록, 클릭 즉시
+    // 낙관적 항목부터 추가하고 이후 성공/실패에 따라 같은 항목의 상태만 갱신한다.
+    input.value = "";
+    button.disabled = true;
+    button.textContent = "접수 중...";
+    const entry = { question: text, asked_at: new Date().toISOString(), status: "submitting" };
+    optimisticQuestions.push(entry);
+    saveOptimisticQuestions();
+    renderStrategyPanel(lastStrategyRoom);
+
     // 페이지 로드 시점의 1회성 헬스체크 결과를 영구 캐시하지 않고 제출 직전에 매번 다시 확인 —
     // 서재.html의 검색/추가와 동일한 이유(2026-07-15 실측: 서버는 멀쩡히 떠 있는데 로드 당시
-    // 순간적인 응답 지연으로 false가 캐시된 채 이후 질문마다 계속 GitHub 폴백만 탐 + 낙관적
-    // 표시(optimisticQuestions)도 로컬 경로에서만 동작해서 "기록이 안 남는다"는 증상까지 겹침).
+    // 순간적인 응답 지연으로 false가 캐시된 채 이후 질문마다 계속 실패 취급되는 문제가 있었음).
     await checkLocalSubmit();
 
     if (!localSubmitAvailable){
-      openGithubIssueFallback(text);
-      input.value = "";
+      entry.status = "failed";
+      saveOptimisticQuestions();
+      renderStrategyPanel(lastStrategyRoom);
+      button.disabled = false;
+      button.textContent = "질문 남기기";
       return;
     }
 
-    button.disabled = true;
-    button.textContent = "접수 중...";
     try {
       const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/submit`, {
         method: "POST",
@@ -830,16 +843,16 @@
       });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "제출 실패");
-      input.value = "";
-      button.textContent = "✅ 접수 완료";
-      optimisticQuestions.push({ question: text, asked_at: new Date().toISOString(), issue_url: data.issue_url });
+      entry.status = "pending";
+      entry.issue_url = data.issue_url;
       saveOptimisticQuestions();
       renderStrategyPanel(lastStrategyRoom);
+      button.textContent = "✅ 접수 완료";
       setTimeout(() => { button.textContent = "질문 남기기"; }, 2000);
     } catch (e) {
-      // 로컬 서버가 방금 죽었거나 응답이 늦는 등 실패 시에도 질문을 잃지 않도록 기존 방식으로 폴백
-      openGithubIssueFallback(text);
-      input.value = "";
+      entry.status = "failed";
+      saveOptimisticQuestions();
+      renderStrategyPanel(lastStrategyRoom);
       button.textContent = "질문 남기기";
     } finally {
       button.disabled = false;
