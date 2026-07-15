@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "title": "__테스트책__",
+    "author": "",
+    "publisher": "",
+    "cover": "",
+    "isbn": "",
+    "status": "읽는 중",
+    "rating": "",
+    "started": "",
+    "finished": "",
+    "source": "manual",
+    "summary": "",
+    "tags": [
+      "책",
+      "테스트"
+    ],
+    "file": "__테스트책__.md"
+  }
+]

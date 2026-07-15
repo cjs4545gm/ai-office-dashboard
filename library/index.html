@@ -309,12 +309,41 @@
     const hint = document.getElementById("add-hint");
     hint.textContent = localSubmitAvailable
       ? "제목을 넣고 검색하면 후보 중에서 골라 바로 추가할 수 있습니다. (삭제도 이 화면에서 가능)"
-      : "검색 없이 GitHub 이슈 작성 화면으로 이동합니다(본인 GitHub 로그인 필요, 1회 확인 클릭). 5분 내 서재에 반영됩니다. 삭제는 로컬 기기에서만 가능합니다.";
+      : "검색은 이 화면에서 바로 됩니다 — 이 기기에 서버가 없으면 '추가'만 GitHub 이슈 작성 화면으로 넘어갑니다(본인 GitHub 로그인 필요, 1회 확인 클릭, 5분 내 서재에 반영). 삭제는 로컬 기기에서만 가능합니다.";
   }
   checkLocalSubmit();
 
-  function openGithubIssueFallback(title){
-    const body = `${title}\n\n---\n서재 웹에서 남긴 책 추가 요청입니다.`;
+  // 로컬 서버 없이도(GitHub Pages 등) 검색만은 항상 이 화면에서 끝나도록, Google Books 공개 API를
+  // 브라우저에서 직접 호출한다 — 키 불필요·CORS 허용되는 공식 API라 add_book.py의
+  // search_google_candidates()와 동일한 매핑을 JS로 그대로 재현(2026-07-15 추가).
+  async function searchGoogleBooksDirect(title){
+    const resp = await fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(title)}&maxResults=5`,
+      { signal: AbortSignal.timeout(15000) },
+    );
+    if (!resp.ok) throw new Error(`Google Books 조회 실패 (${resp.status})`);
+    const data = await resp.json();
+    return (data.items || []).map(item => {
+      const info = item.volumeInfo || {};
+      const imageLinks = info.imageLinks || {};
+      const isbnEntry = (info.industryIdentifiers || []).find(id => id.type === "ISBN_13" || id.type === "ISBN_10");
+      return {
+        title: info.title || title,
+        author: (info.authors || []).join(", "),
+        publisher: info.publisher || "",
+        cover: (imageLinks.thumbnail || imageLinks.smallThumbnail || "").replace("http://", "https://"),
+        isbn: isbnEntry ? isbnEntry.identifier : "",
+        source: "google",
+      };
+    });
+  }
+
+  function openGithubIssueFallback(title, meta){
+    let body = `${title}\n\n---\n서재 웹에서 남긴 책 추가 요청입니다.`;
+    if (meta) {
+      // book_request_watcher.py가 이 마커를 파싱해 재검색 없이 정확히 이 후보로 추가한다.
+      body += `\n\n<!-- meta:${JSON.stringify(meta)} -->`;
+    }
     const url = `https://github.com/cjs4545gm/ai-office-dashboard/issues/new?labels=book-request&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
     window.open(url, "_blank", "noopener");
   }
@@ -342,7 +371,13 @@
 
   let lastCandidates = [];
 
+  // 로컬 서버가 있으면 즉시 반영(viaGithub:false), 없으면 GitHub 이슈로 폴백(viaGithub:true) —
+  // 검색과 달리 "추가"(파일 쓰기)는 로컬 기기에서만 직접 할 수 있어 폴백이 필요하다.
   async function submitAdd(title, meta, statusValue, tagsValue){
+    if (!localSubmitAvailable){
+      openGithubIssueFallback(title, meta);
+      return { viaGithub: true };
+    }
     const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -351,6 +386,7 @@
     });
     const data = await resp.json();
     if (!resp.ok || !data.ok) throw new Error(data.error || "추가 실패");
+    return { viaGithub: false };
   }
 
   document.getElementById("candidate-list").addEventListener("click", async (ev) => {
@@ -361,12 +397,17 @@
     const tagsValue = document.getElementById("book-tags").value;
     btn.disabled = true;
     try {
-      await submitAdd(candidate.title, candidate, statusValue, tagsValue);
+      const result = await submitAdd(candidate.title, candidate, statusValue, tagsValue);
       document.getElementById("book-title").value = "";
       document.getElementById("book-tags").value = "";
       document.getElementById("candidate-list").innerHTML = "";
-      showAddMessage(`'${candidate.title}' 서재에 추가했습니다.`, "success");
-      loadBooks();
+      showAddMessage(
+        result.viaGithub
+          ? "GitHub 이슈 작성 화면을 열었습니다. 제출 후 5분 내 서재에 반영됩니다."
+          : `'${candidate.title}' 서재에 추가했습니다.`,
+        "success",
+      );
+      if (!result.viaGithub) loadBooks();
     } catch (e) {
       showAddMessage(`추가하지 못했습니다: ${e.message}`, "error");
       btn.disabled = false;
@@ -377,12 +418,17 @@
     const statusValue = document.getElementById("book-status").value;
     const tagsValue = document.getElementById("book-tags").value;
     try {
-      await submitAdd(title, null, statusValue, tagsValue);
+      const result = await submitAdd(title, null, statusValue, tagsValue);
       document.getElementById("book-title").value = "";
       document.getElementById("book-tags").value = "";
       document.getElementById("candidate-list").innerHTML = "";
-      showAddMessage(`'${title}' 서재에 추가했습니다(빈 틀 — 나중에 노트에서 직접 채워주세요).`, "success");
-      loadBooks();
+      showAddMessage(
+        result.viaGithub
+          ? "GitHub 이슈 작성 화면을 열었습니다. 제출 후 5분 내 서재에 반영됩니다."
+          : `'${title}' 서재에 추가했습니다(빈 틀 — 나중에 노트에서 직접 채워주세요).`,
+        "success",
+      );
+      if (!result.viaGithub) loadBooks();
     } catch (e) {
       showAddMessage(`추가하지 못했습니다: ${e.message}`, "error");
     }
@@ -394,32 +440,33 @@
     const title = titleInput.value.trim();
     if (!title) return;
 
-    // 페이지 로드 시점의 1회성 헬스체크 결과를 영구 캐시하지 않고 제출 직전에 매번 다시 확인—
+    // 페이지 로드 시점의 1회성 헬스체크 결과를 영구 캐시하지 않고 검색 직전에 매번 다시 확인—
     // 로드 당시 서버가 막 재시작 중이었거나 순간적으로 응답이 늦었을 경우, 그 뒤로 서버가
     // 멀쩡히 떠 있어도 이 페이지에서는 계속 GitHub 폴백만 타는 문제를 방지한다
     // (2026-07-14 실측 재현: book-submit-server를 여러 번 재시작하며 테스트하던 중 사용자가
     // 페이지를 열어 최초 체크가 실패로 캐시된 채 이후 클릭에서도 계속 GitHub로 넘어갔음).
     await checkLocalSubmit();
 
-    if (!localSubmitAvailable){
-      openGithubIssueFallback(title);
-      titleInput.value = "";
-      document.getElementById("book-tags").value = "";
-      showAddMessage("GitHub 이슈 작성 화면을 열었습니다. 제출 후 5분 내 서재에 반영됩니다.", "success");
-      return;
-    }
-
+    // 검색은 로컬 서버 유무와 무관하게 항상 이 화면에서 끝난다(2026-07-15) — 로컬 서버가 있으면
+    // /search로 위임(서버 쿼터 재사용), 없으면 Google Books를 브라우저에서 직접 호출한다.
+    // GitHub 이슈 폴백은 "이 책 추가"를 실제로 눌렀을 때(submitAdd)로만 미룬다.
     button.disabled = true;
     button.textContent = "검색 중...";
     document.getElementById("candidate-list").innerHTML = "";
     showAddMessage("", "");
     try {
-      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/search?q=${encodeURIComponent(title)}`, {
-        signal: AbortSignal.timeout(15000),
-      });
-      const data = await resp.json();
-      if (!resp.ok || !data.ok) throw new Error(data.error || "검색 실패");
-      lastCandidates = data.candidates || [];
+      let candidates;
+      if (localSubmitAvailable){
+        const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/search?q=${encodeURIComponent(title)}`, {
+          signal: AbortSignal.timeout(15000),
+        });
+        const data = await resp.json();
+        if (!resp.ok || !data.ok) throw new Error(data.error || "검색 실패");
+        candidates = data.candidates || [];
+      } else {
+        candidates = await searchGoogleBooksDirect(title);
+      }
+      lastCandidates = candidates;
       const list = document.getElementById("candidate-list");
       if (lastCandidates.length === 0){
         list.innerHTML = `<div class="candidate-blank" id="add-blank-btn">검색 결과가 없습니다 — 빈 틀로 추가하기</div>`;
