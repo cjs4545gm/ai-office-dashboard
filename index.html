@@ -166,6 +166,10 @@
   .macro-tag.caution{ background:rgba(240,169,78,0.18); color:var(--working); border:1px solid var(--working); }
   .macro-tag.countdown{ background:transparent; color:var(--muted); border:1px dashed var(--muted); }
   .macro-row .macro-line2{ font-family:var(--mono); font-size:9.5px; color:var(--muted); margin-top:2px; line-height:1.5; }
+  .macro-spark{ display:flex; align-items:baseline; gap:8px; margin-top:4px; }
+  .macro-spark-bars{ font-size:14px; letter-spacing:1px; line-height:1; color:var(--cream); }
+  .macro-spark-trend{ font-family:var(--mono); font-size:9.5px; color:var(--muted); }
+  .macro-spark-labels{ font-family:var(--mono); font-size:8.5px; color:var(--muted); opacity:0.7; letter-spacing:2px; margin-top:1px; }
 
   .strategy-panel-full{ background:var(--wall-2); border:1px solid var(--line); border-radius:12px; padding:14px 18px 18px; margin:0 4px 14px; }
   .strategy-panel-full .dept-head{ margin-bottom:10px; }
@@ -632,6 +636,31 @@
   }
 
   const MACRO_STATUS_LABEL = { safe: "생존", caution: "혼조", risk: "위험" };
+  const SPARK_BLOCKS = "▁▂▃▄▅▆▇█";
+
+  // 최근 N개월 YoY% 추이를 유니코드 막대 스파크라인으로 렌더링(2026-07-15 추가) — 절대값이
+  // 아니라 구간 내 최소~최대를 8단계로 정규화해서 상대적인 오르내림만 한눈에 보이게 함.
+  function macroSparklineHTML(history){
+    if (!history || history.length < 2) return "";
+    const values = history.map(h => h.actual);
+    const min = Math.min(...values), max = Math.max(...values);
+    const range = max - min || 1;
+    const bars = values.map(v => {
+      const idx = Math.round((v - min) / range * (SPARK_BLOCKS.length - 1));
+      return SPARK_BLOCKS[Math.max(0, Math.min(SPARK_BLOCKS.length - 1, idx))];
+    }).join("");
+    const delta = values[values.length - 1] - values[0];
+    const trendLabel = delta > 0.05 ? `상승 추세 (+${delta.toFixed(1)}%p)`
+      : delta < -0.05 ? `하락 추세 (${delta.toFixed(1)}%p)`
+      : "보합";
+    const labels = history.map(h => escapeHtml(h.reference)).join("  ");
+    return `
+      <div class="macro-spark">
+        <span class="macro-spark-bars">${bars}</span>
+        <span class="macro-spark-trend">${escapeHtml(trendLabel)}</span>
+      </div>
+      <div class="macro-spark-labels">${labels}</div>`;
+  }
 
   function macroRowHTML(series){
     const tagClass = series.status || "countdown";
@@ -653,6 +682,7 @@
           <span class="macro-tag ${tagClass}">${escapeHtml(tagLabel)}</span>
         </div>
         <div class="macro-line2">${escapeHtml(detailParts.join(" · ") || "데이터 수집 대기 중")}</div>
+        ${macroSparklineHTML(series.history)}
       </div>`;
   }
 
