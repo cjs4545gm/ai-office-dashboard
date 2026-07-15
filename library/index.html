@@ -229,7 +229,25 @@
   </div>
 
   <div class="grid" id="grid"></div>
-  <div class="foot-note">책노트/ 폴더의 마크다운 노트에서 자동 생성됨 · 카드를 클릭하면 노트가 열립니다</div>
+  <div class="foot-note">책노트/ 폴더의 마크다운 노트에서 자동 생성됨 · 카드를 클릭하면 요약을 보고 쓸 수 있어요(📓 아이콘은 Obsidian 노트로 이동)</div>
+</div>
+
+<div class="modal-overlay hidden" id="book-modal-overlay">
+  <div class="modal" id="book-modal">
+    <button class="modal-close" id="modal-close-btn" type="button">✕</button>
+    <div class="modal-head">
+      <div id="modal-cover-slot"></div>
+      <div class="modal-title-block">
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-author" id="modal-author"></div>
+        <div class="modal-meta-row">
+          <span class="tag-chip" id="modal-status"></span>
+          <a class="modal-obsidian-link" id="modal-obsidian-link" href="#">Obsidian에서 열기 →</a>
+        </div>
+      </div>
+    </div>
+    <div id="modal-body"></div>
+  </div>
 </div>
 
 <script>
@@ -259,18 +277,17 @@
       ? `<img src="${escapeHtml(book.cover)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'cover-fallback\\'>📖</div>'">`
       : `<div class="cover-fallback">📖</div>`;
     const badge = book.status ? `<span class="status-badge ${statusClass(book.status)}">${escapeHtml(book.status)}</span>` : "";
+    const obsidianBtn = `<a class="book-obsidian-link" href="${obsidianLink(book.file)}" title="Obsidian에서 열기" onclick="event.stopPropagation()">📓</a>`;
     const tags = (book.tags || []).map(t => `<span class="tag-chip">${escapeHtml(t)}</span>`).join("");
     return `
       <div class="book-card" data-file="${escapeHtml(book.file)}" data-title="${escapeHtml(book.title)}">
         <button class="book-delete" title="삭제">✕</button>
-        <a href="${obsidianLink(book.file)}" style="color:inherit;text-decoration:none;display:contents;">
-          <div class="cover-box">${cover}${badge}</div>
-          <div class="book-info">
-            <div class="book-title">${escapeHtml(book.title)}</div>
-            <div class="book-author">${escapeHtml(book.author || "저자 미상")}</div>
-            <div class="book-tags">${tags}</div>
-          </div>
-        </a>
+        <div class="cover-box">${cover}${badge}${obsidianBtn}</div>
+        <div class="book-info">
+          <div class="book-title">${escapeHtml(book.title)}</div>
+          <div class="book-author">${escapeHtml(book.author || "저자 미상")}</div>
+          <div class="book-tags">${tags}</div>
+        </div>
       </div>`;
   }
 
@@ -307,35 +324,138 @@
     });
   });
 
-  // 카드는 검색/필터 때마다 통째로 다시 그려지므로, 삭제 버튼은 grid 컨테이너에 이벤트
-  // 위임으로 한 번만 붙인다(office.html의 활동로그 펼치기와 동일한 패턴).
+  // 카드는 검색/필터 때마다 통째로 다시 그려지므로, 클릭 처리는 grid 컨테이너에 이벤트
+  // 위임으로 한 번만 붙인다(office.html의 활동로그 펼치기와 동일한 패턴). 삭제 버튼 클릭이면
+  // 삭제, 그 외 카드 클릭이면 상세 모달을 연다(2026-07-15) — 예전엔 카드 전체가 obsidian://
+  // 링크였는데, 요약을 웹에서 바로 쓰고 볼 수 있게 모달로 바꾸고 Obsidian 링크는 📓 아이콘으로 뺐다.
   document.getElementById("grid").addEventListener("click", async (ev) => {
     const delBtn = ev.target.closest(".book-delete");
-    if (!delBtn) return;
-    ev.preventDefault();
-    const card = delBtn.closest(".book-card");
-    const file = card.dataset.file;
-    const title = card.dataset.title;
-    await checkLocalSubmit();  // 캐시된 값을 믿지 않고 매번 다시 확인(위 검색/추가와 동일한 이유)
-    if (localSubmitAvailable !== true){
-      showAddMessage("삭제는 이 서재 파일이 있는 기기(로컬)에서만 가능합니다.", "error");
+    if (delBtn) {
+      ev.preventDefault();
+      const card = delBtn.closest(".book-card");
+      const file = card.dataset.file;
+      const title = card.dataset.title;
+      await checkLocalSubmit();  // 캐시된 값을 믿지 않고 매번 다시 확인(위 검색/추가와 동일한 이유)
+      if (localSubmitAvailable !== true){
+        showAddMessage("삭제는 이 서재 파일이 있는 기기(로컬)에서만 가능합니다.", "error");
+        return;
+      }
+      if (!confirm(`'${title}'을(를) 서재에서 삭제할까요?`)) return;
+      try {
+        const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/delete`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ file }),
+          signal: AbortSignal.timeout(10000),
+        });
+        const data = await resp.json();
+        if (!resp.ok || !data.ok) throw new Error(data.error || "삭제 실패");
+        loadBooks();
+      } catch (e) {
+        showAddMessage(`삭제하지 못했습니다: ${e.message}`, "error");
+      }
       return;
     }
-    if (!confirm(`'${title}'을(를) 서재에서 삭제할까요?`)) return;
+
+    const card = ev.target.closest(".book-card");
+    if (card) openBookModal(card.dataset.file);
+  });
+
+  function renderModalCover(book){
+    const slot = document.getElementById("modal-cover-slot");
+    slot.innerHTML = book.cover
+      ? `<img class="modal-cover" src="${escapeHtml(book.cover)}" alt="" onerror="this.outerHTML='<div class=\\'modal-cover-fallback\\'>📖</div>'">`
+      : `<div class="modal-cover-fallback">📖</div>`;
+  }
+
+  function closeBookModal(){
+    document.getElementById("book-modal-overlay").classList.add("hidden");
+  }
+
+  document.getElementById("modal-close-btn").addEventListener("click", closeBookModal);
+  document.getElementById("book-modal-overlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "book-modal-overlay") closeBookModal();
+  });
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape") closeBookModal();
+  });
+
+  function renderModalBody(file, draft, polished){
+    const bodyEl = document.getElementById("modal-body");
+    bodyEl.innerHTML = `
+      <div class="modal-section">
+        <h3>내 요약 (초안)</h3>
+        <textarea class="modal-textarea" id="modal-draft">${escapeHtml(draft)}</textarea>
+        <div class="modal-actions">
+          <button type="button" id="modal-save-btn">저장</button>
+          <button type="button" class="secondary" id="modal-reload-btn">다시 불러오기</button>
+        </div>
+        <div class="modal-message" id="modal-message"></div>
+      </div>
+      <div class="modal-section">
+        <h3>다듬은 요약</h3>
+        <div class="modal-polished${polished ? "" : " empty"}">${polished ? escapeHtml(polished) : "아직 다듬어지지 않았습니다 — 초안 저장 후 최대 10분 내 자동 생성됩니다."}</div>
+      </div>`;
+    document.getElementById("modal-save-btn").addEventListener("click", () => saveModalDraft(file));
+    document.getElementById("modal-reload-btn").addEventListener("click", () => openBookModal(file));
+  }
+
+  async function saveModalDraft(file){
+    const btn = document.getElementById("modal-save-btn");
+    const draft = document.getElementById("modal-draft").value;
+    const msg = document.getElementById("modal-message");
+    btn.disabled = true;
+    msg.textContent = "";
+    msg.className = "modal-message";
     try {
-      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/delete`, {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/note`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ file }),
+        body: JSON.stringify({ file, draft }),
         signal: AbortSignal.timeout(10000),
       });
       const data = await resp.json();
-      if (!resp.ok || !data.ok) throw new Error(data.error || "삭제 실패");
-      loadBooks();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "저장 실패");
+      msg.textContent = "저장했습니다 — 다듬은 요약은 최대 10분 내 자동 생성됩니다.";
+      msg.className = "modal-message success";
     } catch (e) {
-      showAddMessage(`삭제하지 못했습니다: ${e.message}`, "error");
+      msg.textContent = `저장하지 못했습니다: ${e.message}`;
+      msg.className = "modal-message error";
+    } finally {
+      btn.disabled = false;
     }
-  });
+  }
+
+  async function openBookModal(file){
+    const book = allBooks.find(b => b.file === file);
+    if (!book) return;
+    document.getElementById("book-modal-overlay").classList.remove("hidden");
+    document.getElementById("modal-title").textContent = book.title;
+    document.getElementById("modal-author").textContent = book.author || "저자 미상";
+    document.getElementById("modal-status").textContent = book.status || "";
+    document.getElementById("modal-obsidian-link").href = obsidianLink(book.file);
+    renderModalCover(book);
+
+    const bodyEl = document.getElementById("modal-body");
+    bodyEl.innerHTML = `<div class="modal-readonly-note">불러오는 중...</div>`;
+
+    await checkLocalSubmit();
+    if (!localSubmitAvailable){
+      bodyEl.innerHTML = `<div class="modal-readonly-note">이 기능(요약 작성·보기)은 이 서재 파일이 있는 기기(로컬)에서만 가능합니다.</div>`;
+      return;
+    }
+
+    try {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/note?file=${encodeURIComponent(file)}`, {
+        signal: AbortSignal.timeout(10000),
+      });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "노트를 불러오지 못했습니다");
+      renderModalBody(file, data.draft || "", data.polished || "");
+    } catch (e) {
+      bodyEl.innerHTML = `<div class="modal-message error">불러오지 못했습니다: ${escapeHtml(e.message)}</div>`;
+    }
+  }
 
   function loadBooks(){
     fetch(`books.json?t=${Date.now()}`, { cache: "no-store" })
