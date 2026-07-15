@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-15T15:50:11",
+  "updated_at": "2026-07-15T15:57:36",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 2568건)",
-      "since": "2026-07-15T15:22:23"
+      "last_action": "세이지 이벤트 기록 (누적 2571건)",
+      "since": "2026-07-15T15:57:36"
     },
     "callie": {
       "name": "캘리",
@@ -173,9 +173,9 @@
       "emoji": "🗂️",
       "room": "feedback",
       "automated": true,
-      "status": "idle",
-      "last_action": null,
-      "since": null
+      "status": "done",
+      "since": "2026-07-15T15:57:36",
+      "last_action": "일간 결산 저장 완료"
     },
     "sage": {
       "name": "세이지",
@@ -184,9 +184,9 @@
       "emoji": "🎯",
       "room": "feedback",
       "automated": true,
-      "status": "idle",
-      "last_action": null,
-      "since": null
+      "status": "working",
+      "since": "2026-07-15T15:57:36",
+      "last_action": "전일 리서치 판단 정확도 검증 중"
     },
     "leo": {
       "name": "레오",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-15T15:50:11",
+      "since": "2026-07-15T15:55:12",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-15T15:50:11",
+      "since": "2026-07-15T15:55:12",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,35 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-15T15:50:11",
+      "since": "2026-07-15T15:55:12",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-15T15:13:05",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 분석 중"
-    },
-    {
-      "time": "2026-07-15T15:13:05",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-15T15:13:42",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[4/6] 현대차 트레이더 콜 종합 중"
-    },
     {
       "time": "2026-07-15T15:13:57",
       "employee": "tam",
@@ -653,6 +629,30 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 6건 종합 완료"
+    },
+    {
+      "time": "2026-07-15T15:57:13",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-07-15T15:57:36",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-07-15T15:57:36",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
     }
   ],
   "trader_stats": null,
