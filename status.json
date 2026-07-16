@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T18:16:25",
+  "updated_at": "2026-07-16T18:20:37",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "탐 이벤트 기록 (누적 2961건)",
-      "since": "2026-07-16T18:16:25"
+      "last_action": "제이드 이벤트 기록 (누적 2975건)",
+      "since": "2026-07-16T18:20:37"
     },
     "callie": {
       "name": "캘리",
@@ -53,8 +53,8 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T17:18:23",
-      "last_action": "이슈 1건 감지"
+      "since": "2026-07-16T18:20:37",
+      "last_action": "이상없음"
     },
     "tam": {
       "name": "탐",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T18:16:25",
-      "last_action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+      "status": "done",
+      "since": "2026-07-16T18:19:51",
+      "last_action": "6개 종목 리서치 노트 작성 완료"
     },
     "juno": {
       "name": "주노",
@@ -130,8 +130,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T17:18:23",
-      "last_action": "품질 1건 · 리스크 5건 종합 완료"
+      "since": "2026-07-16T18:20:37",
+      "last_action": "품질 0건 · 리스크 6건 종합 완료"
     },
     "kai": {
       "name": "카이",
@@ -141,8 +141,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T17:18:23",
-      "last_action": "경보 4건 감지"
+      "since": "2026-07-16T18:20:37",
+      "last_action": "경보 5건 감지"
     },
     "nova": {
       "name": "노바",
@@ -152,7 +152,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T17:18:23",
+      "since": "2026-07-16T18:20:37",
       "last_action": "경보 1건 감지"
     },
     "dawn": {
@@ -195,9 +195,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T18:14:39",
-      "last_action": "[4/6] 현대차 트레이더 콜 종합 중"
+      "status": "done",
+      "since": "2026-07-16T18:19:51",
+      "last_action": "오늘 콜은 장마감 시점에 이미 확정됨 — 갱신 안 함"
     },
     "ivy": {
       "name": "아이비",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-16T18:15:21",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111064ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "idle",
+      "since": "2026-07-16T18:20:23",
+      "last_action": "질문 대기 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-16T18:15:21",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111064ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "idle",
+      "since": "2026-07-16T18:20:23",
+      "last_action": "질문 대기 중"
     },
     "rina": {
       "name": "리나",
@@ -228,133 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-16T18:15:21",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111064ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "idle",
+      "since": "2026-07-16T18:20:23",
+      "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-16T17:14:16",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 분석 중"
-    },
-    {
-      "time": "2026-07-16T17:14:16",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 0건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T17:15:06",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T17:15:31",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-07-16T17:15:32",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 0건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T17:16:06",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T17:17:23",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-07-16T17:17:23",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "오늘 콜은 장마감 시점에 이미 확정됨 — 갱신 안 함"
-    },
-    {
-      "time": "2026-07-16T17:17:23",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-07-16T17:17:23",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-07-16T17:18:22",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-07-16T17:18:23",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-07-16T17:18:23",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이슈 1건 감지",
-      "detail": [
-        "삼성전자: 인사이트 부족 의심(claude 판정) — 오늘자 시세·뉴스 데이터 없음"
-      ]
-    },
-    {
-      "time": "2026-07-16T17:18:23",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 4건 감지",
-      "detail": [
-        "SK하이닉스: 급락 -11.53% (코스피도 동반 -6.37%)",
-        "삼성전기: 급락 -9.62% (코스피도 동반 -6.37%)",
-        "SK스퀘어: 급락 -12.30% (코스피도 동반 -6.37%)",
-        "LG이노텍: 기관 3거래일 연속 순매도"
-      ]
-    },
     {
       "time": "2026-07-16T17:18:23",
       "employee": "nova",
@@ -645,6 +524,128 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-16T18:17:08",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-16T18:17:45",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 분석 중"
+    },
+    {
+      "time": "2026-07-16T18:17:45",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-16T18:18:35",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-16T18:19:51",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "done",
+      "action": "6개 종목 리서치 노트 작성 완료"
+    },
+    {
+      "time": "2026-07-16T18:19:51",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "오늘 콜은 장마감 시점에 이미 확정됨 — 갱신 안 함"
+    },
+    {
+      "time": "2026-07-16T18:19:51",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "working",
+      "action": "리서치 품질 검수 중"
+    },
+    {
+      "time": "2026-07-16T18:19:51",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "working",
+      "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-07-16T18:20:37",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-07-16T18:20:37",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-07-16T18:20:37",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-16T18:20:37",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 5건 감지",
+      "detail": [
+        "삼성전자: 급락 -8.77% (코스피도 동반 -6.37%)",
+        "SK하이닉스: 급락 -11.53% (코스피도 동반 -6.37%)",
+        "삼성전기: 급락 -9.62% (코스피도 동반 -6.37%)",
+        "SK스퀘어: 급락 -12.30% (코스피도 동반 -6.37%)",
+        "LG이노텍: 기관 3거래일 연속 순매도"
+      ]
+    },
+    {
+      "time": "2026-07-16T18:20:37",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "경보 1건 감지",
+      "detail": [
+        "원달러환율 급락 -0.59% (현재 1,479.1원)"
+      ]
+    },
+    {
+      "time": "2026-07-16T18:20:37",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "품질 0건 · 리스크 6건 종합 완료"
     }
   ],
   "trader_stats": {
@@ -701,33 +702,33 @@
   "trader_calls": {
     "삼성전자": {
       "call": "보유",
-      "buy": "현재가보다 낮은 눌림목 구간 — 이틀 급등 뒤 단기 되돌림 가능성이 있어 조정 시 재진입이 합리적",
-      "sell": "특별한 매도 신호 없음, 기관 순매도 전환이 다음날 이후에도 이어지거나 외국인 순매수세가 꺾이면 재검토"
+      "buy": "245,000원대 — 시장 급락 배경이 확인되지 않은 상태이므로 현재가보다 낮은 눌림목에서 분할 매수 검토",
+      "sell": "특별한 매도 신호 없음, 240,000원 이탈 시 재검토 — D램·MLCC 업사이클과 외국인 수급 개선 기조가 유지되는 한 추격 매도 근거는 부족"
     },
     "SK하이닉스": {
       "call": "보유",
-      "buy": "현재가보다 낮은 눌림목 구간 — 급락 원인이 미확인 상태라 지금 추가 매수는 시기상조이며, 하락 배경이 밝혀지고 저점이 확인된 이후 분할 접근이 타당",
-      "sell": "특별한 매도 신호 없음, 급락 원인이 펀더멘털 훼손(공급난 완화, 수요 둔화 등)으로 확인될 경우 재검토 — 현재로선 업황 훼손 근거가 없어 이 시점의 손절 실익은 낮음"
+      "buy": "현재가(1,842,000원)보다 낮은 눌림목 구간 — 사이드카發 시장 전체 리스크와 단기 과열 해소가 진정됐다는 신호(수급 안정, 추가 급락 진정)를 확인한 뒤 저가 매수 관점 재평가",
+      "sell": "특별한 매도 신호 없음, 시장 전체 리스크가 재차 확산되며 오늘과 유사한 낙폭이 반복될 경우 재검토"
     },
     "삼성전기": {
       "call": "보유",
-      "buy": "1,260,000원대 — 제이드가 언급한 재진입 기준선 부근 눌림목, 추가 하락 시 저가 매수 재검토",
-      "sell": "특별한 매도 신호 없음, 1,260,000원 이탈 시 재검토"
+      "buy": "현재가보다 낮은 눌림목 구간(1,200,000원대, 7/14 종가 부근) — 매크로 리스크(코스피 변동성)가 해소되지 않은 상태에서 지금 추가 매수하기엔 이르며, 조정이 한 차례 더 나올 경우 펀더멘털 매력이 부각될 수 있음",
+      "sell": "특별한 매도 신호 없음, 1,200,000원(7/14 종가) 이탈 또는 MLCC 가격 인상 재료 훼손 시 재검토 — 개별 펀더멘털이 아직 흔들리지 않아 지금 팔 근거는 약함"
     },
     "현대차": {
       "call": "보유",
-      "buy": "현재가(425,000원)보다 낮은 눌림목 구간 — 기관 매도 전환 이후 추가 조정이 나올 경우 저가 매수 여지를 살펴볼 필요",
-      "sell": "특별한 매도 신호 없음, 420,000원선 이탈 시 재검토 — 외국인 수급이 유지되는 한 추세 훼손으로 보기 이름"
+      "buy": "현재가보다 낮은 눌림목 구간 — 지금은 수급-주가 괴리가 반복 중이라 추격 매수 근거가 약하며, 조정 시 외국인 순매수 지속 여부를 확인한 뒤 분할 접근이 나음",
+      "sell": "특별한 매도 신호 없음, 외국인 순매수 기조가 꺾이거나 최근 지지 흐름 이탈 시 재검토 — 현재는 기관 순매도 전환에도 외국인 보유율 상승 추세 자체는 유지되고 있어 손절 근거는 부족함"
     },
     "SK스퀘어": {
       "call": "매도",
-      "buy": "현재가보다 낮은 눌림목 구간 — 변동성 근거가 해소되고 추가 급락 후 안정화가 확인되기 전에는 신규 진입은 시기상조.",
-      "sell": "1,212,000원대(현재가) 부근 — 매도 기준선(1,300,000원)을 이미 하회했고 급등락을 설명할 근거가 부족해 지금이 리스크 축소 시점."
+      "buy": "1,190,000원대 이하 — 전일 +16.13% 급등분을 오늘 -12.30%로 대부분 반납해 급등 전 기준가(약 1,190,000원) 부근까지 추가 눌림이 확인되면 재진입 검토",
+      "sell": "1,220,000~1,240,000원대 — 오늘 급락 이후 기술적 반등이 나올 경우 그 구간에서 비중 축소, 반등 없이 1,200,000원 이탈 시에는 즉시 매도 대응"
     },
     "LG이노텍": {
       "call": "보유",
-      "buy": "640,000원대 — 전일 급등 전 가격대(눌림목)이자 외국인 수급 유입이 확인됐던 구간으로, 재료 확인 전 현재가 추격매수는 이르다는 판단",
-      "sell": "특별한 매도 신호 없음, 641,000원(급등 전 가격대) 이탈 시 재검토 — 기관 순매도가 이어지고 있어 해당 구간 붕괴 시 매도 압력 재점검 필요"
+      "buy": "현재가보다 낮은 눌림목 구간(640,000원대) — 어제 급등분 되돌림이 진행 중이라 추가 조정으로 지지가 확인된 이후 진입이 안전",
+      "sell": "특별한 매도 신호 없음, 620,000원대 이탈 시 재검토 — 기관 순매도·수급 약화가 심화되어 되돌림이 지속될 경우 리스크 관리 차원의 재평가 필요"
     }
   },
   "priority_alerts": [],
