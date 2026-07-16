@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T16:27:45",
+  "updated_at": "2026-07-16T16:28:49",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리나 이벤트 기록 (누적 2863건)",
-      "since": "2026-07-16T16:27:45"
+      "last_action": "리나 이벤트 기록 (누적 2866건)",
+      "since": "2026-07-16T16:28:49"
     },
     "callie": {
       "name": "캘리",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T16:27:44",
-      "last_action": "질문 검토 중: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
+      "status": "done",
+      "since": "2026-07-16T16:28:49",
+      "last_action": "답변 완료: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T16:27:44",
-      "last_action": "질문 검토 중: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
+      "status": "done",
+      "since": "2026-07-16T16:28:49",
+      "last_action": "답변 완료: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
     },
     "rina": {
       "name": "리나",
@@ -228,48 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T16:27:45",
-      "last_action": "질문 검토 중: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
+      "status": "done",
+      "since": "2026-07-16T16:28:49",
+      "last_action": "답변 완료: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-16T16:03:34",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 4건 감지",
-      "detail": [
-        "SK하이닉스: 급락 -11.53%",
-        "삼성전기: 급락 -9.62%",
-        "SK스퀘어: 급락 -12.30%",
-        "LG이노텍: 기관 3거래일 연속 순매도"
-      ]
-    },
-    {
-      "time": "2026-07-16T16:03:34",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "done",
-      "action": "경보 1건 감지",
-      "detail": [
-        "원달러환율 급락 -0.65% (현재 1,478.2원)"
-      ]
-    },
-    {
-      "time": "2026-07-16T16:03:34",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "🔴 우선확인 1건 · 품질 2건 · 리스크 5건 종합 완료",
-      "detail": [
-        "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
-      ]
-    },
     {
       "time": "2026-07-16T16:05:05",
       "employee": "bri",
@@ -655,6 +619,30 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "working",
       "action": "질문 검토 중: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
+    },
+    {
+      "time": "2026-07-16T16:28:49",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "done",
+      "action": "답변 완료: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
+    },
+    {
+      "time": "2026-07-16T16:28:49",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "done",
+      "action": "답변 완료: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
+    },
+    {
+      "time": "2026-07-16T16:28:49",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "done",
+      "action": "답변 완료: 지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면…"
     }
   ],
   "trader_stats": {
@@ -765,6 +753,13 @@
         "issue_url": "https://github.com/cjs4545gm/ai-office-dashboard/issues/13",
         "asked_at": "2026-07-15T05:52:11Z",
         "answered_at": "2026-07-15T14:54:55+09:00"
+      },
+      {
+        "question": "지금 올해 하반기에 AMD에 대한 생각과 전략이 있으면 말해줘",
+        "answer": "## 🧭 아이비 (수석 전략가)\nAMD는 현재 포트폴리오에 직접 보유되어 있지 않지만, 하반기 흐름은 지켜볼 가치가 있습니다. AMD의 MI450/헬리오스 랙스케일 램프가 2026년 하반기부터 본격화되고 OpenAI·Meta와의 6기가와트급 공급계약이 하반기 첫 출하를 앞두고 있어, HBM 수요와 직결되는 SK하이닉스에는 우호적 매크로 시그널입니다. 7월 22~23일 'Advancing AI 2026' 이벤트와 8월 4일경 예상되는 2분기 실적 발표가 임박해 있어, 이 두 이벤트가 삼성전자·SK하이닉스·삼성전기·LG이노텍 등 반도체 밸류체인 전반의 투자심리에 단기 촉매가 될 수 있습니다. 다만 이는 \"AMD를 사야 하는가\"의 문제라기보다 \"우리 포트폴리오의 반도체 익스포저에 어떤 외부 이벤트가 다가오는가\"의 관점에서 참고할 정보입니다.\n\n## 🛡️ 맥스 (리스크 전략가)\n밸류에이션 부담이 상당합니다. HSBC 기준 AMD는 랠리 이후 2027년 추정 실적 대비 약 19배에서 33배로 재평가되어 실망 매물에 취약한 구간이고, Wedbush도 경영진의 하반기 가이던스를 독립적으로 검증하기 어렵다고 밝혔습니다. 현재 포트폴리오 6종목 중 4종목(삼성전자·SK하이닉스·삼성전기·LG이노텍)이 이미 반도체·전자부품에 집중되어 있고, 오늘 카이 경보 5건·노바 경보 1건까지 겹친 상황에서 AMD 관련 뉴스 하나에 새로 베팅을 얹는 것은 분산이 아니라 상관관계 리스크를 더 키우는 방향입니다. 지금은 신규 포지션보다 기존 보유 종목의 하락 리스크 관리가 우선입니다.\n\n## 🧘 리나 (행동재무 코치)\n\"AMD가 2026년 160% 올랐다\", \"하반기가 huge할 수 있다\" 같은 헤드라인은 전형적으로 FOMO를 자극하는 서사입니다. 오늘 국내 포트폴리오 종목들이 -8~12%대 급락한 직후 해외의 잘 나가는 종목으로 눈을 돌리고 싶은 충동은, 손실을 만회하려는 심리적 보상 행동일 수 있습니다. 이미 랠리가 상당히 진행된 종목을 실적 발표 직전에 뉴스만 보고 쫓아가는 것은 신중히 점검할 필요가 있고, \"왜 지금 이 종목인가\"를 스스로에게 먼저 물어보시길 권합니다.\n\n## 종합\nAMD는 현재 준석님 포트폴리오에 없는 종목이며, 하반기 핵심 이벤트(7/22~23 Advancing AI, 8/4경 실적)는 MI450·헬리오스 램프 진행 여부에 따라 SK하이닉스 HBM 수요 등 국내 반도체 밸류체인 심리에 간접적으로 영향을 줄 수 있는 참고 변수입니다. 다만 밸류에이션이 이미 크게 확장된 상태에서 실망 매물 리스크가 존재하고, 이미 반도체 비중이 높은 포트폴리오에 상관관계 높은 신규 익스포저를 추가하는 것은 리스크 관리 측면에서 신중해야 하며, 오늘 같은 급락 이후 해외 핫종목으로 쏠리는 것이 FOMO에 기반한 판단은 아닌지 스스로 점검해보시는 것을 권합니다. 이는 실제 매매 실행 지시가 아닌 참고 의견입니다.\n\nSources:\n- [AMD Stock Forecast 2026: A 57% Data Center Revenue Jump and a $120 Billion CPU Market](https://www.tikr.com/blog/amd-stock-forecast-2026-a-57-data-center-revenue-jump-and-a-120-billion-cpu-market)\n- [Here's why AMD stock could struggle in the second half of 2026](https://invezz.com/news/2026/05/15/heres-why-amd-stock-could-struggle-in-the-second-half-of-2026/)\n- [Why the Second Half of 2026 Could Be Huge for AMD Stock | The Motley Fool](https://www.fool.com/investing/2026/03/30/why-the-second-half-of-2026-could-be-huge-for-amd/)\n- [AMD's Rally Hits a Wall of Analyst Caution Before Zen 6 Launch, Q2 Earnings](https://www.techtimes.com/articles/320380/20260713/amds-rally-hits-wall-analyst-caution-before-zen-6-launch-q2-earnings.htm)\n- [Goldman Sachs sees AMD entering earnings with 1 powerful advantage - TheStreet](https://www.thestreet.com/investing/stocks/advanced-micro-devices-amd-stock-goldman-server-cpu-demand-earnings-july-2026)\n- [AMD Stock Forecast | Advancing AI Event, Q2 Earnings | Capital.com](https://capital.com/en-int/market-updates/amd-stock-forecast-23-06-2026)",
+        "issue_url": "https://github.com/cjs4545gm/ai-office-dashboard/issues/14",
+        "asked_at": "2026-07-16T07:24:30Z",
+        "answered_at": "2026-07-16T16:28:49+09:00"
       }
     ]
   },
