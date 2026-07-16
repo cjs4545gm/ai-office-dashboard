@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T16:59:02",
+  "updated_at": "2026-07-16T17:05:02",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -19,9 +19,9 @@
       "emoji": "☀️",
       "room": "workflow",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-16T16:05:09",
-      "last_action": "데일리 시장 브리핑 작성 완료"
+      "status": "working",
+      "since": "2026-07-16T17:05:02",
+      "last_action": "시장 브리핑 데이터 수집 중"
     },
     "nix": {
       "name": "닉스",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 2876건)",
-      "since": "2026-07-16T16:42:50"
+      "last_action": "브리 이벤트 기록 (누적 2885건)",
+      "since": "2026-07-16T17:05:02"
     },
     "callie": {
       "name": "캘리",
@@ -107,9 +107,9 @@
       "emoji": "📡",
       "room": "data",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-16T16:42:50",
-      "last_action": "새 IR 일정 공지 없음"
+      "status": "working",
+      "since": "2026-07-16T17:00:05",
+      "last_action": "증권사 리포트·뉴스 수집 중"
     },
     "milo": {
       "name": "마일로",
@@ -118,9 +118,9 @@
       "emoji": "📊",
       "room": "data",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-16T16:42:46",
-      "last_action": "보유종목 6개 수급 데이터 갱신"
+      "status": "working",
+      "since": "2026-07-16T17:00:05",
+      "last_action": "기관·외국인 수급 데이터 수집 중"
     },
     "jade": {
       "name": "제이드",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T16:59:02",
-      "last_action": "새 질문 확인 중"
+      "status": "error",
+      "since": "2026-07-16T17:04:43",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T16:59:02",
-      "last_action": "새 질문 확인 중"
+      "status": "error",
+      "since": "2026-07-16T17:04:43",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
     },
     "rina": {
       "name": "리나",
@@ -228,84 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T16:59:02",
-      "last_action": "새 질문 확인 중"
+      "status": "error",
+      "since": "2026-07-16T17:04:43",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-16T16:08:38",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "working",
-      "action": "일간 결산 검수 중"
-    },
-    {
-      "time": "2026-07-16T16:08:47",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "done",
-      "action": "✅ 검수 통과"
-    },
-    {
-      "time": "2026-07-16T16:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-16T16:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-16T16:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
-    {
-      "time": "2026-07-16T16:10:08",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-07-16T16:10:08",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T16:10:58",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T16:11:18",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 분석 중"
-    },
     {
       "time": "2026-07-16T16:11:18",
       "employee": "tam",
@@ -643,6 +571,78 @@
       "role": "데이터 품질 관리",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-07-16T16:59:22",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111958ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-07-16T16:59:22",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111958ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-07-16T16:59:22",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111958ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-07-16T17:00:05",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-16T17:00:05",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-16T17:04:43",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-07-16T17:04:43",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-07-16T17:04:43",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-07-16T17:05:02",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
     }
   ],
   "trader_stats": {
