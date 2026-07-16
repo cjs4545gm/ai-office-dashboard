@@ -214,6 +214,11 @@
   .reading-log-date{ font-size:11.5px; color:var(--muted); font-weight:600; margin-bottom:3px; }
   .reading-log-text{ font-size:13px; white-space:pre-wrap; line-height:1.5; }
   .modal-photo-row{ display:flex; gap:10px; margin-bottom:14px; }
+  #modal-cover-slot{ display:flex; gap:8px; }
+  .modal-date-input{
+    padding:8px 10px; border-radius:8px; border:1px solid var(--line);
+    background:var(--card); color:var(--cream); font-size:13px; margin-bottom:8px;
+  }
 </style>
 </head>
 <body>
@@ -267,6 +272,29 @@
       </div>
     </div>
     <div id="modal-body"></div>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="confirm-modal-overlay">
+  <div class="modal confirm-modal" id="confirm-modal">
+    <button class="modal-close" id="confirm-close-btn" type="button">✕</button>
+    <div class="confirm-covers">
+      <div id="confirm-cover-slot"></div>
+      <div>
+        <div class="confirm-title" id="confirm-title"></div>
+        <div class="confirm-author" id="confirm-author"></div>
+      </div>
+    </div>
+    <div id="confirm-photo-section">
+      <label class="confirm-photo-label" for="confirm-photo-input">책 사진 추가(선택)</label>
+      <input class="confirm-photo-input" id="confirm-photo-input" type="file" accept="image/*" capture="environment">
+      <div id="confirm-photo-preview-slot"></div>
+    </div>
+    <div class="modal-message" id="confirm-message"></div>
+    <div class="modal-actions">
+      <button type="button" id="confirm-yes-btn">예, 이 책 맞아요 → 추가</button>
+      <button type="button" class="secondary" id="confirm-cancel-btn">취소</button>
+    </div>
   </div>
 </div>
 
@@ -384,10 +412,16 @@
   });
 
   function renderModalCover(book){
+    // 공식 표지(있으면)와 내 사진(있으면)을 나란히 보여준다 — 사용자 확답: 대체가 아니라 병기.
     const slot = document.getElementById("modal-cover-slot");
-    slot.innerHTML = book.cover
-      ? `<img class="modal-cover" src="${escapeHtml(book.cover)}" alt="" onerror="this.outerHTML='<div class=\\'modal-cover-fallback\\'>📖</div>'">`
-      : `<div class="modal-cover-fallback">📖</div>`;
+    const parts = [];
+    parts.push(book.cover
+      ? `<img class="modal-cover" src="${escapeHtml(book.cover)}" alt="공식 표지" onerror="this.outerHTML='<div class=\\'modal-cover-fallback\\'>📖</div>'">`
+      : `<div class="modal-cover-fallback">📖</div>`);
+    if (book.photo){
+      parts.push(`<img class="modal-cover" src="${escapeHtml(book.photo)}" alt="내 사진" onerror="this.remove()">`);
+    }
+    slot.innerHTML = parts.join("");
   }
 
   function closeBookModal(){
@@ -399,10 +433,27 @@
     if (ev.target.id === "book-modal-overlay") closeBookModal();
   });
   document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape") closeBookModal();
+    if (ev.key === "Escape") { closeBookModal(); closeConfirmModal(); }
   });
 
-  function renderModalBody(file, draft, polished){
+  function readingLogHTML(entries){
+    if (!entries || entries.length === 0){
+      return `<div class="modal-readonly-note">아직 읽기 기록이 없습니다.</div>`;
+    }
+    return entries.map(e => `
+      <div class="reading-log-entry">
+        <div class="reading-log-date">${escapeHtml(e.date)}</div>
+        <div class="reading-log-text">${escapeHtml(e.text)}</div>
+      </div>`).join("");
+  }
+
+  function todayString(){
+    const d = new Date();
+    const pad = n => String(n).padStart(2, "0");
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  }
+
+  function renderModalBody(file, draft, polished, readingLog){
     const bodyEl = document.getElementById("modal-body");
     bodyEl.innerHTML = `
       <div class="modal-section">
@@ -417,9 +468,50 @@
       <div class="modal-section">
         <h3>다듬은 요약</h3>
         <div class="modal-polished${polished ? "" : " empty"}">${polished ? escapeHtml(polished) : "아직 다듬어지지 않았습니다 — 초안 저장 후 최대 10분 내 자동 생성됩니다."}</div>
+      </div>
+      <div class="modal-section">
+        <h3>읽기 기록</h3>
+        <input type="date" class="modal-date-input" id="log-date-input" value="${todayString()}">
+        <textarea class="modal-textarea" id="log-text-input" placeholder="오늘 읽은 내용을 자유롭게 적어보세요"></textarea>
+        <div class="modal-actions">
+          <button type="button" id="log-save-btn">기록 저장</button>
+        </div>
+        <div class="modal-message" id="log-message"></div>
+        <div id="reading-log-list" style="margin-top:10px;">${readingLogHTML(readingLog)}</div>
       </div>`;
     document.getElementById("modal-save-btn").addEventListener("click", () => saveModalDraft(file));
     document.getElementById("modal-reload-btn").addEventListener("click", () => openBookModal(file));
+    document.getElementById("log-save-btn").addEventListener("click", () => saveReadingLog(file));
+  }
+
+  async function saveReadingLog(file){
+    const btn = document.getElementById("log-save-btn");
+    const date = document.getElementById("log-date-input").value;
+    const text = document.getElementById("log-text-input").value;
+    const msg = document.getElementById("log-message");
+    msg.textContent = "";
+    msg.className = "modal-message";
+    if (!text.trim()){
+      msg.textContent = "기록 내용을 입력해주세요.";
+      msg.className = "modal-message error";
+      return;
+    }
+    btn.disabled = true;
+    try {
+      const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/note/log`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ file, date, text }),
+        signal: AbortSignal.timeout(10000),
+      });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "저장 실패");
+      openBookModal(file);  // 목록을 최신 상태로 다시 그리도록 통째로 다시 불러온다
+    } catch (e) {
+      msg.textContent = `저장하지 못했습니다: ${e.message}`;
+      msg.className = "modal-message error";
+      btn.disabled = false;
+    }
   }
 
   async function saveModalDraft(file){
@@ -473,7 +565,7 @@
       });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "노트를 불러오지 못했습니다");
-      renderModalBody(file, data.draft || "", data.polished || "");
+      renderModalBody(file, data.draft || "", data.polished || "", data.reading_log || []);
     } catch (e) {
       bodyEl.innerHTML = `<div class="modal-message error">불러오지 못했습니다: ${escapeHtml(e.message)}</div>`;
     }
@@ -628,54 +720,142 @@
   // 화면을 새 탭으로 열었지만(회신엔 5분+본인 GitHub 로그인 필요), 오피스 전략실 질문 접수에서
   // 이미 겪은 것과 같은 이유(원치 않는 GitHub 전환)로 이 폴백을 제거했다(2026-07-15). 로컬 서버가
   // 없는 기기에서는 "추가"가 안 된다는 것을 명확한 에러로 알린다 — 성공한 척하지 않는다.
-  async function submitAdd(title, meta, statusValue, tagsValue){
+  async function submitAdd(title, meta, statusValue, tagsValue, photoData){
     if (!localSubmitAvailable){
       throw new Error("이 기기에는 로컬 서버가 없어 추가할 수 없습니다. Mac에서 다시 시도해주세요.");
     }
     const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, status: statusValue, tags: tagsValue, meta: meta || null }),
+      body: JSON.stringify({
+        title, status: statusValue, tags: tagsValue, meta: meta || null,
+        photo_base64: photoData ? photoData.base64 : null,
+        photo_ext: photoData ? photoData.ext : null,
+      }),
       signal: AbortSignal.timeout(20000),
     });
     const data = await resp.json();
     if (!resp.ok || !data.ok) throw new Error(data.error || "추가 실패");
   }
 
-  document.getElementById("candidate-list").addEventListener("click", async (ev) => {
+  // 후보를 고르든 빈 틀로 추가하든, 사진 유무와 무관하게 항상 "이 책이 맞는지 확인" 모달을
+  // 거친다(사용자 확답) — 실제 파일 쓰기(submitAdd)는 확인 모달의 "예" 버튼에서만 일어난다.
+  document.getElementById("candidate-list").addEventListener("click", (ev) => {
     const btn = ev.target.closest("button[data-index]");
-    if (!btn) return;
-    const candidate = lastCandidates[Number(btn.dataset.index)];
-    const statusValue = document.getElementById("book-status").value;
-    const tagsValue = document.getElementById("book-tags").value;
-    btn.disabled = true;
+    if (btn) {
+      const candidate = lastCandidates[Number(btn.dataset.index)];
+      openAddConfirm(candidate, candidate.title);
+      return;
+    }
+    const blankBtn = ev.target.closest("#add-blank-btn");
+    if (blankBtn) openAddConfirm(null, document.getElementById("book-title").value.trim());
+  });
+
+  let pendingAdd = null;
+  let pendingPhotoData = null;
+
+  function closeConfirmModal(){
+    document.getElementById("confirm-modal-overlay").classList.add("hidden");
+    pendingAdd = null;
+    pendingPhotoData = null;
+  }
+
+  document.getElementById("confirm-close-btn").addEventListener("click", closeConfirmModal);
+  document.getElementById("confirm-cancel-btn").addEventListener("click", closeConfirmModal);
+  document.getElementById("confirm-modal-overlay").addEventListener("click", (ev) => {
+    if (ev.target.id === "confirm-modal-overlay") closeConfirmModal();
+  });
+
+  // 폰 카메라 원본은 수 MB짜리라 그대로 올리면 용량 문제가 있어, canvas로 최대 800px까지
+  // 줄여서 JPEG base64로 인코딩한다(add_book.py의 8MB 서버측 상한과는 별개 방어선).
+  function resizePhotoToBase64(file){
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = () => reject(new Error("사진을 읽지 못했습니다"));
+      reader.onload = () => {
+        const img = new Image();
+        img.onerror = () => reject(new Error("사진을 불러오지 못했습니다"));
+        img.onload = () => {
+          const maxSize = 800;
+          let { width, height } = img;
+          if (width > maxSize || height > maxSize) {
+            const scale = maxSize / Math.max(width, height);
+            width = Math.round(width * scale);
+            height = Math.round(height * scale);
+          }
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+          resolve({ base64: canvas.toDataURL("image/jpeg", 0.85).split(",")[1], ext: "jpg" });
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  document.getElementById("confirm-photo-input").addEventListener("change", async (ev) => {
+    const file = ev.target.files[0];
+    const previewSlot = document.getElementById("confirm-photo-preview-slot");
+    if (!file) { pendingPhotoData = null; previewSlot.innerHTML = ""; return; }
     try {
-      await submitAdd(candidate.title, candidate, statusValue, tagsValue);
-      document.getElementById("book-title").value = "";
-      document.getElementById("book-tags").value = "";
-      document.getElementById("candidate-list").innerHTML = "";
-      showAddMessage(`'${candidate.title}' 서재에 추가했습니다.`, "success");
-      loadBooks();
+      pendingPhotoData = await resizePhotoToBase64(file);
+      previewSlot.innerHTML = `<img class="confirm-photo-preview" src="data:image/jpeg;base64,${pendingPhotoData.base64}" alt="미리보기">`;
     } catch (e) {
-      showAddMessage(`추가하지 못했습니다: ${e.message}`, "error");
-      btn.disabled = false;
+      pendingPhotoData = null;
+      const msg = document.getElementById("confirm-message");
+      msg.textContent = `사진을 처리하지 못했습니다: ${e.message}`;
+      msg.className = "modal-message error";
     }
   });
 
-  async function addBlank(title){
+  function openAddConfirm(candidate, title){
+    pendingAdd = { candidate, title };
+    pendingPhotoData = null;
+    document.getElementById("confirm-photo-input").value = "";
+    document.getElementById("confirm-photo-preview-slot").innerHTML = "";
+    const msg = document.getElementById("confirm-message");
+    msg.textContent = "";
+    msg.className = "modal-message";
+
+    const coverSlot = document.getElementById("confirm-cover-slot");
+    coverSlot.innerHTML = candidate && candidate.cover
+      ? `<img class="confirm-cover" src="${escapeHtml(candidate.cover)}" alt="" onerror="this.outerHTML='<div class=\\'confirm-cover-fallback\\'>📖</div>'">`
+      : `<div class="confirm-cover-fallback">📖</div>`;
+    document.getElementById("confirm-title").textContent = title;
+    document.getElementById("confirm-author").textContent = candidate ? (candidate.author || "저자 미상") : "빈 틀로 추가";
+
+    // 사진 첨부는 파일 쓰기가 필요해서 로컬 서버가 있을 때만 의미가 있다.
+    document.getElementById("confirm-photo-section").style.display = localSubmitAvailable ? "" : "none";
+    document.getElementById("confirm-yes-btn").disabled = false;
+    document.getElementById("confirm-modal-overlay").classList.remove("hidden");
+  }
+
+  document.getElementById("confirm-yes-btn").addEventListener("click", async () => {
+    if (!pendingAdd) return;
+    const btn = document.getElementById("confirm-yes-btn");
+    const msg = document.getElementById("confirm-message");
     const statusValue = document.getElementById("book-status").value;
     const tagsValue = document.getElementById("book-tags").value;
+    btn.disabled = true;
+    msg.textContent = "";
+    msg.className = "modal-message";
     try {
-      await submitAdd(title, null, statusValue, tagsValue);
+      await submitAdd(pendingAdd.title, pendingAdd.candidate, statusValue, tagsValue, pendingPhotoData);
       document.getElementById("book-title").value = "";
       document.getElementById("book-tags").value = "";
       document.getElementById("candidate-list").innerHTML = "";
-      showAddMessage(`'${title}' 서재에 추가했습니다(빈 틀 — 나중에 노트에서 직접 채워주세요).`, "success");
+      const addedTitle = pendingAdd.title;
+      closeConfirmModal();
+      showAddMessage(`'${addedTitle}' 서재에 추가했습니다.`, "success");
       loadBooks();
     } catch (e) {
-      showAddMessage(`추가하지 못했습니다: ${e.message}`, "error");
+      msg.textContent = `추가하지 못했습니다: ${e.message}`;
+      msg.className = "modal-message error";
+      btn.disabled = false;
     }
-  }
+  });
 
   document.getElementById("book-submit").addEventListener("click", async () => {
     const titleInput = document.getElementById("book-title");
@@ -727,7 +907,6 @@
         list.innerHTML = lastCandidates.map((c, i) => candidateRowHTML(i, c)).join("")
           + `<div class="candidate-blank" id="add-blank-btn">원하는 책이 없나요? 빈 틀로 추가하기</div>`;
       }
-      document.getElementById("add-blank-btn").addEventListener("click", () => addBlank(title));
     } catch (e) {
       showAddMessage(`검색하지 못했습니다: ${e.message}`, "error");
     } finally {
