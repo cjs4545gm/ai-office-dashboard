@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T16:54:01",
+  "updated_at": "2026-07-16T16:59:02",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-16T16:54:01",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-07-16T16:59:02",
+      "last_action": "새 질문 확인 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-16T16:54:01",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-07-16T16:59:02",
+      "last_action": "새 질문 확인 중"
     },
     "rina": {
       "name": "리나",
@@ -228,9 +228,9 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-16T16:54:01",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-07-16T16:59:02",
+      "last_action": "새 질문 확인 중"
     }
   },
   "activity_log": [
