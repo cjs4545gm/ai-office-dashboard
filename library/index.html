@@ -74,6 +74,14 @@
   .status-읽는중  { background:var(--reading); }
   .status-완료    { background:var(--done); }
   .status-읽고싶음{ background:var(--wishlist); }
+  select.status-badge{
+    border:none; appearance:none; -webkit-appearance:none; cursor:pointer; font-family:inherit;
+  }
+  select.status-badge:disabled{ cursor:default; opacity:0.7; }
+  select.modal-status-select{
+    border:none; cursor:pointer; font-family:inherit; font-size:inherit; padding:2px 7px;
+  }
+  select.modal-status-select:disabled{ cursor:default; opacity:0.7; }
 
   .book-info{ padding:10px 12px 12px; display:flex; flex-direction:column; gap:3px; flex:1; }
   .book-title{ font-size:13.5px; font-weight:600; line-height:1.3; }
@@ -266,7 +274,7 @@
         <div class="modal-title" id="modal-title"></div>
         <div class="modal-author" id="modal-author"></div>
         <div class="modal-meta-row">
-          <span class="tag-chip" id="modal-status"></span>
+          <select class="tag-chip modal-status-select" id="modal-status"></select>
           <a class="modal-obsidian-link" id="modal-obsidian-link" href="#">Obsidian에서 열기 →</a>
         </div>
       </div>
@@ -301,12 +309,18 @@
 <script>
 (() => {
   const VAULT_NAME = "책서재";
+  const STATUS_OPTIONS = ["읽고 싶음", "읽는 중", "완료"];
   let allBooks = [];
   let statusFilter = "전체";
   let searchTerm = "";
+  let currentModalFile = null;
 
   function statusClass(status){
     return "status-" + (status || "").replace(/\s+/g, "");
+  }
+
+  function statusOptionsHTML(current){
+    return STATUS_OPTIONS.map(s => `<option value="${s}" ${s === current ? "selected" : ""}>${escapeHtml(s)}</option>`).join("");
   }
 
   function escapeHtml(s){
@@ -326,7 +340,11 @@
     const cover = thumbSrc
       ? `<img src="${escapeHtml(thumbSrc)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=\\'cover-fallback\\'>📖</div>'">`
       : `<div class="cover-fallback">📖</div>`;
-    const badge = book.status ? `<span class="status-badge ${statusClass(book.status)}">${escapeHtml(book.status)}</span>` : "";
+    // 상태 뱃지를 select로 바꿔서 카드에서 바로 바꿀 수 있게 한다(2026-07-16) — 클릭이 카드 열기로
+    // 번지지 않도록 grid의 delegated click 핸들러에서 .status-select를 먼저 걸러낸다.
+    const badge = book.status
+      ? `<select class="status-badge status-select ${statusClass(book.status)}" data-file="${escapeHtml(book.file)}">${statusOptionsHTML(book.status)}</select>`
+      : "";
     const obsidianBtn = `<a class="book-obsidian-link" href="${obsidianLink(book.file)}" title="Obsidian에서 열기" onclick="event.stopPropagation()">📓</a>`;
     const tags = (book.tags || []).map(t => `<span class="tag-chip">${escapeHtml(t)}</span>`).join("");
     return `
@@ -407,8 +425,54 @@
       return;
     }
 
+    if (ev.target.closest(".status-select")) return;  // 상태 변경은 change 리스너가 처리, 카드 열기 방지
+
     const card = ev.target.closest(".book-card");
     if (card) openBookModal(card.dataset.file);
+  });
+
+  // 카드 그리드의 상태 select와 상세 모달의 상태 select가 같은 로직을 공유한다(2026-07-16) —
+  // 성공하면 allBooks의 해당 항목을 직접 갱신하고 다시 그려서, 실패하면(로컬 서버 없음 등)
+  // 원래 값으로 자연스럽게 되돌아가게 한다(별도의 revert 로직 없이 render()가 항상
+  // allBooks 기준으로 select를 다시 그리기 때문).
+  async function handleStatusChange(file, newStatus, selEl){
+    const book = allBooks.find(b => b.file === file);
+    await checkLocalSubmit();
+    if (localSubmitAvailable){
+      selEl.disabled = true;
+      try {
+        const resp = await fetch(`${LOCAL_SUBMIT_ORIGIN}/note/status`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ file, status: newStatus }),
+          signal: AbortSignal.timeout(10000),
+        });
+        const data = await resp.json();
+        if (!resp.ok || !data.ok) throw new Error(data.error || "상태 변경 실패");
+        if (book) book.status = newStatus;
+      } catch (e) {
+        showAddMessage(`상태를 변경하지 못했습니다: ${e.message}`, "error");
+      } finally {
+        selEl.disabled = false;
+      }
+    } else {
+      showAddMessage("상태 변경은 이 서재 파일이 있는 기기(로컬)에서만 가능합니다.", "error");
+    }
+    render();
+    if (currentModalFile === file){
+      document.getElementById("modal-status").innerHTML = statusOptionsHTML(book ? book.status : newStatus);
+    }
+  }
+
+  document.getElementById("grid").addEventListener("change", (ev) => {
+    const sel = ev.target.closest(".status-select");
+    if (!sel) return;
+    handleStatusChange(sel.dataset.file, sel.value, sel);
+  });
+
+  document.getElementById("modal-status").addEventListener("change", (ev) => {
+    if (!currentModalFile) return;
+    handleStatusChange(currentModalFile, ev.target.value, ev.target);
   });
 
   function renderModalCover(book){
@@ -426,6 +490,7 @@
 
   function closeBookModal(){
     document.getElementById("book-modal-overlay").classList.add("hidden");
+    currentModalFile = null;
   }
 
   document.getElementById("modal-close-btn").addEventListener("click", closeBookModal);
@@ -442,7 +507,7 @@
     }
     return entries.map(e => `
       <div class="reading-log-entry">
-        <div class="reading-log-date">${escapeHtml(e.date)}</div>
+        <div class="reading-log-date">${escapeHtml(e.date)}${e.pending ? " · 다듬는 중" : ""}</div>
         <div class="reading-log-text">${escapeHtml(e.text)}</div>
       </div>`).join("");
   }
@@ -543,10 +608,11 @@
   async function openBookModal(file){
     const book = allBooks.find(b => b.file === file);
     if (!book) return;
+    currentModalFile = file;
     document.getElementById("book-modal-overlay").classList.remove("hidden");
     document.getElementById("modal-title").textContent = book.title;
     document.getElementById("modal-author").textContent = book.author || "저자 미상";
-    document.getElementById("modal-status").textContent = book.status || "";
+    document.getElementById("modal-status").innerHTML = statusOptionsHTML(book.status);
     document.getElementById("modal-obsidian-link").href = obsidianLink(book.file);
     renderModalCover(book);
 
