@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T17:05:02",
+  "updated_at": "2026-07-16T17:11:03",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T16:05:09",
-      "last_action": "이슈 4건 감지"
+      "since": "2026-07-16T17:09:27",
+      "last_action": "이슈 3건 감지"
     },
     "bri": {
       "name": "브리",
@@ -19,9 +19,9 @@
       "emoji": "☀️",
       "room": "workflow",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T17:05:02",
-      "last_action": "시장 브리핑 데이터 수집 중"
+      "status": "done",
+      "since": "2026-07-16T17:09:27",
+      "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
       "name": "닉스",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "브리 이벤트 기록 (누적 2885건)",
-      "since": "2026-07-16T17:05:02"
+      "last_action": "탐 이벤트 기록 (누적 2904건)",
+      "since": "2026-07-16T17:11:03"
     },
     "callie": {
       "name": "캘리",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-16T16:18:28",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-07-16T17:11:03",
+      "last_action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 0건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T16:10:08",
+      "since": "2026-07-16T17:10:08",
       "last_action": "업종 2개 협회·통계 조사 완료"
     },
     "chip": {
@@ -86,7 +86,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T16:42:46",
+      "since": "2026-07-16T17:09:21",
       "last_action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
     },
     "hank": {
@@ -97,8 +97,8 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T16:42:50",
-      "last_action": "이상없음"
+      "since": "2026-07-16T17:09:21",
+      "last_action": "이슈 2건 감지"
     },
     "scout": {
       "name": "스카우트",
@@ -107,9 +107,9 @@
       "emoji": "📡",
       "room": "data",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T17:00:05",
-      "last_action": "증권사 리포트·뉴스 수집 중"
+      "status": "done",
+      "since": "2026-07-16T17:09:21",
+      "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
       "name": "마일로",
@@ -118,9 +118,9 @@
       "emoji": "📊",
       "room": "data",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-16T17:00:05",
-      "last_action": "기관·외국인 수급 데이터 수집 중"
+      "status": "done",
+      "since": "2026-07-16T17:09:21",
+      "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
       "name": "제이드",
@@ -195,9 +195,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-16T16:18:28",
-      "last_action": "오늘 콜은 장마감 시점에 이미 확정됨 — 갱신 안 함"
+      "status": "working",
+      "since": "2026-07-16T17:10:46",
+      "last_action": "[1/6] 삼성전자 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-16T17:04:43",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "idle",
+      "since": "2026-07-16T17:09:44",
+      "last_action": "질문 대기 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-16T17:04:43",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "idle",
+      "since": "2026-07-16T17:09:44",
+      "last_action": "질문 대기 중"
     },
     "rina": {
       "name": "리나",
@@ -228,164 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-16T17:04:43",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110aa4ec0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "status": "idle",
+      "since": "2026-07-16T17:09:44",
+      "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-16T16:11:18",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T16:11:32",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-16T16:12:29",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T16:12:56",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 분석 중"
-    },
-    {
-      "time": "2026-07-16T16:12:56",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T16:13:55",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T16:14:18",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 분석 중"
-    },
-    {
-      "time": "2026-07-16T16:14:18",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T16:15:00",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[4/6] 현대차 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T16:15:21",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 분석 중"
-    },
-    {
-      "time": "2026-07-16T16:15:21",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T16:16:13",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T16:16:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-07-16T16:16:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-16T16:17:20",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-16T16:18:28",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-07-16T16:18:28",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "오늘 콜은 장마감 시점에 이미 확정됨 — 갱신 안 함"
-    },
-    {
-      "time": "2026-07-16T16:18:28",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-07-16T16:18:28",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
     {
       "time": "2026-07-16T16:19:10",
       "employee": "nova",
@@ -643,6 +491,170 @@
       "role": "데일리 애널리스트",
       "status": "working",
       "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 0건 수집",
+      "detail": [
+        "삼성전자: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "SK하이닉스: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "삼성전기: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "현대차: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "SK스퀘어: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "LG이노텍: 뉴스 소스 전부 실패(네이버+야후 0건)"
+      ]
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-16T17:09:21",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이슈 2건 감지",
+      "detail": [
+        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석",
+        "수급 데이터 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍"
+      ]
+    },
+    {
+      "time": "2026-07-16T17:09:27",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-16T17:09:27",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-16T17:09:27",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 3건 감지"
+    },
+    {
+      "time": "2026-07-16T17:10:08",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-16T17:10:08",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-16T17:10:08",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 조사 완료"
+    },
+    {
+      "time": "2026-07-16T17:10:08",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-07-16T17:10:09",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 0건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-16T17:10:46",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-16T17:11:03",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-07-16T17:11:03",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 0건, 리포트 0건)"
     }
   ],
   "trader_stats": {
