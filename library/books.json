@@ -1,7 +1,7 @@
 [
   {
-    "title": "테스트책",
-    "author": "누군가",
+    "title": "사진책",
+    "author": "",
     "publisher": "",
     "cover": "",
     "isbn": "",
@@ -11,10 +11,10 @@
     "finished": "",
     "source": "manual",
     "summary": "",
-    "photo": "",
+    "photo": "photos/사진책.jpg",
     "tags": [
       "책"
     ],
-    "file": "테스트책.md"
+    "file": "사진책.md"
   }
 ]
