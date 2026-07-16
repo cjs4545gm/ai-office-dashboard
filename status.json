@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T12:48:01",
+  "updated_at": "2026-07-16T12:51:06",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -814,22 +814,18 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 28,
+      "days_until": 27,
       "status": "safe"
     },
     "ppi": {
       "label": "PPI(생산자물가)",
-      "as_of": "2026-06-11",
-      "reference": "May",
-      "actual": 6.5,
-      "previous": 5.7,
-      "consensus": 6.4,
-      "next_release": "2026-07-15",
+      "as_of": "2026-07-15",
+      "reference": "Jun",
+      "actual": 5.5,
+      "previous": 6.0,
+      "consensus": 6.2,
+      "next_release": "2026-08-13",
       "history": [
-        {
-          "reference": "Dec",
-          "actual": 3.1
-        },
         {
           "reference": "Jan",
           "actual": 3.1
@@ -848,12 +844,16 @@
         },
         {
           "reference": "May",
-          "actual": 6.5
+          "actual": 6.0
+        },
+        {
+          "reference": "Jun",
+          "actual": 5.5
         }
       ],
       "phase": "countdown",
-      "days_until": 0,
-      "status": "risk"
+      "days_until": 28,
+      "status": "safe"
     }
   },
   "sage_stats": {
