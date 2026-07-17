@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17T21:02:32",
+  "updated_at": "2026-07-17T21:07:34",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-17T20:05:09",
+      "since": "2026-07-17T21:05:10",
       "last_action": "이상없음"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-17T20:05:09",
+      "since": "2026-07-17T21:05:10",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 3212건)",
-      "since": "2026-07-17T21:00:16"
+      "last_action": "오즈 이벤트 기록 (누적 3216건)",
+      "since": "2026-07-17T21:05:10"
     },
     "callie": {
       "name": "캘리",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T21:02:32",
+      "since": "2026-07-17T21:07:34",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T21:02:32",
+      "since": "2026-07-17T21:07:34",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,43 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T21:02:32",
+      "since": "2026-07-17T21:07:34",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-17T20:00:17",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-17T20:02:01",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "결산 담당",
-      "status": "working",
-      "action": "주간 결산 작성 중"
-    },
-    {
-      "time": "2026-07-17T20:03:22",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "결산 담당",
-      "status": "done",
-      "action": "주간 결산 저장 완료"
-    },
-    {
-      "time": "2026-07-17T20:03:22",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "working",
-      "action": "주간 결산 검수 중"
-    },
     {
       "time": "2026-07-17T20:03:30",
       "employee": "dawn",
@@ -644,6 +612,38 @@
       "employee": "hank",
       "name": "행크",
       "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-17T21:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-17T21:05:10",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-17T21:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-17T21:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
     }
