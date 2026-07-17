@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17T15:38:24",
+  "updated_at": "2026-07-17T15:43:53",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 3087건)",
-      "since": "2026-07-17T15:19:44"
+      "last_action": "세이지 이벤트 기록 (누적 3090건)",
+      "since": "2026-07-17T15:43:53"
     },
     "callie": {
       "name": "캘리",
@@ -174,7 +174,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T16:07:34",
+      "since": "2026-07-17T15:43:53",
       "last_action": "일간 결산 저장 완료"
     },
     "sage": {
@@ -184,9 +184,9 @@
       "emoji": "🎯",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-16T16:08:38",
-      "last_action": "검증 완료"
+      "status": "working",
+      "since": "2026-07-17T15:43:53",
+      "last_action": "전일 리서치 판단 정확도 검증 중"
     },
     "leo": {
       "name": "레오",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T15:38:24",
+      "since": "2026-07-17T15:43:25",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T15:38:24",
+      "since": "2026-07-17T15:43:25",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,35 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T15:38:24",
+      "since": "2026-07-17T15:43:25",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-17T14:44:38",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-17T14:44:38",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-07-17T14:44:38",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
     {
       "time": "2026-07-17T14:44:38",
       "employee": "callie",
@@ -640,6 +616,30 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 5건 종합 완료"
+    },
+    {
+      "time": "2026-07-17T15:43:13",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-07-17T15:43:53",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-07-17T15:43:53",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
     }
   ],
   "trader_stats": {
