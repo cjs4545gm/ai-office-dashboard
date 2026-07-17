@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17T15:43:53",
+  "updated_at": "2026-07-17T15:48:26",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "세이지 이벤트 기록 (누적 3090건)",
-      "since": "2026-07-17T15:43:53"
+      "last_action": "리나 이벤트 기록 (누적 3098건)",
+      "since": "2026-07-17T15:48:26"
     },
     "callie": {
       "name": "캘리",
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-16T16:08:47",
+      "since": "2026-07-17T15:44:54",
       "last_action": "✅ 검수 통과"
     },
     "rewind": {
@@ -184,9 +184,9 @@
       "emoji": "🎯",
       "room": "feedback",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-17T15:43:53",
-      "last_action": "전일 리서치 판단 정확도 검증 중"
+      "status": "done",
+      "since": "2026-07-17T15:44:46",
+      "last_action": "검증 완료"
     },
     "leo": {
       "name": "레오",
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-17T15:19:02",
-      "last_action": "매수 0 · 보유 5 · 매도 1 종합 완료 (장마감 확정)"
+      "since": "2026-07-17T15:44:47",
+      "last_action": "검증 완료"
     },
     "ivy": {
       "name": "아이비",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-17T15:43:25",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-07-17T15:48:26",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-17T15:43:25",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-07-17T15:48:26",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     },
     "rina": {
       "name": "리나",
@@ -228,76 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-17T15:43:25",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-07-17T15:48:26",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-17T14:44:38",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "working",
-      "action": "실적발표 예상 시기 추정 중"
-    },
-    {
-      "time": "2026-07-17T14:44:44",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "done",
-      "action": "임박 3건: LG이노텍(D-6), SK하이닉스(D-7), 현대차(D-7)"
-    },
-    {
-      "time": "2026-07-17T15:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-17T15:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-17T15:00:20",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-17T15:00:20",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-17T15:00:20",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-07-17T15:00:20",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
     {
       "time": "2026-07-17T15:00:20",
       "employee": "scout",
@@ -640,56 +576,120 @@
       "role": "판단 정확도 추적",
       "status": "working",
       "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-07-17T15:44:46",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-17T15:44:46",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-07-17T15:44:47",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-17T15:44:47",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "일간 결산 검수 중"
+    },
+    {
+      "time": "2026-07-17T15:44:54",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
+    },
+    {
+      "time": "2026-07-17T15:48:26",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
+    },
+    {
+      "time": "2026-07-17T15:48:26",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
+    },
+    {
+      "time": "2026-07-17T15:48:26",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     }
   ],
   "trader_stats": {
-    "total": 32,
+    "total": 38,
     "hit": 5,
-    "miss": 25,
+    "miss": 31,
     "hold": 2,
-    "hit_rate": 16.7,
+    "hit_rate": 13.9,
     "by_stock": {
       "삼성전자": {
-        "total": 6,
+        "total": 7,
         "hit": 1,
-        "miss": 5,
+        "miss": 6,
         "hold": 0,
-        "hit_rate": 16.7
+        "hit_rate": 14.3
       },
       "SK하이닉스": {
+        "total": 7,
+        "hit": 1,
+        "miss": 6,
+        "hold": 0,
+        "hit_rate": 14.3
+      },
+      "삼성전기": {
         "total": 6,
         "hit": 1,
         "miss": 5,
         "hold": 0,
         "hit_rate": 16.7
       },
-      "삼성전기": {
-        "total": 5,
-        "hit": 1,
-        "miss": 4,
-        "hold": 0,
-        "hit_rate": 20.0
-      },
       "현대차": {
-        "total": 5,
+        "total": 6,
         "hit": 1,
-        "miss": 4,
+        "miss": 5,
         "hold": 0,
-        "hit_rate": 20.0
+        "hit_rate": 16.7
       },
       "SK스퀘어": {
-        "total": 5,
+        "total": 6,
         "hit": 0,
-        "miss": 4,
+        "miss": 5,
         "hold": 1,
         "hit_rate": 0.0
       },
       "LG이노텍": {
-        "total": 5,
+        "total": 6,
         "hit": 1,
-        "miss": 3,
+        "miss": 4,
         "hold": 1,
-        "hit_rate": 25.0
+        "hit_rate": 20.0
       }
     }
   },
@@ -845,53 +845,53 @@
     }
   },
   "sage_stats": {
-    "total": 41,
-    "hit": 12,
-    "miss": 13,
+    "total": 47,
+    "hit": 17,
+    "miss": 14,
     "hold": 15,
-    "hit_rate": 48.0,
+    "hit_rate": 54.8,
     "by_stock": {
       "삼성전자": {
-        "total": 6,
-        "hit": 1,
+        "total": 7,
+        "hit": 2,
         "miss": 5,
         "hold": 0,
-        "hit_rate": 16.7
+        "hit_rate": 28.6
       },
       "SK하이닉스": {
-        "total": 7,
+        "total": 8,
         "hit": 3,
-        "miss": 2,
+        "miss": 3,
         "hold": 2,
-        "hit_rate": 60.0
+        "hit_rate": 50.0
       },
       "삼성전기": {
-        "total": 7,
-        "hit": 2,
+        "total": 8,
+        "hit": 3,
         "miss": 2,
         "hold": 3,
-        "hit_rate": 50.0
+        "hit_rate": 60.0
       },
       "현대차": {
-        "total": 7,
-        "hit": 2,
+        "total": 8,
+        "hit": 3,
         "miss": 2,
         "hold": 3,
-        "hit_rate": 50.0
+        "hit_rate": 60.0
       },
       "SK스퀘어": {
-        "total": 7,
-        "hit": 3,
+        "total": 8,
+        "hit": 4,
         "miss": 1,
         "hold": 3,
-        "hit_rate": 75.0
+        "hit_rate": 80.0
       },
       "LG이노텍": {
-        "total": 7,
-        "hit": 1,
+        "total": 8,
+        "hit": 2,
         "miss": 1,
         "hold": 4,
-        "hit_rate": 50.0
+        "hit_rate": 66.7
       }
     }
   }
