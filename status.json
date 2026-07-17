@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17T16:48:32",
+  "updated_at": "2026-07-17T19:37:02",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 3143건)",
-      "since": "2026-07-17T16:20:01"
+      "last_action": "행크 이벤트 기록 (누적 3153건)",
+      "since": "2026-07-17T19:32:53"
     },
     "callie": {
       "name": "캘리",
@@ -86,7 +86,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-17T16:00:17",
+      "since": "2026-07-17T19:32:50",
       "last_action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
     },
     "hank": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-17T16:00:21",
+      "since": "2026-07-17T19:32:53",
       "last_action": "이상없음"
     },
     "scout": {
@@ -108,7 +108,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-17T16:00:21",
+      "since": "2026-07-17T19:32:53",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -119,7 +119,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-17T16:00:17",
+      "since": "2026-07-17T19:32:50",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T16:48:32",
+      "since": "2026-07-17T19:37:02",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T16:48:32",
+      "since": "2026-07-17T19:37:02",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,91 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-17T16:48:32",
+      "since": "2026-07-17T19:37:02",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-17T15:44:47",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "working",
-      "action": "일간 결산 검수 중"
-    },
-    {
-      "time": "2026-07-17T15:44:54",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "done",
-      "action": "✅ 검수 통과"
-    },
-    {
-      "time": "2026-07-17T15:48:26",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
-    },
-    {
-      "time": "2026-07-17T15:48:26",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
-    },
-    {
-      "time": "2026-07-17T15:48:26",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
-    },
-    {
-      "time": "2026-07-17T16:00:04",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-17T16:00:04",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-17T16:00:17",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-17T16:00:17",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-17T16:00:17",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
     {
       "time": "2026-07-17T16:00:17",
       "employee": "chip",
@@ -646,6 +566,86 @@
       "detail": [
         "삼성전자: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
       ]
+    },
+    {
+      "time": "2026-07-17T19:32:33",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-17T19:32:33",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-17T19:32:50",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-07-17T19:32:50",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-17T19:32:50",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
+    },
+    {
+      "time": "2026-07-17T19:32:50",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
+    },
+    {
+      "time": "2026-07-17T19:32:50",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-17T19:32:53",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-17T19:32:53",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-17T19:32:53",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": {
