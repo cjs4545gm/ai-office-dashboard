@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T20:00:57",
+  "updated_at": "2026-07-23T20:06:54",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T19:05:11",
+      "since": "2026-07-23T20:05:09",
       "last_action": "이상없음"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T19:05:11",
+      "since": "2026-07-23T20:05:09",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 3695건)",
-      "since": "2026-07-23T20:00:18"
+      "last_action": "오즈 이벤트 기록 (누적 3699건)",
+      "since": "2026-07-23T20:05:09"
     },
     "callie": {
       "name": "캘리",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T20:00:57",
+      "since": "2026-07-23T20:05:59",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T20:00:57",
+      "since": "2026-07-23T20:05:59",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,43 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T20:00:57",
+      "since": "2026-07-23T20:05:59",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-23T19:00:18",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
-    {
-      "time": "2026-07-23T19:00:18",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-07-23T19:00:20",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-23T19:00:20",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
     {
       "time": "2026-07-23T19:00:20",
       "employee": "hank",
@@ -642,6 +610,38 @@
       "employee": "hank",
       "name": "행크",
       "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-23T20:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-23T20:05:09",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-07-23T20:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-07-23T20:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
     }
@@ -1146,6 +1146,41 @@
         "streak": {
           "type": "miss",
           "count": 1
+        }
+      }
+    },
+    "by_call": {
+      "매도": {
+        "total": 85,
+        "hit": 54,
+        "miss": 31,
+        "hold": 0,
+        "hit_rate": 63.5,
+        "streak": {
+          "type": "hit",
+          "count": 19
+        }
+      },
+      "보유": {
+        "total": 104,
+        "hit": 6,
+        "miss": 98,
+        "hold": 0,
+        "hit_rate": 5.8,
+        "streak": {
+          "type": "miss",
+          "count": 46
+        }
+      },
+      "매수": {
+        "total": 51,
+        "hit": 18,
+        "miss": 33,
+        "hold": 0,
+        "hit_rate": 35.3,
+        "streak": {
+          "type": "miss",
+          "count": 16
         }
       }
     },

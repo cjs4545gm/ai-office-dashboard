@@ -639,7 +639,7 @@
       : `😣 지금 ${streak.count}번 연속 틀리는 중이에요`;
   }
 
-  function renderStatsPanel(elId, stats, emptyText, groupDefs){
+  function renderStatsPanel(elId, stats, emptyText, groupDefs, alwaysGroup){
     const el = document.getElementById(elId);
     if (!stats || stats.total === 0){
       el.innerHTML = `<div class="panel-empty">${emptyText}</div>`;
@@ -658,6 +658,8 @@
     const calibration = stats.confidence_calibration ? `🎯 ${stats.confidence_calibration}` : "";
     const callouts = [streak, notable, calibration].filter(Boolean)
       .map(t => `<div class="simple-trend">${t}</div>`).join("");
+    // 매수/보유/매도별처럼 "이건 접지 말고 바로 보여달라"고 요청받은 축은 details 밖에 그대로 노출한다.
+    const alwaysHtml = alwaysGroup ? simpleGroupHTML(alwaysGroup.label, stats[alwaysGroup.key], alwaysGroup.hideIfOnlyKeys) : "";
     const groupsHtml = (groupDefs || [])
       .map(g => simpleGroupHTML(g.label, stats[g.key], g.hideIfOnlyKeys))
       .filter(Boolean).join("");
@@ -682,6 +684,7 @@
       </div>
       ${trend ? `<div class="simple-trend">${trend}</div>` : ""}
       ${callouts}
+      ${alwaysHtml}
       ${groupsHtml ? `<details class="simple-details"><summary>▸ 더 자세히 보기</summary>${groupsHtml}</details>` : ""}`;
   }
 
@@ -990,10 +993,9 @@
     renderTasksDone(data.activity_log);
     renderStatsPanel("trader-stats", data.trader_stats, "아직 검증된 콜 없음", [
       { label: "종목별", key: "by_stock" },
-      { label: "매수/보유/매도별", key: "by_call" },
       { label: "확신도별", key: "by_confidence", hideIfOnlyKeys: ["미상"] },
       { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
-    ]);
+    ], { label: "매수/보유/매도별", key: "by_call" });
     renderStatsPanel("sage-stats", data.sage_stats, "아직 검증된 판단 없음", [
       { label: "종목별", key: "by_stock" },
       { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
@@ -1001,7 +1003,7 @@
     renderStatsPanel("analyst-stats", data.analyst_stats, "아직 검증된 의견 없음", [
       { label: "애널리스트별", key: "by_analyst" },
       { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
-    ]);
+    ], { label: "매수/보유/매도별", key: "by_call" });
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
     renderMacroCpiPpi(data.macro_cpi_ppi);
