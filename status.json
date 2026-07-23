@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T18:41:13",
+  "updated_at": "2026-07-23T18:43:16",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:38:13",
+      "since": "2026-07-23T18:43:16",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:38:13",
+      "since": "2026-07-23T18:43:16",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,7 +229,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:38:13",
+      "since": "2026-07-23T18:43:16",
       "last_action": "질문 대기 중"
     }
   },
