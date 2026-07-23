@@ -127,21 +127,6 @@
   .done-row .who{ color:var(--muted); font-family:var(--mono); font-size:10px; flex:none; }
   .done-row .what{ color:var(--cream); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .panel-empty{ font-family:var(--mono); font-size:11px; color:var(--muted); }
-  .stat-rate{ font-family:var(--mono); font-size:26px; font-weight:700; color:var(--done); line-height:1; }
-  .stat-rate.low{ color:var(--error); }
-  .stat-rate .unit{ font-size:13px; color:var(--muted); font-weight:400; margin-left:2px; }
-  .stat-breakdown{
-    display:flex; gap:10px; margin-top:8px; font-family:var(--mono); font-size:10.5px; color:var(--muted);
-  }
-  .stat-breakdown b{ color:var(--cream); }
-  .stock-stats{ margin-top:10px; border-top:1px dashed var(--line); padding-top:8px; }
-  .stock-row{ padding:4px 0; font-family:var(--mono); min-width:0; }
-  .stock-row .stock-line1{ display:flex; align-items:baseline; gap:6px; font-size:11px; min-width:0; }
-  .stock-row .stock-name{ color:var(--cream); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .stock-row .stock-rate{ color:var(--done); flex:none; font-weight:700; }
-  .stock-row .stock-rate.low{ color:var(--error); }
-  .stock-row .stock-rate.na{ color:var(--muted); }
-  .stock-row .stock-line2{ font-size:9.5px; color:var(--muted); margin-top:1px; }
 
   /* 적중률 패널 — "초등학생도 알기 쉽게" 요청(2026-07-23)으로 촘촘한 소수점 % 나열 대신
      큰 숫자+표정 이모지+막대그래프+쉬운 문장으로 재구성. 세부 수치는 접어서(details) 숨겨두고
