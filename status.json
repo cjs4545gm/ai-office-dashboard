@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T18:53:20",
+  "updated_at": "2026-07-23T19:00:20",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "캘리 이벤트 기록 (누적 3640건)",
-      "since": "2026-07-23T18:41:13"
+      "last_action": "행크 이벤트 기록 (누적 3650건)",
+      "since": "2026-07-23T19:00:20"
     },
     "callie": {
       "name": "캘리",
@@ -86,7 +86,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T18:08:00",
+      "since": "2026-07-23T19:00:18",
       "last_action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
     },
     "hank": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T18:08:01",
+      "since": "2026-07-23T19:00:20",
       "last_action": "이상없음"
     },
     "scout": {
@@ -108,7 +108,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T18:08:01",
+      "since": "2026-07-23T19:00:20",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -119,7 +119,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T18:08:00",
+      "since": "2026-07-23T19:00:18",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:53:20",
+      "since": "2026-07-23T18:58:22",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:53:20",
+      "since": "2026-07-23T18:58:22",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,91 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:53:20",
+      "since": "2026-07-23T18:58:22",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-23T16:58:17",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-23T16:58:46",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-23T17:15:48",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-23T17:15:48",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-23T17:15:48",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-23T17:15:52",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-07-23T17:15:52",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-07-23T17:15:52",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-23T17:15:58",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-23T17:15:58",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
     {
       "time": "2026-07-23T17:15:58",
       "employee": "chip",
@@ -651,6 +571,86 @@
       "role": "실적발표 예상 시기 추적",
       "status": "done",
       "action": "임박 3건: SK하이닉스(D-6), 삼성전자(D-7), 삼성전기(D-7)"
+    },
+    {
+      "time": "2026-07-23T19:00:07",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-07-23T19:00:07",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-07-23T19:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-07-23T19:00:18",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-07-23T19:00:18",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
+    },
+    {
+      "time": "2026-07-23T19:00:18",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
+    },
+    {
+      "time": "2026-07-23T19:00:18",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-07-23T19:00:20",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-07-23T19:00:20",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-07-23T19:00:20",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
     }
   ],
   "trader_stats": {
@@ -702,6 +702,52 @@
         "hold": 1,
         "hit_rate": 20.0
       }
+    },
+    "by_call": {
+      "보유": {
+        "total": 31,
+        "hit": 2,
+        "miss": 27,
+        "hold": 2,
+        "hit_rate": 6.9
+      },
+      "매도": {
+        "total": 6,
+        "hit": 3,
+        "miss": 3,
+        "hold": 0,
+        "hit_rate": 50.0
+      },
+      "매수": {
+        "total": 1,
+        "hit": 0,
+        "miss": 1,
+        "hold": 0,
+        "hit_rate": 0.0
+      }
+    },
+    "by_confidence": {
+      "미상": {
+        "total": 38,
+        "hit": 5,
+        "miss": 31,
+        "hold": 2,
+        "hit_rate": 13.9
+      }
+    },
+    "recent_7d": {
+      "total": 12,
+      "hit": 0,
+      "miss": 12,
+      "hold": 0,
+      "hit_rate": 0.0
+    },
+    "recent_30d": {
+      "total": 38,
+      "hit": 5,
+      "miss": 31,
+      "hold": 2,
+      "hit_rate": 13.9
     }
   },
   "trader_calls": {
@@ -914,6 +960,20 @@
         "hold": 4,
         "hit_rate": 66.7
       }
+    },
+    "recent_7d": {
+      "total": 12,
+      "hit": 7,
+      "miss": 3,
+      "hold": 2,
+      "hit_rate": 70.0
+    },
+    "recent_30d": {
+      "total": 47,
+      "hit": 17,
+      "miss": 14,
+      "hold": 15,
+      "hit_rate": 54.8
     }
   },
   "analyst_stats": {
