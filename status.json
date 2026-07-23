@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T18:48:18",
+  "updated_at": "2026-07-23T18:53:20",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:48:18",
+      "since": "2026-07-23T18:53:20",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:48:18",
+      "since": "2026-07-23T18:53:20",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,7 +229,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T18:48:18",
+      "since": "2026-07-23T18:53:20",
       "last_action": "질문 대기 중"
     }
   },
@@ -914,6 +914,64 @@
         "hold": 4,
         "hit_rate": 66.7
       }
+    }
+  },
+  "analyst_stats": {
+    "total": 240,
+    "hit": 78,
+    "miss": 162,
+    "hold": 0,
+    "hit_rate": 32.5,
+    "by_analyst": {
+      "탐": {
+        "total": 48,
+        "hit": 17,
+        "miss": 31,
+        "hold": 0,
+        "hit_rate": 35.4
+      },
+      "베라": {
+        "total": 48,
+        "hit": 16,
+        "miss": 32,
+        "hold": 0,
+        "hit_rate": 33.3
+      },
+      "주노": {
+        "total": 48,
+        "hit": 16,
+        "miss": 32,
+        "hold": 0,
+        "hit_rate": 33.3
+      },
+      "카이": {
+        "total": 48,
+        "hit": 12,
+        "miss": 36,
+        "hold": 0,
+        "hit_rate": 25.0
+      },
+      "제이드": {
+        "total": 48,
+        "hit": 17,
+        "miss": 31,
+        "hold": 0,
+        "hit_rate": 35.4
+      }
+    },
+    "recent_7d": {
+      "total": 60,
+      "hit": 19,
+      "miss": 41,
+      "hold": 0,
+      "hit_rate": 31.7
+    },
+    "recent_30d": {
+      "total": 240,
+      "hit": 78,
+      "miss": 162,
+      "hold": 0,
+      "hit_rate": 32.5
     }
   }
 }

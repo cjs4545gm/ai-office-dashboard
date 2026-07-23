@@ -143,6 +143,35 @@
   .stock-row .stock-rate.na{ color:var(--muted); }
   .stock-row .stock-line2{ font-size:9.5px; color:var(--muted); margin-top:1px; }
 
+  /* 적중률 패널 — "초등학생도 알기 쉽게" 요청(2026-07-23)으로 촘촘한 소수점 % 나열 대신
+     큰 숫자+표정 이모지+막대그래프+쉬운 문장으로 재구성. 세부 수치는 접어서(details) 숨겨두고
+     펼쳐야 보이게 해 기본 화면은 단순하게 유지한다. */
+  .simple-top{ display:flex; align-items:center; gap:10px; }
+  .simple-face{ font-size:34px; line-height:1; flex:none; }
+  .simple-pct{ font-family:var(--mono); font-size:30px; font-weight:700; color:var(--cream); line-height:1; }
+  .simple-pct .unit{ font-size:15px; color:var(--muted); font-weight:400; margin-left:1px; }
+  .simple-sub{ font-size:11.5px; color:var(--muted); margin-top:3px; }
+  .simple-sub b{ color:var(--cream); }
+  .simple-bar{ display:flex; height:10px; border-radius:6px; overflow:hidden; margin-top:10px; background:var(--wall-3); }
+  .simple-bar .seg.hit{ background:var(--done); }
+  .simple-bar .seg.miss{ background:var(--error); }
+  .simple-bar .seg.hold{ background:var(--idle); }
+  .simple-legend{ display:flex; gap:12px; margin-top:6px; font-size:10.5px; color:var(--muted); }
+  .simple-legend .dot{ display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:4px; vertical-align:middle; }
+  .simple-legend .dot.hit{ background:var(--done); }
+  .simple-legend .dot.miss{ background:var(--error); }
+  .simple-legend .dot.hold{ background:var(--idle); }
+  .simple-trend{ font-size:11.5px; color:var(--cream); margin-top:8px; background:var(--wall-3); border-radius:6px; padding:6px 8px; }
+  .simple-details{ margin-top:10px; }
+  .simple-details summary{ cursor:pointer; font-size:11px; color:var(--muted); user-select:none; }
+  .simple-details summary:hover{ color:var(--cream); }
+  .simple-group{ margin-top:8px; }
+  .simple-group-label{ font-size:10px; color:var(--muted); margin-bottom:3px; }
+  .simple-item{ display:flex; align-items:baseline; gap:6px; padding:3px 0; font-size:11px; }
+  .simple-item .light{ flex:none; font-size:10px; }
+  .simple-item .item-name{ color:var(--cream); flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .simple-item .item-frac{ font-family:var(--mono); color:var(--muted); flex:none; }
+
   .call-row{ padding:6px 0; border-bottom:1px dashed var(--line); }
   .call-row:last-child{ border-bottom:none; }
   .call-row .call-line1{ display:flex; align-items:baseline; gap:6px; font-size:11.5px; }
@@ -409,6 +438,7 @@
     // "샘플 데이터"인데도 진짜처럼 보이는 혼동을 없앤다 — 실사용자가 이 값을 실제로 오인해서 문의한 적 있음.
     trader_stats: null,
     sage_stats: null,
+    analyst_stats: null,
     trader_calls: null,
     priority_alerts: null,
     strategy_room: null,
@@ -561,38 +591,94 @@
 
   let latestEmployees = {};
 
-  function stockRowHTML(name, s){
-    const rateClass = s.hit_rate === null ? "na" : (s.hit_rate < 50 ? "low" : "");
-    const rateText = s.hit_rate === null ? "-" : `${s.hit_rate.toFixed(1)}%`;
-    const detail = `적중 ${s.hit}/${s.hit + s.miss}${s.hold ? ` · 보류 ${s.hold}` : ""}`;
+  // 적중률 패널 재설계(2026-07-23, 사용자 요청 — "초등학생도 알기 쉽게 단순하게"): 소수점 %
+  // 나열 대신 표정 이모지 + 큰 숫자 + 색깔 막대 + 쉬운 문장으로 보여주고, 세분화된 수치
+  // (종목별/콜종류별/확신도별/애널리스트별)는 details로 접어 기본 화면은 단순하게 유지한다.
+  function trafficLight(rate){
+    if (rate === null || rate === undefined) return "⚪";
+    if (rate >= 60) return "🟢";
+    if (rate >= 35) return "🟡";
+    return "🔴";
+  }
+
+  function faceEmoji(rate){
+    if (rate === null || rate === undefined) return "❓";
+    if (rate >= 60) return "😃";
+    if (rate >= 40) return "🙂";
+    if (rate >= 25) return "😐";
+    return "😢";
+  }
+
+  function simpleItemHTML(name, s){
+    const decided = s.hit + s.miss;
+    const frac = decided ? `${decided}번 중 ${s.hit}번` : "판정 없음";
     return `
-      <div class="stock-row">
-        <div class="stock-line1">
-          <span class="stock-name">${escapeHtml(name)}</span>
-          <span class="stock-rate ${rateClass}">${rateText}</span>
-        </div>
-        <div class="stock-line2">${detail}</div>
+      <div class="simple-item">
+        <span class="light">${trafficLight(s.hit_rate)}</span>
+        <span class="item-name">${escapeHtml(name)}</span>
+        <span class="item-frac">${frac}</span>
       </div>`;
   }
 
-  function renderStatsPanel(elId, stats, emptyText){
+  // 확신도별처럼 "확신도 값 자체를 아직 안 남긴 과거 콜"만 있으면 버킷이 전부 "미상"이라
+  // 사용자에게 아무 정보도 안 주는 채로 패널만 지저분해진다 — 그럴 땐 그룹 자체를 숨긴다.
+  function simpleGroupHTML(label, entries, hideIfOnlyKeys){
+    entries = entries || {};
+    const keys = Object.keys(entries);
+    if (!keys.length) return "";
+    if (hideIfOnlyKeys && keys.every(k => hideIfOnlyKeys.includes(k))) return "";
+    const rows = keys.map(name => simpleItemHTML(name, entries[name])).join("");
+    return `<div class="simple-group"><div class="simple-group-label">${label}</div>${rows}</div>`;
+  }
+
+  function trendSentence(stats){
+    const recent = stats.recent_7d;
+    if (!recent || recent.total < 3 || recent.hit_rate === null || stats.hit_rate === null) return "";
+    const diff = recent.hit_rate - stats.hit_rate;
+    let arrow = "➡️", word = "그동안이랑 비슷해요";
+    if (diff >= 5){ arrow = "📈"; word = "예전보다 좋아지고 있어요"; }
+    else if (diff <= -5){ arrow = "📉"; word = "예전보다 나빠지고 있어요"; }
+    return `${arrow} 최근 7일은 ${word} (최근 ${recent.hit_rate.toFixed(0)}% 맞음)`;
+  }
+
+  function renderStatsPanel(elId, stats, emptyText, groupDefs){
     const el = document.getElementById(elId);
     if (!stats || stats.total === 0){
       el.innerHTML = `<div class="panel-empty">${emptyText}</div>`;
       return;
     }
-    const rateText = stats.hit_rate === null || stats.hit_rate === undefined ? "-" : stats.hit_rate.toFixed(1);
-    const lowClass = stats.hit_rate !== null && stats.hit_rate < 50 ? " low" : "";
-    const byStock = stats.by_stock || {};
-    const stockRows = Object.entries(byStock).map(([name, s]) => stockRowHTML(name, s)).join("");
+    const rate = stats.hit_rate;
+    const rateText = rate === null || rate === undefined ? "-" : rate.toFixed(0);
+    const decided = stats.hit + stats.miss;
+    const total = stats.total || 1;
+    const hitPct = stats.hit / total * 100;
+    const missPct = stats.miss / total * 100;
+    const holdPct = stats.hold / total * 100;
+    const trend = trendSentence(stats);
+    const groupsHtml = (groupDefs || [])
+      .map(g => simpleGroupHTML(g.label, stats[g.key], g.hideIfOnlyKeys))
+      .filter(Boolean).join("");
+
     el.innerHTML = `
-      <div class="stat-rate${lowClass}">${rateText}<span class="unit">% 적중</span></div>
-      <div class="stat-breakdown">
-        <span>적중 <b>${stats.hit}</b></span>
-        <span>불일치 <b>${stats.miss}</b></span>
-        <span>판단보류 <b>${stats.hold}</b></span>
+      <div class="simple-top">
+        <span class="simple-face">${faceEmoji(rate)}</span>
+        <div>
+          <div class="simple-pct">${rateText}<span class="unit">% 맞음</span></div>
+          <div class="simple-sub">${decided}번 판정 중 <b>${stats.hit}</b>번 맞음${stats.hold ? ` · 애매함 <b>${stats.hold}</b>번은 안 셈` : ""}</div>
+        </div>
       </div>
-      ${stockRows ? `<div class="stock-stats">${stockRows}</div>` : ""}`;
+      <div class="simple-bar">
+        <span class="seg hit" style="width:${hitPct}%"></span>
+        <span class="seg miss" style="width:${missPct}%"></span>
+        <span class="seg hold" style="width:${holdPct}%"></span>
+      </div>
+      <div class="simple-legend">
+        <span><span class="dot hit"></span>맞음 ${stats.hit}</span>
+        <span><span class="dot miss"></span>틀림 ${stats.miss}</span>
+        <span><span class="dot hold"></span>애매함 ${stats.hold}</span>
+      </div>
+      ${trend ? `<div class="simple-trend">${trend}</div>` : ""}
+      ${groupsHtml ? `<details class="simple-details"><summary>▸ 더 자세히 보기</summary>${groupsHtml}</details>` : ""}`;
   }
 
   function traderCallTag(call){
@@ -898,8 +984,17 @@
     renderRooms(latestEmployees);
     renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
-    renderStatsPanel("trader-stats", data.trader_stats, "아직 검증된 콜 없음");
-    renderStatsPanel("sage-stats", data.sage_stats, "아직 검증된 판단 없음");
+    renderStatsPanel("trader-stats", data.trader_stats, "아직 검증된 콜 없음", [
+      { label: "종목별", key: "by_stock" },
+      { label: "매수/보유/매도별", key: "by_call" },
+      { label: "확신도별", key: "by_confidence", hideIfOnlyKeys: ["미상"] },
+    ]);
+    renderStatsPanel("sage-stats", data.sage_stats, "아직 검증된 판단 없음", [
+      { label: "종목별", key: "by_stock" },
+    ]);
+    renderStatsPanel("analyst-stats", data.analyst_stats, "아직 검증된 의견 없음", [
+      { label: "애널리스트별", key: "by_analyst" },
+    ]);
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
     renderMacroCpiPpi(data.macro_cpi_ppi);
