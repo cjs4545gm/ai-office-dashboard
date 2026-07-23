@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T22:17:13",
+  "updated_at": "2026-07-23T22:18:51",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "카이 이벤트 기록 (누적 3814건)",
-      "since": "2026-07-23T22:17:13"
+      "last_action": "제이드 이벤트 기록 (누적 3820건)",
+      "since": "2026-07-23T22:18:20"
     },
     "callie": {
       "name": "캘리",
@@ -52,9 +52,9 @@
       "emoji": "🧠",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-23T22:17:13",
-      "last_action": "리서치 품질 검수 중"
+      "status": "done",
+      "since": "2026-07-23T22:18:20",
+      "last_action": "이상없음"
     },
     "tam": {
       "name": "탐",
@@ -130,7 +130,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T22:08:32",
+      "since": "2026-07-23T22:18:20",
       "last_action": "품질 0건 · 리스크 6건 종합 완료"
     },
     "kai": {
@@ -140,9 +140,9 @@
       "emoji": "📉",
       "room": "risk",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-23T22:17:13",
-      "last_action": "이상거래·급락 감지 중"
+      "status": "done",
+      "since": "2026-07-23T22:18:20",
+      "last_action": "경보 6건 감지"
     },
     "nova": {
       "name": "노바",
@@ -152,7 +152,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T22:08:32",
+      "since": "2026-07-23T22:18:20",
       "last_action": "특이사항 없음"
     },
     "dawn": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T22:13:50",
+      "since": "2026-07-23T22:18:51",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T22:13:50",
+      "since": "2026-07-23T22:18:51",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,59 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-23T22:13:50",
+      "since": "2026-07-23T22:18:51",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-23T22:03:13",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-07-23T22:03:13",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-23T22:03:29",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 분석 중"
-    },
-    {
-      "time": "2026-07-23T22:03:29",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-23T22:04:01",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[4/6] 현대차 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-23T22:04:27",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 분석 중"
-    },
     {
       "time": "2026-07-23T22:04:27",
       "employee": "tam",
@@ -641,6 +593,62 @@
       "role": "이상거래·급락 감지",
       "status": "working",
       "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-07-23T22:18:18",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-07-23T22:18:20",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-07-23T22:18:20",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-07-23T22:18:20",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 6건 감지",
+      "detail": [
+        "삼성전자: 급등 +4.80% (코스피도 동반 +4.40%)",
+        "SK하이닉스: 급등 +6.39% (코스피도 동반 +4.40%)",
+        "삼성전기: 급등 +9.52% (코스피도 동반 +4.40%)",
+        "현대차: 급등 +3.71% (코스피도 동반 +4.40%)",
+        "SK스퀘어: 외국인 3거래일 연속 순매도",
+        "LG이노텍: 급등 +6.18% (코스피도 동반 +4.40%)"
+      ]
+    },
+    {
+      "time": "2026-07-23T22:18:20",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "특이사항 없음"
+    },
+    {
+      "time": "2026-07-23T22:18:20",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "품질 0건 · 리스크 6건 종합 완료"
     }
   ],
   "trader_stats": {
