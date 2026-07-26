@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-24T00:28:58",
+  "updated_at": "2026-07-26T22:05:06",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -8,9 +8,9 @@
       "emoji": "🧭",
       "room": "workflow",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:14:52",
-      "last_action": "이상없음"
+      "status": "idle",
+      "since": "2026-07-26T22:05:06",
+      "last_action": "휴장일 — 대기"
     },
     "bri": {
       "name": "브리",
@@ -19,9 +19,9 @@
       "emoji": "☀️",
       "room": "workflow",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:14:52",
-      "last_action": "데일리 시장 브리핑 작성 완료"
+      "status": "idle",
+      "since": "2026-07-26T22:05:06",
+      "last_action": "휴장일 — 대기"
     },
     "nix": {
       "name": "닉스",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "카이 이벤트 기록 (누적 3906건)",
-      "since": "2026-07-24T00:28:58"
+      "last_action": "오즈 이벤트 기록 (누적 3913건)",
+      "since": "2026-07-26T22:05:06"
     },
     "callie": {
       "name": "캘리",
@@ -41,9 +41,9 @@
       "emoji": "📅",
       "room": "workflow",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:15:34",
-      "last_action": "임박 3건: SK하이닉스(D-5), 삼성전자(D-6), 삼성전기(D-6)"
+      "status": "idle",
+      "since": "2026-07-26T22:03:53",
+      "last_action": "휴장일 — 대기"
     },
     "vera": {
       "name": "베라",
@@ -85,9 +85,9 @@
       "emoji": "🧪",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:15:32",
-      "last_action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
+      "status": "idle",
+      "since": "2026-07-26T22:03:53",
+      "last_action": "휴장일 — 대기"
     },
     "hank": {
       "name": "행크",
@@ -96,9 +96,9 @@
       "emoji": "🗄️",
       "room": "data",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:15:34",
-      "last_action": "이상없음"
+      "status": "idle",
+      "since": "2026-07-26T22:03:53",
+      "last_action": "휴장일 — 대기"
     },
     "scout": {
       "name": "스카우트",
@@ -107,9 +107,9 @@
       "emoji": "📡",
       "room": "data",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:15:34",
-      "last_action": "새 IR 일정 공지 없음"
+      "status": "idle",
+      "since": "2026-07-26T22:03:53",
+      "last_action": "휴장일 — 대기"
     },
     "milo": {
       "name": "마일로",
@@ -118,9 +118,9 @@
       "emoji": "📊",
       "room": "data",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:14:59",
-      "last_action": "보유종목 6개 수급 데이터 갱신"
+      "status": "idle",
+      "since": "2026-07-26T22:03:53",
+      "last_action": "휴장일 — 대기"
     },
     "jade": {
       "name": "제이드",
@@ -234,70 +234,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-23T23:16:37",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "오늘 콜은 장마감 시점에 이미 확정됨 — 갱신 안 함"
-    },
-    {
-      "time": "2026-07-23T23:16:37",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-07-23T23:16:37",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-07-23T23:17:43",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-07-23T23:17:45",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-07-23T23:17:45",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-23T23:17:45",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지",
-      "status": "done",
-      "action": "경보 6건 감지",
-      "detail": [
-        "삼성전자: 급등 +4.80% (코스피도 동반 +4.40%)",
-        "SK하이닉스: 급등 +6.39% (코스피도 동반 +4.40%)",
-        "삼성전기: 급등 +9.52% (코스피도 동반 +4.40%)",
-        "현대차: 급등 +3.71% (코스피도 동반 +4.40%)",
-        "SK스퀘어: 외국인 3거래일 연속 순매도",
-        "LG이노텍: 급등 +6.18% (코스피도 동반 +4.40%)"
-      ]
-    },
     {
       "time": "2026-07-23T23:17:45",
       "employee": "nova",
@@ -641,6 +577,62 @@
       "role": "이상거래·급락 감지",
       "status": "working",
       "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-07-26T22:03:53",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:03:53",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:03:53",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:03:53",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 예상 시기 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:03:53",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:05:06",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
     }
   ],
   "trader_stats": {
