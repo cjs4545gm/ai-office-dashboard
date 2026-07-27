@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27T18:47:28",
+  "updated_at": "2026-07-27T18:52:30",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 4005건)",
-      "since": "2026-07-27T18:16:34"
+      "last_action": "리나 이벤트 기록 (누적 4008건)",
+      "since": "2026-07-27T18:52:30"
     },
     "callie": {
       "name": "캘리",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-27T18:47:28",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-07-27T18:52:30",
+      "last_action": "질문 검토 중: 창신 메모리 오늘 상장한 거 같은데 창신 메모리가 상장…"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-27T18:47:28",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-07-27T18:52:30",
+      "last_action": "질문 검토 중: 창신 메모리 오늘 상장한 거 같은데 창신 메모리가 상장…"
     },
     "rina": {
       "name": "리나",
@@ -228,36 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-07-27T18:47:28",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-07-27T18:52:30",
+      "last_action": "질문 검토 중: 창신 메모리 오늘 상장한 거 같은데 창신 메모리가 상장…"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-27T12:19:20",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-27T12:20:10",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-27T12:21:27",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
     {
       "time": "2026-07-27T12:21:27",
       "employee": "leo",
@@ -642,6 +618,30 @@
       "role": "데이터 품질 관리",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-07-27T18:52:30",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "질문 검토 중: 창신 메모리 오늘 상장한 거 같은데 창신 메모리가 상장…"
+    },
+    {
+      "time": "2026-07-27T18:52:30",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "working",
+      "action": "질문 검토 중: 창신 메모리 오늘 상장한 거 같은데 창신 메모리가 상장…"
+    },
+    {
+      "time": "2026-07-27T18:52:30",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "working",
+      "action": "질문 검토 중: 창신 메모리 오늘 상장한 거 같은데 창신 메모리가 상장…"
     }
   ],
   "trader_stats": {
