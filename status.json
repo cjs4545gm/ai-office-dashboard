@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27T19:07:45",
+  "updated_at": "2026-07-27T19:12:39",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리와인드 이벤트 기록 (누적 4026건)",
-      "since": "2026-07-27T19:07:26"
+      "last_action": "탐 이벤트 기록 (누적 4044건)",
+      "since": "2026-07-27T19:12:39"
     },
     "callie": {
       "name": "캘리",
@@ -64,8 +64,8 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-07-27T13:13:46",
-      "last_action": "[4/6] 현대차 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+      "since": "2026-07-27T19:12:39",
+      "last_action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-07-27T13:10:06",
+      "since": "2026-07-27T19:10:02",
       "last_action": "업종 2개 협회·통계 조사 완료"
     },
     "chip": {
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T15:40:30",
+      "since": "2026-07-27T19:09:18",
       "last_action": "✅ 검수 통과"
     },
     "rewind": {
@@ -173,9 +173,9 @@
       "emoji": "🗂️",
       "room": "feedback",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-27T19:07:26",
-      "last_action": "일간 결산 작성 중"
+      "status": "done",
+      "since": "2026-07-27T19:08:26",
+      "last_action": "일간 결산 저장 완료"
     },
     "sage": {
       "name": "세이지",
@@ -185,8 +185,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-23T15:40:22",
-      "last_action": "비교할 전일 리서치 없음"
+      "since": "2026-07-27T19:09:13",
+      "last_action": "검증 완료"
     },
     "leo": {
       "name": "레오",
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "working",
-      "since": "2026-07-27T13:13:31",
-      "last_action": "[3/6] 삼성전기 트레이더 콜 종합 중"
+      "since": "2026-07-27T19:12:18",
+      "last_action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-27T19:04:07",
+      "since": "2026-07-27T19:09:09",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-27T19:04:07",
+      "since": "2026-07-27T19:09:09",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,155 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-27T19:04:07",
+      "since": "2026-07-27T19:09:09",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-27T13:00:17",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-27T13:05:07",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-27T13:05:12",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-07-27T13:05:12",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-07-27T13:05:12",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-07-27T13:10:06",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-27T13:10:06",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-27T13:10:06",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
-    {
-      "time": "2026-07-27T13:10:06",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-07-27T13:10:07",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 1건)"
-    },
-    {
-      "time": "2026-07-27T13:11:04",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-27T13:11:24",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 분석 중"
-    },
-    {
-      "time": "2026-07-27T13:11:24",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-27T13:12:16",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-27T13:12:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 분석 중"
-    },
-    {
-      "time": "2026-07-27T13:12:41",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-07-27T13:13:31",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-07-27T13:13:46",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[4/6] 현대차 분석 중"
-    },
     {
       "time": "2026-07-27T13:13:46",
       "employee": "tam",
@@ -633,96 +489,240 @@
       "role": "결산 담당",
       "status": "working",
       "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-07-27T19:08:26",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-07-27T19:08:26",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-07-27T19:09:13",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-27T19:09:13",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-07-27T19:09:13",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-07-27T19:09:13",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "일간 결산 검수 중"
+    },
+    {
+      "time": "2026-07-27T19:09:18",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
+    },
+    {
+      "time": "2026-07-27T19:10:02",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-27T19:10:02",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-07-27T19:10:02",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 조사 완료"
+    },
+    {
+      "time": "2026-07-27T19:10:02",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-07-27T19:10:03",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 1건)"
+    },
+    {
+      "time": "2026-07-27T19:11:07",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-27T19:11:26",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-07-27T19:11:26",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-07-27T19:12:18",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-07-27T19:12:39",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-07-27T19:12:39",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     }
   ],
   "trader_stats": {
-    "total": 38,
-    "hit": 10,
-    "miss": 28,
+    "total": 44,
+    "hit": 14,
+    "miss": 30,
     "hold": 0,
-    "hit_rate": 26.3,
+    "hit_rate": 31.8,
     "streak": {
       "type": "hit",
-      "count": 1
+      "count": 4
     },
     "by_stock": {
       "삼성전자": {
-        "total": 7,
+        "total": 8,
         "hit": 1,
-        "miss": 6,
+        "miss": 7,
         "hold": 0,
-        "hit_rate": 14.3,
+        "hit_rate": 12.5,
         "streak": {
           "type": "miss",
-          "count": 6
+          "count": 7
         }
       },
       "SK하이닉스": {
+        "total": 8,
+        "hit": 1,
+        "miss": 7,
+        "hold": 0,
+        "hit_rate": 12.5,
+        "streak": {
+          "type": "miss",
+          "count": 6
+        }
+      },
+      "삼성전기": {
+        "total": 7,
+        "hit": 2,
+        "miss": 5,
+        "hold": 0,
+        "hit_rate": 28.6,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      },
+      "현대차": {
+        "total": 7,
+        "hit": 5,
+        "miss": 2,
+        "hold": 0,
+        "hit_rate": 71.4,
+        "streak": {
+          "type": "hit",
+          "count": 4
+        }
+      },
+      "SK스퀘어": {
         "total": 7,
         "hit": 1,
         "miss": 6,
         "hold": 0,
         "hit_rate": 14.3,
         "streak": {
-          "type": "miss",
-          "count": 5
-        }
-      },
-      "삼성전기": {
-        "total": 6,
-        "hit": 1,
-        "miss": 5,
-        "hold": 0,
-        "hit_rate": 16.7,
-        "streak": {
-          "type": "miss",
-          "count": 4
-        }
-      },
-      "현대차": {
-        "total": 6,
-        "hit": 4,
-        "miss": 2,
-        "hold": 0,
-        "hit_rate": 66.7,
-        "streak": {
           "type": "hit",
-          "count": 3
-        }
-      },
-      "SK스퀘어": {
-        "total": 6,
-        "hit": 0,
-        "miss": 6,
-        "hold": 0,
-        "hit_rate": 0.0,
-        "streak": {
-          "type": "miss",
-          "count": 6
+          "count": 1
         }
       },
       "LG이노텍": {
-        "total": 6,
-        "hit": 3,
+        "total": 7,
+        "hit": 4,
         "miss": 3,
         "hold": 0,
-        "hit_rate": 50.0,
+        "hit_rate": 57.1,
         "streak": {
           "type": "hit",
-          "count": 2
+          "count": 3
         }
       }
     },
     "by_call": {
       "보유": {
-        "total": 31,
-        "hit": 7,
-        "miss": 24,
+        "total": 37,
+        "hit": 11,
+        "miss": 26,
         "hold": 0,
-        "hit_rate": 22.6,
+        "hit_rate": 29.7,
         "streak": {
           "type": "hit",
-          "count": 1
+          "count": 4
         }
       },
       "매도": {
@@ -759,18 +759,40 @@
           "type": "hit",
           "count": 1
         }
+      },
+      "하": {
+        "total": 2,
+        "hit": 1,
+        "miss": 1,
+        "hold": 0,
+        "hit_rate": 50.0,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      },
+      "중": {
+        "total": 4,
+        "hit": 3,
+        "miss": 1,
+        "hold": 0,
+        "hit_rate": 75.0,
+        "streak": {
+          "type": "hit",
+          "count": 3
+        }
       }
     },
     "by_market": {
       "코스피 상승일": {
-        "total": 20,
-        "hit": 6,
-        "miss": 14,
+        "total": 26,
+        "hit": 10,
+        "miss": 16,
         "hold": 0,
-        "hit_rate": 30.0,
+        "hit_rate": 38.5,
         "streak": {
-          "type": "miss",
-          "count": 2
+          "type": "hit",
+          "count": 4
         }
       },
       "코스피 하락일": {
@@ -785,28 +807,28 @@
         }
       }
     },
-    "confidence_calibration": null,
-    "notable_pattern": "현대차 · 보유 콜은 유난히 잘 맞아요 (3/4건, 전체 평균 26%)",
+    "confidence_calibration": "중 75% > 하 50% — 확신도대로 잘 맞고 있어요",
+    "notable_pattern": "현대차 · 보유 콜은 유난히 잘 맞아요 (4/5건, 전체 평균 32%)",
     "recent_7d": {
-      "total": 12,
+      "total": 6,
       "hit": 4,
-      "miss": 8,
+      "miss": 2,
       "hold": 0,
-      "hit_rate": 33.3,
+      "hit_rate": 66.7,
       "streak": {
         "type": "hit",
-        "count": 1
+        "count": 4
       }
     },
     "recent_30d": {
-      "total": 38,
-      "hit": 10,
-      "miss": 28,
+      "total": 44,
+      "hit": 14,
+      "miss": 30,
       "hold": 0,
-      "hit_rate": 26.3,
+      "hit_rate": 31.8,
       "streak": {
         "type": "hit",
-        "count": 1
+        "count": 4
       }
     }
   },
@@ -976,43 +998,43 @@
     }
   },
   "sage_stats": {
-    "total": 47,
-    "hit": 17,
-    "miss": 14,
-    "hold": 15,
-    "hit_rate": 54.8,
+    "total": 53,
+    "hit": 20,
+    "miss": 15,
+    "hold": 17,
+    "hit_rate": 57.1,
     "streak": {
-      "type": "hit",
-      "count": 4
+      "type": "miss",
+      "count": 1
     },
     "by_stock": {
       "삼성전자": {
-        "total": 7,
-        "hit": 2,
+        "total": 8,
+        "hit": 3,
         "miss": 5,
         "hold": 0,
-        "hit_rate": 28.6,
+        "hit_rate": 37.5,
         "streak": {
           "type": "hit",
-          "count": 2
+          "count": 3
         }
       },
       "SK하이닉스": {
-        "total": 8,
-        "hit": 3,
+        "total": 9,
+        "hit": 4,
         "miss": 3,
         "hold": 2,
-        "hit_rate": 50.0,
+        "hit_rate": 57.1,
         "streak": {
-          "type": "miss",
+          "type": "hit",
           "count": 1
         }
       },
       "삼성전기": {
-        "total": 8,
+        "total": 9,
         "hit": 3,
         "miss": 2,
-        "hold": 3,
+        "hold": 4,
         "hit_rate": 60.0,
         "streak": {
           "type": "hit",
@@ -1020,32 +1042,32 @@
         }
       },
       "현대차": {
-        "total": 8,
-        "hit": 3,
+        "total": 9,
+        "hit": 4,
         "miss": 2,
         "hold": 3,
-        "hit_rate": 60.0,
-        "streak": {
-          "type": "hit",
-          "count": 1
-        }
-      },
-      "SK스퀘어": {
-        "total": 8,
-        "hit": 4,
-        "miss": 1,
-        "hold": 3,
-        "hit_rate": 80.0,
+        "hit_rate": 66.7,
         "streak": {
           "type": "hit",
           "count": 2
         }
       },
+      "SK스퀘어": {
+        "total": 9,
+        "hit": 4,
+        "miss": 2,
+        "hold": 3,
+        "hit_rate": 66.7,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      },
       "LG이노텍": {
-        "total": 8,
+        "total": 9,
         "hit": 2,
         "miss": 1,
-        "hold": 4,
+        "hold": 5,
         "hit_rate": 66.7,
         "streak": {
           "type": "hit",
@@ -1066,139 +1088,139 @@
         }
       },
       "코스피 상승일": {
-        "total": 23,
-        "hit": 9,
-        "miss": 6,
-        "hold": 8,
-        "hit_rate": 60.0,
+        "total": 29,
+        "hit": 12,
+        "miss": 7,
+        "hold": 10,
+        "hit_rate": 63.2,
         "streak": {
-          "type": "hit",
-          "count": 3
+          "type": "miss",
+          "count": 1
         }
       }
     },
     "recent_7d": {
-      "total": 12,
-      "hit": 7,
-      "miss": 3,
+      "total": 6,
+      "hit": 3,
+      "miss": 1,
       "hold": 2,
-      "hit_rate": 70.0,
+      "hit_rate": 75.0,
       "streak": {
-        "type": "hit",
-        "count": 4
+        "type": "miss",
+        "count": 1
       }
     },
     "recent_30d": {
-      "total": 47,
-      "hit": 17,
-      "miss": 14,
-      "hold": 15,
-      "hit_rate": 54.8,
+      "total": 53,
+      "hit": 20,
+      "miss": 15,
+      "hold": 17,
+      "hit_rate": 57.1,
       "streak": {
-        "type": "hit",
-        "count": 4
+        "type": "miss",
+        "count": 1
       }
     }
   },
   "analyst_stats": {
-    "total": 240,
-    "hit": 92,
-    "miss": 148,
+    "total": 270,
+    "hit": 110,
+    "miss": 160,
     "hold": 0,
-    "hit_rate": 38.3,
+    "hit_rate": 40.7,
     "streak": {
       "type": "hit",
-      "count": 1
+      "count": 2
     },
     "by_analyst": {
       "탐": {
-        "total": 48,
-        "hit": 22,
-        "miss": 26,
+        "total": 54,
+        "hit": 26,
+        "miss": 28,
         "hold": 0,
-        "hit_rate": 45.8,
+        "hit_rate": 48.1,
         "streak": {
-          "type": "hit",
-          "count": 3
+          "type": "miss",
+          "count": 2
         }
       },
       "베라": {
-        "total": 48,
-        "hit": 18,
-        "miss": 30,
+        "total": 54,
+        "hit": 22,
+        "miss": 32,
         "hold": 0,
-        "hit_rate": 37.5,
+        "hit_rate": 40.7,
         "streak": {
           "type": "hit",
-          "count": 1
+          "count": 4
         }
       },
       "주노": {
-        "total": 48,
-        "hit": 18,
-        "miss": 30,
+        "total": 54,
+        "hit": 21,
+        "miss": 33,
         "hold": 0,
-        "hit_rate": 37.5,
+        "hit_rate": 38.9,
         "streak": {
           "type": "miss",
-          "count": 1
+          "count": 3
         }
       },
       "카이": {
-        "total": 48,
-        "hit": 14,
-        "miss": 34,
+        "total": 54,
+        "hit": 18,
+        "miss": 36,
         "hold": 0,
-        "hit_rate": 29.2,
+        "hit_rate": 33.3,
         "streak": {
-          "type": "miss",
-          "count": 2
+          "type": "hit",
+          "count": 4
         }
       },
       "제이드": {
-        "total": 48,
-        "hit": 20,
-        "miss": 28,
+        "total": 54,
+        "hit": 23,
+        "miss": 31,
         "hold": 0,
-        "hit_rate": 41.7,
+        "hit_rate": 42.6,
         "streak": {
           "type": "hit",
-          "count": 2
+          "count": 3
         }
       }
     },
     "by_call": {
       "매도": {
-        "total": 85,
-        "hit": 54,
-        "miss": 31,
+        "total": 91,
+        "hit": 56,
+        "miss": 35,
         "hold": 0,
-        "hit_rate": 63.5,
-        "streak": {
-          "type": "hit",
-          "count": 19
-        }
-      },
-      "보유": {
-        "total": 104,
-        "hit": 20,
-        "miss": 84,
-        "hold": 0,
-        "hit_rate": 19.2,
+        "hit_rate": 61.5,
         "streak": {
           "type": "hit",
           "count": 2
         }
       },
-      "매수": {
-        "total": 51,
-        "hit": 18,
-        "miss": 33,
+      "보유": {
+        "total": 116,
+        "hit": 28,
+        "miss": 88,
         "hold": 0,
-        "hit_rate": 35.3,
+        "hit_rate": 24.1,
+        "streak": {
+          "type": "hit",
+          "count": 8
+        }
+      },
+      "매수": {
+        "total": 63,
+        "hit": 26,
+        "miss": 37,
+        "hold": 0,
+        "hit_rate": 41.3,
         "streak": {
           "type": "miss",
-          "count": 16
+          "count": 4
         }
       }
     },
@@ -1215,38 +1237,38 @@
         }
       },
       "코스피 상승일": {
-        "total": 120,
-        "hit": 39,
-        "miss": 81,
+        "total": 150,
+        "hit": 57,
+        "miss": 93,
         "hold": 0,
-        "hit_rate": 32.5,
+        "hit_rate": 38.0,
         "streak": {
-          "type": "miss",
-          "count": 1
+          "type": "hit",
+          "count": 2
         }
       }
     },
-    "notable_pattern": "베라 · LG이노텍 콜은 유난히 잘 맞아요 (7/8건, 전체 평균 38%)",
+    "notable_pattern": "베라 · LG이노텍 콜은 유난히 잘 맞아요 (8/9건, 전체 평균 41%)",
     "recent_7d": {
-      "total": 60,
-      "hit": 27,
-      "miss": 33,
+      "total": 30,
+      "hit": 18,
+      "miss": 12,
       "hold": 0,
-      "hit_rate": 45.0,
+      "hit_rate": 60.0,
       "streak": {
         "type": "hit",
-        "count": 1
+        "count": 2
       }
     },
     "recent_30d": {
-      "total": 240,
-      "hit": 92,
-      "miss": 148,
+      "total": 270,
+      "hit": 110,
+      "miss": 160,
       "hold": 0,
-      "hit_rate": 38.3,
+      "hit_rate": 40.7,
       "streak": {
         "type": "hit",
-        "count": 1
+        "count": 2
       }
     }
   }
