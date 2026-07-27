@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-26T22:05:06",
+  "updated_at": "2026-07-26T22:10:00",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "오즈 이벤트 기록 (누적 3913건)",
-      "since": "2026-07-26T22:05:06"
+      "last_action": "레오 이벤트 기록 (누적 3920건)",
+      "since": "2026-07-26T22:10:00"
     },
     "callie": {
       "name": "캘리",
@@ -52,9 +52,9 @@
       "emoji": "🧠",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-24T00:28:58",
-      "last_action": "리서치 품질 검수 중"
+      "status": "idle",
+      "since": "2026-07-26T22:10:00",
+      "last_action": "휴장일 — 대기"
     },
     "tam": {
       "name": "탐",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:28:58",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "idle",
+      "since": "2026-07-26T22:10:00",
+      "last_action": "휴장일 — 대기"
     },
     "juno": {
       "name": "주노",
@@ -74,9 +74,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:22:41",
-      "last_action": "업종 2개 협회·통계 조사 완료"
+      "status": "idle",
+      "since": "2026-07-26T22:10:00",
+      "last_action": "휴장일 — 대기"
     },
     "chip": {
       "name": "칩",
@@ -129,9 +129,9 @@
       "emoji": "🛡️",
       "room": "risk",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-23T23:17:45",
-      "last_action": "품질 0건 · 리스크 6건 종합 완료"
+      "status": "idle",
+      "since": "2026-07-26T22:10:00",
+      "last_action": "휴장일 — 대기"
     },
     "kai": {
       "name": "카이",
@@ -140,9 +140,9 @@
       "emoji": "📉",
       "room": "risk",
       "automated": true,
-      "status": "working",
-      "since": "2026-07-24T00:28:58",
-      "last_action": "이상거래·급락 감지 중"
+      "status": "idle",
+      "since": "2026-07-26T22:10:00",
+      "last_action": "휴장일 — 대기"
     },
     "nova": {
       "name": "노바",
@@ -151,9 +151,9 @@
       "emoji": "💹",
       "room": "risk",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-23T23:17:45",
-      "last_action": "특이사항 없음"
+      "status": "idle",
+      "since": "2026-07-26T22:10:00",
+      "last_action": "휴장일 — 대기"
     },
     "dawn": {
       "name": "던",
@@ -195,9 +195,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-07-24T00:28:58",
-      "last_action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
+      "status": "idle",
+      "since": "2026-07-26T22:10:00",
+      "last_action": "휴장일 — 대기"
     },
     "ivy": {
       "name": "아이비",
@@ -234,62 +234,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-23T23:17:45",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "done",
-      "action": "특이사항 없음"
-    },
-    {
-      "time": "2026-07-23T23:17:45",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 0건 · 리스크 6건 종합 완료"
-    },
-    {
-      "time": "2026-07-24T00:14:48",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-24T00:14:48",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-24T00:14:49",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-24T00:14:50",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-07-24T00:14:52",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
     {
       "time": "2026-07-24T00:14:52",
       "employee": "oz",
@@ -631,6 +575,62 @@
       "employee": "oz",
       "name": "오즈",
       "role": "전체 스케줄 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:10:00",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:10:00",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:10:00",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:10:00",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:10:00",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:10:00",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-07-26T22:10:00",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
       "status": "idle",
       "action": "휴장일 — 대기"
     }
