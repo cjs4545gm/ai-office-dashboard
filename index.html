@@ -317,6 +317,7 @@
   .emp-row .emp-name{ font-weight:700; font-size:13px; }
   .emp-row .emp-role{ font-family:var(--mono); font-size:10px; color:var(--muted); flex:1; min-width:0; }
   .emp-row .emp-line2{ font-size:11.5px; color:var(--muted); margin-top:2px; }
+  .emp-row .emp-stock-rows{ margin-top:6px; }
   .rate-tag{ font-family:var(--mono); font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; flex:none; white-space:nowrap; }
   .rate-tag.good{ background:rgba(31,162,98,0.15); color:var(--done); border:1px solid var(--done); }
   .rate-tag.mid{ background:rgba(224,138,30,0.15); color:var(--working); border:1px solid var(--working); }
@@ -762,12 +763,29 @@
   // 직원별 적중률 — 레오의 "오늘의 매수/매도 가이드"가 종목마다 한 줄(이름+배지)인 것처럼,
   // 여기도 직원마다 한 줄(이름+역할+% 배지)로 나열한다. 5인 합산 헤드라인 대신 사람별 실제
   // 데이터 그대로(retrospective.py의 by_analyst 집계 재사용) — "오늘의 추천 영상" 아래 위치.
-  function empRowHTML(persona, stats){
+  // 레오의 "오늘의 매수/매도 가이드"와 같은 종목별 행(이름+코멘트+매수/매도 배지) —
+  // 애널리스트 5인도 오늘 실제로 남긴 종목별 의견을 이 형식 그대로 보여준다(2026-07-31,
+  // 사용자 요청 — "이 직원들도 각 종목에 코멘트랑 매수 매도 인지 알 수 있게").
+  function analystStockRowHTML(op){
+    return `
+      <div class="call-row">
+        <div class="call-line1">
+          <span class="call-name">${escapeHtml(op.stock)}</span>
+          ${traderCallTag(op.call)}
+        </div>
+        <div class="call-line2">${escapeHtml(op.text || "")}</div>
+      </div>`;
+  }
+
+  function empRowHTML(persona, stats, opinions){
     const rate = stats ? stats.hit_rate : null;
     const summary = (!stats || stats.total === 0)
       ? "아직 검증된 기록 없음"
       : `${stats.hit + stats.miss}번 판정 중 ${stats.hit}번 맞음`;
     const streak = stats ? streakSentence(stats.streak) : "";
+    const stockRowsHtml = (opinions && opinions.length)
+      ? `<div class="emp-stock-rows">${opinions.map(analystStockRowHTML).join("")}</div>`
+      : "";
     return `
       <div class="emp-row">
         <div class="emp-line1">
@@ -776,16 +794,29 @@
           ${rateTagHTML(rate)}
         </div>
         <div class="emp-line2">${escapeHtml(summary)}${streak ? " · " + escapeHtml(streak) : ""}</div>
+        ${stockRowsHtml}
       </div>`;
   }
 
-  function renderEmployeeAccuracy(traderStats, sageStats, analystStats){
+  async function fetchAnalystOpinions(){
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/analyst-opinions`, { signal: AbortSignal.timeout(5000) });
+      const data = await resp.json();
+      return (data.ok && data.by_analyst) || {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  async function renderEmployeeAccuracy(traderStats, sageStats, analystStats){
     const el = document.getElementById("employee-accuracy");
     const byAnalyst = (analystStats && analystStats.by_analyst) || {};
+    const opinionsByAnalyst = await fetchAnalystOpinions();
     const rows = [
       empRowHTML(DASHBOARD_PERSONAS.leo, traderStats),
       empRowHTML(DASHBOARD_PERSONAS.sage, sageStats),
-      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) => empRowHTML({ name, role: p.role }, byAnalyst[name])),
+      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) =>
+        empRowHTML({ name, role: p.role }, byAnalyst[name], opinionsByAnalyst[name])),
     ];
     el.innerHTML = rows.join("");
   }
