@@ -1112,7 +1112,8 @@
 
   // 부서 구역 하나(zone)를 큰 오피스 캔버스 위 자기 rect 안에 그린다 — 밝은 바닥 + 부서색 틴트 + 라벨.
   function drawZoneBackdrop(ctx, zone){
-    const { x, y, w, h, color, emoji, label } = zone;
+    const { x, y, w, h } = zone.rect;
+    const { color, emoji, label } = zone;
     ctx.fillStyle = "#f7f9fd";
     ctx.fillRect(x, y, w, h);
     ctx.save();
