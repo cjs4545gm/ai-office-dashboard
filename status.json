@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-31T17:23:35",
+  "updated_at": "2026-07-31T17:30:59",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 4696건)",
-      "since": "2026-07-31T17:17:57"
+      "last_action": "던 이벤트 기록 (누적 4700건)",
+      "since": "2026-07-31T17:30:59"
     },
     "callie": {
       "name": "캘리",
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-31T17:10:32",
+      "since": "2026-07-31T17:30:59",
       "last_action": "✅ 검수 통과"
     },
     "rewind": {
@@ -174,8 +174,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-31T17:10:27",
-      "last_action": "주간 결산 저장 완료"
+      "since": "2026-07-31T17:30:46",
+      "last_action": "월간 결산 저장 완료"
     },
     "sage": {
       "name": "세이지",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-31T17:23:35",
+      "since": "2026-07-31T17:28:37",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-31T17:23:35",
+      "since": "2026-07-31T17:28:37",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,43 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-31T17:23:35",
+      "since": "2026-07-31T17:28:37",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-31T16:19:53",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 0건 · 리스크 7건 종합 완료"
-    },
-    {
-      "time": "2026-07-31T17:00:06",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-07-31T17:00:06",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-31T17:00:18",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
     {
       "time": "2026-07-31T17:00:18",
       "employee": "milo",
@@ -644,6 +612,38 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 7건 종합 완료"
+    },
+    {
+      "time": "2026-07-31T17:30:04",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "월간 결산 작성 중"
+    },
+    {
+      "time": "2026-07-31T17:30:46",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "월간 결산 저장 완료"
+    },
+    {
+      "time": "2026-07-31T17:30:46",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "월간 결산 검수 중"
+    },
+    {
+      "time": "2026-07-31T17:30:59",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
     }
   ],
   "trader_stats": {
