@@ -275,13 +275,23 @@
   }
   .stock-btn:hover{ border-color:var(--accent); color:var(--accent); }
   .stock-btn.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
-  .analysis-custom{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
-  .analysis-custom input{
-    font-family:var(--sans); font-size:13px; padding:8px 10px; border-radius:8px;
+  .analysis-custom{ display:flex; gap:8px; align-items:flex-start; flex-wrap:wrap; margin-bottom:16px; }
+  .analysis-search{ position:relative; flex:1; min-width:220px; max-width:420px; }
+  .analysis-search input{
+    width:100%; font-family:var(--sans); font-size:13px; padding:9px 12px; border-radius:8px;
     border:1px solid var(--line); background:var(--wall); color:var(--cream);
   }
-  .analysis-custom input#custom-symbol{ width:150px; }
-  .analysis-custom input#custom-name{ width:150px; }
+  .search-suggestions{
+    position:absolute; top:calc(100% + 4px); left:0; right:0; z-index:20;
+    background:var(--wall); border:1px solid var(--line); border-radius:8px;
+    box-shadow:0 8px 24px -8px rgba(60,70,110,0.35); max-height:260px; overflow-y:auto;
+  }
+  .search-suggestions .sug-item{
+    padding:9px 12px; font-size:13px; cursor:pointer; display:flex; justify-content:space-between; gap:8px;
+  }
+  .search-suggestions .sug-item:hover{ background:var(--wall-3); }
+  .search-suggestions .sug-item .sug-code{ font-family:var(--mono); font-size:11px; color:var(--muted); }
+  .search-suggestions .sug-empty{ padding:9px 12px; font-size:12px; color:var(--muted); }
   .analysis-custom button{
     font-family:var(--sans); font-size:13px; font-weight:700; background:var(--accent);
     color:#fff; border:none; border-radius:8px; padding:9px 16px; cursor:pointer;
@@ -436,9 +446,11 @@
     <div class="dept-head"><h2>🔎 종목 분석</h2><span class="dept-desc">워치리스트 6종목은 오늘 자동 생성된 리서치를, 그 외 종목은 실시간 기술적 지표만으로 분석</span></div>
     <div class="analysis-controls" id="watchlist-buttons"></div>
     <div class="analysis-custom">
-      <input id="custom-symbol" placeholder="종목코드 (예: 005490.KS, AAPL)">
-      <input id="custom-name" placeholder="종목명 (예: POSCO홀딩스)">
-      <button id="custom-analyze" type="button">기술적 분석 시작</button>
+      <div class="analysis-search">
+        <input id="stock-search-input" placeholder="종목명 또는 코드 검색 (예: POSCO홀딩스, 005490)" autocomplete="off">
+        <div class="search-suggestions" id="search-suggestions" style="display:none;"></div>
+      </div>
+      <button id="custom-analyze" type="button" disabled>기술적 분석 시작</button>
     </div>
     <div class="analysis-hint" id="analysis-hint">워치리스트는 즉시 표시되고, 그 외 종목은 실시간 시세로 SMA·RSI·MACD·볼린저밴드를 계산해 10~30초 내 코멘트를 생성합니다 (뉴스·수급 데이터는 없음).</div>
     <div id="analysis-result"><div class="panel-empty">위에서 종목을 선택하거나 코드를 입력해주세요</div></div>
@@ -1151,28 +1163,79 @@
     }
   }
 
-  document.getElementById("custom-analyze").addEventListener("click", async () => {
-    const symbolInput = document.getElementById("custom-symbol");
-    const nameInput = document.getElementById("custom-name");
-    const button = document.getElementById("custom-analyze");
-    const symbol = symbolInput.value.trim();
-    const name = nameInput.value.trim() || symbol;
-    if (!symbol) { symbolInput.focus(); return; }
+  // 종목 검색 자동완성 — office_analysis_server.py의 /search(DART 상장사 전체 목록 캐시)를 호출.
+  let selectedCustomStock = null;   // {name, code} — 드롭다운에서 고른 종목
+  let searchDebounceTimer = null;
+
+  const searchInput = document.getElementById("stock-search-input");
+  const suggestionsEl = document.getElementById("search-suggestions");
+  const analyzeButton = document.getElementById("custom-analyze");
+
+  function hideSuggestions(){ suggestionsEl.style.display = "none"; suggestionsEl.innerHTML = ""; }
+
+  function updateAnalyzeButtonState(){
+    const raw = searchInput.value.trim();
+    analyzeButton.disabled = !selectedCustomStock && !/^\d{6}$/.test(raw);
+  }
+
+  async function runSearch(query){
+    if (!query){ hideSuggestions(); return; }
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/search?q=${encodeURIComponent(query)}`, { signal: AbortSignal.timeout(5000) });
+      const data = await resp.json();
+      const results = (data.ok && data.results) || [];
+      if (results.length === 0){
+        suggestionsEl.innerHTML = '<div class="sug-empty">일치하는 종목 없음</div>';
+      } else {
+        suggestionsEl.innerHTML = results.map(r => `<div class="sug-item" data-name="${escapeHtml(r.name)}" data-code="${escapeHtml(r.code)}"><span>${escapeHtml(r.name)}</span><span class="sug-code">${escapeHtml(r.code)}</span></div>`).join("");
+      }
+      suggestionsEl.style.display = "block";
+    } catch (e) {
+      hideSuggestions();
+    }
+  }
+
+  searchInput.addEventListener("input", () => {
+    selectedCustomStock = null;
+    updateAnalyzeButtonState();
+    clearTimeout(searchDebounceTimer);
+    const query = searchInput.value.trim();
+    searchDebounceTimer = setTimeout(() => runSearch(query), 250);
+  });
+
+  suggestionsEl.addEventListener("click", (ev) => {
+    const item = ev.target.closest(".sug-item[data-code]");
+    if (!item) return;
+    selectedCustomStock = { name: item.dataset.name, code: item.dataset.code };
+    searchInput.value = item.dataset.name;
+    hideSuggestions();
+    updateAnalyzeButtonState();
+  });
+
+  document.addEventListener("click", (ev) => {
+    if (!ev.target.closest(".analysis-search")) hideSuggestions();
+  });
+
+  analyzeButton.addEventListener("click", async () => {
+    const raw = searchInput.value.trim();
+    const target = selectedCustomStock || (/^\d{6}$/.test(raw) ? { name: raw, code: raw } : null);
+    if (!target) return;
 
     document.querySelectorAll("#watchlist-buttons .stock-btn").forEach(b => b.classList.remove("active"));
     selectedWatchlistStock = null;
+    hideSuggestions();
     const el = document.getElementById("analysis-result");
     el.innerHTML = '<div class="analysis-loading">⏳ 실시간 시세로 기술적 지표 계산 후 분석 작성 중... (10~30초 소요)</div>';
-    button.disabled = true;
+    analyzeButton.disabled = true;
     try {
-      const resp = await fetch(`${ANALYSIS_ORIGIN}/technical?symbol=${encodeURIComponent(symbol)}&name=${encodeURIComponent(name)}`, { signal: AbortSignal.timeout(60000) });
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/technical?symbol=${encodeURIComponent(target.code)}&name=${encodeURIComponent(target.name)}`, { signal: AbortSignal.timeout(60000) });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "분석 실패");
       renderBubbles(data.bubbles);
     } catch (e) {
       el.innerHTML = `<div class="analysis-error">⚠️ 분석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
     } finally {
-      button.disabled = false;
+      updateAnalyzeButtonState();
     }
   });
 
