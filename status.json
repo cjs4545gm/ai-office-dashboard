@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-31T15:31:49",
+  "updated_at": "2026-07-31T15:39:51",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리나 이벤트 기록 (누적 4594건)",
-      "since": "2026-07-31T15:21:44"
+      "last_action": "던 이벤트 기록 (누적 4602건)",
+      "since": "2026-07-31T15:39:51"
     },
     "callie": {
       "name": "캘리",
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-27T19:09:18",
+      "since": "2026-07-31T15:39:51",
       "last_action": "✅ 검수 통과"
     },
     "rewind": {
@@ -173,9 +173,9 @@
       "emoji": "🗂️",
       "room": "feedback",
       "automated": true,
-      "status": "error",
-      "since": "2026-07-29T20:21:05",
-      "last_action": "오류: claude CLI 실패: "
+      "status": "done",
+      "since": "2026-07-31T15:39:40",
+      "last_action": "일간 결산 저장 완료"
     },
     "sage": {
       "name": "세이지",
@@ -185,8 +185,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-27T19:09:13",
-      "last_action": "검증 완료"
+      "since": "2026-07-31T15:39:40",
+      "last_action": "비교할 전일 리서치 없음"
     },
     "leo": {
       "name": "레오",
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-31T15:18:38",
-      "last_action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
+      "since": "2026-07-31T15:39:40",
+      "last_action": "비교할 전일 콜 없음"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-31T15:31:49",
+      "since": "2026-07-31T15:36:50",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-31T15:31:49",
+      "since": "2026-07-31T15:36:50",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,75 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-07-31T15:31:49",
+      "since": "2026-07-31T15:36:50",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-07-31T15:00:02",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-07-31T15:00:12",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-07-31T15:00:12",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-07-31T15:00:12",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-07-31T15:00:12",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
-    {
-      "time": "2026-07-31T15:00:12",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-07-31T15:00:15",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-07-31T15:00:15",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
     {
       "time": "2026-07-31T15:00:15",
       "employee": "hank",
@@ -650,6 +586,70 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "done",
       "action": "답변 완료: 레오폴드가 누구이고 이 사람이 세운 회사는 무엇이며 어…"
+    },
+    {
+      "time": "2026-07-31T15:39:05",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-07-31T15:39:40",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-07-31T15:39:40",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-07-31T15:39:40",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "비교할 전일 리서치 없음"
+    },
+    {
+      "time": "2026-07-31T15:39:40",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-07-31T15:39:40",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "비교할 전일 콜 없음"
+    },
+    {
+      "time": "2026-07-31T15:39:40",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "일간 결산 검수 중"
+    },
+    {
+      "time": "2026-07-31T15:39:51",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
     }
   ],
   "trader_stats": {
