@@ -24,6 +24,7 @@
     --sky-mid:  #ffd7e0;
     --sky-low:  #ffe8b8;
     --bezel:    #ffffff;
+    --accent:   #5b7fff;
     --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Roboto Mono", "Liberation Mono", Menlo, Consolas, monospace;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   }
@@ -43,13 +44,13 @@
     background:var(--bezel);
     border-radius:22px;
     padding:14px 14px 20px;
-    box-shadow:0 1px 0 rgba(255,255,255,0.05) inset, 0 30px 60px -20px rgba(0,0,0,0.7);
+    box-shadow:0 1px 0 rgba(255,255,255,0.6) inset, 0 20px 45px -25px rgba(60,70,110,0.35);
   }
 
   .signboard{
     display:flex; align-items:center; justify-content:space-between; gap:12px;
     padding:12px 16px; margin-bottom:12px; border-radius:12px;
-    background:linear-gradient(180deg, #17101f, #0c0812); border:1px solid #2c2138;
+    background:linear-gradient(135deg, #5b7fff, #7aa2ff); border:1px solid var(--line);
   }
   .logo{ display:flex; align-items:center; gap:10px; }
   .logo .bars{ display:flex; align-items:flex-end; gap:2px; height:22px; }
@@ -58,10 +59,9 @@
   .logo .bars i:nth-child(2){ height:75%; background:var(--done); }
   .logo .bars i:nth-child(3){ height:55%; background:var(--error); }
   .logo .bars i:nth-child(4){ height:95%; background:var(--done); }
-  .logo h1{ margin:0; font-family:var(--mono); font-size:17px; font-weight:700; letter-spacing:0.06em; color:var(--cream);
-    text-shadow:0 0 6px rgba(240,169,78,0.55), 0 0 18px rgba(95,208,176,0.35); }
-  .logo .sub{ font-family:var(--mono); font-size:10px; letter-spacing:0.1em; color:var(--muted); margin-top:2px; }
-  .signboard .live{ font-family:var(--mono); font-size:10.5px; color:var(--muted); display:flex; align-items:center; gap:6px; white-space:nowrap; }
+  .logo h1{ margin:0; font-family:var(--mono); font-size:17px; font-weight:700; letter-spacing:0.06em; color:#ffffff; }
+  .logo .sub{ font-family:var(--mono); font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.78); margin-top:2px; }
+  .signboard .live{ font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,0.85); display:flex; align-items:center; gap:6px; white-space:nowrap; }
   .live .pulse{ width:8px; height:8px; border-radius:50%; background:var(--done); box-shadow:0 0 8px var(--done); animation:pulse 1.6s infinite; }
   @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.3; } }
 
@@ -83,7 +83,7 @@
     cursor:pointer; text-align:center; transition:color 0.15s ease, background 0.15s ease;
   }
   .tab-btn:hover{ color:var(--cream); }
-  .tab-btn.active{ color:var(--bg-deep); background:var(--cream); border-color:var(--cream); }
+  .tab-btn.active{ color:#ffffff; background:var(--accent); border-color:var(--accent); }
   .tab-panel{ display:none; }
   .tab-panel.active{ display:block; }
 
@@ -115,8 +115,11 @@
   .dept-head h2{ margin:0; font-size:13px; }
   .dept-head .dept-desc{ font-family:var(--mono); font-size:9.5px; color:var(--muted); }
 
-  .dept-scene{ position:relative; border-radius:8px; overflow:hidden; border:1px solid #2a2038; background:var(--wall); margin-bottom:8px; }
-  .dept-scene canvas{ display:block; width:100%; height:auto; }
+  .office-floor{
+    position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line);
+    background:var(--wall); margin:0 4px 12px; box-shadow:0 1px 0 rgba(255,255,255,0.6) inset;
+  }
+  .office-floor canvas{ display:block; width:100%; height:auto; }
 
   .occupant-list{ display:flex; flex-direction:column; gap:7px; }
   .occupant{ display:flex; align-items:center; gap:8px; }
@@ -289,36 +292,31 @@
   </div>
 
   <div class="tab-panel active" data-tab-panel="live">
+  <div class="office-floor"><canvas id="office-canvas" width="1160" height="460"></canvas></div>
   <div class="layout">
     <div class="org">
       <div class="dept-room" data-room="workflow">
         <div class="dept-head"><h2>⏰ 워크플로우·스케줄링</h2><span class="dept-desc">데일리·이벤트 트리거</span></div>
-        <div class="dept-scene"><canvas class="scene" data-room="workflow" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-workflow"></div>
       </div>
       <div class="dept-room" data-room="research">
         <div class="dept-head"><h2>🔍 AI 리서치</h2><span class="dept-desc">종목·산업·자금흐름</span></div>
-        <div class="dept-scene"><canvas class="scene" data-room="research" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-research"></div>
       </div>
       <div class="dept-room" data-room="data">
         <div class="dept-head"><h2>📡 데이터 인프라</h2><span class="dept-desc">시세·공시·뉴스</span></div>
-        <div class="dept-scene"><canvas class="scene" data-room="data" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-data"></div>
       </div>
       <div class="dept-room" data-room="risk">
         <div class="dept-head"><h2>⚠️ 리스크 스크리닝</h2><span class="dept-desc">위험 신호 점검</span></div>
-        <div class="dept-scene"><canvas class="scene" data-room="risk" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-risk"></div>
       </div>
       <div class="dept-room" data-room="feedback">
         <div class="dept-head"><h2>🗂️ 결과 추적·피드백</h2><span class="dept-desc">판단 정확도 검증, 리서치에 반영</span></div>
-        <div class="dept-scene"><canvas class="scene" data-room="feedback" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-feedback"></div>
       </div>
       <div class="dept-room" data-room="strategy">
         <div class="dept-head"><h2>🧭 전략실</h2><span class="dept-desc">전략 상담 — 질문 있을 때만 근무</span></div>
-        <div class="dept-scene"><canvas class="scene" data-room="strategy" width="700" height="120"></canvas></div>
         <div class="occupant-list" id="room-strategy"></div>
       </div>
     </div>
@@ -409,23 +407,32 @@
 
   // 화면에 그릴 5개 부서 방과 소속 직원 — 색상/액세서리는 부서·계급을 반영한 것이고,
   // 실시간 상태(status/last_action/since)는 status.json에서 채워진다.
+  // 2026-07-31: 부서별 미니 캔버스 6개 대신, 하나의 큰 오피스 평면도(office-canvas)에 6개 구역을
+  // 배치하고 그 안에서 캐릭터들이 실제로 걸어다니게 재구성(사용자 요청 — "진짜 오피스 공간을
+  // 크게, 캐릭터들이 일사분란하게 움직이게"). rect는 1160x460 캔버스 기준 좌표.
   const ROOMS = [
-    { key: "workflow", color: "#f0a94e", dim: "#6b5330", members: [
+    { key: "workflow", label: "워크플로우·스케줄링", emoji: "⏰", color: "#f0a94e", dim: "#6b5330",
+      rect: { x: 0, y: 0, w: 1160, h: 140 }, members: [
       { id: "oz", hair: "crown" }, { id: "bri", hair: "cap" }, { id: "nix", hair: "badge" }, { id: "callie", hair: "book" },
     ]},
-    { key: "research", color: "#5fd0b0", dim: "#2f5a4d", members: [
+    { key: "research", label: "AI 리서치", emoji: "🔍", color: "#5fd0b0", dim: "#2f5a4d",
+      rect: { x: 0, y: 140, w: 386, h: 160 }, members: [
       { id: "vera", hair: "crown" }, { id: "tam", hair: "glasses" }, { id: "juno", hair: "badge" }, { id: "chip", hair: "chip" },
     ]},
-    { key: "data", color: "#b79bf0", dim: "#5c4d7a", members: [
+    { key: "data", label: "데이터 인프라", emoji: "📡", color: "#b79bf0", dim: "#5c4d7a",
+      rect: { x: 386, y: 140, w: 387, h: 160 }, members: [
       { id: "hank", hair: "crown" }, { id: "scout", hair: "bag" }, { id: "milo", hair: "badge" },
     ]},
-    { key: "risk", color: "#ef6b63", dim: "#7a3a35", members: [
+    { key: "risk", label: "리스크 스크리닝", emoji: "⚠️", color: "#ef6b63", dim: "#7a3a35",
+      rect: { x: 773, y: 140, w: 387, h: 160 }, members: [
       { id: "jade", hair: "crown" }, { id: "kai", hair: "visor" }, { id: "nova", hair: "badge" },
     ]},
-    { key: "feedback", color: "#8fa6c2", dim: "#4a5a70", members: [
+    { key: "feedback", label: "결과 추적·피드백", emoji: "🗂️", color: "#8fa6c2", dim: "#4a5a70",
+      rect: { x: 0, y: 300, w: 773, h: 160 }, members: [
       { id: "dawn", hair: "crown" }, { id: "rewind", hair: "book" }, { id: "sage", hair: "badge" }, { id: "leo", hair: "tie" },
     ]},
-    { key: "strategy", color: "#e8c468", dim: "#8a6f2e", members: [
+    { key: "strategy", label: "전략실", emoji: "🧭", color: "#e8c468", dim: "#8a6f2e",
+      rect: { x: 773, y: 300, w: 387, h: 160 }, members: [
       { id: "ivy", hair: "crown" }, { id: "max", hair: "visor" }, { id: "rina", hair: "glasses" },
     ]},
   ];
@@ -1103,20 +1110,26 @@
     c.closePath();
   }
 
-  function drawSceneBackdrop(ctx, W, H, color){
-    ctx.fillStyle = "#1a1428";
-    ctx.fillRect(0, 0, W, H);
+  // 부서 구역 하나(zone)를 큰 오피스 캔버스 위 자기 rect 안에 그린다 — 밝은 바닥 + 부서색 틴트 + 라벨.
+  function drawZoneBackdrop(ctx, zone){
+    const { x, y, w, h, color, emoji, label } = zone;
+    ctx.fillStyle = "#f7f9fd";
+    ctx.fillRect(x, y, w, h);
     ctx.save();
-    ctx.globalAlpha = 0.14;
+    ctx.globalAlpha = 0.16;
     ctx.fillStyle = color;
-    ctx.fillRect(0, 0, W, H * 0.55);
+    ctx.fillRect(x, y, w, h);
     ctx.restore();
-    const floorY = H - 34;
-    ctx.fillStyle = "#241c36";
-    ctx.fillRect(0, floorY, W, H - floorY);
-    ctx.strokeStyle = "rgba(0,0,0,0.25)";
+    ctx.strokeStyle = "rgba(35,40,56,0.14)";
     ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(0, floorY); ctx.lineTo(W, floorY); ctx.stroke();
+    ctx.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+    ctx.font = "700 13px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+    ctx.fillStyle = "#2a3040";
+    ctx.textBaseline = "top";
+    ctx.fillText(`${emoji} ${label}`, x + 12, y + 10);
+    const floorY = y + h - 24;
+    ctx.strokeStyle = "rgba(35,40,56,0.18)";
+    ctx.beginPath(); ctx.moveTo(x, floorY); ctx.lineTo(x + w, floorY); ctx.stroke();
     return floorY;
   }
 
@@ -1276,28 +1289,29 @@
     ctx.restore();
   }
 
-  const canvases = Array.from(document.querySelectorAll("canvas.scene")).map(canvas => {
-    const room = ROOMS.find(r => r.key === canvas.dataset.room);
-    const ctx = canvas.getContext("2d");
+  // 하나의 큰 office-canvas에 ROOMS의 rect대로 6개 구역을 그린다(2026-07-31 재구성).
+  const officeCanvas = document.getElementById("office-canvas");
+  const officeCtx = officeCanvas.getContext("2d");
+  const OFFICE_W = officeCanvas.width, OFFICE_H = officeCanvas.height;
+  (() => {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const cssW = canvas.width, cssH = canvas.height;
-    canvas.width = cssW * dpr;
-    canvas.height = cssH * dpr;
-    ctx.scale(dpr, dpr);
-    return { canvas, ctx, room, W: cssW, H: cssH };
-  });
+    officeCanvas.width = OFFICE_W * dpr;
+    officeCanvas.height = OFFICE_H * dpr;
+    officeCtx.scale(dpr, dpr);
+  })();
 
   function frame(now){
     const t = now / 1000;
-    canvases.forEach(({ ctx, room, W, H }) => {
-      const floorY = drawSceneBackdrop(ctx, W, H, room.color);
+    ROOMS.forEach(room => {
+      const { x, y, w } = room.rect;
+      const floorY = drawZoneBackdrop(officeCtx, room);
       const n = room.members.length;
-      const slots = room.members.map((_, i) => W * ((i + 1) / (n + 1)));
-      room.members.forEach((m, i) => drawDeskMini(ctx, slots[i], floorY, room.color));
+      const slots = room.members.map((_, i) => x + w * ((i + 1) / (n + 1)));
+      room.members.forEach((m, i) => drawDeskMini(officeCtx, slots[i], floorY, room.color));
       room.members.forEach((m, i) => {
         const emp = latestEmployees[m.id];
         const status = emp ? emp.status : undefined;
-        drawCharacter(ctx, slots[i], floorY, room.color, room.dim, m.hair, status, t);
+        drawCharacter(officeCtx, slots[i], floorY, room.color, room.dim, m.hair, status, t);
       });
     });
     if (!reduceMotion) requestAnimationFrame(frame);
