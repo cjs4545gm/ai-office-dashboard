@@ -310,6 +310,18 @@
   .chat-bubble .bubble-head .role{ font-family:var(--mono); font-size:10px; color:var(--muted); }
   .chat-bubble .bubble-text{ font-size:13px; line-height:1.65; white-space:pre-line; }
   .chat-bubble .bubble-content{ margin-top:2px; }
+
+  .emp-row{ padding:8px 0; border-bottom:1px dashed var(--line); }
+  .emp-row:last-child{ border-bottom:none; }
+  .emp-row .emp-line1{ display:flex; align-items:baseline; gap:8px; }
+  .emp-row .emp-name{ font-weight:700; font-size:13px; }
+  .emp-row .emp-role{ font-family:var(--mono); font-size:10px; color:var(--muted); flex:1; min-width:0; }
+  .emp-row .emp-line2{ font-size:11.5px; color:var(--muted); margin-top:2px; }
+  .rate-tag{ font-family:var(--mono); font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; flex:none; white-space:nowrap; }
+  .rate-tag.good{ background:rgba(31,162,98,0.15); color:var(--done); border:1px solid var(--done); }
+  .rate-tag.mid{ background:rgba(224,138,30,0.15); color:var(--working); border:1px solid var(--working); }
+  .rate-tag.bad{ background:rgba(217,74,65,0.15); color:var(--error); border:1px solid var(--error); }
+  .rate-tag.none{ background:transparent; color:var(--vacant); border:1px dashed var(--vacant); }
   .analysis-loading{ font-family:var(--mono); font-size:12px; color:var(--working); }
   .analysis-error{ font-size:12.5px; color:var(--error); }
 </style>
@@ -395,18 +407,6 @@
         <h2>🔺 우선 확인</h2>
         <div id="priority-alerts"><div class="panel-empty">현재 우선 확인 필요 종목 없음</div></div>
       </div>
-      <div class="side-panel">
-        <h2>📈 트레이더 콜 적중률</h2>
-        <div id="trader-stats"><div class="panel-empty">아직 검증된 콜 없음</div></div>
-      </div>
-      <div class="side-panel">
-        <h2>🎯 세이지 판단 정확도</h2>
-        <div id="sage-stats"><div class="panel-empty">아직 검증된 판단 없음</div></div>
-      </div>
-      <div class="side-panel">
-        <h2>👥 애널리스트별 적중률</h2>
-        <div id="analyst-stats"><div class="panel-empty">아직 검증된 의견 없음</div></div>
-      </div>
     </div>
     <div class="sidebar">
       <div class="side-panel">
@@ -416,6 +416,10 @@
       <div class="side-panel">
         <h2>🎬 오늘의 추천 영상</h2>
         <div id="youtube-pick"><div class="panel-empty">아직 선정된 영상 없음</div></div>
+      </div>
+      <div class="side-panel">
+        <h2>📊 직원별 적중률</h2>
+        <div id="employee-accuracy"><div class="panel-empty">아직 검증된 기록 없음</div></div>
       </div>
     </div>
   </div>
@@ -708,56 +712,6 @@
 
   let latestEmployees = {};
 
-  // 적중률 패널 재설계(2026-07-23, 사용자 요청 — "초등학생도 알기 쉽게 단순하게"): 소수점 %
-  // 나열 대신 표정 이모지 + 큰 숫자 + 색깔 막대 + 쉬운 문장으로 보여주고, 세분화된 수치
-  // (종목별/콜종류별/확신도별/애널리스트별)는 details로 접어 기본 화면은 단순하게 유지한다.
-  function trafficLight(rate){
-    if (rate === null || rate === undefined) return "⚪";
-    if (rate >= 60) return "🟢";
-    if (rate >= 35) return "🟡";
-    return "🔴";
-  }
-
-  function faceEmoji(rate){
-    if (rate === null || rate === undefined) return "❓";
-    if (rate >= 60) return "😃";
-    if (rate >= 40) return "🙂";
-    if (rate >= 25) return "😐";
-    return "😢";
-  }
-
-  function simpleItemHTML(name, s){
-    const decided = s.hit + s.miss;
-    const frac = decided ? `${decided}번 중 ${s.hit}번` : "판정 없음";
-    return `
-      <div class="simple-item">
-        <span class="light">${trafficLight(s.hit_rate)}</span>
-        <span class="item-name">${escapeHtml(name)}</span>
-        <span class="item-frac">${frac}</span>
-      </div>`;
-  }
-
-  // 확신도별처럼 "확신도 값 자체를 아직 안 남긴 과거 콜"만 있으면 버킷이 전부 "미상"이라
-  // 사용자에게 아무 정보도 안 주는 채로 패널만 지저분해진다 — 그럴 땐 그룹 자체를 숨긴다.
-  function simpleGroupHTML(label, entries, hideIfOnlyKeys){
-    entries = entries || {};
-    const keys = Object.keys(entries);
-    if (!keys.length) return "";
-    if (hideIfOnlyKeys && keys.every(k => hideIfOnlyKeys.includes(k))) return "";
-    const rows = keys.map(name => simpleItemHTML(name, entries[name])).join("");
-    return `<div class="simple-group"><div class="simple-group-label">${label}</div>${rows}</div>`;
-  }
-
-  function trendSentence(stats){
-    const recent = stats.recent_7d;
-    if (!recent || recent.total < 3 || recent.hit_rate === null || stats.hit_rate === null) return "";
-    const diff = recent.hit_rate - stats.hit_rate;
-    let arrow = "➡️", word = "그동안이랑 비슷해요";
-    if (diff >= 5){ arrow = "📈"; word = "예전보다 좋아지고 있어요"; }
-    else if (diff <= -5){ arrow = "📉"; word = "예전보다 나빠지고 있어요"; }
-    return `${arrow} 최근 7일은 ${word} (최근 ${recent.hit_rate.toFixed(0)}% 맞음)`;
-  }
-
   // 연속 적중/실패가 2번 이상일 때만 알려준다 — 1번은 "방금 그거 하나"라 스트릭이라 부르기
   // 애매하고 신호로서 의미가 없다(2026-07-23, 사용자 요청 — 연승/연패 스트릭 추가).
   function streakSentence(streak){
@@ -767,7 +721,7 @@
       : `😣 지금 ${streak.count}번 연속 틀리는 중이에요`;
   }
 
-  // 대시보드 탭도 종목 분석과 같은 아바타+이름+역할 채팅 버블 형식으로 통일(2026-07-31, 사용자 요청).
+  // 대시보드 탭도 종목 분석과 같은 아바타+이름+역할 형식으로 통일(2026-07-31, 사용자 요청).
   const DASHBOARD_PERSONAS = {
     leo:  { name: "레오",   emoji: "📈", role: "트레이더" },
     sage: { name: "세이지", emoji: "🎯", role: "판단 정확도 추적" },
@@ -797,88 +751,43 @@
     document.getElementById(elId).innerHTML = `<div class="chat-feed">${personaBubbleHTML(persona, innerHtml)}</div>`;
   }
 
-  // 애널리스트 5인 각자의 실제 개별 적중률(analyst_stats.by_analyst — retrospective.py가 이미
-  // 인당 hit/miss/hold/hit_rate/streak를 집계) — 5명 합산 헤드라인 대신 사람별로 그대로 보여준다
-  // (2026-07-31, 사용자 요청 — "적중률도 각 직원마다 계산하는걸로 합계말고").
-  function analystStatInnerHTML(s){
-    if (!s || s.total === 0) return '<div class="panel-empty">아직 검증된 의견 없음</div>';
-    const rate = s.hit_rate;
-    const rateText = rate === null || rate === undefined ? "-" : rate.toFixed(0);
-    const decided = s.hit + s.miss;
-    const total = s.total || 1;
-    const streak = streakSentence(s.streak);
+  // 적중률(%)은 레오의 "오늘의 매수/매도 가이드" 행처럼 이름 옆 작은 배지로 — 큰 숫자 블록 대신
+  // 헤더 줄 옆(사이드)에 붙인다(2026-07-31, 사용자 요청).
+  function rateTagHTML(rate){
+    if (rate === null || rate === undefined) return '<span class="rate-tag none">기록없음</span>';
+    const cls = rate >= 60 ? "good" : rate >= 35 ? "mid" : "bad";
+    return `<span class="rate-tag ${cls}">${rate.toFixed(0)}% 맞음</span>`;
+  }
+
+  // 직원별 적중률 — 레오의 "오늘의 매수/매도 가이드"가 종목마다 한 줄(이름+배지)인 것처럼,
+  // 여기도 직원마다 한 줄(이름+역할+% 배지)로 나열한다. 5인 합산 헤드라인 대신 사람별 실제
+  // 데이터 그대로(retrospective.py의 by_analyst 집계 재사용) — "오늘의 추천 영상" 아래 위치.
+  function empRowHTML(persona, stats){
+    const rate = stats ? stats.hit_rate : null;
+    const summary = (!stats || stats.total === 0)
+      ? "아직 검증된 기록 없음"
+      : `${stats.hit + stats.miss}번 판정 중 ${stats.hit}번 맞음`;
+    const streak = stats ? streakSentence(stats.streak) : "";
     return `
-      <div class="simple-top">
-        <span class="simple-face">${faceEmoji(rate)}</span>
-        <div>
-          <div class="simple-pct">${rateText}<span class="unit">% 맞음</span></div>
-          <div class="simple-sub">${decided}번 판정 중 <b>${s.hit}</b>번 맞음${s.hold ? ` · 애매함 <b>${s.hold}</b>번은 안 셈` : ""}</div>
+      <div class="emp-row">
+        <div class="emp-line1">
+          <span class="emp-name">${escapeHtml(persona.name)}</span>
+          <span class="emp-role">${escapeHtml(persona.role)}</span>
+          ${rateTagHTML(rate)}
         </div>
-      </div>
-      <div class="simple-bar">
-        <span class="seg hit" style="width:${s.hit / total * 100}%"></span>
-        <span class="seg miss" style="width:${s.miss / total * 100}%"></span>
-        <span class="seg hold" style="width:${s.hold / total * 100}%"></span>
-      </div>
-      ${streak ? `<div class="simple-trend">${streak}</div>` : ""}`;
+        <div class="emp-line2">${escapeHtml(summary)}${streak ? " · " + escapeHtml(streak) : ""}</div>
+      </div>`;
   }
 
-  function renderAnalystBubbles(stats){
-    const el = document.getElementById("analyst-stats");
-    const byAnalyst = (stats && stats.by_analyst) || {};
-    const bubbles = Object.entries(ANALYST_PERSONAS).map(([name, persona]) =>
-      personaBubbleHTML({ name, emoji: persona.emoji, role: persona.role }, analystStatInnerHTML(byAnalyst[name]))
-    ).join("");
-    el.innerHTML = `<div class="chat-feed">${bubbles}</div>`;
-  }
-
-  function renderStatsPanel(elId, persona, stats, emptyText, groupDefs, alwaysGroup){
-    if (!stats || stats.total === 0){
-      personaBubbleWrap(elId, persona, `<div class="panel-empty">${emptyText}</div>`);
-      return;
-    }
-    const rate = stats.hit_rate;
-    const rateText = rate === null || rate === undefined ? "-" : rate.toFixed(0);
-    const decided = stats.hit + stats.miss;
-    const total = stats.total || 1;
-    const hitPct = stats.hit / total * 100;
-    const missPct = stats.miss / total * 100;
-    const holdPct = stats.hold / total * 100;
-    const trend = trendSentence(stats);
-    const streak = streakSentence(stats.streak);
-    const notable = stats.notable_pattern ? `⚠️ ${stats.notable_pattern}` : "";
-    const calibration = stats.confidence_calibration ? `🎯 ${stats.confidence_calibration}` : "";
-    const callouts = [streak, notable, calibration].filter(Boolean)
-      .map(t => `<div class="simple-trend">${t}</div>`).join("");
-    // 매수/보유/매도별처럼 "이건 접지 말고 바로 보여달라"고 요청받은 축은 details 밖에 그대로 노출한다.
-    const alwaysHtml = alwaysGroup ? simpleGroupHTML(alwaysGroup.label, stats[alwaysGroup.key], alwaysGroup.hideIfOnlyKeys) : "";
-    const groupsHtml = (groupDefs || [])
-      .map(g => simpleGroupHTML(g.label, stats[g.key], g.hideIfOnlyKeys))
-      .filter(Boolean).join("");
-
-    const content = `
-      <div class="simple-top">
-        <span class="simple-face">${faceEmoji(rate)}</span>
-        <div>
-          <div class="simple-pct">${rateText}<span class="unit">% 맞음</span></div>
-          <div class="simple-sub">${decided}번 판정 중 <b>${stats.hit}</b>번 맞음${stats.hold ? ` · 애매함 <b>${stats.hold}</b>번은 안 셈` : ""}</div>
-        </div>
-      </div>
-      <div class="simple-bar">
-        <span class="seg hit" style="width:${hitPct}%"></span>
-        <span class="seg miss" style="width:${missPct}%"></span>
-        <span class="seg hold" style="width:${holdPct}%"></span>
-      </div>
-      <div class="simple-legend">
-        <span><span class="dot hit"></span>맞음 ${stats.hit}</span>
-        <span><span class="dot miss"></span>틀림 ${stats.miss}</span>
-        <span><span class="dot hold"></span>애매함 ${stats.hold}</span>
-      </div>
-      ${trend ? `<div class="simple-trend">${trend}</div>` : ""}
-      ${callouts}
-      ${alwaysHtml}
-      ${groupsHtml ? `<details class="simple-details"><summary>▸ 더 자세히 보기</summary>${groupsHtml}</details>` : ""}`;
-    personaBubbleWrap(elId, persona, content);
+  function renderEmployeeAccuracy(traderStats, sageStats, analystStats){
+    const el = document.getElementById("employee-accuracy");
+    const byAnalyst = (analystStats && analystStats.by_analyst) || {};
+    const rows = [
+      empRowHTML(DASHBOARD_PERSONAS.leo, traderStats),
+      empRowHTML(DASHBOARD_PERSONAS.sage, sageStats),
+      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) => empRowHTML({ name, role: p.role }, byAnalyst[name])),
+    ];
+    el.innerHTML = rows.join("");
   }
 
   function traderCallTag(call){
@@ -1308,16 +1217,7 @@
     renderRooms(latestEmployees);
     renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
-    renderStatsPanel("trader-stats", DASHBOARD_PERSONAS.leo, data.trader_stats, "아직 검증된 콜 없음", [
-      { label: "종목별", key: "by_stock" },
-      { label: "확신도별", key: "by_confidence", hideIfOnlyKeys: ["미상"] },
-      { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
-    ], { label: "매수/보유/매도별", key: "by_call" });
-    renderStatsPanel("sage-stats", DASHBOARD_PERSONAS.sage, data.sage_stats, "아직 검증된 판단 없음", [
-      { label: "종목별", key: "by_stock" },
-      { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
-    ]);
-    renderAnalystBubbles(data.analyst_stats);
+    renderEmployeeAccuracy(data.trader_stats, data.sage_stats, data.analyst_stats);
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
     renderMacroCpiPpi(data.macro_cpi_ppi);
