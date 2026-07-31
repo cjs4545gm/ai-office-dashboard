@@ -267,6 +267,40 @@
   .dept-link:hover{ filter:brightness(1.08); transform:translateY(-1px); }
 
   .foot-note{ font-family:var(--mono); font-size:10px; color:var(--muted); text-align:center; margin-top:14px; letter-spacing:0.02em; }
+
+  .analysis-controls{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  .stock-btn{
+    font-family:var(--sans); font-size:12.5px; font-weight:600; color:var(--cream);
+    background:var(--wall-3); border:1px solid var(--line); border-radius:999px; padding:7px 14px; cursor:pointer;
+  }
+  .stock-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .stock-btn.active{ background:var(--accent); color:#fff; border-color:var(--accent); }
+  .analysis-custom{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
+  .analysis-custom input{
+    font-family:var(--sans); font-size:13px; padding:8px 10px; border-radius:8px;
+    border:1px solid var(--line); background:var(--wall); color:var(--cream);
+  }
+  .analysis-custom input#custom-symbol{ width:150px; }
+  .analysis-custom input#custom-name{ width:150px; }
+  .analysis-custom button{
+    font-family:var(--sans); font-size:13px; font-weight:700; background:var(--accent);
+    color:#fff; border:none; border-radius:8px; padding:9px 16px; cursor:pointer;
+  }
+  .analysis-custom button:disabled{ opacity:0.6; cursor:default; }
+  .analysis-hint{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin:-4px 0 14px; }
+  .chat-feed{ display:flex; flex-direction:column; gap:12px; }
+  .chat-bubble{ display:flex; gap:10px; align-items:flex-start; }
+  .chat-bubble .avatar{
+    width:34px; height:34px; border-radius:50%; background:var(--wall-3); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; font-size:16px; flex:none;
+  }
+  .chat-bubble .bubble-body{ background:var(--wall); border:1px solid var(--line); border-radius:10px; padding:10px 12px; flex:1; min-width:0; }
+  .chat-bubble .bubble-head{ display:flex; align-items:baseline; gap:8px; margin-bottom:4px; flex-wrap:wrap; }
+  .chat-bubble .bubble-head .name{ font-weight:700; font-size:13px; }
+  .chat-bubble .bubble-head .role{ font-family:var(--mono); font-size:10px; color:var(--muted); }
+  .chat-bubble .bubble-text{ font-size:13px; line-height:1.65; white-space:pre-line; }
+  .analysis-loading{ font-family:var(--mono); font-size:12px; color:var(--working); }
+  .analysis-error{ font-size:12.5px; color:var(--error); }
 </style>
 </head>
 <body>
@@ -289,6 +323,7 @@
     <button class="tab-btn active" type="button" data-tab="live">🏢 라이브 오피스</button>
     <button class="tab-btn" type="button" data-tab="dashboard">📊 대시보드</button>
     <button class="tab-btn" type="button" data-tab="ceo">🧭 대표 채팅</button>
+    <button class="tab-btn" type="button" data-tab="analysis">🔎 종목 분석</button>
   </div>
 
   <div class="tab-panel active" data-tab-panel="live">
@@ -393,6 +428,20 @@
     </div>
     <div class="strategy-hint" id="strategy-hint">로컬 서버로 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 GitHub 이슈에 답변을 남깁니다.</div>
     <div id="strategy-qa"><div class="panel-empty">아직 남긴 질문 없음</div></div>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="analysis">
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>🔎 종목 분석</h2><span class="dept-desc">워치리스트 6종목은 오늘 자동 생성된 리서치를, 그 외 종목은 실시간 기술적 지표만으로 분석</span></div>
+    <div class="analysis-controls" id="watchlist-buttons"></div>
+    <div class="analysis-custom">
+      <input id="custom-symbol" placeholder="종목코드 (예: 005490.KS, AAPL)">
+      <input id="custom-name" placeholder="종목명 (예: POSCO홀딩스)">
+      <button id="custom-analyze" type="button">기술적 분석 시작</button>
+    </div>
+    <div class="analysis-hint" id="analysis-hint">워치리스트는 즉시 표시되고, 그 외 종목은 실시간 시세로 SMA·RSI·MACD·볼린저밴드를 계산해 10~30초 내 코멘트를 생성합니다 (뉴스·수급 데이터는 없음).</div>
+    <div id="analysis-result"><div class="panel-empty">위에서 종목을 선택하거나 코드를 입력해주세요</div></div>
   </div>
   </div>
 
@@ -1043,6 +1092,85 @@
       saveOptimisticQuestions();
       renderStrategyPanel(lastStrategyRoom);
       button.textContent = "질문 남기기";
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  // ---- 종목 분석 탭 — office_analysis_server.py(127.0.0.1:8769)에 붙는다.
+  // office-local-server(8767)로 연 로컬 버전에서만 CORS가 허용된다 — 전략실과 동일한 제약.
+  const ANALYSIS_ORIGIN = "http://127.0.0.1:8769";
+  const WATCHLIST_STOCKS = ["삼성전자", "SK하이닉스", "삼성전기", "현대차", "SK스퀘어", "LG이노텍"];
+  let selectedWatchlistStock = null;
+
+  function renderWatchlistButtons(){
+    const el = document.getElementById("watchlist-buttons");
+    el.innerHTML = WATCHLIST_STOCKS.map(name => `<button type="button" class="stock-btn" data-stock="${escapeHtml(name)}">${escapeHtml(name)}</button>`).join("");
+    el.querySelectorAll(".stock-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        el.querySelectorAll(".stock-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedWatchlistStock = btn.dataset.stock;
+        loadResearch(btn.dataset.stock);
+      });
+    });
+  }
+  renderWatchlistButtons();
+
+  function bubbleTagHTML(bubble){
+    if (!bubble.tag) return "";
+    return `<span class="call-tag ${bubble.tag === "buy" ? "buy" : bubble.tag === "sell" ? "sell" : "hold"}">${escapeHtml(bubble.tag_label || "")}</span>`;
+  }
+
+  function renderBubbles(bubbles){
+    const el = document.getElementById("analysis-result");
+    if (!bubbles || bubbles.length === 0){
+      el.innerHTML = '<div class="panel-empty">표시할 내용이 없음</div>';
+      return;
+    }
+    el.innerHTML = `<div class="chat-feed">${bubbles.map(b => `
+      <div class="chat-bubble">
+        <div class="avatar">${escapeHtml(b.emoji || "🙂")}</div>
+        <div class="bubble-body">
+          <div class="bubble-head"><span class="name">${escapeHtml(b.name || "")}</span><span class="role">${escapeHtml(b.role || "")}</span>${bubbleTagHTML(b)}</div>
+          <div class="bubble-text">${escapeHtml(b.text || "")}</div>
+        </div>
+      </div>`).join("")}</div>`;
+  }
+
+  async function loadResearch(stock){
+    const el = document.getElementById("analysis-result");
+    el.innerHTML = '<div class="analysis-loading">⏳ 최신 리서치 노트 불러오는 중...</div>';
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/research?stock=${encodeURIComponent(stock)}`, { signal: AbortSignal.timeout(10000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "불러오기 실패");
+      renderBubbles(data.bubbles);
+    } catch (e) {
+      el.innerHTML = `<div class="analysis-error">⚠️ 불러오지 못했습니다 — ${escapeHtml(e.message)}<br>Mac에서 오피스 로컬 서버(office_analysis_server.py)가 켜져 있는지 확인해주세요.</div>`;
+    }
+  }
+
+  document.getElementById("custom-analyze").addEventListener("click", async () => {
+    const symbolInput = document.getElementById("custom-symbol");
+    const nameInput = document.getElementById("custom-name");
+    const button = document.getElementById("custom-analyze");
+    const symbol = symbolInput.value.trim();
+    const name = nameInput.value.trim() || symbol;
+    if (!symbol) { symbolInput.focus(); return; }
+
+    document.querySelectorAll("#watchlist-buttons .stock-btn").forEach(b => b.classList.remove("active"));
+    selectedWatchlistStock = null;
+    const el = document.getElementById("analysis-result");
+    el.innerHTML = '<div class="analysis-loading">⏳ 실시간 시세로 기술적 지표 계산 후 분석 작성 중... (10~30초 소요)</div>';
+    button.disabled = true;
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/technical?symbol=${encodeURIComponent(symbol)}&name=${encodeURIComponent(name)}`, { signal: AbortSignal.timeout(60000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "분석 실패");
+      renderBubbles(data.bubbles);
+    } catch (e) {
+      el.innerHTML = `<div class="analysis-error">⚠️ 분석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
     } finally {
       button.disabled = false;
     }
