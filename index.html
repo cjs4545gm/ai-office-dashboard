@@ -318,6 +318,21 @@
   .emp-row .emp-role{ font-family:var(--mono); font-size:10px; color:var(--muted); flex:1; min-width:0; }
   .emp-row .emp-line2{ font-size:11.5px; color:var(--muted); margin-top:2px; }
   .emp-row .emp-stock-rows{ margin-top:6px; }
+
+  .analyst-comment-group{ margin-bottom:20px; }
+  .analyst-comment-group:last-child{ margin-bottom:0; }
+  .analyst-comment-head{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .analyst-comment-head .avatar{
+    width:36px; height:36px; border-radius:50%; background:var(--wall-3); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; font-size:17px; flex:none;
+  }
+  .analyst-comment-head .name{ font-weight:700; font-size:16px; }
+  .analyst-comment-head .role{ font-family:var(--mono); font-size:11px; color:var(--muted); margin-left:6px; }
+  .analyst-comment-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:12px; }
+  .comment-card{ background:var(--wall); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .comment-card .comment-head{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px; }
+  .comment-card .comment-stock{ font-weight:700; font-size:14.5px; }
+  .comment-card .comment-text{ font-size:13px; line-height:1.6; color:var(--cream); }
   .rate-tag{ font-family:var(--mono); font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; flex:none; white-space:nowrap; }
   .rate-tag.good{ background:rgba(31,162,98,0.15); color:var(--done); border:1px solid var(--done); }
   .rate-tag.mid{ background:rgba(224,138,30,0.15); color:var(--working); border:1px solid var(--working); }
@@ -423,6 +438,11 @@
         <div id="employee-accuracy"><div class="panel-empty">아직 검증된 기록 없음</div></div>
       </div>
     </div>
+  </div>
+
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>💬 애널리스트별 오늘의 종목 코멘트</h2><span class="dept-desc">탐·베라·주노·카이·제이드가 워치리스트 6종목에 오늘 남긴 의견 — 사이드바 적중률과 별개로 여기서 크게 확인</span></div>
+    <div id="analyst-comments"><div class="panel-empty">아직 남긴 의견 없음</div></div>
   </div>
 
   <div class="dept-links">
@@ -763,29 +783,14 @@
   // 직원별 적중률 — 레오의 "오늘의 매수/매도 가이드"가 종목마다 한 줄(이름+배지)인 것처럼,
   // 여기도 직원마다 한 줄(이름+역할+% 배지)로 나열한다. 5인 합산 헤드라인 대신 사람별 실제
   // 데이터 그대로(retrospective.py의 by_analyst 집계 재사용) — "오늘의 추천 영상" 아래 위치.
-  // 레오의 "오늘의 매수/매도 가이드"와 같은 종목별 행(이름+코멘트+매수/매도 배지) —
-  // 애널리스트 5인도 오늘 실제로 남긴 종목별 의견을 이 형식 그대로 보여준다(2026-07-31,
-  // 사용자 요청 — "이 직원들도 각 종목에 코멘트랑 매수 매도 인지 알 수 있게").
-  function analystStockRowHTML(op){
-    return `
-      <div class="call-row">
-        <div class="call-line1">
-          <span class="call-name">${escapeHtml(op.stock)}</span>
-          ${traderCallTag(op.call)}
-        </div>
-        <div class="call-line2">${escapeHtml(op.text || "")}</div>
-      </div>`;
-  }
-
-  function empRowHTML(persona, stats, opinions){
+  // 사이드바는 적중률(%)만 — 종목별 코멘트는 화면 중앙의 큰 섹션(renderAnalystComments)으로
+  // 분리한다(2026-07-31, 사용자 요청 — "사이드에는 적중률만 두고 이 내용은 크게 중앙에").
+  function empRowHTML(persona, stats){
     const rate = stats ? stats.hit_rate : null;
     const summary = (!stats || stats.total === 0)
       ? "아직 검증된 기록 없음"
       : `${stats.hit + stats.miss}번 판정 중 ${stats.hit}번 맞음`;
     const streak = stats ? streakSentence(stats.streak) : "";
-    const stockRowsHtml = (opinions && opinions.length)
-      ? `<div class="emp-stock-rows">${opinions.map(analystStockRowHTML).join("")}</div>`
-      : "";
     return `
       <div class="emp-row">
         <div class="emp-line1">
@@ -794,8 +799,37 @@
           ${rateTagHTML(rate)}
         </div>
         <div class="emp-line2">${escapeHtml(summary)}${streak ? " · " + escapeHtml(streak) : ""}</div>
-        ${stockRowsHtml}
       </div>`;
+  }
+
+  // 레오의 "오늘의 매수/매도 가이드"와 같은 형식(종목명+코멘트+매수/매도 배지)이지만, 화면
+  // 중앙의 넓은 영역에 애널리스트별로 크게 나열한다.
+  function commentCardHTML(op){
+    return `
+      <div class="comment-card">
+        <div class="comment-head"><span class="comment-stock">${escapeHtml(op.stock)}</span>${traderCallTag(op.call)}</div>
+        <div class="comment-text">${escapeHtml(op.text || "")}</div>
+      </div>`;
+  }
+
+  function analystCommentGroupHTML(persona, opinions){
+    if (!opinions || !opinions.length) return "";
+    return `
+      <div class="analyst-comment-group">
+        <div class="analyst-comment-head">
+          <div class="avatar">${escapeHtml(persona.emoji)}</div>
+          <div><span class="name">${escapeHtml(persona.name)}</span><span class="role">${escapeHtml(persona.role)}</span></div>
+        </div>
+        <div class="analyst-comment-grid">${opinions.map(commentCardHTML).join("")}</div>
+      </div>`;
+  }
+
+  function renderAnalystComments(opinionsByAnalyst){
+    const el = document.getElementById("analyst-comments");
+    const groups = Object.entries(ANALYST_PERSONAS)
+      .map(([name, p]) => analystCommentGroupHTML({ name, emoji: p.emoji, role: p.role }, (opinionsByAnalyst || {})[name]))
+      .filter(Boolean).join("");
+    el.innerHTML = groups || '<div class="panel-empty">아직 남긴 의견 없음</div>';
   }
 
   async function fetchAnalystOpinions(){
@@ -812,11 +846,11 @@
     const el = document.getElementById("employee-accuracy");
     const byAnalyst = (analystStats && analystStats.by_analyst) || {};
     const opinionsByAnalyst = await fetchAnalystOpinions();
+    renderAnalystComments(opinionsByAnalyst);
     const rows = [
       empRowHTML(DASHBOARD_PERSONAS.leo, traderStats),
       empRowHTML(DASHBOARD_PERSONAS.sage, sageStats),
-      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) =>
-        empRowHTML({ name, role: p.role }, byAnalyst[name], opinionsByAnalyst[name])),
+      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) => empRowHTML({ name, role: p.role }, byAnalyst[name])),
     ];
     el.innerHTML = rows.join("");
   }
