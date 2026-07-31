@@ -309,6 +309,7 @@
   .chat-bubble .bubble-head .name{ font-weight:700; font-size:13px; }
   .chat-bubble .bubble-head .role{ font-family:var(--mono); font-size:10px; color:var(--muted); }
   .chat-bubble .bubble-text{ font-size:13px; line-height:1.65; white-space:pre-line; }
+  .chat-bubble .bubble-content{ margin-top:2px; }
   .analysis-loading{ font-family:var(--mono); font-size:12px; color:var(--working); }
   .analysis-error{ font-size:12.5px; color:var(--error); }
 </style>
@@ -766,10 +767,74 @@
       : `😣 지금 ${streak.count}번 연속 틀리는 중이에요`;
   }
 
-  function renderStatsPanel(elId, stats, emptyText, groupDefs, alwaysGroup){
-    const el = document.getElementById(elId);
+  // 대시보드 탭도 종목 분석과 같은 아바타+이름+역할 채팅 버블 형식으로 통일(2026-07-31, 사용자 요청).
+  const DASHBOARD_PERSONAS = {
+    leo:  { name: "레오",   emoji: "📈", role: "트레이더" },
+    sage: { name: "세이지", emoji: "🎯", role: "판단 정확도 추적" },
+    jade: { name: "제이드", emoji: "🛡️", role: "리스크 총괄" },
+    nova: { name: "노바",   emoji: "💹", role: "금리·환율 매크로 감지" },
+  };
+  const ANALYST_PERSONAS = {
+    "탐":   { emoji: "🔍", role: "리서치 분석가" },
+    "베라": { emoji: "🧠", role: "리서치 총괄" },
+    "주노": { emoji: "🏛️", role: "업종 리서처" },
+    "카이": { emoji: "📉", role: "이상거래 감지" },
+    "제이드": { emoji: "🛡️", role: "리스크 총괄" },
+  };
+
+  function personaBubbleHTML(persona, innerHtml){
+    return `
+      <div class="chat-bubble">
+        <div class="avatar">${escapeHtml(persona.emoji)}</div>
+        <div class="bubble-body">
+          <div class="bubble-head"><span class="name">${escapeHtml(persona.name)}</span><span class="role">${escapeHtml(persona.role)}</span></div>
+          <div class="bubble-content">${innerHtml}</div>
+        </div>
+      </div>`;
+  }
+
+  function personaBubbleWrap(elId, persona, innerHtml){
+    document.getElementById(elId).innerHTML = `<div class="chat-feed">${personaBubbleHTML(persona, innerHtml)}</div>`;
+  }
+
+  // 애널리스트 5인 각자의 실제 개별 적중률(analyst_stats.by_analyst — retrospective.py가 이미
+  // 인당 hit/miss/hold/hit_rate/streak를 집계) — 5명 합산 헤드라인 대신 사람별로 그대로 보여준다
+  // (2026-07-31, 사용자 요청 — "적중률도 각 직원마다 계산하는걸로 합계말고").
+  function analystStatInnerHTML(s){
+    if (!s || s.total === 0) return '<div class="panel-empty">아직 검증된 의견 없음</div>';
+    const rate = s.hit_rate;
+    const rateText = rate === null || rate === undefined ? "-" : rate.toFixed(0);
+    const decided = s.hit + s.miss;
+    const total = s.total || 1;
+    const streak = streakSentence(s.streak);
+    return `
+      <div class="simple-top">
+        <span class="simple-face">${faceEmoji(rate)}</span>
+        <div>
+          <div class="simple-pct">${rateText}<span class="unit">% 맞음</span></div>
+          <div class="simple-sub">${decided}번 판정 중 <b>${s.hit}</b>번 맞음${s.hold ? ` · 애매함 <b>${s.hold}</b>번은 안 셈` : ""}</div>
+        </div>
+      </div>
+      <div class="simple-bar">
+        <span class="seg hit" style="width:${s.hit / total * 100}%"></span>
+        <span class="seg miss" style="width:${s.miss / total * 100}%"></span>
+        <span class="seg hold" style="width:${s.hold / total * 100}%"></span>
+      </div>
+      ${streak ? `<div class="simple-trend">${streak}</div>` : ""}`;
+  }
+
+  function renderAnalystBubbles(stats){
+    const el = document.getElementById("analyst-stats");
+    const byAnalyst = (stats && stats.by_analyst) || {};
+    const bubbles = Object.entries(ANALYST_PERSONAS).map(([name, persona]) =>
+      personaBubbleHTML({ name, emoji: persona.emoji, role: persona.role }, analystStatInnerHTML(byAnalyst[name]))
+    ).join("");
+    el.innerHTML = `<div class="chat-feed">${bubbles}</div>`;
+  }
+
+  function renderStatsPanel(elId, persona, stats, emptyText, groupDefs, alwaysGroup){
     if (!stats || stats.total === 0){
-      el.innerHTML = `<div class="panel-empty">${emptyText}</div>`;
+      personaBubbleWrap(elId, persona, `<div class="panel-empty">${emptyText}</div>`);
       return;
     }
     const rate = stats.hit_rate;
@@ -791,7 +856,7 @@
       .map(g => simpleGroupHTML(g.label, stats[g.key], g.hideIfOnlyKeys))
       .filter(Boolean).join("");
 
-    el.innerHTML = `
+    const content = `
       <div class="simple-top">
         <span class="simple-face">${faceEmoji(rate)}</span>
         <div>
@@ -813,6 +878,7 @@
       ${callouts}
       ${alwaysHtml}
       ${groupsHtml ? `<details class="simple-details"><summary>▸ 더 자세히 보기</summary>${groupsHtml}</details>` : ""}`;
+    personaBubbleWrap(elId, persona, content);
   }
 
   function traderCallTag(call){
@@ -837,22 +903,18 @@
   }
 
   function renderTraderCalls(calls){
-    const el = document.getElementById("trader-calls");
     const entries = Object.entries(calls || {});
-    if (entries.length === 0){
-      el.innerHTML = '<div class="panel-empty">오늘 확정된 콜 없음</div>';
-      return;
-    }
-    el.innerHTML = entries.map(([name, c]) => callRowHTML(name, c)).join("");
+    const content = entries.length === 0
+      ? '<div class="panel-empty">오늘 확정된 콜 없음</div>'
+      : entries.map(([name, c]) => callRowHTML(name, c)).join("");
+    personaBubbleWrap("trader-calls", DASHBOARD_PERSONAS.leo, content);
   }
 
   function renderPriorityAlerts(alerts){
-    const el = document.getElementById("priority-alerts");
-    if (!alerts || alerts.length === 0){
-      el.innerHTML = '<div class="panel-empty">현재 우선 확인 필요 종목 없음</div>';
-      return;
-    }
-    el.innerHTML = `<div class="alert-list">${alerts.map(a => `<div class="alert-row">${escapeHtml(a)}</div>`).join("")}</div>`;
+    const content = (!alerts || alerts.length === 0)
+      ? '<div class="panel-empty">현재 우선 확인 필요 종목 없음</div>'
+      : `<div class="alert-list">${alerts.map(a => `<div class="alert-row">${escapeHtml(a)}</div>`).join("")}</div>`;
+    personaBubbleWrap("priority-alerts", DASHBOARD_PERSONAS.jade, content);
   }
 
   const MACRO_STATUS_LABEL = { safe: "생존", caution: "혼조", risk: "위험" };
@@ -907,13 +969,10 @@
   }
 
   function renderMacroCpiPpi(macro){
-    const el = document.getElementById("macro-cpi-ppi");
-    if (!macro || (!macro.cpi && !macro.ppi)){
-      el.innerHTML = '<div class="panel-empty">아직 수집된 데이터 없음</div>';
-      return;
-    }
-    const rows = [macro.cpi, macro.ppi].filter(Boolean);
-    el.innerHTML = rows.map(macroRowHTML).join("");
+    const content = (!macro || (!macro.cpi && !macro.ppi))
+      ? '<div class="panel-empty">아직 수집된 데이터 없음</div>'
+      : [macro.cpi, macro.ppi].filter(Boolean).map(macroRowHTML).join("");
+    personaBubbleWrap("macro-cpi-ppi", DASHBOARD_PERSONAS.nova, content);
   }
 
   function renderYoutubePick(pick){
@@ -1249,19 +1308,16 @@
     renderRooms(latestEmployees);
     renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
-    renderStatsPanel("trader-stats", data.trader_stats, "아직 검증된 콜 없음", [
+    renderStatsPanel("trader-stats", DASHBOARD_PERSONAS.leo, data.trader_stats, "아직 검증된 콜 없음", [
       { label: "종목별", key: "by_stock" },
       { label: "확신도별", key: "by_confidence", hideIfOnlyKeys: ["미상"] },
       { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
     ], { label: "매수/보유/매도별", key: "by_call" });
-    renderStatsPanel("sage-stats", data.sage_stats, "아직 검증된 판단 없음", [
+    renderStatsPanel("sage-stats", DASHBOARD_PERSONAS.sage, data.sage_stats, "아직 검증된 판단 없음", [
       { label: "종목별", key: "by_stock" },
       { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
     ]);
-    renderStatsPanel("analyst-stats", data.analyst_stats, "아직 검증된 의견 없음", [
-      { label: "애널리스트별", key: "by_analyst" },
-      { label: "코스피 상승일/하락일별", key: "by_market", hideIfOnlyKeys: ["미상"] },
-    ], { label: "매수/보유/매도별", key: "by_call" });
+    renderAnalystBubbles(data.analyst_stats);
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
     renderMacroCpiPpi(data.macro_cpi_ppi);
