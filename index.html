@@ -1129,14 +1129,31 @@
     ctx.globalAlpha = 1;
   }
 
+  // 상태별로 실제 의미가 다른 움직임을 준다 — standby(자동화 미구현)는 그대로 멈춰있고,
+  // idle/done은 자리 근처를 느긋하게 서성이고, working은 더 빠르고 넓게 걸어다니고,
+  // error는 제자리에서 초조하게 흔들린다. 가짜 연출이 아니라 status.json 값 그대로 반영.
   function drawCharacter(ctx, cx, floorY, color, dim, hair, status, t){
-    const walking = false;
     const isStandby = status === "standby";
-    const bob = isStandby ? 0 : Math.sin(t * 2.2 + cx) * 1.6;
+    const isError = status === "error";
+    const isWorking = status === "working";
+    let xOffset = 0, walking = false, legPhase = 0;
+    if (isStandby) {
+      // 제자리 고정
+    } else if (isError) {
+      xOffset = Math.sin(t * 9 + cx) * 1.6;
+    } else {
+      const speed = isWorking ? 0.55 : 0.28;
+      const range = isWorking ? 22 : 11;
+      xOffset = Math.sin(t * speed + cx) * range;
+      const velocity = Math.cos(t * speed + cx) * speed * range;
+      walking = Math.abs(velocity) > (isWorking ? 1.5 : 1.0);
+      legPhase = t * (isWorking ? 10 : 6);
+    }
+    const bob = isStandby ? 0 : (walking ? Math.abs(Math.sin(legPhase)) * 1.4 : Math.sin(t * 2.2 + cx) * 1.6);
     const y = floorY - 2;
 
     ctx.save();
-    ctx.translate(cx, y + bob);
+    ctx.translate(cx + xOffset, y + bob);
     if (isStandby) ctx.globalAlpha = 0.45;
 
     // shadow
@@ -1145,12 +1162,18 @@
     ctx.fillStyle = "rgba(0,0,0,0.35)";
     ctx.fill();
 
-    // legs
+    // legs — 걷는 중엔 가위 모양으로 교차, 아니면 가만히 서있는 다리
     ctx.strokeStyle = "#1c1620";
     ctx.lineWidth = 4.5;
     ctx.lineCap = "round";
-    ctx.beginPath(); ctx.moveTo(-3, -4); ctx.lineTo(-3, -17); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(3, -4); ctx.lineTo(3, -17); ctx.stroke();
+    if (walking) {
+      const swing = Math.sin(legPhase) * 5;
+      ctx.beginPath(); ctx.moveTo(-3, -4); ctx.lineTo(-3 + swing, -17); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(3, -4); ctx.lineTo(3 - swing, -17); ctx.stroke();
+    } else {
+      ctx.beginPath(); ctx.moveTo(-3, -4); ctx.lineTo(-3, -17); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(3, -4); ctx.lineTo(3, -17); ctx.stroke();
+    }
 
     // body
     ctx.fillStyle = isStandby ? "#4a4058" : color;
@@ -1160,7 +1183,7 @@
     // arms
     ctx.strokeStyle = isStandby ? "#4a4058" : dim;
     ctx.lineWidth = 3.5;
-    const armSwing = walking ? 0 : Math.sin(t * 1.1 + cx) * 1.4;
+    const armSwing = walking ? Math.sin(legPhase + Math.PI) * 4 : Math.sin(t * 1.1 + cx) * 1.4;
     ctx.beginPath(); ctx.moveTo(-9, -29); ctx.lineTo(-12 + armSwing, -18); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(9, -29); ctx.lineTo(12 - armSwing, -18); ctx.stroke();
 
