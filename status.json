@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-04T13:17:33",
+  "updated_at": "2026-08-04T13:22:36",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "카이 이벤트 기록 (누적 5079건)",
-      "since": "2026-08-04T13:17:14"
+      "last_action": "제이드 이벤트 기록 (누적 5085건)",
+      "since": "2026-08-04T13:17:56"
     },
     "callie": {
       "name": "캘리",
@@ -52,9 +52,9 @@
       "emoji": "🧠",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-08-04T13:17:14",
-      "last_action": "리서치 품질 검수 중"
+      "status": "done",
+      "since": "2026-08-04T13:17:55",
+      "last_action": "이슈 2건 감지"
     },
     "tam": {
       "name": "탐",
@@ -130,8 +130,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-08-04T11:17:32",
-      "last_action": "품질 1건 · 리스크 3건 종합 완료"
+      "since": "2026-08-04T13:17:56",
+      "last_action": "🔴 우선확인 1건 · 품질 2건 · 리스크 3건 종합 완료"
     },
     "kai": {
       "name": "카이",
@@ -140,9 +140,9 @@
       "emoji": "📉",
       "room": "risk",
       "automated": true,
-      "status": "working",
-      "since": "2026-08-04T13:17:14",
-      "last_action": "이상거래·급락 감지 중"
+      "status": "done",
+      "since": "2026-08-04T13:17:56",
+      "last_action": "경보 3건 감지"
     },
     "nova": {
       "name": "노바",
@@ -152,7 +152,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-08-04T11:17:32",
+      "since": "2026-08-04T13:17:56",
       "last_action": "특이사항 없음"
     },
     "dawn": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-04T13:17:33",
+      "since": "2026-08-04T13:22:36",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-04T13:17:33",
+      "since": "2026-08-04T13:22:36",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,67 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-04T13:17:33",
+      "since": "2026-08-04T13:22:36",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-04T12:57:39",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-08-04T12:57:39",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-08-04T12:57:39",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 0건 수집",
-      "detail": [
-        "삼성전자: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK하이닉스: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "삼성전기: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "현대차: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK스퀘어: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "LG이노텍: 뉴스 소스 전부 실패(네이버+야후 0건)"
-      ]
-    },
-    {
-      "time": "2026-08-04T12:57:39",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-08-04T12:57:39",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-08-04T12:57:39",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "error",
-      "action": "D램, 낸드 현물가 수집 실패"
-    },
     {
       "time": "2026-08-04T12:57:39",
       "employee": "scout",
@@ -645,6 +589,66 @@
       "role": "이상거래·급락 감지",
       "status": "working",
       "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-08-04T13:17:54",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-08-04T13:17:55",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-08-04T13:17:55",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이슈 2건 감지",
+      "detail": [
+        "삼성전자: 다른 종목명 혼입 의심(삼성전기 6회 > 자기 종목명 1회)",
+        "LG이노텍: 다른 종목명 혼입 의심(삼성전기 5회 > 자기 종목명 2회)"
+      ]
+    },
+    {
+      "time": "2026-08-04T13:17:56",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 3건 감지",
+      "detail": [
+        "현대차: 기관 3거래일 연속 순매도",
+        "SK스퀘어: 급등 +3.41% (코스피도 동반 +1.62%)",
+        "LG이노텍: 기관 3거래일 연속 순매도"
+      ]
+    },
+    {
+      "time": "2026-08-04T13:17:56",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "특이사항 없음"
+    },
+    {
+      "time": "2026-08-04T13:17:56",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "🔴 우선확인 1건 · 품질 2건 · 리스크 3건 종합 완료",
+      "detail": [
+        "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+      ]
     }
   ],
   "trader_stats": {
@@ -876,7 +880,9 @@
       "sell": "특별한 매도 신호 없음, 480,000원 이탈 시 재검토 — 기관 순매도 지속·원가압박 부담이 추세 훼손으로 번질 경우 대응"
     }
   },
-  "priority_alerts": [],
+  "priority_alerts": [
+    "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+  ],
   "strategy_room": {
     "pending": 0,
     "pending_list": [],
