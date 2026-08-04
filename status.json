@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-03T22:19:01",
+  "updated_at": "2026-08-03T22:22:01",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리나 이벤트 기록 (누적 4916건)",
-      "since": "2026-08-03T22:19:01"
+      "last_action": "탐 이벤트 기록 (누적 4919건)",
+      "since": "2026-08-03T22:22:01"
     },
     "callie": {
       "name": "캘리",
@@ -64,8 +64,8 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-08-03T22:19:00",
-      "last_action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 0건, 리포트 0건)"
+      "since": "2026-08-03T22:22:01",
+      "last_action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 0건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -234,34 +234,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-03T19:27:53",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-08-03T19:27:53",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이슈 2건 감지",
-      "detail": [
-        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석",
-        "수급 데이터 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍"
-      ]
-    },
-    {
-      "time": "2026-08-03T19:27:53",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "working",
-      "action": "실적발표 예상 시기 추정 중"
-    },
     {
       "time": "2026-08-03T19:27:53",
       "employee": "callie",
@@ -649,6 +621,30 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "error",
       "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
+    },
+    {
+      "time": "2026-08-03T22:22:01",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 실패 — 다음 종목 진행"
+    },
+    {
+      "time": "2026-08-03T22:22:01",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-08-03T22:22:01",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 0건, 리포트 0건)"
     }
   ],
   "trader_stats": {
