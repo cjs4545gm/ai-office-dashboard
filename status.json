@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-04T10:29:35",
+  "updated_at": "2026-08-04T10:34:43",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리와인드 이벤트 기록 (누적 4977건)",
-      "since": "2026-08-04T10:29:24"
+      "last_action": "던 이벤트 기록 (누적 4984건)",
+      "since": "2026-08-04T10:30:02"
     },
     "callie": {
       "name": "캘리",
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-31T17:30:59",
+      "since": "2026-08-04T10:30:02",
       "last_action": "✅ 검수 통과"
     },
     "rewind": {
@@ -173,9 +173,9 @@
       "emoji": "🗂️",
       "room": "feedback",
       "automated": true,
-      "status": "working",
-      "since": "2026-08-04T10:29:24",
-      "last_action": "일간 결산 작성 중"
+      "status": "done",
+      "since": "2026-08-04T10:29:57",
+      "last_action": "일간 결산 저장 완료"
     },
     "sage": {
       "name": "세이지",
@@ -185,7 +185,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-07-31T15:39:40",
+      "since": "2026-08-04T10:29:57",
       "last_action": "비교할 전일 리서치 없음"
     },
     "leo": {
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-08-04T10:20:01",
-      "last_action": "매수 1 · 보유 5 · 매도 0 종합 완료 (장마감 확정)"
+      "since": "2026-08-04T10:29:57",
+      "last_action": "비교할 전일 콜 없음"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-04T10:29:35",
+      "since": "2026-08-04T10:34:43",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-04T10:29:35",
+      "since": "2026-08-04T10:34:43",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,71 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-04T10:29:35",
+      "since": "2026-08-04T10:34:43",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-04T08:30:58",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-08-04T08:30:58",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이슈 2건 감지",
-      "detail": [
-        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석",
-        "수급 데이터 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍"
-      ]
-    },
-    {
-      "time": "2026-08-04T08:30:58",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "working",
-      "action": "실적발표 예상 시기 추정 중"
-    },
-    {
-      "time": "2026-08-04T08:30:58",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 예상 시기 추적",
-      "status": "done",
-      "action": "10일 이내 예상 발표 없음"
-    },
-    {
-      "time": "2026-08-04T09:59:30",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-08-04T09:59:30",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-08-04T10:00:01",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 7건, 헤드라인 12건 수집"
-    },
     {
       "time": "2026-08-04T10:00:01",
       "employee": "milo",
@@ -645,6 +585,62 @@
       "role": "결산 담당",
       "status": "working",
       "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-08-04T10:29:57",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-08-04T10:29:57",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-08-04T10:29:57",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "비교할 전일 리서치 없음"
+    },
+    {
+      "time": "2026-08-04T10:29:57",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-08-04T10:29:57",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "비교할 전일 콜 없음"
+    },
+    {
+      "time": "2026-08-04T10:29:57",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "일간 결산 검수 중"
+    },
+    {
+      "time": "2026-08-04T10:30:02",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
     }
   ],
   "trader_stats": {
@@ -933,10 +929,10 @@
     ]
   },
   "youtube_pick": {
-    "title": "로빈후드·서클이 뛰어든 블록체인 인프라 전쟁… 최종 승자는 누구인가 | 서동주, 김동환, 최윤영 한화투자증권 팀장 [크립토 PLUS]",
-    "url": "https://www.youtube.com/watch?v=5Mh3oUJVD10",
+    "title": "금리 안 올려도 오른다? 워시 노림수에 글로벌 국채 금리 급등 | 서동주, 김동환, 이윤수 에릭의 거장연구소 대표 [크립토 PLUS]",
+    "url": "https://www.youtube.com/watch?v=P7CM0Soo8mw",
     "channel": "삼프로TV",
-    "date": "2026-07-31"
+    "date": "2026-08-04"
   },
   "macro_cpi_ppi": {
     "cpi": {
