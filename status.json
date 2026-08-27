@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T20:05:07",
+  "updated_at": "2026-08-27T20:10:06",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "오즈 이벤트 기록 (누적 5350건)",
-      "since": "2026-08-27T20:05:07"
+      "last_action": "탐 이벤트 기록 (누적 5355건)",
+      "since": "2026-08-27T20:10:06"
     },
     "callie": {
       "name": "캘리",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-08-27T19:15:57",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-08-27T20:10:06",
+      "last_action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T19:10:04",
+      "since": "2026-08-27T20:10:06",
       "last_action": "업종 2개 협회·통계 조사 완료"
     },
     "chip": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T20:04:57",
+      "since": "2026-08-27T20:09:59",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T20:04:57",
+      "since": "2026-08-27T20:09:59",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,51 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T20:04:57",
+      "since": "2026-08-27T20:09:59",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-27T19:00:14",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-08-27T19:05:02",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-08-27T19:05:07",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-08-27T19:05:07",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-08-27T19:05:07",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
     {
       "time": "2026-08-27T19:10:04",
       "employee": "juno",
@@ -639,6 +599,46 @@
       "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-08-27T20:10:06",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-08-27T20:10:06",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-08-27T20:10:06",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 조사 완료"
+    },
+    {
+      "time": "2026-08-27T20:10:06",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-08-27T20:10:06",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     }
   ],
   "trader_stats": {
