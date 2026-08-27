@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T04:02:32",
+  "updated_at": "2026-08-28T04:07:35",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T03:28:11",
-      "last_action": "이슈 9건 감지"
+      "since": "2026-08-28T04:05:08",
+      "last_action": "이슈 1건 감지"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T03:28:11",
+      "since": "2026-08-28T04:05:08",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 5509건)",
-      "since": "2026-08-28T04:00:18"
+      "last_action": "오즈 이벤트 기록 (누적 5513건)",
+      "since": "2026-08-28T04:05:08"
     },
     "callie": {
       "name": "캘리",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-28T04:02:32",
+      "since": "2026-08-28T04:07:35",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-28T04:02:32",
+      "since": "2026-08-28T04:07:35",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,46 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-28T04:02:32",
+      "since": "2026-08-28T04:07:35",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-28T00:17:16",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-08-28T00:17:16",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-08-28T00:32:25",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 8건 수집"
-    },
-    {
-      "time": "2026-08-28T00:32:25",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신",
-      "detail": [
-        "삼성전자: 수급 Naver 실패 → Daum 대체"
-      ]
-    },
     {
       "time": "2026-08-28T00:32:25",
       "employee": "chip",
@@ -645,6 +610,38 @@
       "role": "데이터 품질 관리",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-08-28T04:05:03",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-08-28T04:05:08",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-08-28T04:05:08",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-08-28T04:05:08",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 1건 감지"
     }
   ],
   "trader_stats": {
