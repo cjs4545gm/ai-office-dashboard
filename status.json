@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T17:04:51",
+  "updated_at": "2026-08-27T17:09:52",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T16:10:38",
-      "last_action": "이슈 9건 감지"
+      "since": "2026-08-27T17:05:12",
+      "last_action": "이상없음"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T16:10:38",
+      "since": "2026-08-27T17:05:12",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 5211건)",
-      "since": "2026-08-27T17:00:31"
+      "last_action": "오즈 이벤트 기록 (누적 5215건)",
+      "since": "2026-08-27T17:05:12"
     },
     "callie": {
       "name": "캘리",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T17:04:51",
+      "since": "2026-08-27T17:09:52",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T17:04:51",
+      "since": "2026-08-27T17:09:52",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,43 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T17:04:51",
+      "since": "2026-08-27T17:09:52",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-27T16:10:46",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-08-27T16:10:46",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-08-27T16:11:00",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-08-27T16:12:02",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
     {
       "time": "2026-08-27T16:12:02",
       "employee": "tam",
@@ -637,6 +605,38 @@
       "employee": "hank",
       "name": "행크",
       "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-08-27T17:05:07",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-08-27T17:05:12",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-08-27T17:05:12",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-08-27T17:05:12",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
     }
