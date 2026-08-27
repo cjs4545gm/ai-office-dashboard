@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T17:30:00",
+  "updated_at": "2026-08-27T18:14:17",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T17:05:12",
+      "since": "2026-08-27T18:06:44",
       "last_action": "이상없음"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T17:05:12",
+      "since": "2026-08-27T18:06:44",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 5246건)",
-      "since": "2026-08-27T17:16:54"
+      "last_action": "탐 이벤트 기록 (누적 5265건)",
+      "since": "2026-08-27T18:14:16"
     },
     "callie": {
       "name": "캘리",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-08-27T17:16:15",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-08-27T18:14:16",
+      "last_action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T17:10:06",
+      "since": "2026-08-27T18:14:16",
       "last_action": "업종 2개 협회·통계 조사 완료"
     },
     "chip": {
@@ -86,7 +86,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T17:00:29",
+      "since": "2026-08-27T18:06:45",
       "last_action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
     },
     "hank": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T17:00:31",
+      "since": "2026-08-27T18:06:46",
       "last_action": "이상없음"
     },
     "scout": {
@@ -108,7 +108,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T17:00:31",
+      "since": "2026-08-27T18:06:46",
       "last_action": "새 IR 일정 공지 없음"
     },
     "milo": {
@@ -119,7 +119,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T17:00:29",
+      "since": "2026-08-27T18:06:45",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T17:30:00",
+      "since": "2026-08-27T18:14:17",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T17:30:00",
+      "since": "2026-08-27T18:14:17",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,163 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T17:30:00",
+      "since": "2026-08-27T18:14:17",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-27T16:29:54",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 정확도 추적",
-      "status": "done",
-      "action": "비교할 전일 리서치 없음"
-    },
-    {
-      "time": "2026-08-27T16:29:54",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "전일 트레이더 콜 적중률 검증 중"
-    },
-    {
-      "time": "2026-08-27T16:29:55",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "비교할 전일 콜 없음"
-    },
-    {
-      "time": "2026-08-27T16:29:55",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "working",
-      "action": "일간 결산 검수 중"
-    },
-    {
-      "time": "2026-08-27T16:29:59",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "done",
-      "action": "✅ 검수 통과"
-    },
-    {
-      "time": "2026-08-27T17:00:06",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-08-27T17:00:06",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-08-27T17:00:29",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-08-27T17:00:29",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-08-27T17:00:29",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-08-27T17:00:29",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
-    {
-      "time": "2026-08-27T17:00:29",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-08-27T17:00:31",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-08-27T17:00:31",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-08-27T17:00:31",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-08-27T17:05:07",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-08-27T17:05:12",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-08-27T17:05:12",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-08-27T17:05:12",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
     {
       "time": "2026-08-27T17:10:06",
       "employee": "juno",
@@ -645,6 +493,158 @@
       "detail": [
         "SK하이닉스: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
       ]
+    },
+    {
+      "time": "2026-08-27T18:06:35",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-08-27T18:06:35",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-08-27T18:06:35",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-08-27T18:06:44",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-08-27T18:06:44",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-08-27T18:06:44",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-08-27T18:06:45",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-08-27T18:06:45",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-08-27T18:06:45",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
+    },
+    {
+      "time": "2026-08-27T18:06:45",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드·MLCC 가격 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
+    },
+    {
+      "time": "2026-08-27T18:06:45",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-08-27T18:06:46",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-08-27T18:06:46",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-08-27T18:06:46",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-08-27T18:14:16",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-08-27T18:14:16",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-08-27T18:14:16",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 조사 완료"
+    },
+    {
+      "time": "2026-08-27T18:14:16",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-08-27T18:14:16",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     }
   ],
   "trader_stats": {
