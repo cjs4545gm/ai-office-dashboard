@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27T16:24:36",
+  "updated_at": "2026-08-27T16:29:43",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 5193건)",
-      "since": "2026-08-27T16:19:48"
+      "last_action": "리와인드 이벤트 기록 (누적 5194건)",
+      "since": "2026-08-27T16:29:27"
     },
     "callie": {
       "name": "캘리",
@@ -173,9 +173,9 @@
       "emoji": "🗂️",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-08-04T10:29:57",
-      "last_action": "일간 결산 저장 완료"
+      "status": "working",
+      "since": "2026-08-27T16:29:27",
+      "last_action": "일간 결산 작성 중"
     },
     "sage": {
       "name": "세이지",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T16:24:36",
+      "since": "2026-08-27T16:29:38",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T16:24:36",
+      "since": "2026-08-27T16:29:38",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,19 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-08-27T16:24:36",
+      "since": "2026-08-27T16:29:38",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-27T15:44:33",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
     {
       "time": "2026-08-27T15:44:33",
       "employee": "hank",
@@ -639,6 +631,14 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 4건 종합 완료"
+    },
+    {
+      "time": "2026-08-27T16:29:27",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
     }
   ],
   "trader_stats": {
@@ -927,10 +927,10 @@
     ]
   },
   "youtube_pick": {
-    "title": "금리 안 올려도 오른다? 워시 노림수에 글로벌 국채 금리 급등 | 서동주, 김동환, 이윤수 에릭의 거장연구소 대표 [크립토 PLUS]",
-    "url": "https://www.youtube.com/watch?v=P7CM0Soo8mw",
+    "title": "금값 다시 뛴다? 지금 사도 될까…ETF로 투자 하는 방법은? | 박현지, 김상율, 여도은, 허재무 [아침N투자]",
+    "url": "https://www.youtube.com/watch?v=JdCvBsWQjt8",
     "channel": "삼프로TV",
-    "date": "2026-08-04"
+    "date": "2026-08-27"
   },
   "macro_cpi_ppi": {
     "cpi": {
