@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T11:32:46",
+  "updated_at": "2026-08-28T11:36:57",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "오즈 이벤트 기록 (누적 5656건)",
-      "since": "2026-08-28T11:13:24"
+      "last_action": "제이드 이벤트 기록 (누적 5673건)",
+      "since": "2026-08-28T11:36:57"
     },
     "callie": {
       "name": "캘리",
@@ -53,7 +53,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T04:18:12",
+      "since": "2026-08-28T11:36:57",
       "last_action": "이슈 2건 감지"
     },
     "tam": {
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-08-28T11:03:43",
-      "last_action": "[4/6] 현대차 Claude 분석 중 (뉴스 0건, 리포트 0건)"
+      "status": "done",
+      "since": "2026-08-28T11:36:28",
+      "last_action": "3개 종목 리서치 노트 작성 완료 (재분석 실패 3건은 기존 노트 유지)"
     },
     "juno": {
       "name": "주노",
@@ -130,7 +130,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T04:18:12",
+      "since": "2026-08-28T11:36:57",
       "last_action": "🔴 우선확인 1건 · 품질 2건 · 리스크 4건 종합 완료"
     },
     "kai": {
@@ -141,7 +141,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T04:18:12",
+      "since": "2026-08-28T11:36:57",
       "last_action": "경보 4건 감지"
     },
     "nova": {
@@ -152,7 +152,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T04:18:12",
+      "since": "2026-08-28T11:36:57",
       "last_action": "특이사항 없음"
     },
     "dawn": {
@@ -196,7 +196,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T04:17:16",
+      "since": "2026-08-28T11:36:28",
       "last_action": "매수 0 · 보유 5 · 매도 1 종합 완료 (장마감 확정)"
     },
     "ivy": {
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-08-28T11:32:46",
-      "last_action": "새 질문 확인 중"
+      "status": "idle",
+      "since": "2026-08-28T11:32:50",
+      "last_action": "질문 대기 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-08-28T11:32:46",
-      "last_action": "새 질문 확인 중"
+      "status": "idle",
+      "since": "2026-08-28T11:32:50",
+      "last_action": "질문 대기 중"
     },
     "rina": {
       "name": "리나",
@@ -228,156 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-08-28T11:32:46",
-      "last_action": "새 질문 확인 중"
+      "status": "idle",
+      "since": "2026-08-28T11:32:50",
+      "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-08-28T08:09:17",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-08-28T08:09:17",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-08-28T08:09:17",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-08-28T08:09:17",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-08-28T09:11:22",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 기존 노트 유지 — 재분석 실패"
-    },
-    {
-      "time": "2026-08-28T09:11:22",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 분석 중"
-    },
-    {
-      "time": "2026-08-28T09:11:22",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 0건, 리포트 0건)"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 0건 수집",
-      "detail": [
-        "삼성전자: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK하이닉스: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "삼성전기: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "현대차: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK스퀘어: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "LG이노텍: 뉴스 소스 전부 실패(네이버+야후 0건)"
-      ]
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-08-28T09:11:25",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
     {
       "time": "2026-08-28T09:11:25",
       "employee": "hank",
@@ -669,6 +525,155 @@
       "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-08-28T11:33:54",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[4/6] 현대차 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-08-28T11:34:06",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 분석 중"
+    },
+    {
+      "time": "2026-08-28T11:34:06",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 0건, 리포트 0건)"
+    },
+    {
+      "time": "2026-08-28T11:34:43",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-08-28T11:34:59",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 분석 중"
+    },
+    {
+      "time": "2026-08-28T11:35:00",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 0건, 리포트 0건)"
+    },
+    {
+      "time": "2026-08-28T11:35:28",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-08-28T11:36:28",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "done",
+      "action": "3개 종목 리서치 노트 작성 완료 (재분석 실패 3건은 기존 노트 유지)"
+    },
+    {
+      "time": "2026-08-28T11:36:28",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "매수 0 · 보유 5 · 매도 1 종합 완료 (장마감 확정)"
+    },
+    {
+      "time": "2026-08-28T11:36:28",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "working",
+      "action": "리서치 품질 검수 중"
+    },
+    {
+      "time": "2026-08-28T11:36:28",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "working",
+      "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-08-28T11:36:56",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-08-28T11:36:57",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-08-28T11:36:57",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이슈 2건 감지",
+      "detail": [
+        "현대차: 인사이트 부족 의심(claude 판정) — 오늘 데이터 없이 전일 내용만 반복",
+        "LG이노텍: 다른 종목명 혼입 의심(삼성전기 4회 > 자기 종목명 2회)"
+      ]
+    },
+    {
+      "time": "2026-08-28T11:36:57",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 4건 감지",
+      "detail": [
+        "삼성전자: 급등 +3.89%",
+        "SK하이닉스: 급등 +3.28%, 외국인 3거래일 연속 순매도",
+        "SK스퀘어: 기관 3거래일 연속 순매도",
+        "LG이노텍: 급등 +3.02%"
+      ]
+    },
+    {
+      "time": "2026-08-28T11:36:57",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "특이사항 없음"
+    },
+    {
+      "time": "2026-08-28T11:36:57",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "🔴 우선확인 1건 · 품질 2건 · 리스크 4건 종합 완료",
+      "detail": [
+        "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+      ]
     }
   ],
   "trader_stats": {
@@ -886,22 +891,22 @@
     },
     "현대차": {
       "call": "매도",
-      "buy": "현재가(401,000원)보다 낮은 눌림목 구간 — 외국인 순매도·보유율 하락세가 진정되는 신호를 확인한 뒤 저가 매수 접근이 합리적",
-      "sell": "401,000원대 — 기관·외국인 동반 순매도 확대 국면에서 추가 하락 리스크를 줄이기 위해 현재가 부근에서 비중 축소 대응"
+      "buy": "현재가보다 낮은 눌림목 구간 — 순매도·외국인보유율 하락 추세 반전이 확인되기 전에는 진입 근거 부족, 추세 전환 신호 이후 저가 매수 검토",
+      "sell": "특별한 신규 매도 신호 없음, 기존 지지선(직전 저점) 이탈 시 재검토 — 이미 매도 우위 의견이 반영된 상태이므로 추가 하락 시그널 확인 후 대응"
     },
     "SK스퀘어": {
       "call": "보유",
-      "buy": "현재가보다 낮은 눌림목 구간(기관 순매도 진정 확인 후 1,000,000원대 초반 접근 시 재검토) — 지금은 기관 매물 소화가 우선, 조정 시 분할 매수 관점",
-      "sell": "특별한 매도 신호 없음, 기관 순매도가 5거래일 연속으로 심화되거나 1,050,000원 하회 시 재검토 — 외국인 매수세가 살아있어 당장 손절할 근거는 약함"
+      "buy": "현재가보다 낮은 눌림목 구간(1,000,000~1,020,000원대) — 기관 순매도 강도가 진정되고 외국인 매수세가 재확인될 때 재진입 검토",
+      "sell": "특별한 매도 신호 없음, 1,000,000원 이탈 시 재검토 — 반도체 밸류체인 우호적 흐름이 유효한 한 보유 유지가 합리적"
     },
     "LG이노텍": {
       "call": "보유",
-      "buy": "현재가보다 낮은 눌림목 구간 — 기관 순매도 진정 및 MLCC發 원가 부담의 실적 반영 여부가 확인된 이후 진입이 안전",
-      "sell": "특별한 매도 신호 없음, 기관 순매도가 3거래일 이상 이어지거나 최근 저점(전일 종가 부근)을 이탈할 경우 재검토"
+      "buy": "현재가(615,000원)보다 낮은 눌림목 구간 — 기관 순매도가 진정되고 급등을 뒷받침할 구체적 재료(뉴스·리포트)가 확인된 이후 진입하는 것이 안전",
+      "sell": "특별한 매도 신호 없음, 외국인 순매수 기조가 꺾이거나 기관 순매도가 추가로 장기화될 경우 재검토"
     }
   },
   "priority_alerts": [
-    "SK스퀘어: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+    "LG이노텍: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
   ],
   "strategy_room": {
     "pending": 0,
