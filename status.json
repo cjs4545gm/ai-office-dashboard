@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T14:40:58",
+  "updated_at": "2026-09-07T14:46:04",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-07T14:40:58",
+      "since": "2026-09-07T14:46:01",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-07T14:40:58",
+      "since": "2026-09-07T14:46:01",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,7 +229,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-07T14:40:58",
+      "since": "2026-09-07T14:46:01",
       "last_action": "질문 대기 중"
     }
   },
@@ -942,10 +942,10 @@
     ]
   },
   "youtube_pick": {
-    "title": "금값 다시 뛴다? 지금 사도 될까…ETF로 투자 하는 방법은? | 박현지, 김상율, 여도은, 허재무 [아침N투자]",
-    "url": "https://www.youtube.com/watch?v=JdCvBsWQjt8",
+    "title": "'사이드' 나와야 할 이슈에도 한국증시는 '주춤'...왜? | 이혁진팀장, 여도은, 허재무 [아침N투자]",
+    "url": "https://www.youtube.com/watch?v=Vro5Ci0EhNA",
     "channel": "삼프로TV",
-    "date": "2026-08-27"
+    "date": "2026-09-07"
   },
   "macro_cpi_ppi": {
     "cpi": {
