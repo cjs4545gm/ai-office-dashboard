@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T15:45:51",
+  "updated_at": "2026-09-08T15:51:21",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 6046건)",
-      "since": "2026-09-08T15:17:05"
+      "last_action": "던 이벤트 기록 (누적 6054건)",
+      "since": "2026-09-08T15:50:14"
     },
     "callie": {
       "name": "캘리",
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T16:29:59",
+      "since": "2026-09-08T15:50:14",
       "last_action": "✅ 검수 통과"
     },
     "rewind": {
@@ -174,7 +174,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T16:29:54",
+      "since": "2026-09-08T15:49:51",
       "last_action": "일간 결산 저장 완료"
     },
     "sage": {
@@ -185,8 +185,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-08-27T16:29:54",
-      "last_action": "비교할 전일 리서치 없음"
+      "since": "2026-09-08T15:50:10",
+      "last_action": "검증 완료"
     },
     "leo": {
       "name": "레오",
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-09-08T15:16:25",
-      "last_action": "매수 1 · 보유 5 · 매도 0 종합 완료 (장마감 확정)"
+      "since": "2026-09-08T15:50:10",
+      "last_action": "비교할 전일 콜 없음"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-08T15:45:51",
+      "since": "2026-09-08T15:51:21",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-08T15:45:51",
+      "since": "2026-09-08T15:51:21",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,75 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-08T15:45:51",
+      "since": "2026-09-08T15:51:21",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-08T14:24:28",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10f9e5160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-08T14:24:28",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10f9e5160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-08T14:29:50",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110c9d160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-08T14:29:50",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110c9d160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-08T14:29:50",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110c9d160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-08T15:00:07",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-09-08T15:00:07",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-08T15:00:40",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
     {
       "time": "2026-09-08T15:00:40",
       "employee": "milo",
@@ -637,6 +573,70 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 2건 종합 완료"
+    },
+    {
+      "time": "2026-09-08T15:48:45",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-09-08T15:49:51",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-09-08T15:49:51",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-09-08T15:50:10",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-09-08T15:50:10",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-09-08T15:50:10",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "비교할 전일 콜 없음"
+    },
+    {
+      "time": "2026-09-08T15:50:10",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "일간 결산 검수 중"
+    },
+    {
+      "time": "2026-09-08T15:50:14",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
     }
   ],
   "trader_stats": {
@@ -1009,21 +1009,21 @@
     }
   },
   "sage_stats": {
-    "total": 53,
+    "total": 56,
     "hit": 20,
-    "miss": 15,
-    "hold": 17,
-    "hit_rate": 57.1,
+    "miss": 16,
+    "hold": 19,
+    "hit_rate": 55.6,
     "streak": {
       "type": "miss",
-      "count": 1
+      "count": 2
     },
     "by_stock": {
       "삼성전자": {
-        "total": 8,
+        "total": 9,
         "hit": 3,
         "miss": 5,
-        "hold": 0,
+        "hold": 1,
         "hit_rate": 37.5,
         "streak": {
           "type": "hit",
@@ -1031,10 +1031,10 @@
         }
       },
       "SK하이닉스": {
-        "total": 9,
+        "total": 10,
         "hit": 4,
         "miss": 3,
-        "hold": 2,
+        "hold": 3,
         "hit_rate": 57.1,
         "streak": {
           "type": "hit",
@@ -1042,13 +1042,13 @@
         }
       },
       "삼성전기": {
-        "total": 9,
+        "total": 10,
         "hit": 3,
-        "miss": 2,
+        "miss": 3,
         "hold": 4,
-        "hit_rate": 60.0,
+        "hit_rate": 50.0,
         "streak": {
-          "type": "hit",
+          "type": "miss",
           "count": 1
         }
       },
@@ -1088,14 +1088,14 @@
     },
     "by_market": {
       "코스피 하락일": {
-        "total": 24,
+        "total": 27,
         "hit": 8,
-        "miss": 8,
-        "hold": 7,
-        "hit_rate": 50.0,
+        "miss": 9,
+        "hold": 9,
+        "hit_rate": 47.1,
         "streak": {
-          "type": "hit",
-          "count": 4
+          "type": "miss",
+          "count": 1
         }
       },
       "코스피 상승일": {
@@ -1111,22 +1111,22 @@
       }
     },
     "recent_7d": {
-      "total": 6,
-      "hit": 3,
+      "total": 3,
+      "hit": 0,
       "miss": 1,
       "hold": 2,
-      "hit_rate": 75.0,
+      "hit_rate": 0.0,
       "streak": {
         "type": "miss",
         "count": 1
       }
     },
     "recent_30d": {
-      "total": 53,
-      "hit": 20,
-      "miss": 15,
-      "hold": 17,
-      "hit_rate": 57.1,
+      "total": 3,
+      "hit": 0,
+      "miss": 1,
+      "hold": 2,
+      "hit_rate": 0.0,
       "streak": {
         "type": "miss",
         "count": 1
@@ -1134,117 +1134,117 @@
     }
   },
   "analyst_stats": {
-    "total": 270,
-    "hit": 110,
-    "miss": 160,
+    "total": 290,
+    "hit": 118,
+    "miss": 172,
     "hold": 0,
     "hit_rate": 40.7,
     "streak": {
-      "type": "hit",
+      "type": "miss",
       "count": 2
     },
     "by_analyst": {
       "탐": {
-        "total": 54,
-        "hit": 26,
-        "miss": 28,
+        "total": 58,
+        "hit": 27,
+        "miss": 31,
         "hold": 0,
-        "hit_rate": 48.1,
+        "hit_rate": 46.6,
         "streak": {
           "type": "miss",
           "count": 2
         }
       },
       "베라": {
-        "total": 54,
-        "hit": 22,
-        "miss": 32,
+        "total": 58,
+        "hit": 24,
+        "miss": 34,
         "hold": 0,
-        "hit_rate": 40.7,
+        "hit_rate": 41.4,
         "streak": {
-          "type": "hit",
-          "count": 4
+          "type": "miss",
+          "count": 2
         }
       },
       "주노": {
-        "total": 54,
-        "hit": 21,
-        "miss": 33,
+        "total": 58,
+        "hit": 23,
+        "miss": 35,
         "hold": 0,
-        "hit_rate": 38.9,
+        "hit_rate": 39.7,
         "streak": {
-          "type": "miss",
-          "count": 3
+          "type": "hit",
+          "count": 1
         }
       },
       "카이": {
-        "total": 54,
-        "hit": 18,
-        "miss": 36,
+        "total": 58,
+        "hit": 20,
+        "miss": 38,
         "hold": 0,
-        "hit_rate": 33.3,
+        "hit_rate": 34.5,
         "streak": {
-          "type": "hit",
-          "count": 4
+          "type": "miss",
+          "count": 2
         }
       },
       "제이드": {
-        "total": 54,
-        "hit": 23,
-        "miss": 31,
+        "total": 58,
+        "hit": 24,
+        "miss": 34,
         "hold": 0,
-        "hit_rate": 42.6,
+        "hit_rate": 41.4,
         "streak": {
-          "type": "hit",
+          "type": "miss",
           "count": 3
         }
       }
     },
     "by_call": {
       "매도": {
-        "total": 91,
-        "hit": 56,
-        "miss": 35,
+        "total": 94,
+        "hit": 58,
+        "miss": 36,
         "hold": 0,
-        "hit_rate": 61.5,
+        "hit_rate": 61.7,
         "streak": {
           "type": "hit",
-          "count": 2
+          "count": 1
         }
       },
       "보유": {
-        "total": 116,
-        "hit": 28,
-        "miss": 88,
+        "total": 124,
+        "hit": 32,
+        "miss": 92,
         "hold": 0,
-        "hit_rate": 24.1,
-        "streak": {
-          "type": "hit",
-          "count": 8
-        }
-      },
-      "매수": {
-        "total": 63,
-        "hit": 26,
-        "miss": 37,
-        "hold": 0,
-        "hit_rate": 41.3,
+        "hit_rate": 25.8,
         "streak": {
           "type": "miss",
           "count": 4
+        }
+      },
+      "매수": {
+        "total": 72,
+        "hit": 28,
+        "miss": 44,
+        "hold": 0,
+        "hit_rate": 38.9,
+        "streak": {
+          "type": "miss",
+          "count": 5
         }
       }
     },
     "by_market": {
       "코스피 하락일": {
-        "total": 120,
-        "hit": 53,
-        "miss": 67,
+        "total": 140,
+        "hit": 61,
+        "miss": 79,
         "hold": 0,
-        "hit_rate": 44.2,
+        "hit_rate": 43.6,
         "streak": {
-          "type": "hit",
-          "count": 1
+          "type": "miss",
+          "count": 2
         }
       },
       "코스피 상승일": {
@@ -1261,24 +1261,24 @@
     },
     "notable_pattern": "베라 · LG이노텍 콜은 유난히 잘 맞아요 (8/9건, 전체 평균 41%)",
     "recent_7d": {
-      "total": 30,
-      "hit": 18,
+      "total": 20,
+      "hit": 8,
       "miss": 12,
       "hold": 0,
-      "hit_rate": 60.0,
+      "hit_rate": 40.0,
       "streak": {
-        "type": "hit",
+        "type": "miss",
         "count": 2
       }
     },
     "recent_30d": {
-      "total": 270,
-      "hit": 110,
-      "miss": 160,
+      "total": 20,
+      "hit": 8,
+      "miss": 12,
       "hold": 0,
-      "hit_rate": 40.7,
+      "hit_rate": 40.0,
       "streak": {
-        "type": "hit",
+        "type": "miss",
         "count": 2
       }
     }
