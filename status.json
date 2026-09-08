@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T14:19:15",
+  "updated_at": "2026-09-08T14:24:08",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "카이 이벤트 기록 (누적 5989건)",
-      "since": "2026-09-08T14:19:15"
+      "last_action": "제이드 이벤트 기록 (누적 5995건)",
+      "since": "2026-09-08T14:19:47"
     },
     "callie": {
       "name": "캘리",
@@ -52,9 +52,9 @@
       "emoji": "🧠",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-08T14:19:15",
-      "last_action": "리서치 품질 검수 중"
+      "status": "done",
+      "since": "2026-09-08T14:19:47",
+      "last_action": "이슈 2건 감지"
     },
     "tam": {
       "name": "탐",
@@ -130,8 +130,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T16:10:26",
-      "last_action": "품질 0건 · 리스크 5건 종합 완료"
+      "since": "2026-09-08T14:19:47",
+      "last_action": "🔴 우선확인 2건 · 품질 2건 · 리스크 4건 종합 완료"
     },
     "kai": {
       "name": "카이",
@@ -140,9 +140,9 @@
       "emoji": "📉",
       "room": "risk",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-08T14:19:15",
-      "last_action": "이상거래·급락 감지 중"
+      "status": "done",
+      "since": "2026-09-08T14:19:47",
+      "last_action": "경보 4건 감지"
     },
     "nova": {
       "name": "노바",
@@ -152,8 +152,8 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-08-28T16:10:26",
-      "last_action": "경보 1건 감지"
+      "since": "2026-09-08T14:19:47",
+      "last_action": "특이사항 없음"
     },
     "dawn": {
       "name": "던",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-08T14:19:06",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-09-08T14:24:08",
+      "last_action": "새 질문 확인 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-08T14:19:06",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-09-08T14:24:08",
+      "last_action": "새 질문 확인 중"
     },
     "rina": {
       "name": "리나",
@@ -228,68 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-08T14:19:06",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-09-08T14:24:08",
+      "last_action": "새 질문 확인 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-08T13:17:16",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-08T13:17:16",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 0건 수집",
-      "detail": [
-        "삼성전자: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK하이닉스: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "삼성전기: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "현대차: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK스퀘어: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "LG이노텍: 뉴스 소스 전부 실패(네이버+야후 0건)"
-      ]
-    },
-    {
-      "time": "2026-09-08T13:17:16",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신"
-    },
-    {
-      "time": "2026-09-08T13:17:16",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-09-08T13:18:03",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "error",
-      "action": "D램, 낸드 현물가 수집 실패"
-    },
-    {
-      "time": "2026-09-08T13:18:03",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
     {
       "time": "2026-09-08T13:18:07",
       "employee": "scout",
@@ -645,6 +589,68 @@
       "role": "이상거래·급락 감지",
       "status": "working",
       "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-09-08T14:19:46",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-09-08T14:19:47",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-09-08T14:19:47",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이슈 2건 감지",
+      "detail": [
+        "SK하이닉스: 오늘 새 리포트를 받았는데 리포트 요약 섹션에 반영 안 됨",
+        "삼성전기: 오늘 새 리포트를 받았는데 리포트 요약 섹션에 반영 안 됨"
+      ]
+    },
+    {
+      "time": "2026-09-08T14:19:47",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지",
+      "status": "done",
+      "action": "경보 4건 감지",
+      "detail": [
+        "SK하이닉스: 급등 +4.60%",
+        "삼성전기: 급락 -3.37%",
+        "SK스퀘어: 급등 +4.18%",
+        "LG이노텍: 급락 -4.78%"
+      ]
+    },
+    {
+      "time": "2026-09-08T14:19:47",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율 매크로 감지",
+      "status": "done",
+      "action": "특이사항 없음"
+    },
+    {
+      "time": "2026-09-08T14:19:47",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "🔴 우선확인 2건 · 품질 2건 · 리스크 4건 종합 완료",
+      "detail": [
+        "SK하이닉스: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
+        "삼성전기: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+      ]
     }
   ],
   "trader_stats": {
@@ -876,7 +882,10 @@
       "sell": "특별한 매도 신호 없음, 558,000원 하회 흐름 지속 시 재검토 — 종목 특정 악재는 없으나 반등 재료 부재·정보 공백이 남아있어 추가 약세 시 리스크 관리 필요"
     }
   },
-  "priority_alerts": [],
+  "priority_alerts": [
+    "SK하이닉스: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
+    "삼성전기: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요"
+  ],
   "strategy_room": {
     "pending": 0,
     "pending_list": [],
