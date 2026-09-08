@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T14:03:58",
+  "updated_at": "2026-09-08T14:09:00",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-09-07T15:05:12",
-      "last_action": "이슈 6건 감지"
+      "since": "2026-09-08T14:05:11",
+      "last_action": "이슈 7건 감지"
     },
     "bri": {
       "name": "브리",
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-09-07T15:05:12",
+      "since": "2026-09-08T14:05:11",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 5960건)",
-      "since": "2026-09-08T14:00:25"
+      "last_action": "오즈 이벤트 기록 (누적 5964건)",
+      "since": "2026-09-08T14:05:11"
     },
     "callie": {
       "name": "캘리",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-08T14:03:57",
+      "since": "2026-09-08T14:09:00",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-08T14:03:57",
+      "since": "2026-09-08T14:09:00",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,51 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-08T14:03:57",
+      "since": "2026-09-08T14:09:00",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-07T15:00:10",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신",
-      "detail": [
-        "삼성전자: 수급 Naver 실패 → Daum 대체",
-        "SK하이닉스: 수급 Naver 실패 → Daum 대체",
-        "삼성전기: 수급 Naver 실패 → Daum 대체",
-        "현대차: 수급 Naver 실패 → Daum 대체",
-        "SK스퀘어: 수급 Naver 실패 → Daum 대체",
-        "LG이노텍: 수급 Naver 실패 → Daum 대체"
-      ]
-    },
-    {
-      "time": "2026-09-07T15:00:10",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 + MLCC 가격 동향 확인 중"
-    },
-    {
-      "time": "2026-09-07T15:00:49",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드·MLCC 가격 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 + MLCC 동향 갱신"
-    },
-    {
-      "time": "2026-09-07T15:00:49",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
     {
       "time": "2026-09-07T15:00:53",
       "employee": "scout",
@@ -656,6 +616,38 @@
       "role": "데이터 품질 관리",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-09-08T14:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-09-08T14:05:11",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-09-08T14:05:11",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-09-08T14:05:11",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 7건 감지"
     }
   ],
   "trader_stats": {
