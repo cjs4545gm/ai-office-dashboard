@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T15:23:12",
+  "updated_at": "2026-09-09T15:29:06",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 6121건)",
-      "since": "2026-09-09T15:19:07"
+      "last_action": "리나 이벤트 기록 (누적 6124건)",
+      "since": "2026-09-09T15:23:35"
     },
     "callie": {
       "name": "캘리",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-09T15:23:12",
-      "last_action": "새 질문 확인 중"
+      "status": "idle",
+      "since": "2026-09-09T15:29:06",
+      "last_action": "질문 대기 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-09T15:23:12",
-      "last_action": "새 질문 확인 중"
+      "status": "idle",
+      "since": "2026-09-09T15:29:06",
+      "last_action": "질문 대기 중"
     },
     "rina": {
       "name": "리나",
@@ -228,40 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-09T15:23:12",
-      "last_action": "새 질문 확인 중"
+      "status": "idle",
+      "since": "2026-09-09T15:29:06",
+      "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-09T14:18:42",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-09-09T14:18:42",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-09-09T14:18:42",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이슈 2건 감지",
-      "detail": [
-        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석",
-        "수급 데이터 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍"
-      ]
-    },
     {
       "time": "2026-09-09T14:18:42",
       "employee": "callie",
@@ -643,6 +615,30 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 2건 종합 완료"
+    },
+    {
+      "time": "2026-09-09T15:23:35",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10fa0d160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-09-09T15:23:35",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10fa0d160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-09-09T15:23:35",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10fa0d160>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
     }
   ],
   "trader_stats": {
