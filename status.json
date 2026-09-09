@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T14:42:49",
+  "updated_at": "2026-09-09T14:47:57",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-09T14:42:49",
+      "since": "2026-09-09T14:47:52",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-09T14:42:49",
+      "since": "2026-09-09T14:47:52",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,7 +229,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-09T14:42:49",
+      "since": "2026-09-09T14:47:52",
       "last_action": "질문 대기 중"
     }
   },
@@ -937,10 +937,10 @@
     ]
   },
   "youtube_pick": {
-    "title": "삼전닉스로 쏠린 관심...뒷받침되는 실적 속 소외된 코스닥 강소 기업은 어디? |  노영래, 여도은, 허재무 [아침N투자]",
-    "url": "https://www.youtube.com/watch?v=JgyRlZWwtSg",
+    "title": "불붙은 토큰증권, 국내시장 본격화 시작되나? 2027년 STO 로드맵 분석 | 김동환, 서동주, 박상혁, 이성산 솔라나 코리아 대표 [크립토 PLUS]",
+    "url": "https://www.youtube.com/watch?v=sSf4Oe2g0XY",
     "channel": "삼프로TV",
-    "date": "2026-09-08"
+    "date": "2026-09-09"
   },
   "macro_cpi_ppi": {
     "cpi": {
