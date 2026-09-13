@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-13T14:00:05",
+  "updated_at": "2026-09-13T14:09:19",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-13T13:05:05",
+      "since": "2026-09-13T14:05:04",
       "last_action": "휴장일 — 대기"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-13T13:05:05",
+      "since": "2026-09-13T14:05:04",
       "last_action": "휴장일 — 대기"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "칩 이벤트 기록 (누적 6429건)",
-      "since": "2026-09-13T14:00:05"
+      "last_action": "오즈 이벤트 기록 (누적 6431건)",
+      "since": "2026-09-13T14:05:04"
     },
     "callie": {
       "name": "캘리",
@@ -234,22 +234,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-11T16:10:49",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-09-11T16:11:07",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[2/6] SK하이닉스 분석 중"
-    },
     {
       "time": "2026-09-11T16:11:07",
       "employee": "tam",
@@ -641,6 +625,22 @@
       "role": "D램·낸드·MLCC 가격 분석",
       "status": "idle",
       "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-13T14:05:04",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-13T14:05:04",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
     }
   ],
   "trader_stats": {
@@ -929,10 +929,10 @@
     ]
   },
   "youtube_pick": {
-    "title": "달러 패권에 도전하는 테더, 이제는 '글로벌 대출'까지 영토 확장?? | 서동주, 김동환, 최윤영 한화투자증권 팀장 [크립토 PLUS]",
-    "url": "https://www.youtube.com/watch?v=4mGitLarevU",
+    "title": "대한민국 부동산 불패신화는 다 옛말? | 서동기 부동산학 1호 박사 [주말 인터뷰]",
+    "url": "https://www.youtube.com/watch?v=DDwyrbqHRqI",
     "channel": "삼프로TV",
-    "date": "2026-09-11"
+    "date": "2026-09-13"
   },
   "macro_cpi_ppi": {
     "cpi": {
