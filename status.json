@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T13:21:35",
+  "updated_at": "2026-09-14T13:26:38",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T13:21:35",
+      "since": "2026-09-14T13:26:38",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T13:21:35",
+      "since": "2026-09-14T13:26:38",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,7 +229,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T13:21:35",
+      "since": "2026-09-14T13:26:38",
       "last_action": "질문 대기 중"
     }
   },
@@ -952,17 +952,13 @@
   "macro_cpi_ppi": {
     "cpi": {
       "label": "CPI(소비자물가)",
-      "as_of": "2026-08-12",
-      "reference": "Jul",
+      "as_of": "2026-09-11",
+      "reference": "Aug",
       "actual": 3.4,
-      "previous": 3.5,
+      "previous": 3.4,
       "consensus": 3.4,
-      "next_release": "2026-09-11",
+      "next_release": "2026-10-14",
       "history": [
-        {
-          "reference": "Feb",
-          "actual": 2.4
-        },
         {
           "reference": "Mar",
           "actual": 3.3
@@ -982,25 +978,25 @@
         {
           "reference": "Jul",
           "actual": 3.3
+        },
+        {
+          "reference": "Aug",
+          "actual": 3.4
         }
       ],
       "phase": "countdown",
-      "days_until": 9,
+      "days_until": 30,
       "status": "safe"
     },
     "ppi": {
       "label": "PPI(생산자물가)",
-      "as_of": "2026-08-13",
-      "reference": "Jul",
-      "actual": 4.7,
-      "previous": 5.5,
-      "consensus": 4.9,
-      "next_release": "2026-09-10",
+      "as_of": "2026-09-10",
+      "reference": "Aug",
+      "actual": 5.4,
+      "previous": 4.8,
+      "consensus": 5.3,
+      "next_release": "2026-10-15",
       "history": [
-        {
-          "reference": "Feb",
-          "actual": 3.4
-        },
         {
           "reference": "Mar",
           "actual": 4.3
@@ -1015,16 +1011,20 @@
         },
         {
           "reference": "Jun",
-          "actual": 5.5
+          "actual": 5.6
         },
         {
           "reference": "Jul",
-          "actual": 4.7
+          "actual": 4.8
+        },
+        {
+          "reference": "Aug",
+          "actual": 5.4
         }
       ],
       "phase": "countdown",
-      "days_until": 8,
-      "status": "safe"
+      "days_until": 31,
+      "status": "risk"
     }
   },
   "sage_stats": {
