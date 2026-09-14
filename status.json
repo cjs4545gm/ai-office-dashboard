@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T13:41:46",
+  "updated_at": "2026-09-14T13:46:50",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,19 +31,19 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 6517건)",
-      "since": "2026-09-14T13:41:37"
+      "last_action": "탐 이벤트 기록 (누적 6530건)",
+      "since": "2026-09-14T13:44:43"
     },
     "callie": {
       "name": "캘리",
       "rank": "캘린더 담당",
-      "role": "실적발표 예상 시기 추적",
+      "role": "실적발표 · FOMC 일정 추적",
       "emoji": "📅",
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T12:42:37",
-      "last_action": "10일 이내 예상 발표 없음"
+      "since": "2026-09-14T13:42:13",
+      "last_action": "다음 FOMC 2026-09-15(D-1) · 10일 이내 예상 발표 없음"
     },
     "vera": {
       "name": "베라",
@@ -63,20 +63,20 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-14T13:18:46",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-09-14T13:44:43",
+      "last_action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
       "rank": "주니어",
-      "role": "업종별 협회·통계 리서처",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T13:11:13",
-      "last_action": "업종 2개 협회·통계 조사 완료"
+      "since": "2026-09-14T13:42:24",
+      "last_action": "업종 2개 협회·통계 · 지주사 1개 NAV 조사 완료"
     },
     "chip": {
       "name": "칩",
@@ -195,9 +195,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-14T13:18:46",
-      "last_action": "매수 0 · 보유 4 · 매도 2 종합 완료 (장마감 확정)"
+      "status": "working",
+      "since": "2026-09-14T13:44:21",
+      "last_action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-14T13:41:46",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-09-14T13:46:50",
+      "last_action": "새 질문 확인 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-14T13:41:46",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-09-14T13:46:50",
+      "last_action": "새 질문 확인 중"
     },
     "rina": {
       "name": "리나",
@@ -228,119 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-14T13:41:46",
-      "last_action": "질문 대기 중"
+      "status": "working",
+      "since": "2026-09-14T13:46:50",
+      "last_action": "새 질문 확인 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T13:00:27",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-09-14T13:00:27",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-09-14T13:00:27",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이슈 1건 감지",
-      "detail": [
-        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석"
-      ]
-    },
-    {
-      "time": "2026-09-14T13:05:07",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-14T13:05:12",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-09-14T13:05:12",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-09-14T13:05:12",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이슈 6건 감지"
-    },
-    {
-      "time": "2026-09-14T13:10:11",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-09-14T13:10:40",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-09-14T13:11:13",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 조사 완료"
-    },
-    {
-      "time": "2026-09-14T13:11:13",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-09-14T13:11:13",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-09-14T13:12:02",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
-    },
     {
       "time": "2026-09-14T13:12:22",
       "employee": "tam",
@@ -656,6 +549,110 @@
       "detail": [
         "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석"
       ]
+    },
+    {
+      "time": "2026-09-14T13:42:13",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC 일정 추적",
+      "status": "done",
+      "action": "다음 FOMC 2026-09-15(D-1) · 10일 이내 예상 발표 없음"
+    },
+    {
+      "time": "2026-09-14T13:42:24",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-14T13:42:24",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-14T13:42:24",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "working",
+      "action": "[1/1] SK스퀘어 지주사 NAV/할인율 조사 중"
+    },
+    {
+      "time": "2026-09-14T13:42:24",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 · 지주사 1개 NAV 조사 완료"
+    },
+    {
+      "time": "2026-09-14T13:42:24",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-09-14T13:42:24",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-14T13:43:16",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-14T13:43:35",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-09-14T13:43:35",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-14T13:44:21",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-14T13:44:43",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-09-14T13:44:43",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     }
   ],
   "trader_stats": {
