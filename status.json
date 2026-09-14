@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T14:05:18",
+  "updated_at": "2026-09-14T14:11:32",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 6598건)",
-      "since": "2026-09-14T14:05:18"
+      "last_action": "탐 이벤트 기록 (누적 6607건)",
+      "since": "2026-09-14T14:11:31"
     },
     "callie": {
       "name": "캘리",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-14T14:04:42",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-09-14T14:11:31",
+      "last_action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T13:56:14",
+      "since": "2026-09-14T14:10:11",
       "last_action": "업종 2개 협회·통계 · 지주사 1개 NAV 조사 완료"
     },
     "chip": {
@@ -195,9 +195,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-14T14:04:42",
-      "last_action": "매수 0 · 보유 5 · 매도 1 종합 완료 (장마감 확정)"
+      "status": "working",
+      "since": "2026-09-14T14:11:11",
+      "last_action": "[1/6] 삼성전자 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T14:02:18",
+      "since": "2026-09-14T14:07:21",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T14:02:18",
+      "since": "2026-09-14T14:07:21",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,83 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T14:02:18",
+      "since": "2026-09-14T14:07:21",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T13:53:00",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율 매크로 감지",
-      "status": "done",
-      "action": "특이사항 없음"
-    },
-    {
-      "time": "2026-09-14T13:53:00",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 0건 · 리스크 6건 종합 완료"
-    },
-    {
-      "time": "2026-09-14T13:56:14",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-09-14T13:56:14",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-09-14T13:56:14",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
-      "status": "working",
-      "action": "[1/1] SK스퀘어 지주사 NAV/할인율 조사 중"
-    },
-    {
-      "time": "2026-09-14T13:56:14",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
-      "status": "done",
-      "action": "업종 2개 협회·통계 · 지주사 1개 NAV 조사 완료"
-    },
-    {
-      "time": "2026-09-14T13:56:14",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-09-14T13:56:14",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-09-14T13:57:04",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
-    },
     {
       "time": "2026-09-14T13:57:30",
       "employee": "tam",
@@ -655,6 +583,78 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 7건 종합 완료"
+    },
+    {
+      "time": "2026-09-14T14:10:11",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-14T14:10:11",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-14T14:10:11",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "working",
+      "action": "[1/1] SK스퀘어 지주사 NAV/할인율 조사 중"
+    },
+    {
+      "time": "2026-09-14T14:10:11",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종별 협회·통계 · 지주사 NAV 리서처",
+      "status": "done",
+      "action": "업종 2개 협회·통계 · 지주사 1개 NAV 조사 완료"
+    },
+    {
+      "time": "2026-09-14T14:10:11",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-09-14T14:10:11",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-14T14:11:11",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-14T14:11:31",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-09-14T14:11:31",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     }
   ],
   "trader_stats": {
@@ -943,10 +943,10 @@
     ]
   },
   "youtube_pick": {
-    "title": "대한민국 부동산 불패신화는 다 옛말? | 서동기 부동산학 1호 박사 [주말 인터뷰]",
-    "url": "https://www.youtube.com/watch?v=DDwyrbqHRqI",
+    "title": "인플레 부담 덜어낸 미국과 'AI 속도조절론' 9월 증시 조정 뒷면에 숨은 기회 | 여도은, 이혁진 [아침N투자]",
+    "url": "https://www.youtube.com/watch?v=JeRSlJOPAJ4",
     "channel": "삼프로TV",
-    "date": "2026-09-13"
+    "date": "2026-09-14"
   },
   "macro_cpi_ppi": {
     "cpi": {
