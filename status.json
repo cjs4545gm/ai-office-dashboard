@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T15:41:49",
+  "updated_at": "2026-09-14T15:44:46",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "세이지 이벤트 기록 (누적 6735건)",
-      "since": "2026-09-14T15:41:49"
+      "last_action": "던 이벤트 기록 (누적 6740건)",
+      "since": "2026-09-14T15:43:03"
     },
     "callie": {
       "name": "캘리",
@@ -163,7 +163,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-09-11T15:41:33",
+      "since": "2026-09-14T15:43:03",
       "last_action": "✅ 검수 통과"
     },
     "rewind": {
@@ -184,9 +184,9 @@
       "emoji": "🎯",
       "room": "feedback",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-14T15:41:49",
-      "last_action": "전일 리서치 판단 정확도 검증 중"
+      "status": "done",
+      "since": "2026-09-14T15:42:58",
+      "last_action": "검증 완료"
     },
     "leo": {
       "name": "레오",
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T15:18:26",
-      "last_action": "매수 0 · 보유 3 · 매도 3 종합 완료 (장마감 확정)"
+      "since": "2026-09-14T15:42:58",
+      "last_action": "검증 완료"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T15:39:43",
+      "since": "2026-09-14T15:44:46",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T15:39:43",
+      "since": "2026-09-14T15:44:46",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,59 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T15:39:43",
+      "since": "2026-09-14T15:44:46",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T15:00:22",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-09-14T15:00:22",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신",
-      "detail": [
-        "삼성전자: 수급 Naver 실패 → Daum 대체",
-        "SK하이닉스: 수급 Naver 실패 → Daum 대체",
-        "삼성전기: 수급 Naver 실패 → Daum 대체",
-        "현대차: 수급 Naver 실패 → Daum 대체",
-        "SK스퀘어: 수급 Naver 실패 → Daum 대체",
-        "LG이노텍: 수급 Naver 실패 → Daum 대체"
-      ]
-    },
-    {
-      "time": "2026-09-14T15:00:22",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 확인 중"
-    },
-    {
-      "time": "2026-09-14T15:00:22",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 갱신"
-    },
-    {
-      "time": "2026-09-14T15:00:22",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
     {
       "time": "2026-09-14T15:00:25",
       "employee": "callie",
@@ -659,31 +611,104 @@
       "role": "판단 정확도 추적",
       "status": "working",
       "action": "전일 리서치 판단 정확도 검증 중"
+    },
+    {
+      "time": "2026-09-14T15:42:58",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-09-14T15:42:58",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "전일 트레이더 콜 적중률 검증 중"
+    },
+    {
+      "time": "2026-09-14T15:42:58",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "검증 완료"
+    },
+    {
+      "time": "2026-09-14T15:42:58",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "일간 결산 검수 중"
+    },
+    {
+      "time": "2026-09-14T15:43:03",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
     }
   ],
   "trader_stats": {
-    "total": 62,
-    "hit": 22,
-    "miss": 40,
+    "total": 68,
+    "hit": 23,
+    "miss": 45,
     "hold": 0,
-    "hit_rate": 35.5,
+    "hit_rate": 33.8,
     "streak": {
       "type": "miss",
       "count": 2
     },
     "by_stock": {
       "삼성전자": {
-        "total": 11,
+        "total": 12,
         "hit": 3,
-        "miss": 8,
+        "miss": 9,
         "hold": 0,
-        "hit_rate": 27.3,
+        "hit_rate": 25.0,
+        "streak": {
+          "type": "miss",
+          "count": 2
+        }
+      },
+      "SK하이닉스": {
+        "total": 12,
+        "hit": 2,
+        "miss": 10,
+        "hold": 0,
+        "hit_rate": 16.7,
+        "streak": {
+          "type": "miss",
+          "count": 2
+        }
+      },
+      "삼성전기": {
+        "total": 11,
+        "hit": 4,
+        "miss": 7,
+        "hold": 0,
+        "hit_rate": 36.4,
         "streak": {
           "type": "miss",
           "count": 1
         }
       },
-      "SK하이닉스": {
+      "현대차": {
+        "total": 11,
+        "hit": 8,
+        "miss": 3,
+        "hold": 0,
+        "hit_rate": 72.7,
+        "streak": {
+          "type": "hit",
+          "count": 2
+        }
+      },
+      "SK스퀘어": {
         "total": 11,
         "hit": 2,
         "miss": 9,
@@ -691,61 +716,28 @@
         "hit_rate": 18.2,
         "streak": {
           "type": "miss",
-          "count": 1
-        }
-      },
-      "삼성전기": {
-        "total": 10,
-        "hit": 4,
-        "miss": 6,
-        "hold": 0,
-        "hit_rate": 40.0,
-        "streak": {
-          "type": "hit",
-          "count": 1
-        }
-      },
-      "현대차": {
-        "total": 10,
-        "hit": 7,
-        "miss": 3,
-        "hold": 0,
-        "hit_rate": 70.0,
-        "streak": {
-          "type": "hit",
-          "count": 1
-        }
-      },
-      "SK스퀘어": {
-        "total": 10,
-        "hit": 2,
-        "miss": 8,
-        "hold": 0,
-        "hit_rate": 20.0,
-        "streak": {
-          "type": "miss",
-          "count": 2
+          "count": 3
         }
       },
       "LG이노텍": {
-        "total": 10,
+        "total": 11,
         "hit": 4,
-        "miss": 6,
+        "miss": 7,
         "hold": 0,
-        "hit_rate": 40.0,
+        "hit_rate": 36.4,
         "streak": {
           "type": "miss",
-          "count": 3
+          "count": 4
         }
       }
     },
     "by_call": {
       "보유": {
-        "total": 54,
-        "hit": 18,
-        "miss": 36,
+        "total": 60,
+        "hit": 19,
+        "miss": 41,
         "hold": 0,
-        "hit_rate": 33.3,
+        "hit_rate": 31.7,
         "streak": {
           "type": "miss",
           "count": 2
@@ -787,25 +779,25 @@
         }
       },
       "하": {
-        "total": 3,
-        "hit": 2,
+        "total": 4,
+        "hit": 3,
         "miss": 1,
         "hold": 0,
-        "hit_rate": 66.7,
+        "hit_rate": 75.0,
         "streak": {
           "type": "hit",
-          "count": 2
+          "count": 3
         }
       },
       "중": {
-        "total": 21,
+        "total": 26,
         "hit": 10,
-        "miss": 11,
+        "miss": 16,
         "hold": 0,
-        "hit_rate": 47.6,
+        "hit_rate": 38.5,
         "streak": {
           "type": "miss",
-          "count": 2
+          "count": 7
         }
       }
     },
@@ -822,36 +814,36 @@
         }
       },
       "코스피 하락일": {
-        "total": 30,
-        "hit": 8,
-        "miss": 22,
+        "total": 36,
+        "hit": 9,
+        "miss": 27,
         "hold": 0,
-        "hit_rate": 26.7,
+        "hit_rate": 25.0,
         "streak": {
           "type": "miss",
           "count": 2
         }
       }
     },
-    "confidence_calibration": "중 48% > 하 67% — 확신도가 실제 적중률과 안 맞아요",
-    "notable_pattern": "현대차 · 보유 콜은 유난히 잘 맞아요 (6/8건, 전체 평균 36%)",
+    "confidence_calibration": "중 38% > 하 75% — 확신도가 실제 적중률과 안 맞아요",
+    "notable_pattern": "현대차 · 보유 콜은 유난히 잘 맞아요 (7/9건, 전체 평균 34%)",
     "recent_7d": {
-      "total": 18,
-      "hit": 8,
-      "miss": 10,
+      "total": 24,
+      "hit": 9,
+      "miss": 15,
       "hold": 0,
-      "hit_rate": 44.4,
+      "hit_rate": 37.5,
       "streak": {
         "type": "miss",
         "count": 2
       }
     },
     "recent_30d": {
-      "total": 18,
-      "hit": 8,
-      "miss": 10,
+      "total": 24,
+      "hit": 9,
+      "miss": 15,
       "hold": 0,
-      "hit_rate": 44.4,
+      "hit_rate": 37.5,
       "streak": {
         "type": "miss",
         "count": 2
@@ -1040,76 +1032,76 @@
     }
   },
   "sage_stats": {
-    "total": 74,
-    "hit": 27,
-    "miss": 21,
-    "hold": 25,
-    "hit_rate": 56.2,
+    "total": 80,
+    "hit": 29,
+    "miss": 24,
+    "hold": 26,
+    "hit_rate": 54.7,
     "streak": {
-      "type": "miss",
+      "type": "hit",
       "count": 1
     },
     "by_stock": {
       "삼성전자": {
-        "total": 12,
-        "hit": 5,
+        "total": 13,
+        "hit": 6,
         "miss": 6,
         "hold": 1,
+        "hit_rate": 50.0,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      },
+      "SK하이닉스": {
+        "total": 14,
+        "hit": 5,
+        "miss": 6,
+        "hold": 3,
         "hit_rate": 45.5,
+        "streak": {
+          "type": "miss",
+          "count": 3
+        }
+      },
+      "삼성전기": {
+        "total": 14,
+        "hit": 4,
+        "miss": 4,
+        "hold": 6,
+        "hit_rate": 50.0,
         "streak": {
           "type": "miss",
           "count": 1
         }
       },
-      "SK하이닉스": {
+      "현대차": {
         "total": 13,
-        "hit": 5,
-        "miss": 5,
-        "hold": 3,
+        "hit": 4,
+        "miss": 4,
+        "hold": 5,
         "hit_rate": 50.0,
         "streak": {
           "type": "miss",
           "count": 2
         }
       },
-      "삼성전기": {
-        "total": 13,
-        "hit": 4,
-        "miss": 3,
-        "hold": 6,
-        "hit_rate": 57.1,
-        "streak": {
-          "type": "hit",
-          "count": 1
-        }
-      },
-      "현대차": {
-        "total": 12,
-        "hit": 4,
-        "miss": 3,
-        "hold": 5,
-        "hit_rate": 57.1,
-        "streak": {
-          "type": "miss",
-          "count": 1
-        }
-      },
       "SK스퀘어": {
-        "total": 12,
-        "hit": 6,
+        "total": 13,
+        "hit": 7,
         "miss": 2,
         "hold": 4,
-        "hit_rate": 75.0,
+        "hit_rate": 77.8,
         "streak": {
           "type": "hit",
-          "count": 2
+          "count": 3
         }
       },
       "LG이노텍": {
-        "total": 12,
+        "total": 13,
         "hit": 3,
         "miss": 2,
-        "hold": 6,
+        "hold": 7,
         "hit_rate": 60.0,
         "streak": {
           "type": "miss",
@@ -1119,13 +1111,13 @@
     },
     "by_market": {
       "코스피 하락일": {
-        "total": 39,
-        "hit": 12,
-        "miss": 13,
-        "hold": 13,
-        "hit_rate": 48.0,
+        "total": 45,
+        "hit": 14,
+        "miss": 16,
+        "hold": 14,
+        "hit_rate": 46.7,
         "streak": {
-          "type": "miss",
+          "type": "hit",
           "count": 1
         }
       },
@@ -1142,137 +1134,137 @@
       }
     },
     "recent_7d": {
-      "total": 21,
-      "hit": 7,
-      "miss": 6,
-      "hold": 8,
-      "hit_rate": 53.8,
+      "total": 27,
+      "hit": 9,
+      "miss": 9,
+      "hold": 9,
+      "hit_rate": 50.0,
       "streak": {
-        "type": "miss",
+        "type": "hit",
         "count": 1
       }
     },
     "recent_30d": {
-      "total": 21,
-      "hit": 7,
-      "miss": 6,
-      "hold": 8,
-      "hit_rate": 53.8,
+      "total": 27,
+      "hit": 9,
+      "miss": 9,
+      "hold": 9,
+      "hit_rate": 50.0,
       "streak": {
-        "type": "miss",
+        "type": "hit",
         "count": 1
       }
     }
   },
   "analyst_stats": {
-    "total": 380,
-    "hit": 159,
-    "miss": 221,
+    "total": 410,
+    "hit": 171,
+    "miss": 239,
     "hold": 0,
-    "hit_rate": 41.8,
+    "hit_rate": 41.7,
     "streak": {
       "type": "miss",
       "count": 3
     },
     "by_analyst": {
       "탐": {
-        "total": 76,
-        "hit": 33,
-        "miss": 43,
+        "total": 82,
+        "hit": 34,
+        "miss": 48,
         "hold": 0,
-        "hit_rate": 43.4,
+        "hit_rate": 41.5,
         "streak": {
           "type": "miss",
-          "count": 8
+          "count": 4
         }
       },
       "베라": {
-        "total": 76,
-        "hit": 34,
-        "miss": 42,
+        "total": 82,
+        "hit": 38,
+        "miss": 44,
         "hold": 0,
-        "hit_rate": 44.7,
+        "hit_rate": 46.3,
         "streak": {
           "type": "hit",
-          "count": 1
+          "count": 3
         }
       },
       "주노": {
-        "total": 76,
-        "hit": 30,
-        "miss": 46,
+        "total": 82,
+        "hit": 31,
+        "miss": 51,
         "hold": 0,
-        "hit_rate": 39.5,
-        "streak": {
-          "type": "miss",
-          "count": 1
-        }
-      },
-      "카이": {
-        "total": 76,
-        "hit": 28,
-        "miss": 48,
-        "hold": 0,
-        "hit_rate": 36.8,
+        "hit_rate": 37.8,
         "streak": {
           "type": "miss",
           "count": 2
         }
       },
-      "제이드": {
-        "total": 76,
-        "hit": 34,
-        "miss": 42,
+      "카이": {
+        "total": 82,
+        "hit": 33,
+        "miss": 49,
         "hold": 0,
-        "hit_rate": 44.7,
+        "hit_rate": 40.2,
         "streak": {
           "type": "miss",
           "count": 1
+        }
+      },
+      "제이드": {
+        "total": 82,
+        "hit": 35,
+        "miss": 47,
+        "hold": 0,
+        "hit_rate": 42.7,
+        "streak": {
+          "type": "miss",
+          "count": 2
         }
       }
     },
     "by_call": {
       "매도": {
-        "total": 111,
-        "hit": 68,
+        "total": 121,
+        "hit": 78,
         "miss": 43,
         "hold": 0,
-        "hit_rate": 61.3,
+        "hit_rate": 64.5,
         "streak": {
           "type": "hit",
-          "count": 7
+          "count": 17
         }
       },
       "보유": {
-        "total": 168,
-        "hit": 48,
-        "miss": 120,
+        "total": 184,
+        "hit": 50,
+        "miss": 134,
         "hold": 0,
-        "hit_rate": 28.6,
+        "hit_rate": 27.2,
         "streak": {
           "type": "miss",
           "count": 6
         }
       },
       "매수": {
-        "total": 101,
+        "total": 105,
         "hit": 43,
-        "miss": 58,
+        "miss": 62,
         "hold": 0,
-        "hit_rate": 42.6,
+        "hit_rate": 41.0,
         "streak": {
           "type": "miss",
-          "count": 6
+          "count": 10
         }
       }
     },
     "by_market": {
       "코스피 하락일": {
-        "total": 200,
-        "hit": 83,
-        "miss": 117,
+        "total": 230,
+        "hit": 95,
+        "miss": 135,
         "hold": 0,
-        "hit_rate": 41.5,
+        "hit_rate": 41.3,
         "streak": {
           "type": "miss",
           "count": 3
@@ -1290,24 +1282,24 @@
         }
       }
     },
-    "notable_pattern": "베라 · LG이노텍 콜은 유난히 잘 맞아요 (10/12건, 전체 평균 42%)",
+    "notable_pattern": "베라 · LG이노텍 콜은 유난히 잘 맞아요 (11/13건, 전체 평균 42%)",
     "recent_7d": {
-      "total": 110,
-      "hit": 49,
-      "miss": 61,
+      "total": 140,
+      "hit": 61,
+      "miss": 79,
       "hold": 0,
-      "hit_rate": 44.5,
+      "hit_rate": 43.6,
       "streak": {
         "type": "miss",
         "count": 3
       }
     },
     "recent_30d": {
-      "total": 110,
-      "hit": 49,
-      "miss": 61,
+      "total": 140,
+      "hit": 61,
+      "miss": 79,
       "hold": 0,
-      "hit_rate": 44.5,
+      "hit_rate": 43.6,
       "streak": {
         "type": "miss",
         "count": 3
