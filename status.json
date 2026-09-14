@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T15:34:40",
+  "updated_at": "2026-09-14T15:41:49",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 6732건)",
-      "since": "2026-09-14T15:19:03"
+      "last_action": "세이지 이벤트 기록 (누적 6735건)",
+      "since": "2026-09-14T15:41:49"
     },
     "callie": {
       "name": "캘리",
@@ -174,7 +174,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-09-11T15:40:50",
+      "since": "2026-09-14T15:41:49",
       "last_action": "일간 결산 저장 완료"
     },
     "sage": {
@@ -184,9 +184,9 @@
       "emoji": "🎯",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-11T15:41:29",
-      "last_action": "검증 완료"
+      "status": "working",
+      "since": "2026-09-14T15:41:49",
+      "last_action": "전일 리서치 판단 정확도 검증 중"
     },
     "leo": {
       "name": "레오",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T15:34:40",
+      "since": "2026-09-14T15:39:43",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T15:34:40",
+      "since": "2026-09-14T15:39:43",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,38 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T15:34:40",
+      "since": "2026-09-14T15:39:43",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T14:57:34",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "🔴 우선확인 1건 · 품질 0건 · 리스크 8건 종합 완료",
-      "detail": [
-        "포트폴리오 집중도 리스크: 보유종목 4/6개 동반 급락 — 삼성전자(-3.85%), SK하이닉스(-6.46%), 삼성전기(-5.43%), LG이노텍(-5.71%)"
-      ]
-    },
-    {
-      "time": "2026-09-14T15:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-09-14T15:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
     {
       "time": "2026-09-14T15:00:22",
       "employee": "scout",
@@ -662,6 +635,30 @@
       "detail": [
         "포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-3.95%), SK하이닉스(-6.68%), 삼성전기(-4.79%), 현대차(-3.27%), SK스퀘어(-8.36%), LG이노텍(-5.52%)"
       ]
+    },
+    {
+      "time": "2026-09-14T15:41:28",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-09-14T15:41:49",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-09-14T15:41:49",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
     }
   ],
   "trader_stats": {
