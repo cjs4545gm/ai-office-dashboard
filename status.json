@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T16:17:34",
+  "updated_at": "2026-09-14T16:20:06",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "카이 이벤트 기록 (누적 6783건)",
-      "since": "2026-09-14T16:17:34"
+      "last_action": "제이드 이벤트 기록 (누적 6789건)",
+      "since": "2026-09-14T16:18:13"
     },
     "callie": {
       "name": "캘리",
@@ -52,9 +52,9 @@
       "emoji": "🧠",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-14T16:17:34",
-      "last_action": "리서치 품질 검수 중"
+      "status": "done",
+      "since": "2026-09-14T16:18:13",
+      "last_action": "이상없음"
     },
     "tam": {
       "name": "탐",
@@ -130,7 +130,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T15:19:03",
+      "since": "2026-09-14T16:18:13",
       "last_action": "🔴 우선확인 1건 · 품질 0건 · 리스크 9건 종합 완료"
     },
     "kai": {
@@ -140,9 +140,9 @@
       "emoji": "📉",
       "room": "risk",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-14T16:17:34",
-      "last_action": "이상거래·급락 감지 중"
+      "status": "done",
+      "since": "2026-09-14T16:18:13",
+      "last_action": "경보 6건 감지"
     },
     "nova": {
       "name": "노바",
@@ -152,7 +152,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T15:19:03",
+      "since": "2026-09-14T16:18:13",
       "last_action": "경보 2건 감지"
     },
     "dawn": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T16:15:02",
+      "since": "2026-09-14T16:20:06",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T16:15:02",
+      "since": "2026-09-14T16:20:06",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,59 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T16:15:02",
+      "since": "2026-09-14T16:20:06",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T15:41:49",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "결산 담당",
-      "status": "done",
-      "action": "일간 결산 저장 완료"
-    },
-    {
-      "time": "2026-09-14T15:41:49",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 정확도 추적",
-      "status": "working",
-      "action": "전일 리서치 판단 정확도 검증 중"
-    },
-    {
-      "time": "2026-09-14T15:42:58",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 정확도 추적",
-      "status": "done",
-      "action": "검증 완료"
-    },
-    {
-      "time": "2026-09-14T15:42:58",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "전일 트레이더 콜 적중률 검증 중"
-    },
-    {
-      "time": "2026-09-14T15:42:58",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "검증 완료"
-    },
-    {
-      "time": "2026-09-14T15:42:58",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "working",
-      "action": "일간 결산 검수 중"
-    },
     {
       "time": "2026-09-14T15:43:03",
       "employee": "dawn",
@@ -644,6 +596,69 @@
       "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
       "status": "working",
       "action": "이상거래·급락 감지 중"
+    },
+    {
+      "time": "2026-09-14T16:18:12",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "working",
+      "action": "금리·환율 급변 감지 중"
+    },
+    {
+      "time": "2026-09-14T16:18:13",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "리스크 시그널 종합 중"
+    },
+    {
+      "time": "2026-09-14T16:18:13",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-09-14T16:18:13",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "status": "done",
+      "action": "경보 6건 감지",
+      "detail": [
+        "삼성전자: 급락 -3.85% (코스피도 동반 -3.26%), 외국인 3거래일 연속 순매도 — 원인: 웹 검색 결과, 2026년 9월 14일 시점의 삼성전자 3거래일 연속 외국인 순매도에 대한 구체적 원인(환율, 관세, 개별 종목 뉴스 등)을 특정할 수 있는 최신 기사를 찾지 못했습니다. 관련 자료는 5~6월의 코스피 7000 돌파 이후 대규모 매도(약 30조원)나 연초 지수 리밸런싱 이슈를 다루고 있을 뿐, 9월 사례와 직접 연결되지 않습니다.\n\n**구체적 원인 특정 불가 — 시장 전반 흐름으로 추정**\n\nSources:\n- [13년 만에 최저 지분율에도…삼성전자 외국인 귀환 기대 커진다](https://kr.investing.com/news/stock-market-news/article-1993870)\n- [외국인 현·선물 5조원 샀다…삼성전자·SK하이닉스, '7천피' 앞 수급 지속이 관건](https://www.greened.kr/news/articleView.html?idxno=349463)\n- [삼성전자 30조 팔아치운 외국인...무슨 종목 담았나 봤더니](https://magazine.hankyung.com/business/article/202606060668b)",
+        "SK하이닉스: 급락 -6.35% (코스피도 동반 -3.26%)",
+        "삼성전기: 급락 -5.07% (코스피도 동반 -3.26%)",
+        "현대차: 급락 -3.27% (코스피도 동반 -3.26%), 기관 3거래일 연속 순매도 — 원인: Found concrete, dated sources matching the timeframe. 요약:\n\n원화 강세(원·달러 환율 급락, 한 달 새 76원 하락)로 수출주 수익성 우려가 커진 데다, 트럼프의 \"중국차 미국 생산 허용\" 발언이 겹치며 자동차 업종 전반이 동반 약세를 보인 것이 원인으로 파악됩니다.\n\nSources:\n- [\"중국차 미국서 생산해도 괜찮다\"…트럼프 한마디에 자동차주↓ - 머니투데이](https://www.mt.co.kr/stock/2026/09/14/2026091409291470148)\n- [코스피 달리는데 자동차株만 `후진 기어`…환율·관세에 발목 - 매일신문](https://www.imaeil.com/page/view/2026091009511868793)",
+        "SK스퀘어: 급락 -7.81% (코스피도 동반 -3.26%)",
+        "LG이노텍: 급락 -5.89% (코스피도 동반 -3.26%)"
+      ]
+    },
+    {
+      "time": "2026-09-14T16:18:13",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "done",
+      "action": "경보 2건 감지",
+      "detail": [
+        "KOSPI 지수 자체 급락 -3.26% (현재 6,684.37)",
+        "KOSDAQ 지수 자체 급락 -1.69% (현재 806.79)"
+      ]
+    },
+    {
+      "time": "2026-09-14T16:18:13",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "🔴 우선확인 1건 · 품질 0건 · 리스크 9건 종합 완료",
+      "detail": [
+        "포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-3.85%), SK하이닉스(-6.35%), 삼성전기(-5.07%), 현대차(-3.27%), SK스퀘어(-7.81%), LG이노텍(-5.89%)"
+      ]
     }
   ],
   "trader_stats": {
@@ -876,7 +891,7 @@
     }
   },
   "priority_alerts": [
-    "포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-3.95%), SK하이닉스(-6.68%), 삼성전기(-4.79%), 현대차(-3.27%), SK스퀘어(-8.36%), LG이노텍(-5.52%)"
+    "포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-3.85%), SK하이닉스(-6.35%), 삼성전기(-5.07%), 현대차(-3.27%), SK스퀘어(-7.81%), LG이노텍(-5.89%)"
   ],
   "strategy_room": {
     "pending": 0,
