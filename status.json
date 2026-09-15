@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T12:20:31",
+  "updated_at": "2026-09-15T12:25:33",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리나 이벤트 기록 (누적 6837건)",
-      "since": "2026-09-15T12:20:31"
+      "last_action": "탐 이벤트 기록 (누적 6842건)",
+      "since": "2026-09-15T12:22:49"
     },
     "callie": {
       "name": "캘리",
@@ -64,8 +64,8 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-09-15T12:19:37",
-      "last_action": "[4/6] 현대차 Claude 분석 중 (뉴스 6건, 리포트 4건)"
+      "since": "2026-09-15T12:22:49",
+      "last_action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "working",
-      "since": "2026-09-15T12:20:25",
-      "last_action": "[4/6] 현대차 트레이더 콜 종합 중"
+      "since": "2026-09-15T12:22:27",
+      "last_action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-09-15T12:20:31",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
+      "status": "working",
+      "since": "2026-09-15T12:25:33",
+      "last_action": "새 질문 확인 중"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-09-15T12:20:31",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
+      "status": "working",
+      "since": "2026-09-15T12:25:33",
+      "last_action": "새 질문 확인 중"
     },
     "rina": {
       "name": "리나",
@@ -228,59 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "error",
-      "since": "2026-09-15T12:20:31",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
+      "status": "working",
+      "since": "2026-09-15T12:25:33",
+      "last_action": "새 질문 확인 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T16:18:13",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "done",
-      "action": "경보 2건 감지",
-      "detail": [
-        "KOSPI 지수 자체 급락 -3.26% (현재 6,684.37)",
-        "KOSDAQ 지수 자체 급락 -1.69% (현재 806.79)"
-      ]
-    },
-    {
-      "time": "2026-09-14T16:18:13",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "🔴 우선확인 1건 · 품질 0건 · 리스크 9건 종합 완료",
-      "detail": [
-        "포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-3.85%), SK하이닉스(-6.35%), 삼성전기(-5.07%), 현대차(-3.27%), SK스퀘어(-7.81%), LG이노텍(-5.89%)"
-      ]
-    },
-    {
-      "time": "2026-09-15T11:20:22",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-09-15T11:20:22",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-15T11:20:46",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
     {
       "time": "2026-09-15T11:20:46",
       "employee": "milo",
@@ -651,6 +604,46 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "error",
       "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
+    },
+    {
+      "time": "2026-09-15T12:20:54",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 분석 중"
+    },
+    {
+      "time": "2026-09-15T12:21:33",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-15T12:22:27",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-15T12:22:49",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 분석 중"
+    },
+    {
+      "time": "2026-09-15T12:22:49",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     }
   ],
   "trader_stats": {
