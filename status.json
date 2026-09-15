@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T12:15:32",
+  "updated_at": "2026-09-15T12:20:31",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "탐 이벤트 기록 (누적 6826건)",
-      "since": "2026-09-15T12:15:32"
+      "last_action": "리나 이벤트 기록 (누적 6837건)",
+      "since": "2026-09-15T12:20:31"
     },
     "callie": {
       "name": "캘리",
@@ -64,8 +64,8 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-09-15T12:15:32",
-      "last_action": "[2/6] SK하이닉스 분석 중"
+      "since": "2026-09-15T12:19:37",
+      "last_action": "[4/6] 현대차 Claude 분석 중 (뉴스 6건, 리포트 4건)"
     },
     "juno": {
       "name": "주노",
@@ -196,8 +196,8 @@
       "room": "feedback",
       "automated": true,
       "status": "working",
-      "since": "2026-09-15T12:15:12",
-      "last_action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+      "since": "2026-09-15T12:20:25",
+      "last_action": "[4/6] 현대차 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-15T12:15:28",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-09-15T12:20:31",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-15T12:15:28",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-09-15T12:20:31",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
     },
     "rina": {
       "name": "리나",
@@ -228,108 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-15T12:15:28",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-09-15T12:20:31",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T16:15:51",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-09-14T16:15:51",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-09-14T16:16:37",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-09-14T16:17:34",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-09-14T16:17:34",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 0 · 보유 4 · 매도 2 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-09-14T16:17:34",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-09-14T16:17:34",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-09-14T16:18:12",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-09-14T16:18:13",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-09-14T16:18:13",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-09-14T16:18:13",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "done",
-      "action": "경보 6건 감지",
-      "detail": [
-        "삼성전자: 급락 -3.85% (코스피도 동반 -3.26%), 외국인 3거래일 연속 순매도 — 원인: 웹 검색 결과, 2026년 9월 14일 시점의 삼성전자 3거래일 연속 외국인 순매도에 대한 구체적 원인(환율, 관세, 개별 종목 뉴스 등)을 특정할 수 있는 최신 기사를 찾지 못했습니다. 관련 자료는 5~6월의 코스피 7000 돌파 이후 대규모 매도(약 30조원)나 연초 지수 리밸런싱 이슈를 다루고 있을 뿐, 9월 사례와 직접 연결되지 않습니다.\n\n**구체적 원인 특정 불가 — 시장 전반 흐름으로 추정**\n\nSources:\n- [13년 만에 최저 지분율에도…삼성전자 외국인 귀환 기대 커진다](https://kr.investing.com/news/stock-market-news/article-1993870)\n- [외국인 현·선물 5조원 샀다…삼성전자·SK하이닉스, '7천피' 앞 수급 지속이 관건](https://www.greened.kr/news/articleView.html?idxno=349463)\n- [삼성전자 30조 팔아치운 외국인...무슨 종목 담았나 봤더니](https://magazine.hankyung.com/business/article/202606060668b)",
-        "SK하이닉스: 급락 -6.35% (코스피도 동반 -3.26%)",
-        "삼성전기: 급락 -5.07% (코스피도 동반 -3.26%)",
-        "현대차: 급락 -3.27% (코스피도 동반 -3.26%), 기관 3거래일 연속 순매도 — 원인: Found concrete, dated sources matching the timeframe. 요약:\n\n원화 강세(원·달러 환율 급락, 한 달 새 76원 하락)로 수출주 수익성 우려가 커진 데다, 트럼프의 \"중국차 미국 생산 허용\" 발언이 겹치며 자동차 업종 전반이 동반 약세를 보인 것이 원인으로 파악됩니다.\n\nSources:\n- [\"중국차 미국서 생산해도 괜찮다\"…트럼프 한마디에 자동차주↓ - 머니투데이](https://www.mt.co.kr/stock/2026/09/14/2026091409291470148)\n- [코스피 달리는데 자동차株만 `후진 기어`…환율·관세에 발목 - 매일신문](https://www.imaeil.com/page/view/2026091009511868793)",
-        "SK스퀘어: 급락 -7.81% (코스피도 동반 -3.26%)",
-        "LG이노텍: 급락 -5.89% (코스피도 동반 -3.26%)"
-      ]
-    },
     {
       "time": "2026-09-14T16:18:13",
       "employee": "nova",
@@ -659,6 +563,94 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-09-15T12:15:55",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-15T12:16:38",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-15T12:16:58",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-09-15T12:17:51",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-15T12:18:32",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-15T12:18:44",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 분석 중"
+    },
+    {
+      "time": "2026-09-15T12:19:37",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 6건, 리포트 4건)"
+    },
+    {
+      "time": "2026-09-15T12:20:25",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[4/6] 현대차 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-15T12:20:31",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
+    },
+    {
+      "time": "2026-09-15T12:20:31",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
+    },
+    {
+      "time": "2026-09-15T12:20:31",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NewConnectionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to establish a new connection: [Errno 51] Network is unreachable\"))"
     }
   ],
   "trader_stats": {
