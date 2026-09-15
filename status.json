@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T16:30:11",
+  "updated_at": "2026-09-15T11:24:59",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 6789건)",
-      "since": "2026-09-14T16:18:13"
+      "last_action": "캘리 이벤트 기록 (누적 6801건)",
+      "since": "2026-09-15T11:21:12"
     },
     "callie": {
       "name": "캘리",
@@ -42,8 +42,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T16:00:31",
-      "last_action": "새 IR 일정 공지 없음"
+      "since": "2026-09-15T11:21:12",
+      "last_action": "다음 FOMC 2026-10-27(D-42) · 10일 이내 예상 발표 없음"
     },
     "vera": {
       "name": "베라",
@@ -86,7 +86,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T16:00:26",
+      "since": "2026-09-15T11:20:47",
       "last_action": "D램 7개·낸드 4개 품목 갱신"
     },
     "hank": {
@@ -97,7 +97,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T16:00:31",
+      "since": "2026-09-15T11:20:51",
       "last_action": "이슈 1건 감지"
     },
     "scout": {
@@ -108,7 +108,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T16:00:26",
+      "since": "2026-09-15T11:20:46",
       "last_action": "신규 리포트 0건, 헤드라인 12건 수집"
     },
     "milo": {
@@ -119,7 +119,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-09-14T16:00:26",
+      "since": "2026-09-15T11:20:46",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T16:30:11",
+      "since": "2026-09-15T11:24:59",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T16:30:11",
+      "since": "2026-09-15T11:24:59",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,118 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-14T16:30:11",
+      "since": "2026-09-15T11:24:59",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-14T15:43:03",
-      "employee": "dawn",
-      "name": "던",
-      "role": "월간 총괄·회고 검수",
-      "status": "done",
-      "action": "✅ 검수 통과"
-    },
-    {
-      "time": "2026-09-14T16:00:07",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-09-14T16:00:07",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-14T16:00:26",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
-    {
-      "time": "2026-09-14T16:00:26",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "보유종목 6개 수급 데이터 갱신",
-      "detail": [
-        "삼성전자: 수급 Naver 실패 → Daum 대체",
-        "SK하이닉스: 수급 Naver 실패 → Daum 대체",
-        "삼성전기: 수급 Naver 실패 → Daum 대체",
-        "현대차: 수급 Naver 실패 → Daum 대체",
-        "SK스퀘어: 수급 Naver 실패 → Daum 대체",
-        "LG이노텍: 수급 Naver 실패 → Daum 대체"
-      ]
-    },
-    {
-      "time": "2026-09-14T16:00:26",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "D램·낸드 현물가 확인 중"
-    },
-    {
-      "time": "2026-09-14T16:00:26",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "D램 7개·낸드 4개 품목 갱신"
-    },
-    {
-      "time": "2026-09-14T16:00:26",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "working",
-      "action": "IR 일정 공시 확인 중"
-    },
-    {
-      "time": "2026-09-14T16:00:31",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "done",
-      "action": "새 IR 일정 공지 없음"
-    },
-    {
-      "time": "2026-09-14T16:00:31",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-09-14T16:00:31",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이슈 1건 감지",
-      "detail": [
-        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석"
-      ]
-    },
-    {
-      "time": "2026-09-14T16:05:05",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
     {
       "time": "2026-09-14T16:05:09",
       "employee": "bri",
@@ -659,6 +552,113 @@
       "detail": [
         "포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-3.85%), SK하이닉스(-6.35%), 삼성전기(-5.07%), 현대차(-3.27%), SK스퀘어(-7.81%), LG이노텍(-5.89%)"
       ]
+    },
+    {
+      "time": "2026-09-15T11:20:22",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-09-15T11:20:22",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-09-15T11:20:46",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-09-15T11:20:46",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신",
+      "detail": [
+        "삼성전자: 수급 Naver 실패 → Daum 대체",
+        "SK하이닉스: 수급 Naver 실패 → Daum 대체",
+        "삼성전기: 수급 Naver 실패 → Daum 대체",
+        "현대차: 수급 Naver 실패 → Daum 대체",
+        "SK스퀘어: 수급 Naver 실패 → Daum 대체",
+        "LG이노텍: 수급 Naver 실패 → Daum 대체"
+      ]
+    },
+    {
+      "time": "2026-09-15T11:20:46",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 확인 중"
+    },
+    {
+      "time": "2026-09-15T11:20:47",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 갱신"
+    },
+    {
+      "time": "2026-09-15T11:20:47",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-09-15T11:20:50",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-09-15T11:20:50",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-09-15T11:20:51",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이슈 1건 감지",
+      "detail": [
+        "리포트 스크래핑 구조 이상 의심(테이블을 못 찾음): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석"
+      ]
+    },
+    {
+      "time": "2026-09-15T11:20:51",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "working",
+      "action": "FOMC/실적발표 일정 확인 중"
+    },
+    {
+      "time": "2026-09-15T11:21:12",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "done",
+      "action": "다음 FOMC 2026-10-27(D-42) · 10일 이내 예상 발표 없음"
     }
   ],
   "trader_stats": {
