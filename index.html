@@ -419,8 +419,8 @@
   </div>
 
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>📉 카이의 경보</h2><span class="dept-desc">이상거래·급락 감지 — 제이드 교차확인 전 원본 전체</span></div>
-    <div id="kai-alerts"><div class="panel-empty">현재 감지된 경보 없음</div></div>
+    <div class="dept-head"><h2>⚠️ 경보 피드</h2><span class="dept-desc">카이·노바·제이드 — 리스크 스크리닝 부서가 낸 경보 전체(제이드 교차확인 전 원본), 새 경보가 뜨면 자동으로 추가됩니다</span></div>
+    <div id="risk-alerts"><div class="panel-empty">현재 감지된 경보 없음</div></div>
   </div>
   </div>
 
@@ -440,6 +440,10 @@
       <div class="side-panel">
         <h2>🇺🇸 CPI/PPI (노바)</h2>
         <div id="macro-cpi-ppi"><div class="panel-empty">아직 수집된 데이터 없음</div></div>
+      </div>
+      <div class="side-panel">
+        <h2>🏦 FOMC 캘린더 (캘리)</h2>
+        <div id="fomc-calendar"><div class="panel-empty">아직 확인된 일정 없음</div></div>
       </div>
       <div class="side-panel">
         <h2>🎬 오늘의 추천 영상</h2>
@@ -760,7 +764,6 @@
     sage: { name: "세이지", emoji: "🎯", role: "판단 정확도 추적" },
     jade: { name: "제이드", emoji: "🛡️", role: "리스크 총괄" },
     nova: { name: "노바",   emoji: "💹", role: "금리·환율 매크로 감지" },
-    kai:  { name: "카이",   emoji: "📉", role: "이상거래·급락 감지" },
   };
   const ANALYST_PERSONAS = {
     "탐":   { emoji: "🔍", role: "리서치 분석가" },
@@ -908,11 +911,11 @@
     }
   }
 
-  function renderKaiAlerts(alerts){
-    const content = (!alerts || alerts.length === 0)
+  function renderRiskAlerts(alerts){
+    const el = document.getElementById("risk-alerts");
+    el.innerHTML = (!alerts || alerts.length === 0)
       ? '<div class="panel-empty">현재 감지된 경보 없음</div>'
       : `<div class="alert-list-lg">${alerts.map(a => `<div class="alert-row-lg">${escapeHtml(a)}</div>`).join("")}</div>`;
-    personaBubbleWrap("kai-alerts", DASHBOARD_PERSONAS.kai, content);
   }
 
   const MACRO_STATUS_LABEL = { safe: "생존", caution: "혼조", risk: "위험" };
@@ -971,6 +974,29 @@
       ? '<div class="panel-empty">아직 수집된 데이터 없음</div>'
       : [macro.cpi, macro.ppi].filter(Boolean).map(macroRowHTML).join("");
     personaBubbleWrap("macro-cpi-ppi", DASHBOARD_PERSONAS.nova, content);
+  }
+
+  function renderFomcCalendar(fomc){
+    const el = document.getElementById("fomc-calendar");
+    if (!fomc || !fomc.fomc_date){
+      el.innerHTML = '<div class="panel-empty">아직 확인된 일정 없음</div>';
+      return;
+    }
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const days = Math.round((new Date(fomc.fomc_date) - today) / 86400000);
+    const dday = days === 0 ? "D-DAY" : (days > 0 ? `D-${days}` : `D+${-days}`);
+    const warn = fomc.suspicious
+      ? '<div class="macro-line2" style="color:var(--error);">⚠️ 날짜 급변 의심 — 재확인 필요</div>'
+      : "";
+    el.innerHTML = `
+      <div class="macro-row">
+        <div class="macro-line1">
+          <span class="macro-name">다음 FOMC 회의</span>
+          <span class="macro-tag ${fomc.suspicious ? "risk" : "countdown"}">${escapeHtml(dday)}</span>
+        </div>
+        <div class="macro-line2">${escapeHtml(fomc.fomc_date)} 결정 발표 예정 (연준 공식 발표 기준)</div>
+        ${warn}
+      </div>`;
   }
 
   function renderYoutubePick(pick){
@@ -1309,8 +1335,9 @@
     renderEmployeeAccuracy(data.trader_stats, data.sage_stats, data.analyst_stats);
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
-    renderKaiAlerts(data.kai_alerts);
+    renderRiskAlerts(data.risk_alerts);
     renderMacroCpiPpi(data.macro_cpi_ppi);
+    renderFomcCalendar(data.fomc_calendar);
     renderYoutubePick(data.youtube_pick);
     renderStrategyPanel(data.strategy_room);
     renderLog(data.activity_log);
