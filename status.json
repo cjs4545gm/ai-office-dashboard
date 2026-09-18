@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T15:05:08",
+  "updated_at": "2026-09-18T15:12:19",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,8 +9,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-09-18T14:05:08",
-      "last_action": "이상없음"
+      "since": "2026-09-18T15:10:53",
+      "last_action": "이슈 3건 감지"
     },
     "bri": {
       "name": "브리",
@@ -19,9 +19,9 @@
       "emoji": "☀️",
       "room": "workflow",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-18T15:05:08",
-      "last_action": "시장 브리핑 데이터 수집 중"
+      "status": "done",
+      "since": "2026-09-18T15:10:53",
+      "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
       "name": "닉스",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "리나 이벤트 기록 (누적 7147건)",
-      "since": "2026-09-18T15:05:08"
+      "last_action": "탐 이벤트 기록 (누적 7162건)",
+      "since": "2026-09-18T15:12:19"
     },
     "callie": {
       "name": "캘리",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-18T14:15:17",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-09-18T15:12:19",
+      "last_action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 5건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-09-18T14:10:08",
+      "since": "2026-09-18T15:12:19",
       "last_action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
     },
     "chip": {
@@ -207,8 +207,8 @@
       "room": "strategy",
       "automated": true,
       "status": "error",
-      "since": "2026-09-18T15:05:08",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111b416a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "since": "2026-09-18T15:10:31",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10d1cd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
     },
     "max": {
       "name": "맥스",
@@ -218,8 +218,8 @@
       "room": "strategy",
       "automated": true,
       "status": "error",
-      "since": "2026-09-18T15:05:08",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111b416a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "since": "2026-09-18T15:10:31",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10d1cd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
     },
     "rina": {
       "name": "리나",
@@ -229,131 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "error",
-      "since": "2026-09-18T15:05:08",
-      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111b416a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+      "since": "2026-09-18T15:10:31",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10d1cd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-18T14:00:21",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "state 파일·리포트 저장소 무결성 점검 중"
-    },
-    {
-      "time": "2026-09-18T14:00:21",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-09-18T14:05:03",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "시장 브리핑 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-18T14:05:08",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "데일리 시장 브리핑 작성 완료"
-    },
-    {
-      "time": "2026-09-18T14:05:08",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "자동화 파이프라인 헬스체크 중"
-    },
-    {
-      "time": "2026-09-18T14:05:08",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "[1/2] 반도체 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "[2/2] 자동차 협회·통계 조사 중"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "[1/1] SK스퀘어 지주사 NAV/할인율 조사 중"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "MLCC 가격 동향 조사 중"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "LG이노텍 애플 공급망 조사 중"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "[1/1] 현대차 관세·환율 이슈 조사 중"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "done",
-      "action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 분석 중"
-    },
-    {
-      "time": "2026-09-18T14:10:08",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
     {
       "time": "2026-09-18T14:10:35",
       "employee": "leo",
@@ -650,6 +530,126 @@
       "role": "판단 편향·매매 심리 점검",
       "status": "error",
       "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x111b416a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-09-18T15:10:31",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10d1cd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-09-18T15:10:31",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10d1cd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-09-18T15:10:31",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x10d1cd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
+    },
+    {
+      "time": "2026-09-18T15:10:53",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-09-18T15:10:53",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-09-18T15:10:53",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "done",
+      "action": "이슈 3건 감지"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[1/1] SK스퀘어 지주사 NAV/할인율 조사 중"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "MLCC 가격 동향 조사 중"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "LG이노텍 애플 공급망 조사 중"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[1/1] 현대차 관세·환율 이슈 조사 중"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "done",
+      "action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-09-18T15:12:19",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 5건, 리포트 0건)"
     }
   ],
   "trader_stats": {
