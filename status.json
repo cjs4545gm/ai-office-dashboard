@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-20T14:05:04",
+  "updated_at": "2026-09-20T14:10:00",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "오즈 이벤트 기록 (누적 7359건)",
-      "since": "2026-09-20T14:05:04"
+      "last_action": "레오 이벤트 기록 (누적 7366건)",
+      "since": "2026-09-20T14:10:00"
     },
     "callie": {
       "name": "캘리",
@@ -53,7 +53,7 @@
       "room": "research",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-20T13:13:14",
+      "since": "2026-09-20T14:10:00",
       "last_action": "휴장일 — 대기"
     },
     "tam": {
@@ -64,7 +64,7 @@
       "room": "research",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-20T13:13:14",
+      "since": "2026-09-20T14:10:00",
       "last_action": "휴장일 — 대기"
     },
     "juno": {
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-20T13:13:14",
+      "since": "2026-09-20T14:10:00",
       "last_action": "휴장일 — 대기"
     },
     "chip": {
@@ -130,7 +130,7 @@
       "room": "risk",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-20T13:13:14",
+      "since": "2026-09-20T14:10:00",
       "last_action": "휴장일 — 대기"
     },
     "kai": {
@@ -141,7 +141,7 @@
       "room": "risk",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-20T13:13:14",
+      "since": "2026-09-20T14:10:00",
       "last_action": "휴장일 — 대기"
     },
     "nova": {
@@ -152,7 +152,7 @@
       "room": "risk",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-20T13:13:14",
+      "since": "2026-09-20T14:10:00",
       "last_action": "휴장일 — 대기"
     },
     "dawn": {
@@ -196,7 +196,7 @@
       "room": "feedback",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-20T13:13:14",
+      "since": "2026-09-20T14:10:00",
       "last_action": "휴장일 — 대기"
     },
     "ivy": {
@@ -235,80 +235,6 @@
   },
   "activity_log": [
     {
-      "time": "2026-09-18T17:15:55",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-09-18T17:15:55",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이슈 1건 감지",
-      "detail": [
-        "SK스퀘어: 오늘 시세(1,072,000원)가 노트 본문에 반영 안 됨 — 데이터 미반영 의심"
-      ]
-    },
-    {
-      "time": "2026-09-18T17:15:55",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "done",
-      "action": "경보 5건 감지",
-      "detail": [
-        "삼성전자: 급등 +3.17% (코스피도 동반 +2.66%), 외국인 3거래일 연속 순매도 — 원인: 구체적 원인 특정 불가 — 시장 전반 흐름으로 추정",
-        "SK하이닉스: 급등 +5.90% (코스피도 동반 +2.66%), 외국인 3거래일 연속 순매도 — 원인: 주가 급등은 미국 FOMC 이후 나스닥(+1.69%)·필라델피아 반도체지수(+3.14%) 급등에 따른 반도체 업종 전반의 훈풍 때문이며, 외국인 매도는 SK하이닉스 주가가 사상 최고 PBR 수준까지 오르며 '밸류에이션 부담'에 따른 차익실현·리밸런싱 성격으로 5월 이후 장기화된 흐름입니다.\n\n즉, 개별 악재가 아니라 \"업종 전반 랠리 + 고평가 부담에 따른 외국인 차익실현\"이 겹친 상황으로 보입니다.\n\n출처:\n- [美 기술주 훈풍에 코스피 2%↑…SK하이닉스 180만원 돌파 - 뉴스핌](https://www.newspim.com/news/view/20260918000154)\n- [SK하이닉스 대량 매도 외국인, 삼성전자는 순매수…이유는? - 한국경제](https://www.hankyung.com/article/202511067981i)\n- [SK하이닉스, 외인 21일 연속 순매도 '경고음'…피크아웃 우려도](https://v.daum.net/v/20260609130847912)",
-        "삼성전기: 급등 +4.44% (코스피도 동반 +2.66%)",
-        "SK스퀘어: 급등 +6.35% (코스피도 동반 +2.66%)",
-        "LG이노텍: 급등 +4.54% (코스피도 동반 +2.66%), 기관 3거래일 연속 순매도 — 원인: 검색 결과 9월 18일자 +6.51% 급등 및 기관 3거래일 연속 순매도와 직접 연결되는 구체적 뉴스(환율·관세·개별 종목 이슈 등)는 확인되지 않았습니다.\n\n구체적 원인 특정 불가 — 시장 전반 흐름으로 추정\n\nSources:\n- [LG이노텍 주가 - alphasquare](https://alphasquare.co.kr/home/stock-summary?code=011070)\n- [일자별 주가 - LG이노텍 IR](https://ir.gsifn.io/lginnotek/ir_daily.html?koreng=1)\n- [LG이노텍 주가, 9월 17일 장중 변동성 - 중앙이코노미뉴스](https://www.joongangenews.com/news/articleView.html?idxno=548913)"
-      ]
-    },
-    {
-      "time": "2026-09-18T17:15:55",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "done",
-      "action": "경보 2건 감지",
-      "detail": [
-        "원달러환율 급등 +0.59% (현재 1,384.8원)",
-        "KOSPI 지수 자체 급등 +2.66% (현재 6,894.23)"
-      ]
-    },
-    {
-      "time": "2026-09-18T17:15:55",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "🔴 우선확인 2건 · 품질 1건 · 리스크 8건 종합 완료",
-      "detail": [
-        "SK스퀘어: 품질 이슈 + 리스크 신호 동시 발생 — 우선 확인 필요",
-        "포트폴리오 집중도 리스크: 보유종목 5/6개 동반 급등 — 삼성전자(+3.17%), SK하이닉스(+5.90%), 삼성전기(+4.44%), SK스퀘어(+6.35%), LG이노텍(+4.54%)"
-      ]
-    },
-    {
-      "time": "2026-09-20T11:08:35",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-20T11:08:35",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
       "time": "2026-09-20T11:08:35",
       "employee": "hank",
       "name": "행크",
@@ -649,6 +575,62 @@
       "employee": "oz",
       "name": "오즈",
       "role": "전체 스케줄 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-20T14:10:00",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-20T14:10:00",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-20T14:10:00",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-20T14:10:00",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-20T14:10:00",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-20T14:10:00",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-20T14:10:00",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
       "status": "idle",
       "action": "휴장일 — 대기"
     }
