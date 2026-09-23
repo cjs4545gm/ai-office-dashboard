@@ -493,8 +493,9 @@
         <div class="search-suggestions" id="search-suggestions" style="display:none;"></div>
       </div>
       <button id="custom-analyze" type="button" disabled>기술적 분석 시작</button>
+      <button id="custom-financials" type="button" disabled>📑 재무제표 분석</button>
     </div>
-    <div class="analysis-hint" id="analysis-hint">워치리스트는 즉시 표시되고, 그 외 종목도 실시간 시세·뉴스·수급 데이터를 모아 탐·베라·주노·카이·제이드·레오가 같은 형식으로 분석합니다 (20~40초 소요, 증권사 리포트·반도체 가격 데이터는 워치리스트에만 있어 제외).</div>
+    <div class="analysis-hint" id="analysis-hint">워치리스트는 즉시 표시되고, 그 외 종목도 실시간 시세·뉴스·수급 데이터를 모아 탐·베라·주노·카이·제이드·레오가 같은 형식으로 분석합니다 (20~40초 소요, 증권사 리포트·반도체 가격 데이터는 워치리스트에만 있어 제외). 📑 재무제표 분석은 DART 공시 기준 매출·이익·자산·부채를 전문용어 없이 풀어서 설명합니다 (상장사 전체 대상, 10~30초 소요).</div>
     <div id="analysis-result"><div class="panel-empty">위에서 종목을 선택하거나 코드를 입력해주세요</div></div>
   </div>
   </div>
@@ -1253,12 +1254,15 @@
   const searchInput = document.getElementById("stock-search-input");
   const suggestionsEl = document.getElementById("search-suggestions");
   const analyzeButton = document.getElementById("custom-analyze");
+  const financialsButton = document.getElementById("custom-financials");
 
   function hideSuggestions(){ suggestionsEl.style.display = "none"; suggestionsEl.innerHTML = ""; }
 
   function updateAnalyzeButtonState(){
     const raw = searchInput.value.trim();
-    analyzeButton.disabled = !selectedCustomStock && !/^\d{6}$/.test(raw);
+    const disabled = !selectedCustomStock && !/^\d{6}$/.test(raw);
+    analyzeButton.disabled = disabled;
+    financialsButton.disabled = disabled;
   }
 
   async function runSearch(query){
@@ -1299,9 +1303,13 @@
     if (!ev.target.closest(".analysis-search")) hideSuggestions();
   });
 
-  analyzeButton.addEventListener("click", async () => {
+  function resolveCustomTarget(){
     const raw = searchInput.value.trim();
-    const target = selectedCustomStock || (/^\d{6}$/.test(raw) ? { name: raw, code: raw } : null);
+    return selectedCustomStock || (/^\d{6}$/.test(raw) ? { name: raw, code: raw } : null);
+  }
+
+  analyzeButton.addEventListener("click", async () => {
+    const target = resolveCustomTarget();
     if (!target) return;
 
     document.querySelectorAll("#watchlist-buttons .stock-btn").forEach(b => b.classList.remove("active"));
@@ -1310,8 +1318,32 @@
     const el = document.getElementById("analysis-result");
     el.innerHTML = '<div class="analysis-loading">⏳ 실시간 시세로 기술적 지표 계산 후 분석 작성 중... (10~30초 소요)</div>';
     analyzeButton.disabled = true;
+    financialsButton.disabled = true;
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/technical?symbol=${encodeURIComponent(target.code)}&name=${encodeURIComponent(target.name)}`, { signal: AbortSignal.timeout(60000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "분석 실패");
+      renderBubbles(data.bubbles);
+    } catch (e) {
+      el.innerHTML = `<div class="analysis-error">⚠️ 분석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
+    } finally {
+      updateAnalyzeButtonState();
+    }
+  });
+
+  financialsButton.addEventListener("click", async () => {
+    const target = resolveCustomTarget();
+    if (!target) return;
+
+    document.querySelectorAll("#watchlist-buttons .stock-btn").forEach(b => b.classList.remove("active"));
+    selectedWatchlistStock = null;
+    hideSuggestions();
+    const el = document.getElementById("analysis-result");
+    el.innerHTML = '<div class="analysis-loading">⏳ DART 공시에서 재무제표 가져와 분석 작성 중... (10~30초 소요)</div>';
+    analyzeButton.disabled = true;
+    financialsButton.disabled = true;
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/financials?symbol=${encodeURIComponent(target.code)}&name=${encodeURIComponent(target.name)}`, { signal: AbortSignal.timeout(60000) });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "분석 실패");
       renderBubbles(data.bubbles);
