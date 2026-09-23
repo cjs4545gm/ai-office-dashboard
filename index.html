@@ -355,6 +355,8 @@
     cursor:pointer; text-align:left; font-family:var(--sans); transition:border-color 0.15s ease, transform 0.15s ease;
   }
   .quote-card:hover{ border-color:var(--accent); transform:translateY(-1px); }
+  .quote-card:disabled{ opacity:0.75; cursor:default; }
+  .quote-card:disabled:hover{ border-color:var(--line); transform:none; }
   .quote-card.active{ border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset; }
   .quote-card .q-name{ font-size:12px; font-weight:700; color:var(--cream); margin-bottom:4px; }
   .quote-card .q-price{ font-family:var(--mono); font-size:15px; font-weight:700; }
@@ -1471,7 +1473,7 @@
     candles.forEach((c, i) => {
       const cx = padLeft + slot * i + slot / 2;
       const up = c.close >= c.open;
-      const color = up ? "var(--price-up)" : "var(--price-down)";
+      const color = up ? "#e63946" : "#3a86ff"; // 국내 증시 관례(상승 빨강/하락 파랑) — SVG 속성엔 var() 대신 리터럴 색을 직접 쓴다
       const bodyTop = y(Math.max(c.open, c.close));
       const bodyBottom = y(Math.min(c.open, c.close));
       bars += `<line class="chart-wick" x1="${cx}" x2="${cx}" y1="${y(c.high)}" y2="${y(c.low)}" stroke="${color}"></line>`;

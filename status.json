@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-23T15:07:21",
+  "updated_at": "2026-09-23T15:12:31",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "오즈 이벤트 기록 (누적 7840건)",
-      "since": "2026-09-23T15:05:08"
+      "last_action": "주노 이벤트 기록 (누적 7844건)",
+      "since": "2026-09-23T15:12:31"
     },
     "callie": {
       "name": "캘리",
@@ -74,9 +74,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-21T11:20:51",
-      "last_action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
+      "status": "working",
+      "since": "2026-09-23T15:12:31",
+      "last_action": "MLCC 가격 동향 조사 중"
     },
     "chip": {
       "name": "칩",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T15:07:21",
+      "since": "2026-09-23T15:12:24",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T15:07:21",
+      "since": "2026-09-23T15:12:24",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,43 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T15:07:21",
+      "since": "2026-09-23T15:12:24",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-21T11:25:24",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-09-21T11:25:38",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-09-21T11:25:38",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 5건, 리포트 0건)"
-    },
-    {
-      "time": "2026-09-21T11:26:17",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
     {
       "time": "2026-09-21T11:47:20",
       "employee": "tam",
@@ -652,6 +620,38 @@
       "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이슈 6건 감지"
+    },
+    {
+      "time": "2026-09-23T15:10:08",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[1/2] 반도체 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-23T15:10:54",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[2/2] 자동차 협회·통계 조사 중"
+    },
+    {
+      "time": "2026-09-23T15:11:28",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[1/1] SK스퀘어 지주사 NAV/할인율 조사 중"
+    },
+    {
+      "time": "2026-09-23T15:12:31",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "MLCC 가격 동향 조사 중"
     }
   ],
   "trader_stats": {
