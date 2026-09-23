@@ -373,6 +373,25 @@
   #chart-container svg{ display:block; width:100%; height:auto; }
   #chart-container .chart-wick{ stroke-width:1; }
   #chart-container .chart-body{ stroke-width:1; }
+
+  /* 📄 리포트 탭 */
+  .reports-layout{ display:grid; grid-template-columns:300px 1fr; gap:14px; align-items:start; }
+  .reports-list{ max-height:800px; overflow-y:auto; background:var(--wall); border:1px solid var(--line); border-radius:10px; padding:6px; }
+  .report-date-header{ font-family:var(--mono); font-size:10.5px; color:var(--muted); padding:10px 8px 4px; }
+  .report-row{ display:flex; align-items:center; gap:6px; padding:8px; border-radius:8px; cursor:pointer; font-size:12.5px; }
+  .report-row:hover{ background:var(--wall-3); }
+  .report-row.active{ background:var(--accent); color:#fff; }
+  .report-row .report-label{ font-weight:700; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .report-row .report-broker{ font-family:var(--mono); font-size:10.5px; opacity:0.75; flex:none; }
+  .report-row .report-tag{ font-family:var(--mono); font-size:9px; padding:1px 5px; border-radius:999px; background:var(--wall-3); color:var(--muted); flex:none; }
+  .report-row.active .report-tag{ background:rgba(255,255,255,0.25); color:#fff; }
+  .reports-viewer{ display:flex; flex-direction:column; gap:12px; }
+  .highlight-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(120px, 1fr)); gap:8px; }
+  .highlight-tile{ background:var(--wall); border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  .highlight-tile .highlight-label{ font-family:var(--mono); font-size:10px; color:var(--muted); }
+  .highlight-tile .highlight-value{ font-weight:700; font-size:14px; margin-top:2px; }
+  .report-ocr-note{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:8px; }
+  #report-pdf-frame iframe{ width:100%; height:760px; border:1px solid var(--line); border-radius:8px; display:block; }
 </style>
 </head>
 <body>
@@ -397,6 +416,7 @@
     <button class="tab-btn" type="button" data-tab="ceo">🧭 대표 채팅</button>
     <button class="tab-btn" type="button" data-tab="analysis">🔎 종목 분석</button>
     <button class="tab-btn" type="button" data-tab="live-prices">📈 시세</button>
+    <button class="tab-btn" type="button" data-tab="reports">📄 리포트</button>
   </div>
 
   <div class="tab-panel active" data-tab-panel="live">
@@ -544,6 +564,19 @@
         <span class="chart-latest" id="chart-latest"></span>
       </div>
       <div id="chart-container"><div class="panel-empty">일봉 캔들차트가 여기 표시됩니다</div></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="reports">
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>📄 리포트</h2><span class="dept-desc">증권사 리포트 PDF — 스카우트가 매시간 자동 수집, 클릭하면 핵심 수치 추출 + 원문 표시</span></div>
+    <div class="reports-layout">
+      <div class="reports-list" id="reports-list"><div class="panel-empty">불러오는 중...</div></div>
+      <div class="reports-viewer">
+        <div id="report-highlights"><div class="panel-empty">왼쪽에서 리포트를 선택해주세요</div></div>
+        <div id="report-pdf-frame"></div>
+      </div>
     </div>
   </div>
   </div>
@@ -1524,6 +1557,86 @@
 
   pollLivePrices();
   setInterval(pollLivePrices, LIVE_PRICE_POLL_MS);
+
+  // ---- 📄 리포트 탭 — office_analysis_server.py의 /reports, /report-file, /report-highlights.
+  // stock-dashboard(Streamlit)의 PDF 업로드/열람/OCR 요약을 부서현황판에 통합(2026-09-23) —
+  // 업로드는 report_collector.py가 이미 매시간 자동 수집하므로 열람에 집중.
+  let allReports = [];
+  let selectedReportPath = null;
+
+  function groupReportsByDate(reports){
+    const groups = {};
+    reports.forEach(r => {
+      const key = r.date || "날짜 미상";
+      (groups[key] = groups[key] || []).push(r);
+    });
+    return groups;
+  }
+
+  function reportRowHTML(r){
+    const tag = r.industry ? `<span class="report-tag">산업</span>` : "";
+    const active = r.path === selectedReportPath ? " active" : "";
+    return `<div class="report-row${active}" data-path="${escapeHtml(r.path)}">
+      <span class="report-label">${escapeHtml(r.label)}</span>${tag}
+      <span class="report-broker">${escapeHtml(r.broker)}</span>
+    </div>`;
+  }
+
+  function renderReportsList(){
+    const el = document.getElementById("reports-list");
+    if (!allReports.length){ el.innerHTML = '<div class="panel-empty">수집된 리포트 없음</div>'; return; }
+    const groups = groupReportsByDate(allReports);
+    el.innerHTML = Object.keys(groups).map(date => `
+      <div class="report-date-header">${escapeHtml(date)}</div>
+      ${groups[date].map(reportRowHTML).join("")}
+    `).join("");
+    el.querySelectorAll(".report-row").forEach(row => {
+      row.addEventListener("click", () => selectReport(row.dataset.path));
+    });
+  }
+
+  async function loadReportsList(){
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/reports`, { signal: AbortSignal.timeout(8000) });
+      const data = await resp.json();
+      if (resp.ok && data.ok) { allReports = data.reports; renderReportsList(); }
+      else throw new Error(data.error || "목록을 불러오지 못함");
+    } catch (e) {
+      document.getElementById("reports-list").innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+    }
+  }
+
+  function highlightsGridHTML(highlights){
+    const entries = Object.entries(highlights || {});
+    if (!entries.length) return '<div class="panel-empty">추출된 핵심 수치 없음</div>';
+    return `<div class="highlight-grid">${entries.map(([k, v]) => `
+      <div class="highlight-tile"><div class="highlight-label">${escapeHtml(k)}</div><div class="highlight-value">${escapeHtml(v)}</div></div>
+    `).join("")}</div>`;
+  }
+
+  async function selectReport(path){
+    selectedReportPath = path;
+    document.querySelectorAll(".report-row").forEach(row => row.classList.toggle("active", row.dataset.path === path));
+    document.getElementById("report-pdf-frame").innerHTML =
+      `<iframe src="${ANALYSIS_ORIGIN}/report-file?path=${encodeURIComponent(path)}" title="리포트 원문"></iframe>`;
+    const hEl = document.getElementById("report-highlights");
+    hEl.innerHTML = '<div class="analysis-loading">⏳ 핵심 수치 추출 중... (처음 여는 리포트는 10~20초 소요, 이후 캐시로 즉시)</div>';
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/report-highlights?path=${encodeURIComponent(path)}`, { signal: AbortSignal.timeout(60000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "추출 실패");
+      if (data.error){
+        hEl.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(data.error)}</div>`;
+      } else {
+        hEl.innerHTML = highlightsGridHTML(data.highlights)
+          + (data.used_ocr ? '<div class="report-ocr-note">🔍 스캔본이라 OCR로 읽었습니다</div>' : "");
+      }
+    } catch (e) {
+      hEl.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+    }
+  }
+
+  loadReportsList();
 
   function applyData(data){
     const label = data.is_snapshot
