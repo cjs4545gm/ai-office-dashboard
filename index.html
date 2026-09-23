@@ -343,6 +343,34 @@
   .rate-tag.none{ background:transparent; color:var(--vacant); border:1px dashed var(--vacant); }
   .analysis-loading{ font-family:var(--mono); font-size:12px; color:var(--working); }
   .analysis-error{ font-size:12.5px; color:var(--error); }
+
+  /* 📈 시세 탭 — 상승은 빨강, 하락은 파랑(국내 증시 관례). --done/--error(매수/매도 태그 색)와는
+     별개 의미라 전용 변수로 둔다. stock-dashboard(Streamlit)의 캔들차트 색과 동일하게 맞춰서
+     통합 후에도 사용자가 보던 색 그대로 느껴지게 했다. */
+  :root{ --price-up:#e63946; --price-down:#3a86ff; }
+  .quote-grid-label{ font-family:var(--mono); font-size:11px; color:var(--muted); margin:0 4px 6px; }
+  .quote-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; margin-bottom:16px; }
+  .quote-card{
+    background:var(--wall); border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+    cursor:pointer; text-align:left; font-family:var(--sans); transition:border-color 0.15s ease, transform 0.15s ease;
+  }
+  .quote-card:hover{ border-color:var(--accent); transform:translateY(-1px); }
+  .quote-card.active{ border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset; }
+  .quote-card .q-name{ font-size:12px; font-weight:700; color:var(--cream); margin-bottom:4px; }
+  .quote-card .q-price{ font-family:var(--mono); font-size:15px; font-weight:700; }
+  .quote-card .q-change{ font-family:var(--mono); font-size:11px; margin-top:2px; }
+  .quote-card .q-up{ color:var(--price-up); }
+  .quote-card .q-down{ color:var(--price-down); }
+  .quote-card .q-flat{ color:var(--muted); }
+  .quote-card .q-empty{ font-family:var(--mono); font-size:11px; color:var(--muted); }
+
+  .chart-panel{ background:var(--wall); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .chart-head{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+  .chart-head .chart-title{ font-weight:700; font-size:14px; }
+  .chart-head .chart-latest{ font-family:var(--mono); font-size:12px; color:var(--muted); }
+  #chart-container svg{ display:block; width:100%; height:auto; }
+  #chart-container .chart-wick{ stroke-width:1; }
+  #chart-container .chart-body{ stroke-width:1; }
 </style>
 </head>
 <body>
@@ -366,6 +394,7 @@
     <button class="tab-btn" type="button" data-tab="dashboard">📊 대시보드</button>
     <button class="tab-btn" type="button" data-tab="ceo">🧭 대표 채팅</button>
     <button class="tab-btn" type="button" data-tab="analysis">🔎 종목 분석</button>
+    <button class="tab-btn" type="button" data-tab="live-prices">📈 시세</button>
   </div>
 
   <div class="tab-panel active" data-tab-panel="live">
@@ -497,6 +526,23 @@
     </div>
     <div class="analysis-hint" id="analysis-hint">워치리스트는 즉시 표시되고, 그 외 종목도 실시간 시세·뉴스·수급 데이터를 모아 탐·베라·주노·카이·제이드·레오가 같은 형식으로 분석합니다 (20~40초 소요, 증권사 리포트·반도체 가격 데이터는 워치리스트에만 있어 제외). 📑 재무제표 분석은 DART 공시 기준 매출·이익·자산·부채를 전문용어 없이 풀어서 설명합니다 (상장사 전체 대상, 10~30초 소요).</div>
     <div id="analysis-result"><div class="panel-empty">위에서 종목을 선택하거나 코드를 입력해주세요</div></div>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="live-prices">
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>📈 시세</h2><span class="dept-desc">보유종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
+    <div class="quote-grid-label">보유종목</div>
+    <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중...</div></div>
+    <div class="quote-grid-label">지수</div>
+    <div class="quote-grid" id="live-indices-grid"><div class="panel-empty">불러오는 중...</div></div>
+    <div class="chart-panel">
+      <div class="chart-head">
+        <span class="chart-title" id="chart-title">위에서 종목을 클릭해주세요</span>
+        <span class="chart-latest" id="chart-latest"></span>
+      </div>
+      <div id="chart-container"><div class="panel-empty">일봉 캔들차트가 여기 표시됩니다</div></div>
+    </div>
   </div>
   </div>
 
@@ -1353,6 +1399,122 @@
       updateAnalyzeButtonState();
     }
   });
+
+  // ---- 📈 시세 탭 — office_analysis_server.py의 /live-prices, /candles.
+  // stock-dashboard(Streamlit)의 실시간 시세+캔들차트를 부서현황판에 통합하는 첫 단계(2026-09-23).
+  // 외부 차트 라이브러리 없이(이 파일 전체 관례) SVG로 직접 그린다.
+  let selectedChartTarget = null;   // {symbol, name} — 현재 차트에 표시 중인 종목
+  const LIVE_PRICE_POLL_MS = 3000;
+
+  function formatPrice(price){
+    if (price === null || price === undefined) return "—";
+    return price.toLocaleString("ko-KR", { maximumFractionDigits: 2 });
+  }
+
+  function changeClass(change){
+    if (change === null || change === undefined || change === 0) return "q-flat";
+    return change > 0 ? "q-up" : "q-down";
+  }
+
+  function changeSign(change){
+    return change > 0 ? "+" : "";
+  }
+
+  function quoteCardHTML(item, key, isPortfolio){
+    if (item.price === null || item.price === undefined){
+      return `<button type="button" class="quote-card" data-key="${escapeHtml(key)}" disabled>
+        <div class="q-name">${escapeHtml(item.name)}</div><div class="q-empty">시세 없음</div></button>`;
+    }
+    const cls = changeClass(item.change);
+    const changeText = item.change === null || item.change === undefined
+      ? "" : `${changeSign(item.change)}${formatPrice(item.change)} (${changeSign(item.pct)}${(item.pct ?? 0).toFixed(2)}%)`;
+    return `<button type="button" class="quote-card" data-key="${escapeHtml(key)}" data-symbol="${escapeHtml(item.symbol || "")}" data-name="${escapeHtml(item.name)}" ${isPortfolio ? "" : "disabled"}>
+      <div class="q-name">${escapeHtml(item.name)}</div>
+      <div class="q-price">${formatPrice(item.price)}</div>
+      <div class="q-change ${cls}">${changeText}</div>
+    </button>`;
+  }
+
+  function renderLivePrices(data){
+    const portfolioEl = document.getElementById("live-portfolio-grid");
+    const indicesEl = document.getElementById("live-indices-grid");
+    portfolioEl.innerHTML = data.portfolio.map(item => quoteCardHTML(item, `p-${item.symbol}`, true)).join("");
+    indicesEl.innerHTML = data.indices.map(item => quoteCardHTML(item, `i-${item.name}`, false)).join("");
+    portfolioEl.querySelectorAll(".quote-card[data-symbol]").forEach(card => {
+      card.classList.toggle("active", selectedChartTarget && card.dataset.symbol === selectedChartTarget.symbol);
+      card.addEventListener("click", () => loadChart(card.dataset.symbol, card.dataset.name));
+    });
+  }
+
+  async function pollLivePrices(){
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/live-prices`, { signal: AbortSignal.timeout(8000) });
+      const data = await resp.json();
+      if (resp.ok && data.ok) renderLivePrices(data);
+    } catch (e) {
+      // 조용히 다음 주기에 재시도 — 폴링이라 에러 배너로 화면을 어지럽히지 않는다.
+    }
+  }
+
+  function svgCandlestick(candles){
+    const W = 760, H = 260, padTop = 16, padBottom = 24, padLeft = 4, padRight = 4;
+    const plotW = W - padLeft - padRight, plotH = H - padTop - padBottom;
+    const highs = candles.map(c => c.high), lows = candles.map(c => c.low);
+    const maxP = Math.max(...highs), minP = Math.min(...lows);
+    const range = (maxP - minP) || 1;
+    const y = price => padTop + (1 - (price - minP) / range) * plotH;
+    const n = candles.length;
+    const slot = plotW / n;
+    const bodyW = Math.max(slot * 0.6, 1.5);
+
+    let bars = "";
+    candles.forEach((c, i) => {
+      const cx = padLeft + slot * i + slot / 2;
+      const up = c.close >= c.open;
+      const color = up ? "var(--price-up)" : "var(--price-down)";
+      const bodyTop = y(Math.max(c.open, c.close));
+      const bodyBottom = y(Math.min(c.open, c.close));
+      bars += `<line class="chart-wick" x1="${cx}" x2="${cx}" y1="${y(c.high)}" y2="${y(c.low)}" stroke="${color}"></line>`;
+      bars += `<rect class="chart-body" x="${cx - bodyW / 2}" y="${bodyTop}" width="${bodyW}" height="${Math.max(bodyBottom - bodyTop, 1)}" fill="${color}" stroke="${color}"></rect>`;
+    });
+
+    const labelIdx = [0, Math.floor(n / 2), n - 1].filter((v, i, arr) => arr.indexOf(v) === i);
+    let labels = "";
+    labelIdx.forEach(i => {
+      const cx = padLeft + slot * i + slot / 2;
+      const d = candles[i].date.slice(5).replace("-", "/");
+      labels += `<text x="${cx}" y="${H - 6}" font-size="10" text-anchor="middle" fill="var(--muted)">${d}</text>`;
+    });
+    labels += `<text x="${padLeft + 2}" y="${padTop + 10}" font-size="10" fill="var(--muted)">${formatPrice(maxP)}</text>`;
+    labels += `<text x="${padLeft + 2}" y="${H - padBottom - 4}" font-size="10" fill="var(--muted)">${formatPrice(minP)}</text>`;
+
+    return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">${bars}${labels}</svg>`;
+  }
+
+  async function loadChart(symbol, name){
+    selectedChartTarget = { symbol, name };
+    document.querySelectorAll("#live-portfolio-grid .quote-card").forEach(card => {
+      card.classList.toggle("active", card.dataset.symbol === symbol);
+    });
+    document.getElementById("chart-title").textContent = `${name} 일봉`;
+    document.getElementById("chart-latest").textContent = "";
+    const container = document.getElementById("chart-container");
+    container.innerHTML = '<div class="analysis-loading">⏳ 차트 불러오는 중...</div>';
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/candles?symbol=${encodeURIComponent(symbol)}&count=90`, { signal: AbortSignal.timeout(15000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "차트를 불러오지 못함");
+      if (!data.candles || data.candles.length === 0) throw new Error("캔들 데이터 없음 (시세 소스 일시 장애일 수 있음)");
+      container.innerHTML = svgCandlestick(data.candles);
+      const last = data.candles[data.candles.length - 1];
+      document.getElementById("chart-latest").textContent = `${last.date} 종가 ${formatPrice(last.close)}`;
+    } catch (e) {
+      container.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+    }
+  }
+
+  pollLivePrices();
+  setInterval(pollLivePrices, LIVE_PRICE_POLL_MS);
 
   function applyData(data){
     const label = data.is_snapshot
