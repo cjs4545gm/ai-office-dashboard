@@ -392,6 +392,13 @@
   .highlight-tile .highlight-value{ font-weight:700; font-size:14px; margin-top:2px; }
   .report-ocr-note{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:8px; }
   #report-pdf-frame iframe{ width:100%; height:760px; border:1px solid var(--line); border-radius:8px; display:block; }
+
+  /* 📰 오늘의 주요뉴스 (대시보드 탭) */
+  .news-list{ display:flex; flex-direction:column; gap:8px; }
+  .news-row{ padding:9px 12px; border-radius:8px; background:var(--wall); border:1px solid var(--line); }
+  .news-row a{ color:var(--cream); text-decoration:none; font-weight:600; font-size:13px; line-height:1.4; }
+  .news-row a:hover{ color:var(--accent); }
+  .news-row .news-meta{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:4px; }
 </style>
 </head>
 <body>
@@ -510,6 +517,11 @@
   <div class="strategy-panel-full">
     <div class="dept-head"><h2>💬 애널리스트별 오늘의 종목 코멘트</h2><span class="dept-desc">탐·베라·주노·카이·제이드가 워치리스트 6종목에 오늘 남긴 의견 — 사이드바 적중률과 별개로 여기서 크게 확인</span></div>
     <div id="analyst-comments"><div class="panel-empty">아직 남긴 의견 없음</div></div>
+  </div>
+
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>📰 오늘의 주요뉴스</h2><span class="dept-desc">보유종목·지수·매크로 헤드라인 — 최신순, 5분마다 갱신</span></div>
+    <div id="news-digest-list"><div class="panel-empty">불러오는 중...</div></div>
   </div>
 
   <div class="dept-links">
@@ -1637,6 +1649,33 @@
   }
 
   loadReportsList();
+
+  // ---- 📰 오늘의 주요뉴스 (대시보드 탭) — office_analysis_server.py의 /news-digest.
+  // stock-dashboard(Streamlit)의 "오늘의 주요뉴스"를 부서현황판에 통합하는 마지막 단계(2026-09-23).
+  const NEWS_DIGEST_REFRESH_MS = 5 * 60 * 1000;
+
+  async function loadNewsDigest(){
+    const el = document.getElementById("news-digest-list");
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/news-digest?limit=15`, { signal: AbortSignal.timeout(20000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "불러오기 실패");
+      if (!data.items.length){
+        el.innerHTML = '<div class="panel-empty">오늘자 헤드라인 없음</div>';
+        return;
+      }
+      el.innerHTML = `<div class="news-list">${data.items.map(i => `
+        <div class="news-row">
+          <a href="${escapeHtml(i.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(i.title)}</a>
+          <div class="news-meta">${escapeHtml(i.publisher)} · ${escapeHtml(i.when)}</div>
+        </div>`).join("")}</div>`;
+    } catch (e) {
+      el.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+    }
+  }
+
+  loadNewsDigest();
+  setInterval(loadNewsDigest, NEWS_DIGEST_REFRESH_MS);
 
   function applyData(data){
     const label = data.is_snapshot
