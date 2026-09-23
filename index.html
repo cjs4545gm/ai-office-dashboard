@@ -355,8 +355,8 @@
     cursor:pointer; text-align:left; font-family:var(--sans); transition:border-color 0.15s ease, transform 0.15s ease;
   }
   .quote-card:hover{ border-color:var(--accent); transform:translateY(-1px); }
-  .quote-card:disabled{ opacity:0.75; cursor:default; }
-  .quote-card:disabled:hover{ border-color:var(--line); transform:none; }
+  .quote-card--static{ cursor:default; opacity:0.85; }
+  .quote-card--static:hover{ border-color:var(--line); transform:none; }
   .quote-card.active{ border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset; }
   .quote-card .q-name{ font-size:12px; font-weight:700; color:var(--cream); margin-bottom:4px; }
   .quote-card .q-price{ font-family:var(--mono); font-size:15px; font-weight:700; }
@@ -1422,19 +1422,26 @@
     return change > 0 ? "+" : "";
   }
 
-  function quoteCardHTML(item, key, isPortfolio){
+  function quoteCardHTML(item, key, clickable){
+    // 지수 카드는 클릭 불가라 <button disabled>를 썼었는데, 브라우저 기본 disabled 스타일이
+    // 자식 요소 색(q-up/q-down 등)까지 회색으로 덮어써버렸다(2026-09-23, 실측 발견 — 스크린샷으로
+    // KOSPI/KOSDAQ만 회색으로 보임을 확인). disabled 속성 대신 클릭 불가 항목은 아예 <div>로 그려서
+    // 네이티브 disabled 스타일이 끼어들 여지를 없앤다.
+    const tag = clickable ? "button" : "div";
+    const typeAttr = clickable ? ' type="button"' : "";
     if (item.price === null || item.price === undefined){
-      return `<button type="button" class="quote-card" data-key="${escapeHtml(key)}" disabled>
-        <div class="q-name">${escapeHtml(item.name)}</div><div class="q-empty">시세 없음</div></button>`;
+      return `<${tag}${typeAttr} class="quote-card quote-card--static" data-key="${escapeHtml(key)}">
+        <div class="q-name">${escapeHtml(item.name)}</div><div class="q-empty">시세 없음</div></${tag}>`;
     }
     const cls = changeClass(item.change);
     const changeText = item.change === null || item.change === undefined
       ? "" : `${changeSign(item.change)}${formatPrice(item.change)} (${changeSign(item.pct)}${(item.pct ?? 0).toFixed(2)}%)`;
-    return `<button type="button" class="quote-card" data-key="${escapeHtml(key)}" data-symbol="${escapeHtml(item.symbol || "")}" data-name="${escapeHtml(item.name)}" ${isPortfolio ? "" : "disabled"}>
+    const staticClass = clickable ? "" : " quote-card--static";
+    return `<${tag}${typeAttr} class="quote-card${staticClass}" data-key="${escapeHtml(key)}" data-symbol="${escapeHtml(item.symbol || "")}" data-name="${escapeHtml(item.name)}">
       <div class="q-name">${escapeHtml(item.name)}</div>
       <div class="q-price">${formatPrice(item.price)}</div>
       <div class="q-change ${cls}">${changeText}</div>
-    </button>`;
+    </${tag}>`;
   }
 
   function renderLivePrices(data){
