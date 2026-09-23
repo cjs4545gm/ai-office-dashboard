@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-23T15:12:31",
+  "updated_at": "2026-09-23T15:17:27",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "주노 이벤트 기록 (누적 7844건)",
-      "since": "2026-09-23T15:12:31"
+      "last_action": "탐 이벤트 기록 (누적 7857건)",
+      "since": "2026-09-23T15:17:10"
     },
     "callie": {
       "name": "캘리",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-21T11:47:20",
-      "last_action": "6개 종목 리서치 노트 작성 완료"
+      "status": "working",
+      "since": "2026-09-23T15:17:10",
+      "last_action": "[4/6] 현대차 분석 중"
     },
     "juno": {
       "name": "주노",
@@ -74,9 +74,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-23T15:12:31",
-      "last_action": "MLCC 가격 동향 조사 중"
+      "status": "done",
+      "since": "2026-09-23T15:14:18",
+      "last_action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
     },
     "chip": {
       "name": "칩",
@@ -195,9 +195,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-21T11:47:20",
-      "last_action": "매수 2 · 보유 4 · 매도 0 종합 완료 (장마감 확정)"
+      "status": "working",
+      "since": "2026-09-23T15:17:00",
+      "last_action": "[3/6] 삼성전기 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T15:12:24",
+      "since": "2026-09-23T15:17:27",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T15:12:24",
+      "since": "2026-09-23T15:17:27",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,130 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T15:12:24",
+      "since": "2026-09-23T15:17:27",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-21T11:47:20",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
-    {
-      "time": "2026-09-21T11:47:20",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 2 · 보유 4 · 매도 0 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-09-21T11:47:20",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-09-21T11:47:20",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-09-21T11:47:52",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-09-21T11:47:54",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-09-21T11:47:54",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-09-21T11:47:54",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "done",
-      "action": "경보 2건 감지",
-      "detail": [
-        "삼성전자: 급등 +4.02% (코스피도 동반 +1.53%), 외국인 3거래일 연속 순매도 — 원인: 구체적 원인 특정 불가 — 시장 전반 흐름으로 추정.\n\n검색된 기사들은 3월, 4월, 6월, 9월 15~18일 등 서로 다른 시점의 외국인 매도(리밸런싱, 금리 역전, 펀드 재조정 등)를 다루고 있어, 2026-09-21 기준 \"3거래일 연속 순매도\"를 특정 사건과 명확히 연결 짓는 최신 근거는 확인되지 않았습니다.\n\nSources:\n- [엇갈리는 삼성전자 주가전망…외국인 순매도 끝은 어디](https://www.news1.kr/finance/market-exr/6295755)\n- [한 달 연속 순매도 외국인…삼성전자·SK하이닉스서 57조원 팔았다](https://m.news.nate.com/view/20260607n12918)\n- [13년 만에 최저 지분율에도…삼성전자 외국인 귀환 기대 커진다](https://kr.investing.com/news/stock-market-news/article-1993870)",
-        "SK스퀘어: 급등 +3.52% (코스피도 동반 +1.53%)"
-      ]
-    },
-    {
-      "time": "2026-09-21T11:47:54",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "done",
-      "action": "경보 1건 감지",
-      "detail": [
-        "KOSPI 지수 자체 급등 +1.53% (현재 6,999.64)"
-      ]
-    },
-    {
-      "time": "2026-09-21T11:47:54",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 0건 · 리스크 3건 종합 완료"
-    },
-    {
-      "time": "2026-09-23T14:17:12",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-09-23T14:17:12",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-23T14:17:14",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 0건 수집",
-      "detail": [
-        "삼성전자: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK하이닉스: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "삼성전기: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "현대차: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "SK스퀘어: 뉴스 소스 전부 실패(네이버+야후 0건)",
-        "LG이노텍: 뉴스 소스 전부 실패(네이버+야후 0건)"
-      ]
-    },
     {
       "time": "2026-09-23T14:17:14",
       "employee": "milo",
@@ -652,6 +533,110 @@
       "role": "업종·특수종목 웹리서치 통합 담당",
       "status": "working",
       "action": "MLCC 가격 동향 조사 중"
+    },
+    {
+      "time": "2026-09-23T15:13:06",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "LG이노텍 애플 공급망 조사 중"
+    },
+    {
+      "time": "2026-09-23T15:13:44",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[1/1] 현대차 관세·환율 이슈 조사 중"
+    },
+    {
+      "time": "2026-09-23T15:14:18",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "done",
+      "action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
+    },
+    {
+      "time": "2026-09-23T15:14:18",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-09-23T15:14:19",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 4건)"
+    },
+    {
+      "time": "2026-09-23T15:15:30",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-23T15:15:46",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-09-23T15:15:46",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-23T15:16:17",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-23T15:16:30",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-09-23T15:16:30",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-23T15:17:00",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-23T15:17:10",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 분석 중"
     }
   ],
   "trader_stats": {
