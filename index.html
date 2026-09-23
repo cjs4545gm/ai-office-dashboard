@@ -366,7 +366,10 @@
   .quote-card .q-flat{ color:var(--muted); }
   .quote-card .q-empty{ font-family:var(--mono); font-size:11px; color:var(--muted); }
 
+  .chart-with-news{ display:grid; grid-template-columns:1fr 320px; gap:14px; align-items:start; }
+  @media (max-width:900px){ .chart-with-news{ grid-template-columns:1fr; } }
   .chart-panel{ background:var(--wall); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .chart-panel .news-list{ max-height:640px; overflow-y:auto; }
   .chart-head{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
   .chart-head .chart-title{ font-weight:700; font-size:14px; }
   .chart-head .chart-latest{ font-family:var(--mono); font-size:12px; color:var(--muted); }
@@ -570,12 +573,18 @@
     <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중...</div></div>
     <div class="quote-grid-label">지수</div>
     <div class="quote-grid" id="live-indices-grid"><div class="panel-empty">불러오는 중...</div></div>
-    <div class="chart-panel">
-      <div class="chart-head">
-        <span class="chart-title" id="chart-title">위에서 종목을 클릭해주세요</span>
-        <span class="chart-latest" id="chart-latest"></span>
+    <div class="chart-with-news">
+      <div class="chart-panel">
+        <div class="chart-head">
+          <span class="chart-title" id="chart-title">위에서 종목을 클릭해주세요</span>
+          <span class="chart-latest" id="chart-latest"></span>
+        </div>
+        <div id="chart-container"><div class="panel-empty">일봉 캔들차트가 여기 표시됩니다</div></div>
       </div>
-      <div id="chart-container"><div class="panel-empty">일봉 캔들차트가 여기 표시됩니다</div></div>
+      <div class="chart-panel">
+        <div class="chart-head"><span class="chart-title">📰 종목 뉴스</span></div>
+        <div id="stock-news-list"><div class="panel-empty">종목을 클릭하면 뉴스가 표시됩니다</div></div>
+      </div>
     </div>
   </div>
   </div>
@@ -1564,6 +1573,28 @@
       document.getElementById("chart-latest").textContent = `${last.date} 종가 ${formatPrice(last.close)}`;
     } catch (e) {
       container.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+    }
+    loadStockNews(symbol);
+  }
+
+  async function loadStockNews(symbol){
+    const el = document.getElementById("stock-news-list");
+    el.innerHTML = '<div class="analysis-loading">⏳ 뉴스 불러오는 중...</div>';
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/stock-news?symbol=${encodeURIComponent(symbol)}`, { signal: AbortSignal.timeout(15000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "뉴스를 불러오지 못함");
+      if (!data.items.length){
+        el.innerHTML = '<div class="panel-empty">관련 뉴스 없음</div>';
+        return;
+      }
+      el.innerHTML = `<div class="news-list">${data.items.map(i => `
+        <div class="news-row">
+          <a href="${escapeHtml(i.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(i.title)}</a>
+          <div class="news-meta">${escapeHtml(i.publisher)} · ${escapeHtml(i.when)}</div>
+        </div>`).join("")}</div>`;
+    } catch (e) {
+      el.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
     }
   }
 
