@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-24T15:05:07",
+  "updated_at": "2026-09-24T15:10:07",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "오즈 이벤트 기록 (누적 7973건)",
-      "since": "2026-09-24T15:05:07"
+      "last_action": "레오 이벤트 기록 (누적 7980건)",
+      "since": "2026-09-24T15:10:07"
     },
     "callie": {
       "name": "캘리",
@@ -53,7 +53,7 @@
       "room": "research",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-24T14:10:07",
+      "since": "2026-09-24T15:10:07",
       "last_action": "휴장일 — 대기"
     },
     "tam": {
@@ -64,7 +64,7 @@
       "room": "research",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-24T14:10:06",
+      "since": "2026-09-24T15:10:07",
       "last_action": "휴장일 — 대기"
     },
     "juno": {
@@ -75,7 +75,7 @@
       "room": "research",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-24T14:10:07",
+      "since": "2026-09-24T15:10:07",
       "last_action": "휴장일 — 대기"
     },
     "chip": {
@@ -130,7 +130,7 @@
       "room": "risk",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-24T14:10:07",
+      "since": "2026-09-24T15:10:07",
       "last_action": "휴장일 — 대기"
     },
     "kai": {
@@ -141,7 +141,7 @@
       "room": "risk",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-24T14:10:07",
+      "since": "2026-09-24T15:10:07",
       "last_action": "휴장일 — 대기"
     },
     "nova": {
@@ -152,7 +152,7 @@
       "room": "risk",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-24T14:10:07",
+      "since": "2026-09-24T15:10:07",
       "last_action": "휴장일 — 대기"
     },
     "dawn": {
@@ -196,7 +196,7 @@
       "room": "feedback",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-24T14:10:07",
+      "since": "2026-09-24T15:10:07",
       "last_action": "휴장일 — 대기"
     },
     "ivy": {
@@ -234,70 +234,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-23T16:15:33",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-09-23T16:15:33",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-09-23T16:15:33",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-09-23T16:15:55",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-09-23T16:15:56",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-09-23T16:15:56",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이슈 1건 감지",
-      "detail": [
-        "LG이노텍: 다른 종목명 혼입 의심(삼성전기 12회 > 자기 종목명 10회)"
-      ]
-    },
-    {
-      "time": "2026-09-23T16:15:56",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "done",
-      "action": "경보 3건 감지",
-      "detail": [
-        "삼성전자: 급등 +3.07%",
-        "현대차: 외국인 3거래일 연속 순매도 — 원인: 원·달러 환율 하락으로 수익성 우려가 커진 데다 금리 인상, 미국 자동차 관세 부담, 파업에 따른 생산 차질이 겹쳐 자동차주 전반이 약세입니다(현대차 9월 들어 -9.54%, 기아 -6.95%).\n다만 이 기사는 업종 하락 원인을 다룬 것이고, 최근 3거래일 외국인 순매도를 직접 짚은 보도는 찾지 못했습니다.\n\n출처: [파이낸셜뉴스 \"9월 자동차株 일제히 후진… 현대차는 석달새 시총 '반토막'\" (2026-09-20)](https://www.fnnews.com/news/202609201835466731)",
-        "SK스퀘어: 급등 +4.32%"
-      ]
-    },
     {
       "time": "2026-09-23T16:15:56",
       "employee": "nova",
@@ -642,6 +578,62 @@
       "employee": "oz",
       "name": "오즈",
       "role": "전체 스케줄 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-24T15:10:07",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-24T15:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-24T15:10:07",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-24T15:10:07",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-24T15:10:07",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-24T15:10:07",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-24T15:10:07",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
       "status": "idle",
       "action": "휴장일 — 대기"
     }
