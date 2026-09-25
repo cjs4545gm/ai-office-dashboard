@@ -2,8 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#101217">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <title>부서 현황판</title>
 <style>
   :root{
@@ -466,6 +468,163 @@
   .news-row a{ color:var(--cream); text-decoration:none; font-weight:600; font-size:13px; line-height:1.4; }
   .news-row a:hover{ color:var(--accent); }
   .news-row .news-meta{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:4px; }
+
+  /* ======================================================================
+     Hallmark · genre: modern-minimal · macrostructure: Workbench (app) · tone: technical
+     · anchor hue: 268 (cool indigo) · enrichment: 기존 힉스필드 일러스트 유지 · nav: 밑줄 탭 스트립
+     · 2026-09-25 리디자인 레이어. 위쪽 기존 규칙은 그대로 두고 여기서 덮어쓴다 —
+       이 블록을 통째로 지우면 이전 디자인으로 돌아간다.
+     바꾼 것: 순흑(#000) → 푸른 기가 도는 near-black, 모니터 베젤·간판 박스 제거(카드 속 카드 해소),
+     9~10px 모노 남발 → Pretendard 본문 + 숫자만 모노, 탭은 채운 상자 → 밑줄 스트립,
+     다크 배경의 발광 그림자 제거, 간격은 4pt 스케일.
+     ====================================================================== */
+  :root{
+    --color-paper:   oklch(15.5% 0.008 268);
+    --color-paper-2: oklch(18.5% 0.009 268);
+    --color-paper-3: oklch(22.5% 0.011 268);
+    --color-rule:    oklch(27% 0.012 268);
+    --color-rule-2:  oklch(33% 0.014 268);
+    --color-ink:     oklch(94.5% 0.006 268);
+    --color-ink-2:   oklch(71% 0.016 268);
+    --color-ink-3:   oklch(56% 0.016 268);
+    --color-accent:  oklch(70% 0.14 268);
+    --color-accent-soft: oklch(70% 0.14 268 / 0.14);
+
+    --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+    --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+    --radius-card: 10px; --radius-control: 8px;
+    --text-2xs: 11px; --text-xs: 12px; --text-sm: 13px; --text-md: 14px; --text-lg: 16px; --text-xl: 20px;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-short: 160ms;
+
+    /* 기존 변수명 → 새 토큰 (기존 규칙 전체가 따라서 재도색됨) */
+    --bg-deep: var(--color-paper);
+    --bezel:   var(--color-paper);
+    --wall:    var(--color-paper);
+    --wall-2:  var(--color-paper-2);
+    --wall-3:  var(--color-paper-3);
+    --line:    var(--color-rule);
+    --cream:   var(--color-ink);
+    --muted:   var(--color-ink-2);
+    --idle:    var(--color-ink-2);
+    --vacant:  var(--color-ink-3);
+    --accent:  var(--color-accent);
+    --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+  html, body{ background:var(--color-paper); overflow-x:clip; }
+  body{ font-family:var(--sans); font-size:var(--text-md); letter-spacing:-0.005em; -webkit-font-smoothing:antialiased; }
+
+  /* 페이지 틀: 모니터 베젤 박스를 걷어내고 평평한 작업면으로 */
+  .monitor{ background:none; border:none; box-shadow:none; border-radius:0; max-width:1320px; padding:var(--space-4) var(--space-6) var(--space-10); }
+  @media (max-width:720px){ .monitor{ padding:var(--space-3) var(--space-3) var(--space-8); } }
+
+  /* 헤더: 박스 없는 한 줄. 워드마크 왼쪽, 연결 상태 오른쪽 */
+  .signboard{ background:none; border:none; border-radius:0; padding:var(--space-2) 0 var(--space-4); margin:0; }
+  .logo{ gap:var(--space-3); }
+  .logo h1{ font-family:var(--sans); font-size:var(--text-xl); font-weight:700; letter-spacing:-0.025em; }
+  .logo .sub{ font-family:var(--sans); font-size:var(--text-xs); letter-spacing:0; color:var(--color-ink-3); margin-top:var(--space-1); }
+  .signboard .live{ font-family:var(--sans); font-size:var(--text-xs); color:var(--color-ink-2);
+    padding:6px var(--space-3); border:1px solid var(--color-rule); border-radius:999px; }
+  .live .pulse, .shift-banner.on .shift-dot, .task-row .spinner{ box-shadow:none; }
+
+  /* 근무 배너: 그라데이션 띠 → 조용한 상태 줄 */
+  .shift-banner{ background:none; border:none; border-top:1px solid var(--color-rule); border-radius:0;
+    padding:var(--space-3) 0; margin:0; font-family:var(--sans); font-size:var(--text-xs); color:var(--color-ink-2); }
+  .shift-banner b{ font-variant-numeric:tabular-nums; }
+
+  /* 탭: 채운 상자 7개 → 밑줄 스트립. 좁은 화면에선 가로 스크롤, 두 줄로 안 꺾임 */
+  .tab-nav{ gap:var(--space-1); margin:0 0 var(--space-6); border-bottom:1px solid var(--color-rule);
+    overflow-x:auto; scrollbar-width:none; }
+  .tab-nav::-webkit-scrollbar{ display:none; }
+  .tab-btn{ flex:none; background:none; border:none; border-radius:0; padding:var(--space-3) var(--space-3);
+    font-size:var(--text-sm); font-weight:600; color:var(--color-ink-3); white-space:nowrap;
+    box-shadow:inset 0 -2px 0 transparent; transition:color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out); }
+  .tab-btn:hover{ color:var(--color-ink); }
+  .tab-btn.active{ background:none; color:var(--color-ink); box-shadow:inset 0 -2px 0 var(--color-accent); }
+
+  /* 패널: 한 단계 밝은 면 + 옅은 선. 안쪽 카드는 바탕색으로 내려서 카드-속-카드 대비를 줄임 */
+  .dept-room, .side-panel, .strategy-panel-full, .office-floor{
+    background:var(--color-paper-2); border:1px solid var(--color-rule); border-radius:var(--radius-card); }
+  .dept-room, .side-panel{ padding:var(--space-4); }
+  .strategy-panel-full{ padding:var(--space-5) var(--space-6); margin:0 0 var(--space-4); }
+  @media (max-width:720px){ .strategy-panel-full{ padding:var(--space-4); } }
+  .layout, .org{ gap:var(--space-3); }
+  .layout{ margin:0 0 var(--space-4); }
+  .office-floor{ margin:0 0 var(--space-4); overflow:hidden; }
+
+  /* 제목 위계: 이모지 없이 굵기·크기로 */
+  .dept-head{ margin-bottom:var(--space-3); gap:var(--space-3); }
+  .dept-head h2{ font-size:var(--text-md); font-weight:700; letter-spacing:-0.015em; text-wrap:balance; }
+  .strategy-panel-full .dept-head{ margin-bottom:var(--space-4); padding-bottom:var(--space-3); border-bottom:1px solid var(--color-rule); }
+  .strategy-panel-full .dept-head h2{ font-size:var(--text-lg); }
+  .dept-head .dept-desc{ font-family:var(--sans); font-size:var(--text-2xs); color:var(--color-ink-3); text-align:right; }
+  .side-panel h2{ font-size:var(--text-xs); font-weight:600; color:var(--color-ink-2); margin-bottom:var(--space-3); }
+
+  /* 9~10px 모노 설명문 → 읽히는 크기의 본문체. 숫자·시각은 모노 유지 */
+  .role, .rank, .badge, .call-line2, .macro-line2, .strategy-hint, .analysis-hint, .next-up,
+  .panel-empty, .log-empty, .report-date-header, .report-ocr-note, .news-meta, .quote-grid-label,
+  .ca-toggles, .chart-latest, .highlight-label, .ca-fact .k, .log-row, .qa-time, .emp-role,
+  .chat-bubble .bubble-head .role, .analyst-comment-head .role, .foot-note, .dept-desc{
+    font-family:var(--sans); letter-spacing:0;
+  }
+  .role, .emp-role{ font-size:var(--text-2xs); color:var(--color-ink-3); }
+  .rank{ font-size:10px; }
+  .badge{ font-size:10.5px; padding:2px 8px; }
+  .badge.idle, .badge.standby{ background:none; }
+  .call-row .call-line2, .macro-row .macro-line2, .log-row{ font-size:var(--text-2xs); }
+  .log-row .action{ font-size:var(--text-xs); }
+  .panel-empty, .log-empty{ font-size:var(--text-xs); color:var(--color-ink-3); }
+  .task-row, .done-row, .simple-item, .call-row .call-line1, .macro-row .macro-line1{ font-size:var(--text-xs); }
+  .foot-note{ font-size:var(--text-2xs); color:var(--color-ink-3); margin-top:var(--space-8); padding-top:var(--space-4); border-top:1px solid var(--color-rule); }
+
+  .occupant-list{ gap:var(--space-2); }
+  .occupant .name{ font-size:var(--text-sm); }
+  .occupant .role, .occupant .action{ font-family:var(--sans); font-size:var(--text-2xs); color:var(--color-ink-3); letter-spacing:0; }
+  .occupant .action{ color:var(--color-ink-2); }
+  /* 구분선: 점선 → 실선 헤어라인 */
+  .task-row, .call-row, .macro-row, .emp-row, .log-row{ border-bottom-style:solid; }
+
+  /* 경보: 붉은 상자 여러 개 → 왼쪽 여백 정렬된 목록 */
+  .alert-list-lg{ gap:0; }
+  .alert-row-lg{ background:none; border:none; border-top:1px solid var(--color-rule); border-radius:0;
+    padding:var(--space-3) 0; color:var(--color-ink); font-size:var(--text-sm); }
+  .alert-row-lg:first-child{ border-top:none; padding-top:0; }
+  .alert-row{ background:none; border:none; border-left:2px solid var(--error); border-radius:0; padding:2px 0 2px var(--space-2); color:var(--color-ink); }
+
+  /* 입력·버튼: 통일된 컨트롤 반경, 강조색은 주요 동작 하나에만 */
+  .analysis-search input, .us-add input, .strategy-form textarea{
+    background:var(--color-paper); border:1px solid var(--color-rule-2); border-radius:var(--radius-control);
+    font-family:var(--sans); transition:border-color var(--dur-short) var(--ease-out); }
+  .analysis-search input::placeholder, .us-add input::placeholder, .strategy-form textarea::placeholder{ color:var(--color-ink-3); }
+  .stock-btn, .ca-periods button{ border-radius:var(--radius-control); background:none; border-color:var(--color-rule-2);
+    color:var(--color-ink-2); transition:color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
+  .stock-btn:hover, .ca-periods button:hover{ color:var(--color-ink); border-color:var(--color-ink-3); }
+  .stock-btn.active, .ca-periods button.active{ background:var(--color-accent-soft); border-color:var(--color-accent); color:var(--color-ink); }
+  .strategy-form button, .analysis-custom button, #ca-analyze{ border-radius:var(--radius-control); }
+  .dept-link{ background:none; color:var(--color-ink-2); border:1px solid var(--color-rule); font-weight:600;
+    transition:color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
+  .dept-link:hover{ filter:none; color:var(--color-ink); border-color:var(--color-ink-3); }
+  .search-suggestions{ background:var(--color-paper-2); border-color:var(--color-rule-2); box-shadow:0 12px 32px -12px oklch(0% 0 0 / 0.6); }
+
+  /* 시세 카드: 숫자가 주인공 */
+  .quote-grid{ grid-template-columns:repeat(auto-fill, minmax(min(100%, 168px), 1fr)); gap:var(--space-2); }
+  .quote-grid-label{ font-size:var(--text-xs); font-weight:600; color:var(--color-ink-2); margin:var(--space-5) 0 var(--space-2); }
+  .quote-card{ background:var(--color-paper); border-color:var(--color-rule); padding:var(--space-3) var(--space-4); }
+  .quote-card:hover{ transform:none; border-color:var(--color-ink-3); }
+  .quote-card .q-name{ font-size:var(--text-xs); font-weight:600; color:var(--color-ink-2); margin-bottom:var(--space-1); }
+  .quote-card .q-price{ font-size:19px; letter-spacing:-0.02em; }
+  .quote-card .q-change{ font-size:var(--text-2xs); margin-top:var(--space-1); }
+
+  /* 차트·리포트·뉴스: 안쪽 면은 바탕색으로 */
+  .chart-panel, .reports-list, .news-row, .qa-row, .comment-card, .highlight-tile, .chat-bubble .bubble-body{
+    background:var(--color-paper); border-color:var(--color-rule); }
+  .ca-fact{ background:var(--color-paper); }
+  .ca-fact .k{ font-size:var(--text-2xs); color:var(--color-ink-3); }
+  .news-row{ border:none; border-bottom:1px solid var(--color-rule); border-radius:0; padding:var(--space-3) 0; background:none; }
+  .news-row a{ font-size:var(--text-sm); }
+  .news-meta{ font-size:var(--text-2xs); color:var(--color-ink-3); }
+  .report-row.active{ background:var(--color-accent-soft); color:var(--color-ink); box-shadow:inset 2px 0 0 var(--color-accent); }
+  .report-row.active .report-tag{ background:var(--color-paper-3); }
 </style>
 </head>
 <body>
@@ -485,13 +644,13 @@
   <div class="shift-banner" id="shift-banner"><span class="shift-dot"></span><span id="shift-banner-text">연결 중…</span></div>
 
   <div class="tab-nav">
-    <button class="tab-btn active" type="button" data-tab="live" aria-current="page">🏢 라이브 오피스</button>
-    <button class="tab-btn" type="button" data-tab="dashboard">📊 대시보드</button>
-    <button class="tab-btn" type="button" data-tab="ceo">🧭 대표 채팅</button>
-    <button class="tab-btn" type="button" data-tab="analysis">🔎 종목 분석</button>
-    <button class="tab-btn" type="button" data-tab="live-prices">📈 시세</button>
-    <button class="tab-btn" type="button" data-tab="chart-analysis">📉 차트 분석</button>
-    <button class="tab-btn" type="button" data-tab="reports">📄 리포트</button>
+    <button class="tab-btn active" type="button" data-tab="live" aria-current="page">라이브 오피스</button>
+    <button class="tab-btn" type="button" data-tab="dashboard">대시보드</button>
+    <button class="tab-btn" type="button" data-tab="ceo">대표 채팅</button>
+    <button class="tab-btn" type="button" data-tab="analysis">종목 분석</button>
+    <button class="tab-btn" type="button" data-tab="live-prices">시세</button>
+    <button class="tab-btn" type="button" data-tab="chart-analysis">차트 분석</button>
+    <button class="tab-btn" type="button" data-tab="reports">리포트</button>
   </div>
 
   <div class="tab-panel active" data-tab-panel="live">
@@ -499,53 +658,53 @@
   <div class="layout">
     <div class="org">
       <div class="dept-room" data-room="workflow">
-        <div class="dept-head"><h2>⏰ 워크플로우·스케줄링</h2><span class="dept-desc">데일리·이벤트 트리거</span></div>
+        <div class="dept-head"><h2>워크플로우·스케줄링</h2><span class="dept-desc">데일리·이벤트 트리거</span></div>
         <div class="occupant-list" id="room-workflow"></div>
       </div>
       <div class="dept-room" data-room="research">
-        <div class="dept-head"><h2>🔍 AI 리서치</h2><span class="dept-desc">종목·산업·자금흐름</span></div>
+        <div class="dept-head"><h2>AI 리서치</h2><span class="dept-desc">종목·산업·자금흐름</span></div>
         <div class="occupant-list" id="room-research"></div>
       </div>
       <div class="dept-room" data-room="data">
-        <div class="dept-head"><h2>📡 데이터 인프라</h2><span class="dept-desc">시세·공시·뉴스</span></div>
+        <div class="dept-head"><h2>데이터 인프라</h2><span class="dept-desc">시세·공시·뉴스</span></div>
         <div class="occupant-list" id="room-data"></div>
       </div>
       <div class="dept-room" data-room="risk">
-        <div class="dept-head"><h2>⚠️ 리스크 스크리닝</h2><span class="dept-desc">위험 신호 점검</span></div>
+        <div class="dept-head"><h2>리스크 스크리닝</h2><span class="dept-desc">위험 신호 점검</span></div>
         <div class="occupant-list" id="room-risk"></div>
       </div>
       <div class="dept-room" data-room="feedback">
-        <div class="dept-head"><h2>🗂️ 결과 추적·피드백</h2><span class="dept-desc">판단 정확도 검증, 리서치에 반영</span></div>
+        <div class="dept-head"><h2>결과 추적·피드백</h2><span class="dept-desc">판단 정확도 검증, 리서치에 반영</span></div>
         <div class="occupant-list" id="room-feedback"></div>
       </div>
       <div class="dept-room" data-room="strategy">
-        <div class="dept-head"><h2>🧭 전략실</h2><span class="dept-desc">전략 상담 — 질문 있을 때만 근무</span></div>
+        <div class="dept-head"><h2>전략실</h2><span class="dept-desc">전략 상담 — 질문 있을 때만 근무</span></div>
         <div class="occupant-list" id="room-strategy"></div>
       </div>
     </div>
 
     <div class="sidebar">
       <div class="side-panel">
-        <h2>🏃 진행중인 태스크</h2>
+        <h2>진행중인 태스크</h2>
         <div id="tasks-progress"><div class="panel-empty">진행중인 작업 없음</div></div>
       </div>
       <div class="side-panel">
-        <h2>✅ 최근 완료</h2>
+        <h2>최근 완료</h2>
         <div id="tasks-done"><div class="panel-empty">완료 기록 없음</div></div>
       </div>
       <div class="side-panel">
-        <h2>🔺 경보 감지</h2>
+        <h2>경보 감지</h2>
         <div id="priority-alerts-live"><div class="panel-empty">현재 우선 확인 필요 종목 없음</div></div>
       </div>
       <div class="side-panel log-panel">
-        <h2>📋 활동 로그</h2>
+        <h2>활동 로그</h2>
         <div class="log-list" id="log-list"><div class="log-empty">아직 기록 없음</div></div>
       </div>
     </div>
   </div>
 
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>⚠️ 경보 피드</h2><span class="dept-desc">카이·노바·제이드 — 리스크 스크리닝 부서가 낸 경보 전체(제이드 교차확인 전 원본), 새 경보가 뜨면 자동으로 추가됩니다</span></div>
+    <div class="dept-head"><h2>경보 피드</h2><span class="dept-desc">카이·노바·제이드 — 리스크 스크리닝 부서가 낸 경보 전체(제이드 교차확인 전 원본), 새 경보가 뜨면 자동으로 추가됩니다</span></div>
     <div id="risk-alerts"><div class="panel-empty">현재 감지된 경보 없음</div></div>
   </div>
   </div>
@@ -554,41 +713,41 @@
   <div class="layout">
     <div class="sidebar">
       <div class="side-panel">
-        <h2>💰 오늘의 매수/매도 가이드</h2>
+        <h2>오늘의 매수/매도 가이드</h2>
         <div id="trader-calls"><div class="panel-empty">오늘 확정된 콜 없음</div></div>
       </div>
       <div class="side-panel">
-        <h2>🔺 우선 확인</h2>
+        <h2>우선 확인</h2>
         <div id="priority-alerts"><div class="panel-empty">현재 우선 확인 필요 종목 없음</div></div>
       </div>
     </div>
     <div class="sidebar">
       <div class="side-panel">
-        <h2>🇺🇸 CPI/PPI (노바)</h2>
+        <h2>🇸 CPI/PPI (노바)</h2>
         <div id="macro-cpi-ppi"><div class="panel-empty">아직 수집된 데이터 없음</div></div>
       </div>
       <div class="side-panel">
-        <h2>🏦 FOMC 캘린더 (캘리)</h2>
+        <h2>FOMC 캘린더 (캘리)</h2>
         <div id="fomc-calendar"><div class="panel-empty">아직 확인된 일정 없음</div></div>
       </div>
       <div class="side-panel">
-        <h2>🎬 오늘의 추천 영상</h2>
+        <h2>오늘의 추천 영상</h2>
         <div id="youtube-pick"><div class="panel-empty">아직 선정된 영상 없음</div></div>
       </div>
       <div class="side-panel">
-        <h2>📊 직원별 적중률</h2>
+        <h2>직원별 적중률</h2>
         <div id="employee-accuracy"><div class="panel-empty">아직 검증된 기록 없음</div></div>
       </div>
     </div>
   </div>
 
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>💬 애널리스트별 오늘의 종목 코멘트</h2><span class="dept-desc">탐·베라·주노·카이·제이드가 워치리스트 6종목에 오늘 남긴 의견 — 사이드바 적중률과 별개로 여기서 크게 확인</span></div>
+    <div class="dept-head"><h2>애널리스트별 오늘의 종목 코멘트</h2><span class="dept-desc">탐·베라·주노·카이·제이드가 워치리스트 6종목에 오늘 남긴 의견 — 사이드바 적중률과 별개로 여기서 크게 확인</span></div>
     <div id="analyst-comments"><div class="panel-empty">아직 남긴 의견 없음</div></div>
   </div>
 
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>📰 오늘의 주요뉴스</h2><span class="dept-desc">보유종목·지수·매크로 헤드라인 — 최신순, 5분마다 갱신</span></div>
+    <div class="dept-head"><h2>오늘의 주요뉴스</h2><span class="dept-desc">보유종목·지수·매크로 헤드라인 — 최신순, 5분마다 갱신</span></div>
     <div id="news-digest-list"><div class="panel-empty">불러오는 중…</div></div>
   </div>
 
@@ -604,7 +763,7 @@
 
   <div class="tab-panel" data-tab-panel="ceo">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>🧭 대표 채팅 — 전략실에 물어보기</h2><span class="dept-desc">아이비·맥스·리나 — 5~10분 내 검토 후 답변</span></div>
+    <div class="dept-head"><h2>대표 채팅 — 전략실에 물어보기</h2><span class="dept-desc">아이비·맥스·리나 — 5~10분 내 검토 후 답변</span></div>
     <div class="strategy-form">
       <textarea id="strategy-input" aria-label="전략실 질문" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
       <button id="strategy-submit" type="button">질문 남기기</button>
@@ -616,7 +775,7 @@
 
   <div class="tab-panel" data-tab-panel="analysis">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>🔎 종목 분석</h2><span class="dept-desc">워치리스트 6종목은 오늘 자동 생성된 리서치를, 그 외 종목은 실시간 기술적 지표만으로 분석</span></div>
+    <div class="dept-head"><h2>종목 분석</h2><span class="dept-desc">워치리스트 6종목은 오늘 자동 생성된 리서치를, 그 외 종목은 실시간 기술적 지표만으로 분석</span></div>
     <div class="analysis-controls" id="watchlist-buttons"></div>
     <div class="analysis-custom">
       <div class="analysis-search">
@@ -633,7 +792,7 @@
 
   <div class="tab-panel" data-tab-panel="live-prices">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>📈 시세</h2><span class="dept-desc">보유종목·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
+    <div class="dept-head"><h2>시세</h2><span class="dept-desc">보유종목·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
     <div class="quote-grid-label">보유종목</div>
     <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중…</div></div>
     <div class="quote-grid-label">나스닥 관심종목 (USD · 토스 실시간)</div>
@@ -653,7 +812,7 @@
         <div id="chart-container"><div class="panel-empty">일봉 캔들차트가 여기 표시됩니다</div></div>
       </div>
       <div class="chart-panel">
-        <div class="chart-head"><span class="chart-title">📰 종목 뉴스</span></div>
+        <div class="chart-head"><span class="chart-title">종목 뉴스</span></div>
         <div id="stock-news-list"><div class="panel-empty">종목을 클릭하면 뉴스가 표시됩니다</div></div>
       </div>
     </div>
@@ -662,7 +821,7 @@
 
   <div class="tab-panel" data-tab-panel="chart-analysis">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>📉 차트 분석</h2><span class="dept-desc">일봉 + 이동평균·볼린저·RSI·MACD·거래량, 지지/저항 자동 탐지 — AI 해석은 차트 데이터만 근거로 작성</span></div>
+    <div class="dept-head"><h2>차트 분석</h2><span class="dept-desc">일봉 + 이동평균·볼린저·RSI·MACD·거래량, 지지/저항 자동 탐지 — AI 해석은 차트 데이터만 근거로 작성</span></div>
     <div class="analysis-controls" id="ca-watchlist"></div>
     <div class="analysis-custom">
       <div class="analysis-search">
@@ -702,7 +861,7 @@
 
   <div class="tab-panel" data-tab-panel="reports">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>📄 리포트</h2><span class="dept-desc">증권사 리포트 PDF — 스카우트가 매시간 자동 수집, 클릭하면 핵심 수치 추출 + 원문 표시</span></div>
+    <div class="dept-head"><h2>리포트</h2><span class="dept-desc">증권사 리포트 PDF — 스카우트가 매시간 자동 수집, 클릭하면 핵심 수치 추출 + 원문 표시</span></div>
     <div class="reports-layout">
       <div class="reports-list" id="reports-list"><div class="panel-empty">불러오는 중…</div></div>
       <div class="reports-viewer">
