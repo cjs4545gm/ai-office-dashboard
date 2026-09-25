@@ -591,7 +591,7 @@
     <div class="analysis-controls" id="watchlist-buttons"></div>
     <div class="analysis-custom">
       <div class="analysis-search">
-        <input id="stock-search-input" placeholder="종목명 또는 코드 검색 (예: POSCO홀딩스, 005490)" autocomplete="off">
+        <input id="stock-search-input" placeholder="종목명·코드·미국 티커 검색 (예: POSCO홀딩스, 005490, NVDA)" autocomplete="off">
         <div class="search-suggestions" id="search-suggestions" style="display:none;"></div>
       </div>
       <button id="custom-analyze" type="button" disabled>기술적 분석 시작</button>
@@ -631,7 +631,7 @@
     <div class="analysis-controls" id="ca-watchlist"></div>
     <div class="analysis-custom">
       <div class="analysis-search">
-        <input id="ca-search-input" placeholder="종목명 또는 코드 검색 (예: 한화에어로스페이스, 012450)" autocomplete="off">
+        <input id="ca-search-input" placeholder="종목명·코드·미국 티커 검색 (예: 한화에어로스페이스, 012450, SOXL)" autocomplete="off">
         <div class="search-suggestions" id="ca-suggestions" style="display:none;"></div>
       </div>
       <div class="ca-periods" id="ca-periods">
@@ -1441,9 +1441,11 @@
 
   function hideSuggestions(){ suggestionsEl.style.display = "none"; suggestionsEl.innerHTML = ""; }
 
+  // 자동완성 없이 직접 입력해도 되는 코드 — 국내 6자리 종목코드 또는 미국 티커(SOXL 등, 2026-09-25)
+  const RAW_CODE_RE = /^(\d{6}|[A-Za-z]{1,5})$/;
   function updateAnalyzeButtonState(){
     const raw = searchInput.value.trim();
-    const disabled = !selectedCustomStock && !/^\d{6}$/.test(raw);
+    const disabled = !selectedCustomStock && !RAW_CODE_RE.test(raw);
     analyzeButton.disabled = disabled;
     financialsButton.disabled = disabled;
   }
@@ -1488,7 +1490,7 @@
 
   function resolveCustomTarget(){
     const raw = searchInput.value.trim();
-    return selectedCustomStock || (/^\d{6}$/.test(raw) ? { name: raw, code: raw } : null);
+    return selectedCustomStock || (RAW_CODE_RE.test(raw) ? { name: raw.toUpperCase(), code: raw.toUpperCase() } : null);
   }
 
   analyzeButton.addEventListener("click", async () => {
@@ -1546,6 +1548,11 @@
   function formatPrice(price){
     if (price === null || price === undefined) return "—";
     return price.toLocaleString("ko-KR", { maximumFractionDigits: 2 });
+  }
+  // 차트 분석용 — 원화는 원 단위로 반올림, 미국 종목(USD, 토스 일봉)은 센트까지 살리고 $를 붙인다(2026-09-25).
+  function caPrice(v){
+    if (v === null || v === undefined) return "—";
+    return caData && caData.currency === "USD" ? "$" + formatPrice(Math.round(v * 100) / 100) : formatPrice(Math.round(v));
   }
 
   function changeClass(change){
@@ -1737,7 +1744,7 @@
     for (let t = 0; t <= 4; t++){
       const v = loP + (hiP - loP) * t / 4, yy = yP(v);
       out += `<line x1="${padL}" x2="${W - padR}" y1="${yy}" y2="${yy}" stroke="#262a35" stroke-width="1"></line>`;
-      out += `<text x="${W - padR + 4}" y="${yy + 3}" font-size="10" fill="#8b92a6">${formatPrice(Math.round(v))}</text>`;
+      out += `<text x="${W - padR + 4}" y="${yy + 3}" font-size="10" fill="#8b92a6">${caPrice(v)}</text>`;
     }
     if (caLayerOn("bb")){
       const up = s.bb_upper, lo = s.bb_lower;
@@ -1766,7 +1773,7 @@
         const yy = yP(lv.price), labelY = Math.max(yy - 4, lastLabelY + 12);
         lastLabelY = labelY;
         out += `<line x1="${padL}" x2="${W - padR}" y1="${yy}" y2="${yy}" stroke="${color}" stroke-width="1" stroke-dasharray="6 4" opacity="0.85"></line>`;
-        out += `<text x="${padL + 4}" y="${labelY}" font-size="10" fill="${color}" paint-order="stroke" stroke="#0f1116" stroke-width="3">${lv.kind === "resistance" ? "저항" : "지지"} ${formatPrice(Math.round(lv.price))} · ${lv.touches}회</text>`;
+        out += `<text x="${padL + 4}" y="${labelY}" font-size="10" fill="${color}" paint-order="stroke" stroke="#0f1116" stroke-width="3">${lv.kind === "resistance" ? "저항" : "지지"} ${caPrice(lv.price)} · ${lv.touches}회</text>`;
       });
     }
     if (caLayerOn("signals")){
@@ -1833,7 +1840,7 @@
   function caTooltipHTML(i){
     const k = caData.candles[i], s = caData.series, prev = caData.candles[i - 1];
     const pct = prev ? (k.close / prev.close - 1) * 100 : null;
-    const fmt = v => v === null || v === undefined ? "—" : formatPrice(Math.round(v));
+    const fmt = caPrice;
     return `<b>${escapeHtml(k.date)}</b>${pct === null ? "" : ` <span style="color:${pct >= 0 ? CA_UP : CA_DOWN}">${pct >= 0 ? "+" : ""}${pct.toFixed(2)}%</span>`}<br>
       시 ${fmt(k.open)} · 고 ${fmt(k.high)}<br>저 ${fmt(k.low)} · 종 ${fmt(k.close)}<br>
       ${k.volume !== undefined ? `거래량 ${k.volume.toLocaleString("ko-KR")}<br>` : ""}
@@ -1893,7 +1900,7 @@
       if (!resp.ok || !data.ok) throw new Error(data.error || "차트를 불러오지 못함");
       caData = data;
       const m = data.summary;
-      document.getElementById("ca-latest").innerHTML = `${escapeHtml(m.date)} 종가 ${formatPrice(m.last)} <span style="color:${m.pct_1d >= 0 ? CA_UP : CA_DOWN}">${m.pct_1d >= 0 ? "+" : ""}${m.pct_1d.toFixed(2)}%</span>`;
+      document.getElementById("ca-latest").innerHTML = `${escapeHtml(m.date)} 종가 ${caPrice(m.last)} <span style="color:${m.pct_1d >= 0 ? CA_UP : CA_DOWN}">${m.pct_1d >= 0 ? "+" : ""}${m.pct_1d.toFixed(2)}%</span>`;
       renderChartAnalysis();
       caAnalyzeButton.disabled = false;
     } catch (e) {
@@ -1934,7 +1941,7 @@
     const first = caSuggestions.querySelector(".sug-item[data-code]");
     const raw = caInput.value.trim();
     if (first) selectChartStock({ name: first.dataset.name, code: first.dataset.code });
-    else if (/^\d{6}$/.test(raw)) selectChartStock({ name: raw, code: raw });
+    else if (RAW_CODE_RE.test(raw)) selectChartStock({ name: raw.toUpperCase(), code: raw.toUpperCase() });
   });
   caSuggestions.addEventListener("click", ev => {
     const item = ev.target.closest(".sug-item[data-code]");
