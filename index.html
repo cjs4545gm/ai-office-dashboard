@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="theme-color" content="#000000">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>부서 현황판</title>
 <style>
@@ -29,6 +30,15 @@
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   }
   *{ box-sizing:border-box; }
+  /* 2026-09-25 UI 점검: 키보드 포커스 표시, 숫자 자릿수 정렬, 모션 줄이기 설정 존중 */
+  :where(button, a, input, textarea, select, summary, [tabindex]):focus-visible{
+    outline:2px solid var(--accent); outline-offset:2px;
+  }
+  :where(input, textarea):focus{ border-color:var(--accent); outline:none; }
+  body{ font-variant-numeric:tabular-nums; }
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{ animation:none !important; transition:none !important; }
+  }
   html, body{ margin:0; padding:0; }
   body{
     min-height:100vh;
@@ -52,7 +62,9 @@
   .signboard{
     display:flex; align-items:center; justify-content:space-between; gap:12px;
     padding:12px 16px; margin-bottom:12px; border-radius:12px;
-    background:linear-gradient(135deg, #5b7fff, #7aa2ff); border:1px solid var(--line);
+    /* 2026-09-25: 블랙 테마에서 밝은 파란 간판만 튀어서, 어두운 면 + 액센트 틴트로 톤을 맞춤 */
+    background:linear-gradient(135deg, rgba(111,140,255,0.18), rgba(111,140,255,0.03) 60%), var(--wall-2);
+    border:1px solid rgba(111,140,255,0.35);
   }
   .logo{ display:flex; align-items:center; gap:10px; }
   .logo .bars{ display:flex; align-items:flex-end; gap:2px; height:22px; }
@@ -61,9 +73,9 @@
   .logo .bars i:nth-child(2){ height:75%; background:var(--done); }
   .logo .bars i:nth-child(3){ height:55%; background:var(--error); }
   .logo .bars i:nth-child(4){ height:95%; background:var(--done); }
-  .logo h1{ margin:0; font-family:var(--mono); font-size:17px; font-weight:700; letter-spacing:0.06em; color:#ffffff; }
-  .logo .sub{ font-family:var(--mono); font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.78); margin-top:2px; }
-  .signboard .live{ font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,0.85); display:flex; align-items:center; gap:6px; white-space:nowrap; }
+  .logo h1{ margin:0; font-family:var(--mono); font-size:17px; font-weight:700; letter-spacing:0.06em; color:var(--cream); }
+  .logo .sub{ font-family:var(--mono); font-size:10px; letter-spacing:0.1em; color:var(--muted); margin-top:2px; }
+  .signboard .live{ font-family:var(--mono); font-size:10.5px; color:var(--muted); display:flex; align-items:center; gap:6px; white-space:nowrap; }
   .live .pulse{ width:8px; height:8px; border-radius:50%; background:var(--done); box-shadow:0 0 8px var(--done); animation:pulse 1.6s infinite; }
   @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.3; } }
 
@@ -202,6 +214,7 @@
   .alert-row{ font-size:11px; color:var(--error); background:rgba(239,107,99,0.1); border:1px solid rgba(239,107,99,0.35); border-radius:6px; padding:5px 8px; }
 
   .alert-list-lg{ display:flex; flex-direction:column; gap:9px; }
+  .alert-row-lg .inline-link{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
   .alert-row-lg{ font-size:14px; line-height:1.5; color:var(--error); background:rgba(239,107,99,0.1); border:1px solid rgba(239,107,99,0.35); border-radius:8px; padding:10px 14px; }
 
   .macro-row{ padding:6px 0; border-bottom:1px dashed var(--line); }
@@ -370,12 +383,16 @@
   .quote-card .q-flat{ color:var(--muted); }
   .quote-card .q-empty{ font-family:var(--mono); font-size:11px; color:var(--muted); }
   .quote-card{ position:relative; }
-  .quote-card .q-remove{
+  .quote-cell .q-remove{
     position:absolute; top:4px; right:6px; font-size:12px; line-height:1; color:var(--muted);
     padding:2px 4px; border-radius:4px; opacity:0; transition:opacity 0.15s ease;
   }
-  .quote-card:hover .q-remove{ opacity:1; }
-  .quote-card .q-remove:hover{ color:var(--cream); background:var(--wall-3); }
+  /* ✕는 카드(<button>) 안에 버튼을 넣을 수 없어서 카드 옆 형제로 두고 .quote-cell로 겹친다 */
+  .quote-cell{ position:relative; display:grid; }
+  .quote-cell .q-remove{ border:none; background:none; font-family:var(--sans); cursor:pointer; z-index:1; }
+  .quote-cell:hover .q-remove, .quote-cell:focus-within .q-remove{ opacity:1; }
+  .quote-cell .q-remove:hover{ color:var(--cream); background:var(--wall-3); }
+  @media (hover:none){ .quote-cell .q-remove{ opacity:1; } }
   .us-add{ position:relative; max-width:320px; margin:0 4px 10px; }
   .us-add input{
     width:100%; font-family:var(--sans); font-size:12px; padding:7px 10px; border-radius:8px;
@@ -462,13 +479,13 @@
         <div class="sub">6개 부서 · 21명 · status.json 실시간 연동</div>
       </div>
     </div>
-    <div class="live"><span class="pulse"></span><span id="updated-at">연결 중...</span></div>
+    <div class="live"><span class="pulse"></span><span id="updated-at" aria-live="polite">연결 중…</span></div>
   </div>
 
-  <div class="shift-banner" id="shift-banner"><span class="shift-dot"></span><span id="shift-banner-text">연결 중...</span></div>
+  <div class="shift-banner" id="shift-banner"><span class="shift-dot"></span><span id="shift-banner-text">연결 중…</span></div>
 
   <div class="tab-nav">
-    <button class="tab-btn active" type="button" data-tab="live">🏢 라이브 오피스</button>
+    <button class="tab-btn active" type="button" data-tab="live" aria-current="page">🏢 라이브 오피스</button>
     <button class="tab-btn" type="button" data-tab="dashboard">📊 대시보드</button>
     <button class="tab-btn" type="button" data-tab="ceo">🧭 대표 채팅</button>
     <button class="tab-btn" type="button" data-tab="analysis">🔎 종목 분석</button>
@@ -572,7 +589,7 @@
 
   <div class="strategy-panel-full">
     <div class="dept-head"><h2>📰 오늘의 주요뉴스</h2><span class="dept-desc">보유종목·지수·매크로 헤드라인 — 최신순, 5분마다 갱신</span></div>
-    <div id="news-digest-list"><div class="panel-empty">불러오는 중...</div></div>
+    <div id="news-digest-list"><div class="panel-empty">불러오는 중…</div></div>
   </div>
 
   <div class="dept-links">
@@ -589,7 +606,7 @@
   <div class="strategy-panel-full">
     <div class="dept-head"><h2>🧭 대표 채팅 — 전략실에 물어보기</h2><span class="dept-desc">아이비·맥스·리나 — 5~10분 내 검토 후 답변</span></div>
     <div class="strategy-form">
-      <textarea id="strategy-input" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
+      <textarea id="strategy-input" aria-label="전략실 질문" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
       <button id="strategy-submit" type="button">질문 남기기</button>
     </div>
     <div class="strategy-hint" id="strategy-hint">로컬 서버로 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 GitHub 이슈에 답변을 남깁니다.</div>
@@ -603,7 +620,7 @@
     <div class="analysis-controls" id="watchlist-buttons"></div>
     <div class="analysis-custom">
       <div class="analysis-search">
-        <input id="stock-search-input" placeholder="종목명·코드·미국 티커 검색 (예: POSCO홀딩스, 005490, NVDA)" autocomplete="off">
+        <input id="stock-search-input" aria-label="종목 검색" placeholder="종목명·코드·미국 티커 검색 (예: POSCO홀딩스, 005490, NVDA)" autocomplete="off">
         <div class="search-suggestions" id="search-suggestions" style="display:none;"></div>
       </div>
       <button id="custom-analyze" type="button" disabled>기술적 분석 시작</button>
@@ -618,15 +635,15 @@
   <div class="strategy-panel-full">
     <div class="dept-head"><h2>📈 시세</h2><span class="dept-desc">보유종목·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
     <div class="quote-grid-label">보유종목</div>
-    <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중...</div></div>
+    <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중…</div></div>
     <div class="quote-grid-label">나스닥 관심종목 (USD · 토스 실시간)</div>
     <div class="us-add">
-      <input id="us-add-input" placeholder="미국 티커·종목 추가 (예: TSLA, 엔비디아)" autocomplete="off">
+      <input id="us-add-input" aria-label="나스닥 관심종목 추가" placeholder="미국 티커·종목 추가 (예: TSLA, 엔비디아)" autocomplete="off">
       <div class="search-suggestions" id="us-add-suggestions" style="display:none;"></div>
     </div>
-    <div class="quote-grid" id="live-us-grid"><div class="panel-empty">불러오는 중...</div></div>
+    <div class="quote-grid" id="live-us-grid"><div class="panel-empty">불러오는 중…</div></div>
     <div class="quote-grid-label">지수</div>
-    <div class="quote-grid" id="live-indices-grid"><div class="panel-empty">불러오는 중...</div></div>
+    <div class="quote-grid" id="live-indices-grid"><div class="panel-empty">불러오는 중…</div></div>
     <div class="chart-with-news">
       <div class="chart-panel">
         <div class="chart-head">
@@ -649,7 +666,7 @@
     <div class="analysis-controls" id="ca-watchlist"></div>
     <div class="analysis-custom">
       <div class="analysis-search">
-        <input id="ca-search-input" placeholder="종목명·코드·미국 티커 검색 (예: 한화에어로스페이스, 012450, SOXL)" autocomplete="off">
+        <input id="ca-search-input" aria-label="차트 종목 검색" placeholder="종목명·코드·미국 티커 검색 (예: 한화에어로스페이스, 012450, SOXL)" autocomplete="off">
         <div class="search-suggestions" id="ca-suggestions" style="display:none;"></div>
       </div>
       <div class="ca-periods" id="ca-periods">
@@ -687,7 +704,7 @@
   <div class="strategy-panel-full">
     <div class="dept-head"><h2>📄 리포트</h2><span class="dept-desc">증권사 리포트 PDF — 스카우트가 매시간 자동 수집, 클릭하면 핵심 수치 추출 + 원문 표시</span></div>
     <div class="reports-layout">
-      <div class="reports-list" id="reports-list"><div class="panel-empty">불러오는 중...</div></div>
+      <div class="reports-list" id="reports-list"><div class="panel-empty">불러오는 중…</div></div>
       <div class="reports-viewer">
         <div id="report-highlights"><div class="panel-empty">왼쪽에서 리포트를 선택해주세요</div></div>
         <div id="report-pdf-frame"></div>
@@ -802,6 +819,13 @@
   // innerHTML에 그대로 꽂으면 저장형 XSS로 이어질 수 있다 — 반드시 이스케이프 후 삽입.
   function escapeHtml(str){
     return String(str ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+  }
+
+  // 경보 문구에 AI가 [제목](url) 마크다운을 그대로 넣어서 원문이 노출됐다(2026-09-25).
+  // 이스케이프한 뒤에 http(s) 링크만 <a>로 바꾼다.
+  function linkifyMarkdown(escaped){
+    return escaped.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      (_, text, url) => `<a class="inline-link" href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`);
   }
 
   // ---- 사이드바 / 로그 ----
@@ -1117,7 +1141,7 @@
     const el = document.getElementById("risk-alerts");
     el.innerHTML = (!alerts || alerts.length === 0)
       ? '<div class="panel-empty">현재 감지된 경보 없음</div>'
-      : `<div class="alert-list-lg">${alerts.map(a => `<div class="alert-row-lg">${escapeHtml(a)}</div>`).join("")}</div>`;
+      : `<div class="alert-list-lg">${alerts.map(a => `<div class="alert-row-lg">${linkifyMarkdown(escapeHtml(a))}</div>`).join("")}</div>`;
   }
 
   const MACRO_STATUS_LABEL = { safe: "생존", caution: "혼조", risk: "위험" };
@@ -1302,7 +1326,7 @@
         ? `<div class="qa-a">${escapeHtml(qa.answer)}</div>
            <div class="qa-time">${askedLabel} · ${timeAgo(qa.answered_at)} 답변 · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">전체 보기 ↗</a></div>`
         : qa.status === "submitting"
-        ? `<div class="qa-a qa-waiting">⏳ 접수 중...</div>
+        ? `<div class="qa-a qa-waiting">⏳ 접수 중…</div>
            <div class="qa-time">${askedLabel}</div>`
         : qa.status === "failed"
         ? `<div class="qa-a qa-waiting">⚠️ 접수 실패 — 로컬 서버 연결 안 됨. 다시 시도해주세요.</div>
@@ -1349,7 +1373,7 @@
     // 낙관적 항목부터 추가하고 이후 성공/실패에 따라 같은 항목의 상태만 갱신한다.
     input.value = "";
     button.disabled = true;
-    button.textContent = "접수 중...";
+    button.textContent = "접수 중…";
     const entry = { question: text, asked_at: new Date().toISOString(), status: "submitting" };
     optimisticQuestions.push(entry);
     saveOptimisticQuestions();
@@ -1437,7 +1461,7 @@
 
   async function loadResearch(stock){
     const el = document.getElementById("analysis-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ 최신 리서치 노트 불러오는 중...</div>';
+    el.innerHTML = '<div class="analysis-loading">⏳ 최신 리서치 노트 불러오는 중…</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/research?stock=${encodeURIComponent(stock)}`, { signal: AbortSignal.timeout(10000) });
       const data = await resp.json();
@@ -1519,7 +1543,7 @@
     selectedWatchlistStock = null;
     hideSuggestions();
     const el = document.getElementById("analysis-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ 실시간 시세로 기술적 지표 계산 후 분석 작성 중... (10~30초 소요)</div>';
+    el.innerHTML = '<div class="analysis-loading">⏳ 실시간 시세로 기술적 지표 계산 후 분석 작성 중… (10~30초 소요)</div>';
     analyzeButton.disabled = true;
     financialsButton.disabled = true;
     try {
@@ -1542,7 +1566,7 @@
     selectedWatchlistStock = null;
     hideSuggestions();
     const el = document.getElementById("analysis-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ DART 공시에서 재무제표 가져와 분석 작성 중... (10~30초 소요)</div>';
+    el.innerHTML = '<div class="analysis-loading">⏳ DART 공시에서 재무제표 가져와 분석 작성 중… (10~30초 소요)</div>';
     analyzeButton.disabled = true;
     financialsButton.disabled = true;
     try {
@@ -1591,17 +1615,16 @@
     const typeAttr = clickable ? ' type="button"' : "";
     if (item.price === null || item.price === undefined){
       return `<${tag}${typeAttr} class="quote-card quote-card--static" data-key="${escapeHtml(key)}">
-        <div class="q-name">${escapeHtml(item.name)}</div><div class="q-empty">시세 없음</div>${item.currency === "USD" ? `<span class="q-remove" data-remove="${escapeHtml(item.symbol)}" title="관심종목에서 빼기">✕</span>` : ""}</${tag}>`;
+        <div class="q-name">${escapeHtml(item.name)}</div><div class="q-empty">시세 없음</div></${tag}>`;
     }
     const cls = changeClass(item.change);
     const usd = item.currency === "USD";
     const money = v => usd ? `$${v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : formatPrice(v);
     const changeText = item.change === null || item.change === undefined
-      ? "" : `${changeSign(item.change)}${money(item.change)} (${changeSign(item.pct)}${(item.pct ?? 0).toFixed(2)}%)`;
-    const removeBtn = usd ? `<span class="q-remove" data-remove="${escapeHtml(item.symbol)}" title="관심종목에서 빼기">✕</span>` : "";
+      ? "" : `${item.change < 0 ? "-" : changeSign(item.change)}${money(Math.abs(item.change))} (${changeSign(item.pct)}${(item.pct ?? 0).toFixed(2)}%)`;
     const staticClass = clickable ? "" : " quote-card--static";
     return `<${tag}${typeAttr} class="quote-card${staticClass}" data-key="${escapeHtml(key)}" data-symbol="${escapeHtml(item.symbol || "")}" data-name="${escapeHtml(item.name)}">
-      ${removeBtn}<div class="q-name">${escapeHtml(item.name)}</div>
+      <div class="q-name">${escapeHtml(item.name)}</div>
       <div class="q-price">${money(item.price)}</div>
       <div class="q-change ${cls}">${changeText}</div>
     </${tag}>`;
@@ -1610,23 +1633,22 @@
   function renderLivePrices(data){
     const portfolioEl = document.getElementById("live-portfolio-grid");
     const indicesEl = document.getElementById("live-indices-grid");
+    const focusedKey = document.activeElement?.closest(".quote-grid") ? document.activeElement.dataset.key : null;
     portfolioEl.innerHTML = data.portfolio.map(item => quoteCardHTML(item, `p-${item.symbol}`, true)).join("");
     indicesEl.innerHTML = data.indices.map(item => quoteCardHTML(item, `i-${item.name}`, false)).join("");
     const usEl = document.getElementById("live-us-grid");
     usEl.innerHTML = usWatchlist.length
-      ? (data.us || []).map(item => quoteCardHTML(item, `u-${item.symbol}`, true)).join("")
+      ? (data.us || []).map(item => `<div class="quote-cell">${quoteCardHTML(item, `u-${item.symbol}`, true)}<button type="button" class="q-remove" data-remove="${escapeHtml(item.symbol)}" data-key="rm-${escapeHtml(item.symbol)}" title="관심종목에서 빼기" aria-label="${escapeHtml(item.symbol)} 관심종목에서 빼기">✕</button></div>`).join("")
       : '<div class="panel-empty">위 검색창에서 미국 종목을 추가해주세요</div>';
     [portfolioEl, usEl].forEach(el => el.querySelectorAll(".quote-card[data-symbol]").forEach(card => {
       card.classList.toggle("active", selectedChartTarget && card.dataset.symbol === selectedChartTarget.symbol);
-      card.addEventListener("click", ev => {
-        if (ev.target.closest(".q-remove")) return;
-        loadChart(card.dataset.symbol, card.dataset.name);
-      });
+      card.addEventListener("click", () => loadChart(card.dataset.symbol, card.dataset.name));
     }));
     usEl.querySelectorAll(".q-remove").forEach(btn => btn.addEventListener("click", () => {
       saveUsWatchlist(usWatchlist.filter(s => s !== btn.dataset.remove));
       pollLivePrices();
     }));
+    if (focusedKey) document.querySelector(`.quote-grid [data-key="${CSS.escape(focusedKey)}"]`)?.focus();
   }
 
   // 나스닥 관심종목 — 서버가 아닌 이 브라우저(localStorage)에 저장하고 /live-prices?us=로 넘긴다(2026-09-25).
@@ -1734,7 +1756,7 @@
     document.getElementById("chart-title").textContent = `${name} 일봉`;
     document.getElementById("chart-latest").textContent = "";
     const container = document.getElementById("chart-container");
-    container.innerHTML = '<div class="analysis-loading">⏳ 차트 불러오는 중...</div>';
+    container.innerHTML = '<div class="analysis-loading">⏳ 차트 불러오는 중…</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/candles?symbol=${encodeURIComponent(symbol)}&count=90`, { signal: AbortSignal.timeout(15000) });
       const data = await resp.json();
@@ -1752,7 +1774,7 @@
 
   async function loadStockNews(symbol){
     const el = document.getElementById("stock-news-list");
-    el.innerHTML = '<div class="analysis-loading">⏳ 뉴스 불러오는 중...</div>';
+    el.innerHTML = '<div class="analysis-loading">⏳ 뉴스 불러오는 중…</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/stock-news?symbol=${encodeURIComponent(symbol)}`, { signal: AbortSignal.timeout(15000) });
       const data = await resp.json();
@@ -1978,7 +2000,7 @@
     document.getElementById("ca-title").textContent = `${caTarget.name} (${caTarget.code}) 일봉`;
     document.getElementById("ca-latest").textContent = "";
     document.getElementById("ca-facts").innerHTML = "";
-    container.innerHTML = '<div class="analysis-loading">⏳ 차트 불러오는 중...</div>';
+    container.innerHTML = '<div class="analysis-loading">⏳ 차트 불러오는 중…</div>';
     caAnalyzeButton.disabled = true;
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/chart-data?symbol=${encodeURIComponent(caTarget.code)}&period=${caPeriod}`, { signal: AbortSignal.timeout(15000) });
@@ -2050,7 +2072,7 @@
   caAnalyzeButton.addEventListener("click", async () => {
     if (!caTarget) return;
     const el = document.getElementById("ca-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ 차트 데이터로 해석 작성 중... (10~40초 소요)</div>';
+    el.innerHTML = '<div class="analysis-loading">⏳ 차트 데이터로 해석 작성 중… (10~40초 소요)</div>';
     caAnalyzeButton.disabled = true;
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/chart-analysis?symbol=${encodeURIComponent(caTarget.code)}&name=${encodeURIComponent(caTarget.name)}&period=${caPeriod}`, { signal: AbortSignal.timeout(90000) });
@@ -2133,7 +2155,7 @@
     document.getElementById("report-pdf-frame").innerHTML =
       `<iframe src="${ANALYSIS_ORIGIN}/report-file?path=${encodeURIComponent(path)}" title="리포트 원문"></iframe>`;
     const hEl = document.getElementById("report-highlights");
-    hEl.innerHTML = '<div class="analysis-loading">⏳ 핵심 수치 추출 중... (처음 여는 리포트는 10~20초 소요, 이후 캐시로 즉시)</div>';
+    hEl.innerHTML = '<div class="analysis-loading">⏳ 핵심 수치 추출 중… (처음 여는 리포트는 10~20초 소요, 이후 캐시로 즉시)</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/report-highlights?path=${encodeURIComponent(path)}`, { signal: AbortSignal.timeout(60000) });
       const data = await resp.json();
@@ -2560,7 +2582,8 @@
 
   document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-btn").forEach(b => { b.classList.remove("active"); b.removeAttribute("aria-current"); });
+      btn.setAttribute("aria-current", "page");
       document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
       btn.classList.add("active");
       document.querySelector(`.tab-panel[data-tab-panel="${btn.dataset.tab}"]`).classList.add("active");
