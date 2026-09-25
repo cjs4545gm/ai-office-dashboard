@@ -564,7 +564,9 @@
   .role, .rank, .badge, .call-line2, .macro-line2, .strategy-hint, .analysis-hint, .next-up,
   .panel-empty, .log-empty, .report-date-header, .report-ocr-note, .news-meta, .quote-grid-label,
   .ca-toggles, .chart-latest, .highlight-label, .ca-fact .k, .log-row, .qa-time, .emp-role,
-  .chat-bubble .bubble-head .role, .analyst-comment-head .role, .foot-note, .dept-desc{
+  .chat-bubble .bubble-head .role, .analyst-comment-head .role, .foot-note, .dept-desc,
+  .call-row .call-line2, .macro-row .macro-line2, .qa-row .qa-time, .emp-row .emp-role, .news-row .news-meta,
+  .highlight-tile .highlight-label, .chart-head .chart-latest, .ca-fact .k{
     font-family:var(--sans); letter-spacing:0;
   }
   .role, .emp-role{ font-size:var(--text-2xs); color:var(--color-ink-3); }
@@ -625,6 +627,18 @@
   .news-meta{ font-size:var(--text-2xs); color:var(--color-ink-3); }
   .report-row.active{ background:var(--color-accent-soft); color:var(--color-ink); box-shadow:inset 2px 0 0 var(--color-accent); }
   .report-row.active .report-tag{ background:var(--color-paper-3); }
+  /* 모바일: 워드마크·패널 제목이 글자 단위로 꺾이지 않게 */
+  .logo h1, .dept-head h2{ word-break:keep-all; }
+  .dept-head h2{ flex:none; }
+  @media (max-width:560px){
+    .signboard{ flex-wrap:wrap; gap:var(--space-3); }
+    .logo h1{ font-size:var(--text-lg); }
+    .dept-head{ flex-direction:column; align-items:flex-start; gap:var(--space-1); }
+    .dept-head .dept-desc{ text-align:left; }
+  }
+  .qa-row .qa-h{ display:block; font-weight:700; color:var(--color-ink); margin-top:var(--space-2); }
+  .qa-row strong{ color:var(--color-ink); }
+  @media (max-width:560px){ .quote-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); } .quote-card .q-price{ font-size:var(--text-md); } }
 </style>
 </head>
 <body>
@@ -723,7 +737,7 @@
     </div>
     <div class="sidebar">
       <div class="side-panel">
-        <h2>🇸 CPI/PPI (노바)</h2>
+        <h2>CPI/PPI (노바)</h2>
         <div id="macro-cpi-ppi"><div class="panel-empty">아직 수집된 데이터 없음</div></div>
       </div>
       <div class="side-panel">
@@ -755,7 +769,7 @@
     <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EC%9B%8C%ED%81%AC%ED%94%8C%EB%A1%9C%EC%9A%B0%C2%B7%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81">⏰ 워크플로우·스케줄링</a>
     <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/AI%20%EB%A6%AC%EC%84%9C%EC%B9%98">🔍 AI 리서치</a>
     <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9D%B8%ED%94%84%EB%9D%BC">📡 데이터 인프라</a>
-    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EC%8A%A4%ED%81%AC%EB%A6%AC%EB%8B%9D">⚠️ 리스크 스크리닝</a>
+    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EC%8A%A4%ED%81%AC%EB%A6%AC%EB%8B%9D">리스크 스크리닝</a>
     <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EA%B2%B0%EA%B3%BC%20%EC%B6%94%EC%A0%81%C2%B7%ED%94%BC%EB%93%9C%EB%B0%B1">🗂️ 결과 추적·피드백</a>
     <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EC%A0%84%EB%9E%B5%EC%8B%A4">🧭 전략실</a>
   </div>
@@ -783,9 +797,9 @@
         <div class="search-suggestions" id="search-suggestions" style="display:none;"></div>
       </div>
       <button id="custom-analyze" type="button" disabled>기술적 분석 시작</button>
-      <button id="custom-financials" type="button" disabled>📑 재무제표 분석</button>
+      <button id="custom-financials" type="button" disabled>재무제표 분석</button>
     </div>
-    <div class="analysis-hint" id="analysis-hint">워치리스트는 즉시 표시되고, 그 외 종목도 실시간 시세·뉴스·수급 데이터를 모아 탐·베라·주노·카이·제이드·레오가 같은 형식으로 분석합니다 (20~40초 소요, 증권사 리포트·반도체 가격 데이터는 워치리스트에만 있어 제외). 📑 재무제표 분석은 DART 공시 기준 매출·이익·자산·부채를 전문용어 없이 풀어서 설명합니다 (상장사 전체 대상, 10~30초 소요).</div>
+    <div class="analysis-hint" id="analysis-hint">워치리스트는 즉시 표시되고, 그 외 종목도 실시간 시세·뉴스·수급 데이터를 모아 탐·베라·주노·카이·제이드·레오가 같은 형식으로 분석합니다 (20~40초 소요, 증권사 리포트·반도체 가격 데이터는 워치리스트에만 있어 제외). 재무제표 분석은 DART 공시 기준 매출·이익·자산·부채를 전문용어 없이 풀어서 설명합니다 (상장사 전체 대상, 10~30초 소요).</div>
     <div id="analysis-result"><div class="panel-empty">위에서 종목을 선택하거나 코드를 입력해주세요</div></div>
   </div>
   </div>
@@ -852,7 +866,7 @@
       <div class="ca-facts" id="ca-facts"></div>
     </div>
     <div class="ca-ai-head">
-      <button id="ca-analyze" type="button" disabled>🤖 AI 차트 해석</button>
+      <button id="ca-analyze" type="button" disabled>AI 차트 해석</button>
       <span class="analysis-hint">베라(추세)·탐(지지저항)·카이(보조지표)·제이드(시나리오)·레오(종합) — 10~40초 소요, 참고용</span>
     </div>
     <div id="ca-result"></div>
@@ -982,6 +996,12 @@
 
   // 경보 문구에 AI가 [제목](url) 마크다운을 그대로 넣어서 원문이 노출됐다(2026-09-25).
   // 이스케이프한 뒤에 http(s) 링크만 <a>로 바꾼다.
+  // 전략실 답변은 마크다운 원문 — "## 이름" 줄은 소제목, **굵게**만 살린다
+  function renderAnswerMarkdown(text){
+    return escapeHtml(text || "")
+      .replace(/^#{1,4}\s*(.+)$/gm, '<span class="qa-h">$1</span>')
+      .replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>");
+  }
   function linkifyMarkdown(escaped){
     return escaped.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
       (_, text, url) => `<a class="inline-link" href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`);
@@ -1371,7 +1391,7 @@
     const days = Math.round((new Date(fomc.fomc_date) - today) / 86400000);
     const dday = days === 0 ? "D-DAY" : (days > 0 ? `D-${days}` : `D+${-days}`);
     const warn = fomc.suspicious
-      ? '<div class="macro-line2" style="color:var(--error);">⚠️ 날짜 급변 의심 — 재확인 필요</div>'
+      ? '<div class="macro-line2" style="color:var(--error);">날짜 급변 의심 — 재확인 필요</div>'
       : "";
     el.innerHTML = `
       <div class="macro-row">
@@ -1482,15 +1502,15 @@
         ? ` · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">이슈 보기 ↗</a>`
         : "";
       const answerHtml = qa.answered
-        ? `<div class="qa-a">${escapeHtml(qa.answer)}</div>
+        ? `<div class="qa-a">${renderAnswerMarkdown(qa.answer)}</div>
            <div class="qa-time">${askedLabel} · ${timeAgo(qa.answered_at)} 답변 · <a href="${escapeHtml(qa.issue_url)}" target="_blank" rel="noopener" style="color:inherit;">전체 보기 ↗</a></div>`
         : qa.status === "submitting"
-        ? `<div class="qa-a qa-waiting">⏳ 접수 중…</div>
+        ? `<div class="qa-a qa-waiting">접수 중…</div>
            <div class="qa-time">${askedLabel}</div>`
         : qa.status === "failed"
-        ? `<div class="qa-a qa-waiting">⚠️ 접수 실패 — 로컬 서버 연결 안 됨. 다시 시도해주세요.</div>
+        ? `<div class="qa-a qa-waiting">접수 실패 — 로컬 서버 연결 안 됨. 다시 시도해주세요.</div>
            <div class="qa-time">${askedLabel}</div>`
-        : `<div class="qa-a qa-waiting">🕐 답변 대기 중 (5~10분 내)</div>
+        : `<div class="qa-a qa-waiting">답변 대기 중 (5~10분 내)</div>
            <div class="qa-time">${askedLabel}${issueLink}</div>`;
       return `
         <div class="qa-row">
@@ -1518,7 +1538,7 @@
     const hint = document.getElementById("strategy-hint");
     hint.textContent = localSubmitAvailable
       ? "제출하면 화면 이동 없이 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 답변을 남깁니다."
-      : "⚠️ 로컬 서버(Mac)에 연결할 수 없어 지금은 질문을 접수할 수 없습니다. Mac에서 오피스가 켜져 있는지 확인해주세요.";
+      : "로컬 서버(Mac)에 연결할 수 없어 지금은 질문을 접수할 수 없습니다. Mac에서 오피스가 켜져 있는지 확인해주세요.";
   }
   checkLocalSubmit();
 
@@ -1620,14 +1640,14 @@
 
   async function loadResearch(stock){
     const el = document.getElementById("analysis-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ 최신 리서치 노트 불러오는 중…</div>';
+    el.innerHTML = '<div class="analysis-loading">최신 리서치 노트 불러오는 중…</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/research?stock=${encodeURIComponent(stock)}`, { signal: AbortSignal.timeout(10000) });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "불러오기 실패");
       renderBubbles(data.bubbles);
     } catch (e) {
-      el.innerHTML = `<div class="analysis-error">⚠️ 불러오지 못했습니다 — ${escapeHtml(e.message)}<br>Mac에서 오피스 로컬 서버(office_analysis_server.py)가 켜져 있는지 확인해주세요.</div>`;
+      el.innerHTML = `<div class="analysis-error">불러오지 못했습니다 — ${escapeHtml(e.message)}<br>Mac에서 오피스 로컬 서버(office_analysis_server.py)가 켜져 있는지 확인해주세요.</div>`;
     }
   }
 
@@ -1702,7 +1722,7 @@
     selectedWatchlistStock = null;
     hideSuggestions();
     const el = document.getElementById("analysis-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ 실시간 시세로 기술적 지표 계산 후 분석 작성 중… (10~30초 소요)</div>';
+    el.innerHTML = '<div class="analysis-loading">실시간 시세로 기술적 지표 계산 후 분석 작성 중… (10~30초 소요)</div>';
     analyzeButton.disabled = true;
     financialsButton.disabled = true;
     try {
@@ -1711,7 +1731,7 @@
       if (!resp.ok || !data.ok) throw new Error(data.error || "분석 실패");
       renderBubbles(data.bubbles);
     } catch (e) {
-      el.innerHTML = `<div class="analysis-error">⚠️ 분석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
+      el.innerHTML = `<div class="analysis-error">분석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
     } finally {
       updateAnalyzeButtonState();
     }
@@ -1725,7 +1745,7 @@
     selectedWatchlistStock = null;
     hideSuggestions();
     const el = document.getElementById("analysis-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ DART 공시에서 재무제표 가져와 분석 작성 중… (10~30초 소요)</div>';
+    el.innerHTML = '<div class="analysis-loading">DART 공시에서 재무제표 가져와 분석 작성 중… (10~30초 소요)</div>';
     analyzeButton.disabled = true;
     financialsButton.disabled = true;
     try {
@@ -1734,7 +1754,7 @@
       if (!resp.ok || !data.ok) throw new Error(data.error || "분석 실패");
       renderBubbles(data.bubbles);
     } catch (e) {
-      el.innerHTML = `<div class="analysis-error">⚠️ 분석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
+      el.innerHTML = `<div class="analysis-error">분석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
     } finally {
       updateAnalyzeButtonState();
     }
@@ -1915,7 +1935,7 @@
     document.getElementById("chart-title").textContent = `${name} 일봉`;
     document.getElementById("chart-latest").textContent = "";
     const container = document.getElementById("chart-container");
-    container.innerHTML = '<div class="analysis-loading">⏳ 차트 불러오는 중…</div>';
+    container.innerHTML = '<div class="analysis-loading">차트 불러오는 중…</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/candles?symbol=${encodeURIComponent(symbol)}&count=90`, { signal: AbortSignal.timeout(15000) });
       const data = await resp.json();
@@ -1926,14 +1946,14 @@
       const last = data.candles[data.candles.length - 1];
       document.getElementById("chart-latest").textContent = `${last.date} 종가 ${usd ? "$" + last.close.toFixed(2) : formatPrice(last.close)}`;
     } catch (e) {
-      container.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+      container.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
     }
     loadStockNews(symbol);
   }
 
   async function loadStockNews(symbol){
     const el = document.getElementById("stock-news-list");
-    el.innerHTML = '<div class="analysis-loading">⏳ 뉴스 불러오는 중…</div>';
+    el.innerHTML = '<div class="analysis-loading">뉴스 불러오는 중…</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/stock-news?symbol=${encodeURIComponent(symbol)}`, { signal: AbortSignal.timeout(15000) });
       const data = await resp.json();
@@ -1948,7 +1968,7 @@
           <div class="news-meta">${escapeHtml(i.publisher)} · ${escapeHtml(i.when)}</div>
         </div>`).join("")}</div>`;
     } catch (e) {
-      el.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+      el.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
     }
   }
 
@@ -2159,7 +2179,7 @@
     document.getElementById("ca-title").textContent = `${caTarget.name} (${caTarget.code}) 일봉`;
     document.getElementById("ca-latest").textContent = "";
     document.getElementById("ca-facts").innerHTML = "";
-    container.innerHTML = '<div class="analysis-loading">⏳ 차트 불러오는 중…</div>';
+    container.innerHTML = '<div class="analysis-loading">차트 불러오는 중…</div>';
     caAnalyzeButton.disabled = true;
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/chart-data?symbol=${encodeURIComponent(caTarget.code)}&period=${caPeriod}`, { signal: AbortSignal.timeout(15000) });
@@ -2172,7 +2192,7 @@
       caAnalyzeButton.disabled = false;
     } catch (e) {
       caData = null;
-      container.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}<br>Mac에서 오피스 로컬 서버(office_analysis_server.py)가 켜져 있는지 확인해주세요.</div>`;
+      container.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}<br>Mac에서 오피스 로컬 서버(office_analysis_server.py)가 켜져 있는지 확인해주세요.</div>`;
     }
   }
 
@@ -2231,7 +2251,7 @@
   caAnalyzeButton.addEventListener("click", async () => {
     if (!caTarget) return;
     const el = document.getElementById("ca-result");
-    el.innerHTML = '<div class="analysis-loading">⏳ 차트 데이터로 해석 작성 중… (10~40초 소요)</div>';
+    el.innerHTML = '<div class="analysis-loading">차트 데이터로 해석 작성 중… (10~40초 소요)</div>';
     caAnalyzeButton.disabled = true;
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/chart-analysis?symbol=${encodeURIComponent(caTarget.code)}&name=${encodeURIComponent(caTarget.name)}&period=${caPeriod}`, { signal: AbortSignal.timeout(90000) });
@@ -2246,7 +2266,7 @@
           </div>
         </div>`).join("")}</div>`;
     } catch (e) {
-      el.innerHTML = `<div class="analysis-error">⚠️ 해석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
+      el.innerHTML = `<div class="analysis-error">해석하지 못했습니다 — ${escapeHtml(e.message)}</div>`;
     } finally {
       caAnalyzeButton.disabled = !caData;
     }
@@ -2296,7 +2316,7 @@
       if (resp.ok && data.ok) { allReports = data.reports; renderReportsList(); }
       else throw new Error(data.error || "목록을 불러오지 못함");
     } catch (e) {
-      document.getElementById("reports-list").innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+      document.getElementById("reports-list").innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
     }
   }
 
@@ -2314,19 +2334,19 @@
     document.getElementById("report-pdf-frame").innerHTML =
       `<iframe src="${ANALYSIS_ORIGIN}/report-file?path=${encodeURIComponent(path)}" title="리포트 원문"></iframe>`;
     const hEl = document.getElementById("report-highlights");
-    hEl.innerHTML = '<div class="analysis-loading">⏳ 핵심 수치 추출 중… (처음 여는 리포트는 10~20초 소요, 이후 캐시로 즉시)</div>';
+    hEl.innerHTML = '<div class="analysis-loading">핵심 수치 추출 중… (처음 여는 리포트는 10~20초 소요, 이후 캐시로 즉시)</div>';
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/report-highlights?path=${encodeURIComponent(path)}`, { signal: AbortSignal.timeout(60000) });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "추출 실패");
       if (data.error){
-        hEl.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(data.error)}</div>`;
+        hEl.innerHTML = `<div class="analysis-error">${escapeHtml(data.error)}</div>`;
       } else {
         hEl.innerHTML = highlightsGridHTML(data.highlights)
           + (data.used_ocr ? '<div class="report-ocr-note">🔍 스캔본이라 OCR로 읽었습니다</div>' : "");
       }
     } catch (e) {
-      hEl.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+      hEl.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
     }
   }
 
@@ -2352,7 +2372,7 @@
           <div class="news-meta">${escapeHtml(i.publisher)} · ${escapeHtml(i.when)}</div>
         </div>`).join("")}</div>`;
     } catch (e) {
-      el.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
+      el.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
     }
   }
 
