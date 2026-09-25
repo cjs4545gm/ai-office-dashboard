@@ -639,6 +639,8 @@
   .qa-row .qa-h{ display:block; font-weight:700; color:var(--color-ink); margin-top:var(--space-2); }
   .qa-row strong{ color:var(--color-ink); }
   @media (max-width:560px){ .quote-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); } .quote-card .q-price{ font-size:var(--text-md); } }
+  .highlight-grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
+  .highlight-tile .highlight-value{ word-break:keep-all; font-variant-numeric:tabular-nums; }
 </style>
 </head>
 <body>
@@ -2320,11 +2322,29 @@
     }
   }
 
+  // 리포트 표기 "194,617십억원" → "194조 6,170억원". 모르는 단위·형식은 원문 그대로 둔다
+  const KRW_UNIT_IN_MAN = { "조": 1e8, "십억": 1e5, "억": 1e4, "백만": 100 };
+  function friendlyKrw(value){
+    const m = String(value).trim().match(/^([-−△]?)\s*([\d,]+(?:\.\d+)?)\s*(조|십억|억|백만)\s*원?$/);
+    if (!m) return null;
+    const man = Math.round(parseFloat(m[2].replace(/,/g, "")) * KRW_UNIT_IN_MAN[m[3]]);
+    if (!Number.isFinite(man)) return null;
+    if (man === 0) return "0원";
+    const jo = Math.floor(man / 1e8), eok = Math.floor(man % 1e8 / 1e4), rest = man % 1e4;
+    const parts = [];
+    if (jo) parts.push(`${jo.toLocaleString("ko-KR")}조`);
+    if (eok) parts.push(`${eok.toLocaleString("ko-KR")}억`);
+    if (rest || !parts.length) parts.push(`${rest.toLocaleString("ko-KR")}만`);
+    return `${m[1] ? "-" : ""}${parts.join(" ")}원`;
+  }
+
   function highlightsGridHTML(highlights){
     const entries = Object.entries(highlights || {});
     if (!entries.length) return '<div class="panel-empty">추출된 핵심 수치 없음</div>';
     return `<div class="highlight-grid">${entries.map(([k, v]) => `
-      <div class="highlight-tile"><div class="highlight-label">${escapeHtml(k)}</div><div class="highlight-value">${escapeHtml(v)}</div></div>
+      <div class="highlight-tile"><div class="highlight-label">${escapeHtml(k)}</div>${friendlyKrw(v)
+        ? `<div class="highlight-value" title="리포트 표기: ${escapeHtml(v)}">${escapeHtml(friendlyKrw(v))}</div>`
+        : `<div class="highlight-value">${escapeHtml(v)}</div>`}</div>
     `).join("")}</div>`;
   }
 
