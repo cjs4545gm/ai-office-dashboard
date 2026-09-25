@@ -369,6 +369,18 @@
   .quote-card .q-down{ color:var(--price-down); }
   .quote-card .q-flat{ color:var(--muted); }
   .quote-card .q-empty{ font-family:var(--mono); font-size:11px; color:var(--muted); }
+  .quote-card{ position:relative; }
+  .quote-card .q-remove{
+    position:absolute; top:4px; right:6px; font-size:12px; line-height:1; color:var(--muted);
+    padding:2px 4px; border-radius:4px; opacity:0; transition:opacity 0.15s ease;
+  }
+  .quote-card:hover .q-remove{ opacity:1; }
+  .quote-card .q-remove:hover{ color:var(--cream); background:var(--wall-3); }
+  .us-add{ position:relative; max-width:320px; margin:0 4px 10px; }
+  .us-add input{
+    width:100%; font-family:var(--sans); font-size:12px; padding:7px 10px; border-radius:8px;
+    border:1px solid var(--line); background:var(--wall); color:var(--cream);
+  }
 
   .chart-with-news{ display:grid; grid-template-columns:1fr 320px; gap:14px; align-items:start; }
   @media (max-width:900px){ .chart-with-news{ grid-template-columns:1fr; } }
@@ -604,9 +616,15 @@
 
   <div class="tab-panel" data-tab-panel="live-prices">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>📈 시세</h2><span class="dept-desc">보유종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
+    <div class="dept-head"><h2>📈 시세</h2><span class="dept-desc">보유종목·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
     <div class="quote-grid-label">보유종목</div>
     <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중...</div></div>
+    <div class="quote-grid-label">나스닥 관심종목 (USD · 토스 실시간)</div>
+    <div class="us-add">
+      <input id="us-add-input" placeholder="미국 티커·종목 추가 (예: TSLA, 엔비디아)" autocomplete="off">
+      <div class="search-suggestions" id="us-add-suggestions" style="display:none;"></div>
+    </div>
+    <div class="quote-grid" id="live-us-grid"><div class="panel-empty">불러오는 중...</div></div>
     <div class="quote-grid-label">지수</div>
     <div class="quote-grid" id="live-indices-grid"><div class="panel-empty">불러오는 중...</div></div>
     <div class="chart-with-news">
@@ -1573,15 +1591,18 @@
     const typeAttr = clickable ? ' type="button"' : "";
     if (item.price === null || item.price === undefined){
       return `<${tag}${typeAttr} class="quote-card quote-card--static" data-key="${escapeHtml(key)}">
-        <div class="q-name">${escapeHtml(item.name)}</div><div class="q-empty">시세 없음</div></${tag}>`;
+        <div class="q-name">${escapeHtml(item.name)}</div><div class="q-empty">시세 없음</div>${item.currency === "USD" ? `<span class="q-remove" data-remove="${escapeHtml(item.symbol)}" title="관심종목에서 빼기">✕</span>` : ""}</${tag}>`;
     }
     const cls = changeClass(item.change);
+    const usd = item.currency === "USD";
+    const money = v => usd ? `$${v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : formatPrice(v);
     const changeText = item.change === null || item.change === undefined
-      ? "" : `${changeSign(item.change)}${formatPrice(item.change)} (${changeSign(item.pct)}${(item.pct ?? 0).toFixed(2)}%)`;
+      ? "" : `${changeSign(item.change)}${money(item.change)} (${changeSign(item.pct)}${(item.pct ?? 0).toFixed(2)}%)`;
+    const removeBtn = usd ? `<span class="q-remove" data-remove="${escapeHtml(item.symbol)}" title="관심종목에서 빼기">✕</span>` : "";
     const staticClass = clickable ? "" : " quote-card--static";
     return `<${tag}${typeAttr} class="quote-card${staticClass}" data-key="${escapeHtml(key)}" data-symbol="${escapeHtml(item.symbol || "")}" data-name="${escapeHtml(item.name)}">
-      <div class="q-name">${escapeHtml(item.name)}</div>
-      <div class="q-price">${formatPrice(item.price)}</div>
+      ${removeBtn}<div class="q-name">${escapeHtml(item.name)}</div>
+      <div class="q-price">${money(item.price)}</div>
       <div class="q-change ${cls}">${changeText}</div>
     </${tag}>`;
   }
@@ -1591,15 +1612,77 @@
     const indicesEl = document.getElementById("live-indices-grid");
     portfolioEl.innerHTML = data.portfolio.map(item => quoteCardHTML(item, `p-${item.symbol}`, true)).join("");
     indicesEl.innerHTML = data.indices.map(item => quoteCardHTML(item, `i-${item.name}`, false)).join("");
-    portfolioEl.querySelectorAll(".quote-card[data-symbol]").forEach(card => {
+    const usEl = document.getElementById("live-us-grid");
+    usEl.innerHTML = usWatchlist.length
+      ? (data.us || []).map(item => quoteCardHTML(item, `u-${item.symbol}`, true)).join("")
+      : '<div class="panel-empty">위 검색창에서 미국 종목을 추가해주세요</div>';
+    [portfolioEl, usEl].forEach(el => el.querySelectorAll(".quote-card[data-symbol]").forEach(card => {
       card.classList.toggle("active", selectedChartTarget && card.dataset.symbol === selectedChartTarget.symbol);
-      card.addEventListener("click", () => loadChart(card.dataset.symbol, card.dataset.name));
-    });
+      card.addEventListener("click", ev => {
+        if (ev.target.closest(".q-remove")) return;
+        loadChart(card.dataset.symbol, card.dataset.name);
+      });
+    }));
+    usEl.querySelectorAll(".q-remove").forEach(btn => btn.addEventListener("click", () => {
+      saveUsWatchlist(usWatchlist.filter(s => s !== btn.dataset.remove));
+      pollLivePrices();
+    }));
   }
+
+  // 나스닥 관심종목 — 서버가 아닌 이 브라우저(localStorage)에 저장하고 /live-prices?us=로 넘긴다(2026-09-25).
+  const US_WATCHLIST_KEY = "usWatchlist";
+  let usWatchlist = (() => {
+    try { const v = JSON.parse(localStorage.getItem(US_WATCHLIST_KEY)); if (Array.isArray(v)) return v; } catch (e) {}
+    return ["SOXL", "NVDA"];
+  })();
+  function saveUsWatchlist(list){
+    usWatchlist = list;
+    localStorage.setItem(US_WATCHLIST_KEY, JSON.stringify(list));
+  }
+
+  const usAddInput = document.getElementById("us-add-input");
+  const usAddSuggestions = document.getElementById("us-add-suggestions");
+  let usAddTimer = null;
+  function addUsTicker(code){
+    if (!usWatchlist.includes(code)) saveUsWatchlist([...usWatchlist, code]);
+    usAddInput.value = "";
+    usAddSuggestions.style.display = "none";
+    pollLivePrices();
+  }
+  usAddInput.addEventListener("input", () => {
+    clearTimeout(usAddTimer);
+    const query = usAddInput.value.trim();
+    usAddTimer = setTimeout(async () => {
+      if (!query){ usAddSuggestions.style.display = "none"; return; }
+      try {
+        const resp = await fetch(`${ANALYSIS_ORIGIN}/search?q=${encodeURIComponent(query)}`, { signal: AbortSignal.timeout(5000) });
+        const data = await resp.json();
+        const results = ((data.ok && data.results) || []).filter(r => /^[A-Z]/.test(r.code));  // 미국 종목만
+        usAddSuggestions.innerHTML = results.length
+          ? results.map(r => `<div class="sug-item" data-code="${escapeHtml(r.code)}"><span>${escapeHtml(r.name)}</span><span class="sug-code">${escapeHtml(r.code)}</span></div>`).join("")
+          : '<div class="sug-empty">일치하는 미국 종목 없음</div>';
+        usAddSuggestions.style.display = "block";
+      } catch (e) {
+        usAddSuggestions.style.display = "none";
+      }
+    }, 250);
+  });
+  usAddSuggestions.addEventListener("click", ev => {
+    const item = ev.target.closest(".sug-item[data-code]");
+    if (item) addUsTicker(item.dataset.code);
+  });
+  usAddInput.addEventListener("keydown", ev => {
+    if (ev.key !== "Enter") return;
+    const first = usAddSuggestions.querySelector(".sug-item[data-code]");
+    if (first) addUsTicker(first.dataset.code);
+  });
+  document.addEventListener("click", ev => {
+    if (!ev.target.closest(".us-add")) usAddSuggestions.style.display = "none";
+  });
 
   async function pollLivePrices(){
     try {
-      const resp = await fetch(`${ANALYSIS_ORIGIN}/live-prices`, { signal: AbortSignal.timeout(8000) });
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/live-prices?us=${encodeURIComponent(usWatchlist.join(","))}`, { signal: AbortSignal.timeout(8000) });
       const data = await resp.json();
       if (resp.ok && data.ok) renderLivePrices(data);
     } catch (e) {
@@ -1607,7 +1690,8 @@
     }
   }
 
-  function svgCandlestick(candles){
+  function svgCandlestick(candles, usd){
+    const fp = v => usd ? `$${v.toFixed(2)}` : formatPrice(v);
     const W = 760, H = 260, padTop = 16, padBottom = 24, padLeft = 4, padRight = 4;
     const plotW = W - padLeft - padRight, plotH = H - padTop - padBottom;
     const highs = candles.map(c => c.high), lows = candles.map(c => c.low);
@@ -1636,15 +1720,15 @@
       const d = candles[i].date.slice(5).replace("-", "/");
       labels += `<text x="${cx}" y="${H - 6}" font-size="10" text-anchor="middle" fill="var(--muted)">${d}</text>`;
     });
-    labels += `<text x="${padLeft + 2}" y="${padTop + 10}" font-size="10" fill="var(--muted)">${formatPrice(maxP)}</text>`;
-    labels += `<text x="${padLeft + 2}" y="${H - padBottom - 4}" font-size="10" fill="var(--muted)">${formatPrice(minP)}</text>`;
+    labels += `<text x="${padLeft + 2}" y="${padTop + 10}" font-size="10" fill="var(--muted)">${fp(maxP)}</text>`;
+    labels += `<text x="${padLeft + 2}" y="${H - padBottom - 4}" font-size="10" fill="var(--muted)">${fp(minP)}</text>`;
 
     return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">${bars}${labels}</svg>`;
   }
 
   async function loadChart(symbol, name){
     selectedChartTarget = { symbol, name };
-    document.querySelectorAll("#live-portfolio-grid .quote-card").forEach(card => {
+    document.querySelectorAll("#live-portfolio-grid .quote-card, #live-us-grid .quote-card").forEach(card => {
       card.classList.toggle("active", card.dataset.symbol === symbol);
     });
     document.getElementById("chart-title").textContent = `${name} 일봉`;
@@ -1656,9 +1740,10 @@
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "차트를 불러오지 못함");
       if (!data.candles || data.candles.length === 0) throw new Error("캔들 데이터 없음 (시세 소스 일시 장애일 수 있음)");
-      container.innerHTML = svgCandlestick(data.candles);
+      const usd = /^[A-Z]/.test(symbol);
+      container.innerHTML = svgCandlestick(data.candles, usd);
       const last = data.candles[data.candles.length - 1];
-      document.getElementById("chart-latest").textContent = `${last.date} 종가 ${formatPrice(last.close)}`;
+      document.getElementById("chart-latest").textContent = `${last.date} 종가 ${usd ? "$" + last.close.toFixed(2) : formatPrice(last.close)}`;
     } catch (e) {
       container.innerHTML = `<div class="analysis-error">⚠️ ${escapeHtml(e.message)}</div>`;
     }
