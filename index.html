@@ -1841,7 +1841,8 @@
     const k = caData.candles[i], s = caData.series, prev = caData.candles[i - 1];
     const pct = prev ? (k.close / prev.close - 1) * 100 : null;
     const fmt = caPrice;
-    return `<b>${escapeHtml(k.date)}</b>${pct === null ? "" : ` <span style="color:${pct >= 0 ? CA_UP : CA_DOWN}">${pct >= 0 ? "+" : ""}${pct.toFixed(2)}%</span>`}<br>
+    const live = caData.summary.partial && i === caData.candles.length - 1;  // 장중 미완성 봉
+    return `<b>${escapeHtml(k.date)}${live ? " (진행 중)" : ""}</b>${pct === null ? "" : ` <span style="color:${pct >= 0 ? CA_UP : CA_DOWN}">${pct >= 0 ? "+" : ""}${pct.toFixed(2)}%</span>`}<br>
       시 ${fmt(k.open)} · 고 ${fmt(k.high)}<br>저 ${fmt(k.low)} · 종 ${fmt(k.close)}<br>
       ${k.volume !== undefined ? `거래량 ${k.volume.toLocaleString("ko-KR")}<br>` : ""}
       5일 ${fmt(s.sma5[i])} · 20일 ${fmt(s.sma20[i])}<br>60일 ${fmt(s.sma60[i])} · 120일 ${fmt(s.sma120[i])}<br>
@@ -1881,7 +1882,7 @@
       fact("RSI(14)", `${m.rsi.toFixed(1)} · ${rsiLabel}`, m.rsi >= 70 ? "up" : m.rsi <= 30 ? "down" : ""),
       fact("MACD", m.macd >= m.macd_signal ? "시그널 위 (상승 우위)" : "시그널 아래 (하락 우위)", m.macd >= m.macd_signal ? "up" : "down"),
       fact("볼린저 위치", m.bb_pct === null ? "—" : `${m.bb_pct.toFixed(0)}% (0=하단, 100=상단)`),
-      fact("거래량 / 20일 평균", m.vol_ratio === null ? "데이터 없음" : `${m.vol_ratio.toFixed(2)}배`, m.vol_ratio >= 1.5 ? "up" : ""),
+      fact(m.partial ? `거래량 / 20일 평균 (${m.vol_date.slice(5)} 기준)` : "거래량 / 20일 평균", m.vol_ratio === null ? "데이터 없음" : `${m.vol_ratio.toFixed(2)}배`, m.vol_ratio >= 1.5 ? "up" : ""),
       fact("최근 크로스", lastSignal ? `${lastSignal.date.slice(5)} ${lastSignal.label}` : "구간 내 없음", lastSignal ? (lastSignal.type === "golden" ? "up" : "down") : ""),
     ].join("");
   }
@@ -1900,7 +1901,7 @@
       if (!resp.ok || !data.ok) throw new Error(data.error || "차트를 불러오지 못함");
       caData = data;
       const m = data.summary;
-      document.getElementById("ca-latest").innerHTML = `${escapeHtml(m.date)} 종가 ${caPrice(m.last)} <span style="color:${m.pct_1d >= 0 ? CA_UP : CA_DOWN}">${m.pct_1d >= 0 ? "+" : ""}${m.pct_1d.toFixed(2)}%</span>`;
+      document.getElementById("ca-latest").innerHTML = `${escapeHtml(m.date)} ${m.partial ? "현재가 (장중)" : "종가"} ${caPrice(m.last)} <span style="color:${m.pct_1d >= 0 ? CA_UP : CA_DOWN}">${m.pct_1d >= 0 ? "+" : ""}${m.pct_1d.toFixed(2)}%</span>`;
       renderChartAnalysis();
       caAnalyzeButton.disabled = false;
     } catch (e) {
