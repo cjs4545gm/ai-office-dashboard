@@ -646,7 +646,7 @@
   .agent-limit{ background:var(--color-paper); border:1px solid var(--color-rule); border-radius:var(--radius-card); padding:var(--space-3) var(--space-4); }
   .agent-limit-name{ font-size:var(--text-sm); font-weight:700; margin-bottom:var(--space-2); }
   .meter-row{ display:grid; grid-template-columns:56px minmax(0, 1fr) 44px; align-items:center; gap:var(--space-2); font-size:var(--text-xs); }
-  .meter-row + .meter-reset + .meter-row{ margin-top:var(--space-2); }
+  .meter-reset + .meter-row{ margin-top:var(--space-3); }
   .meter-row .k{ color:var(--color-ink-2); }
   .meter-row .v{ text-align:right; font-weight:700; font-variant-numeric:tabular-nums; }
   .meter{ height:6px; border-radius:999px; background:var(--color-paper-3); overflow:hidden; }
@@ -2030,7 +2030,6 @@
   const AGENT_BUSY = new Set(["Executing", "Thinking", "Working", "Running"]);
   const AGENT_STATUS_KO = { Executing:"실행 중", Thinking:"생각 중", Working:"작업 중", Running:"실행 중", Waiting:"입력 대기", Idle:"유휴" };
   const AGENT_CLI_KO = { claude:"Claude Code", codex:"Codex", opencode:"OpenCode" };
-  const compactKo = new Intl.NumberFormat("ko-KR", { notation:"compact", maximumFractionDigits:1 });
   const clockKo = new Intl.DateTimeFormat("ko-KR", { month:"numeric", day:"numeric", hour:"2-digit", minute:"2-digit", hour12:false });
 
   function durationKo(secs){
@@ -2045,12 +2044,13 @@
     const cls = v >= 85 ? "hot" : v >= 60 ? "warn" : "";
     const reset = resetsAt
       ? `<div class="meter-reset">${escapeHtml(durationKo(resetsAt - Date.now() / 1000))} 후 초기화 (${escapeHtml(clockKo.format(resetsAt * 1000))})</div>`
-      : '<div class="meter-reset"></div>';
+      : "";
     return `<div class="meter-row"><span class="k">${label}</span><div class="meter" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(v)}" aria-label="${label} 사용률"><i class="${cls}" style="width:${v}%"></i></div><span class="v">${Math.round(v)}%</span></div>${reset}`;
   }
   // abtop이 주는 도구 이름("Bash …", "mcp__playwright__…")을 한 줄짜리 우리말로
   const AGENT_TOOL_KO = [
     [/^waiting for input$/i, () => "입력을 기다리는 중"],
+    [/^thinking\W*$/i, () => "생각하는 중"],
     [/^Bash\s+(.*)$/, m => `터미널 명령 실행 — ${m[1]}`],
     [/^mcp__playwright__/, () => "브라우저 자동 조작 중"],
     [/^mcp__claude-in-chrome__/, () => "크롬 브라우저 조작 중"],
@@ -2068,6 +2068,13 @@
     const t = (task || "").trim();
     for (const [re, fmt] of AGENT_TOOL_KO){ const m = t.match(re); if (m) return fmt(m).trim(); }
     return t;
+  }
+  // 5381.8만 → "5,382만", 1.2억 이상은 "1.2억"
+  function tokensKo(n){
+    n = Number(n) || 0;
+    if (n >= 1e8) return `${(n / 1e8).toFixed(1)}억`;
+    if (n >= 1e4) return `${Math.round(n / 1e4).toLocaleString("ko-KR")}만`;
+    return n.toLocaleString("ko-KR");
   }
   function contextAdvice(pct){
     if (pct >= 80) return { cls:"hot", text:"거의 꽉 참 — 곧 오래된 대화가 자동 요약돼요. 큰 작업은 새 세션에서 시작하세요" };
@@ -2135,11 +2142,11 @@
             <div class="agent-id">
               <div class="top"><span class="cli">${escapeHtml(AGENT_CLI_KO[a.agent] || a.agent || "")}</span><span class="proj">${escapeHtml(where)}</span>
                 <span class="agent-status ${busy ? "busy" : "idle"}">${busy ? "일하는 중" : "입력 대기"}</span></div>
-              <div class="sub">${escapeHtml(durationKo(a.elapsed_secs))}째 켜져 있음 · 지금까지 ${escapeHtml(compactKo.format(a.total_tokens || 0))} 토큰 사용 · ${escapeHtml(a.model || "")}</div>
+              <div class="sub">${escapeHtml(durationKo(a.elapsed_secs))}째 켜져 있음 · 지금까지 ${escapeHtml(tokensKo(a.total_tokens))} 토큰 사용 · ${escapeHtml(a.model || "")}</div>
               ${extras ? `<div class="sub">${extras}</div>` : ""}
             </div>
             <div>
-              ${meterHTML("대화 기억", ctx, null).replace('<div class="meter-reset"></div>', "")}
+              ${meterHTML("대화 기억", ctx, null)}
               <div class="meter-reset ${adv.cls}">${escapeHtml(adv.text)}</div>
             </div>
             <div class="agent-task"><span class="k">지금 하는 일</span>${escapeHtml(agentTaskKo(a.current_task))}</div>
@@ -2974,8 +2981,11 @@
       document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
       btn.classList.add("active");
       document.querySelector(`.tab-panel[data-tab-panel="${btn.dataset.tab}"]`).classList.add("active");
+      history.replaceState(null, "", `#${btn.dataset.tab}`);
     });
   });
+  // office.html#agents 처럼 주소로 탭을 바로 연다
+  document.querySelector(`.tab-btn[data-tab="${CSS.escape(location.hash.slice(1))}"]`)?.click();
 
   refresh();
   setInterval(refresh, 4000);
