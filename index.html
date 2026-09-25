@@ -641,6 +641,34 @@
   @media (max-width:560px){ .quote-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); } .quote-card .q-price{ font-size:var(--text-md); } }
   .highlight-grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
   .highlight-tile .highlight-value{ word-break:keep-all; font-variant-numeric:tabular-nums; }
+  /* AI 에이전트 탭 (abtop) */
+  .agent-limits{ display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap:var(--space-2); }
+  .agent-limit{ background:var(--color-paper); border:1px solid var(--color-rule); border-radius:var(--radius-card); padding:var(--space-3) var(--space-4); }
+  .agent-limit-name{ font-size:var(--text-sm); font-weight:700; margin-bottom:var(--space-2); }
+  .meter-row{ display:grid; grid-template-columns:56px minmax(0, 1fr) 44px; align-items:center; gap:var(--space-2); font-size:var(--text-xs); }
+  .meter-row + .meter-reset + .meter-row{ margin-top:var(--space-2); }
+  .meter-row .k{ color:var(--color-ink-2); }
+  .meter-row .v{ text-align:right; font-weight:700; font-variant-numeric:tabular-nums; }
+  .meter{ height:6px; border-radius:999px; background:var(--color-paper-3); overflow:hidden; }
+  .meter > i{ display:block; height:100%; border-radius:inherit; background:var(--color-accent); }
+  .meter > i.warn{ background:var(--working); }
+  .meter > i.hot{ background:var(--error); }
+  .meter-reset{ font-size:var(--text-2xs); color:var(--color-ink-3); margin:2px 0 0 64px; }
+  .agent-list{ display:flex; flex-direction:column; }
+  .agent-row{ display:grid; grid-template-columns:minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.6fr); gap:var(--space-4); align-items:center;
+    padding:var(--space-3) 0; border-top:1px solid var(--color-rule); }
+  .agent-row:first-child{ border-top:none; padding-top:0; }
+  .agent-id{ min-width:0; }
+  .agent-id .top{ display:flex; align-items:center; gap:var(--space-2); flex-wrap:wrap; }
+  .agent-id .cli{ font-size:var(--text-2xs); font-weight:700; padding:1px 7px; border-radius:999px; border:1px solid var(--color-rule-2); color:var(--color-ink-2); }
+  .agent-id .proj{ font-weight:700; font-size:var(--text-sm); }
+  .agent-id .sub, .agent-task{ font-size:var(--text-2xs); color:var(--color-ink-3); margin-top:2px; overflow-wrap:anywhere; }
+  .agent-status{ font-size:var(--text-2xs); font-weight:700; }
+  .agent-status.busy{ color:var(--working); }
+  .agent-status.idle{ color:var(--color-ink-3); }
+  .agent-task{ color:var(--color-ink-2); font-size:var(--text-xs); }
+  .agent-orphans{ margin-top:var(--space-4); padding:var(--space-3) 0 0; border-top:1px solid var(--color-rule); font-size:var(--text-xs); color:var(--error); }
+  @media (max-width:720px){ .agent-row{ grid-template-columns:minmax(0, 1fr); gap:var(--space-2); } }
 </style>
 </head>
 <body>
@@ -667,6 +695,7 @@
     <button class="tab-btn" type="button" data-tab="live-prices">시세</button>
     <button class="tab-btn" type="button" data-tab="chart-analysis">차트 분석</button>
     <button class="tab-btn" type="button" data-tab="reports">리포트</button>
+    <button class="tab-btn" type="button" data-tab="agents">AI 에이전트</button>
   </div>
 
   <div class="tab-panel active" data-tab-panel="live">
@@ -885,6 +914,16 @@
         <div id="report-pdf-frame"></div>
       </div>
     </div>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="agents">
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>AI 에이전트</h2><span class="dept-desc">abtop 스냅샷 — 이 Mac에서 돌고 있는 Claude Code·Codex 세션과 사용 한도, 탭이 열려 있을 때 5초마다 갱신</span></div>
+    <div id="agents-limits"></div>
+    <div class="quote-grid-label">세션</div>
+    <div id="agents-sessions"><div class="panel-empty">불러오는 중…</div></div>
+    <div id="agents-orphans"></div>
   </div>
   </div>
 
@@ -1976,6 +2015,85 @@
 
   pollLivePrices();
   setInterval(pollLivePrices, LIVE_PRICE_POLL_MS);
+
+  // ---- AI 에이전트 탭 — office_analysis_server.py의 /agents(abtop --json 요약). 탭이 보일 때만 폴링
+  const AGENTS_POLL_MS = 5000;
+  const AGENT_BUSY = new Set(["Executing", "Thinking", "Working", "Running"]);
+  const AGENT_STATUS_KO = { Executing:"실행 중", Thinking:"생각 중", Working:"작업 중", Running:"실행 중", Waiting:"입력 대기", Idle:"유휴" };
+  const AGENT_CLI_KO = { claude:"Claude Code", codex:"Codex", opencode:"OpenCode" };
+  const compactKo = new Intl.NumberFormat("ko-KR", { notation:"compact", maximumFractionDigits:1 });
+  const clockKo = new Intl.DateTimeFormat("ko-KR", { month:"numeric", day:"numeric", hour:"2-digit", minute:"2-digit", hour12:false });
+
+  function durationKo(secs){
+    secs = Math.max(0, Math.round(secs || 0));
+    const d = Math.floor(secs / 86400), h = Math.floor(secs % 86400 / 3600), m = Math.floor(secs % 3600 / 60);
+    if (d) return `${d}일 ${h}시간`;
+    if (h) return `${h}시간 ${m}분`;
+    return `${m}분`;
+  }
+  function meterHTML(label, pct, resetsAt){
+    const v = Math.min(100, Math.max(0, Number(pct) || 0));
+    const cls = v >= 85 ? "hot" : v >= 60 ? "warn" : "";
+    const reset = resetsAt
+      ? `<div class="meter-reset">${escapeHtml(durationKo(resetsAt - Date.now() / 1000))} 후 초기화 (${escapeHtml(clockKo.format(resetsAt * 1000))})</div>`
+      : '<div class="meter-reset"></div>';
+    return `<div class="meter-row"><span class="k">${label}</span><div class="meter" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(v)}" aria-label="${label} 사용률"><i class="${cls}" style="width:${v}%"></i></div><span class="v">${Math.round(v)}%</span></div>${reset}`;
+  }
+  function renderAgents(data){
+    const limits = data.rate_limits || [];
+    document.getElementById("agents-limits").innerHTML = limits.length
+      ? `<div class="quote-grid-label">사용 한도</div><div class="agent-limits">${limits.map(r => `
+          <div class="agent-limit">
+            <div class="agent-limit-name">${escapeHtml(AGENT_CLI_KO[r.source] || r.source)}</div>
+            ${meterHTML("5시간", r.five_hour_pct, r.five_hour_resets_at)}
+            ${meterHTML("7일", r.seven_day_pct, r.seven_day_resets_at)}
+          </div>`).join("")}</div>`
+      : '<div class="quote-grid-label">사용 한도</div><div class="panel-empty">한도 데이터 없음 — Claude 응답이 한 번 오간 뒤에 기록됩니다</div>';
+
+    const sessions = data.sessions || [];
+    document.getElementById("agents-sessions").innerHTML = sessions.length
+      ? `<div class="agent-list">${sessions.map(a => {
+          const busy = AGENT_BUSY.has(a.status);
+          const ctx = Number(a.context_percent) || 0;
+          const extras = [
+            a.git_branch && a.git_branch !== "HEAD" ? `브랜치 ${escapeHtml(a.git_branch)}` : "",
+            a.subagents ? `서브에이전트 ${a.subagents}` : "",
+            a.ports && a.ports.length ? `포트 ${a.ports.map(p => escapeHtml(String(p))).join(", ")}` : "",
+          ].filter(Boolean).join(" · ");
+          return `
+          <div class="agent-row">
+            <div class="agent-id">
+              <div class="top"><span class="cli">${escapeHtml(AGENT_CLI_KO[a.agent] || a.agent || "")}</span><span class="proj">${escapeHtml(a.project || "")}</span>
+                <span class="agent-status ${busy ? "busy" : "idle"}">${escapeHtml(AGENT_STATUS_KO[a.status] || a.status || "")}</span></div>
+              <div class="sub">${escapeHtml(a.model || "")} · ${escapeHtml(durationKo(a.elapsed_secs))}째 · 토큰 ${escapeHtml(compactKo.format(a.total_tokens || 0))} · 메모리 ${escapeHtml(String(a.mem_mb ?? "—"))}MB</div>
+              ${extras ? `<div class="sub">${extras}</div>` : ""}
+            </div>
+            <div>${meterHTML("컨텍스트", ctx, null).replace('<div class="meter-reset"></div>', "")}</div>
+            <div class="agent-task">${escapeHtml(a.current_task === "waiting for input" ? "입력 기다리는 중" : a.current_task || "")}</div>
+          </div>`;
+        }).join("")}</div>`
+      : '<div class="panel-empty">실행 중인 에이전트 세션 없음</div>';
+
+    const orphans = data.orphan_ports || [];
+    document.getElementById("agents-orphans").innerHTML = orphans.length
+      ? `<div class="agent-orphans">주인 없는 포트 ${orphans.map(p => escapeHtml(String(p))).join(", ")} — 에이전트가 띄우고 끄지 않은 서버일 수 있습니다</div>`
+      : "";
+  }
+  async function pollAgents(){
+    const panel = document.querySelector('.tab-panel[data-tab-panel="agents"]');
+    if (!panel.classList.contains("active") || document.hidden) return;
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/agents`, { signal: AbortSignal.timeout(15000) });
+      const data = await resp.json();
+      if (!resp.ok || !data.ok) throw new Error(data.error || "abtop 스냅샷을 불러오지 못함");
+      renderAgents(data);
+    } catch (e) {
+      document.getElementById("agents-sessions").innerHTML =
+        `<div class="analysis-error">${escapeHtml(e.message)}<br>Mac에서 오피스 로컬 서버(office_analysis_server.py)가 켜져 있는지 확인해주세요.</div>`;
+    }
+  }
+  setInterval(pollAgents, AGENTS_POLL_MS);
+  document.querySelector('.tab-btn[data-tab="agents"]').addEventListener("click", () => setTimeout(pollAgents));  // 탭 전환 핸들러가 패널을 연 뒤에 실행
 
   // ---- 📉 차트 분석 탭 — office_analysis_server.py의 /chart-data(즉시), /chart-analysis(claude).
   // 지표·지지저항·크로스는 서버가 계산하고, 여기선 SVG로 그리기만 한다(외부 차트 라이브러리 미사용).
