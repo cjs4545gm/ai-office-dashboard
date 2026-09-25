@@ -2047,28 +2047,6 @@
       : "";
     return `<div class="meter-row"><span class="k">${label}</span><div class="meter" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(v)}" aria-label="${label} 사용률"><i class="${cls}" style="width:${v}%"></i></div><span class="v">${Math.round(v)}%</span></div>${reset}`;
   }
-  // abtop이 주는 도구 이름("Bash …", "mcp__playwright__…")을 한 줄짜리 우리말로
-  const AGENT_TOOL_KO = [
-    [/^waiting for input$/i, () => "입력을 기다리는 중"],
-    [/^thinking\W*$/i, () => "생각하는 중"],
-    [/^Bash\s+(.*)$/, m => `터미널 명령 실행 — ${m[1]}`],
-    [/^mcp__playwright__/, () => "브라우저 자동 조작 중"],
-    [/^mcp__claude-in-chrome__/, () => "크롬 브라우저 조작 중"],
-    [/^mcp__github__/, () => "GitHub 작업 중"],
-    [/^mcp__([^_]+)__/, m => `외부 도구(${m[1]}) 사용 중`],
-    [/^(Read|cat)\b\s*(.*)$/, m => `파일 읽는 중 ${m[2]}`],
-    [/^(Edit|Write|MultiEdit|apply_patch)\b\s*(.*)$/, m => `파일 수정 중 ${m[2]}`],
-    [/^(Grep|Glob|rg)\b\s*(.*)$/, m => `파일 검색 중 ${m[2]}`],
-    [/^(WebFetch|WebSearch)\b/, () => "웹에서 찾아보는 중"],
-    [/^(Agent|Task)\b/, () => "서브에이전트에게 일을 맡김"],
-    [/^Skill\b\s*(.*)$/, m => `스킬 실행 중 ${m[1]}`],
-    [/^(shell|exec|js)\b\s*(.*)$/, m => `명령 실행 — ${m[2]}`],
-  ];
-  function agentTaskKo(task){
-    const t = (task || "").trim();
-    for (const [re, fmt] of AGENT_TOOL_KO){ const m = t.match(re); if (m) return fmt(m).trim(); }
-    return t;
-  }
   // 5381.8만 → "5,382만", 1.2억 이상은 "1.2억"
   function tokensKo(n){
     n = Number(n) || 0;
@@ -2149,16 +2127,19 @@
               ${meterHTML("대화 기억", ctx, null)}
               <div class="meter-reset ${adv.cls}">${escapeHtml(adv.text)}</div>
             </div>
-            <div class="agent-task"><span class="k">지금 하는 일</span>${escapeHtml(agentTaskKo(a.current_task))}</div>
+            <div class="agent-task"><span class="k">지금 하는 일</span>${escapeHtml(a.task || "—")}</div>
           </div>`;
         }).join("")}</div>`
       : '<div class="panel-empty">실행 중인 에이전트 세션 없음</div>';
 
     document.getElementById("agents-orphans").innerHTML = "";
   }
+  let agentsInFlight = false;  // abtop 호출이 느릴 때 요청이 겹쳐 쌓이지 않게
   async function pollAgents(){
+    if (agentsInFlight) return;
     const panel = document.querySelector('.tab-panel[data-tab-panel="agents"]');
     if (!panel.classList.contains("active") || document.hidden) return;
+    agentsInFlight = true;
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/agents`, { signal: AbortSignal.timeout(15000) });
       const data = await resp.json();
@@ -2167,6 +2148,8 @@
     } catch (e) {
       document.getElementById("agents-sessions").innerHTML =
         `<div class="analysis-error">${escapeHtml(e.message)}<br>Mac에서 오피스 로컬 서버(office_analysis_server.py)가 켜져 있는지 확인해주세요.</div>`;
+    } finally {
+      agentsInFlight = false;
     }
   }
   setInterval(pollAgents, AGENTS_POLL_MS);
