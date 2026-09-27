@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T14:00:05",
+  "updated_at": "2026-09-27T14:08:47",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-25T16:05:03",
+      "since": "2026-09-27T14:05:06",
       "last_action": "휴장일 — 대기"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-25T16:05:03",
+      "since": "2026-09-27T14:05:06",
       "last_action": "휴장일 — 대기"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "칩 이벤트 기록 (누적 8047건)",
-      "since": "2026-09-27T14:00:05"
+      "last_action": "오즈 이벤트 기록 (누적 8049건)",
+      "since": "2026-09-27T14:05:06"
     },
     "callie": {
       "name": "캘리",
@@ -236,22 +236,6 @@
   "activity_log": [
     {
       "time": "2026-09-25T14:10:05",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T14:10:05",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T14:10:05",
       "employee": "vera",
       "name": "베라",
       "role": "리서치 총괄·품질 검수",
@@ -631,6 +615,22 @@
       "employee": "chip",
       "name": "칩",
       "role": "D램·낸드 현물가 분석",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-27T14:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-27T14:05:06",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
       "status": "idle",
       "action": "휴장일 — 대기"
     }
@@ -928,10 +928,10 @@
     ]
   },
   "youtube_pick": {
-    "title": "AI가 나보다 나를 더 잘 안다면? ‘사본인간’이 시작됐다 | 마인드마이너 송길영 [신과대화]",
-    "url": "https://www.youtube.com/watch?v=G7X-z_3ZzYw",
+    "title": "10월 증시 방향, 결국 ‘금리’가 결정합니다 | 성상현 ABP자산운용 전무&박명석 큐레이터 [주말인터뷰]",
+    "url": "https://www.youtube.com/watch?v=wZ9BFN541fs",
     "channel": "삼프로TV",
-    "date": "2026-09-25"
+    "date": "2026-09-27"
   },
   "macro_cpi_ppi": {
     "cpi": {
