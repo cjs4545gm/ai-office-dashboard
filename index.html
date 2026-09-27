@@ -435,6 +435,19 @@
   .ca-fact .v{ font-family:var(--mono); font-size:12.5px; font-weight:700; margin-top:2px; }
   .ca-fact .v.up{ color:var(--price-up); }
   .ca-fact .v.down{ color:var(--price-down); }
+  .ca-plan{ margin-top:12px; }
+  .ca-plan .plan-head{ display:flex; align-items:baseline; gap:10px; margin-bottom:6px; font-size:12px; font-weight:700; }
+  .ca-plan .plan-head .sub{ font-family:var(--mono); font-size:10px; font-weight:400; color:var(--muted); }
+  .ca-plan .plan-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(170px, 1fr)); gap:8px; }
+  .ca-plan .plan-cell{ background:var(--wall-2); border:1px solid var(--line); border-left:3px solid var(--line); border-radius:8px; padding:7px 10px; }
+  .ca-plan .plan-cell.stop{ border-left-color:#ff5c8a; }
+  .ca-plan .plan-cell.target{ border-left-color:#2ec4b6; }
+  .ca-plan .plan-cell.zone{ border-left-color:#6f8cff; }
+  .ca-plan .plan-cell .k{ font-family:var(--mono); font-size:10px; color:var(--muted); }
+  .ca-plan .plan-cell .v{ font-family:var(--mono); font-size:13px; font-weight:700; margin-top:2px; }
+  .ca-plan .plan-cell .v small{ font-size:11px; font-weight:500; margin-left:4px; }
+  .ca-plan .plan-cell .basis{ font-size:10.5px; color:var(--muted); margin-top:3px; line-height:1.35; }
+  .ca-plan .plan-note{ font-size:10.5px; color:var(--muted); margin-top:6px; line-height:1.45; }
   .ca-ai-head{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:14px 0 12px; }
   .ca-ai-head .analysis-hint{ margin:0; }
   #ca-analyze{
@@ -621,6 +634,8 @@
   .chart-panel, .reports-list, .news-row, .qa-row, .comment-card, .highlight-tile, .chat-bubble .bubble-body{
     background:var(--color-paper); border-color:var(--color-rule); }
   .ca-fact{ background:var(--color-paper); }
+  .ca-plan .plan-cell{ background:var(--color-paper); }
+  .ca-plan .plan-cell .k{ font-size:var(--text-2xs); color:var(--color-ink-3); }
   .ca-fact .k{ font-size:var(--text-2xs); color:var(--color-ink-3); }
   .news-row{ border:none; border-bottom:1px solid var(--color-rule); border-radius:0; padding:var(--space-3) 0; background:none; }
   .news-row a{ font-size:var(--text-sm); }
@@ -874,7 +889,7 @@
 
   <div class="tab-panel" data-tab-panel="chart-analysis">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>차트 분석</h2><span class="dept-desc">일봉 + 이동평균·볼린저·RSI·MACD·거래량, 지지/저항 자동 탐지 — AI 해석은 차트 데이터만 근거로 작성</span></div>
+    <div class="dept-head"><h2>차트 분석</h2><span class="dept-desc">일봉 + 이동평균·볼린저·RSI·MACD·거래량, 지지/저항·손절/익절가 자동 계산 — AI 해석은 차트 데이터만 근거로 작성</span></div>
     <div class="analysis-controls" id="ca-watchlist"></div>
     <div class="analysis-custom">
       <div class="analysis-search">
@@ -895,6 +910,7 @@
       <label><input type="checkbox" data-layer="bb"><span class="sw" style="background:#8b92a6"></span>볼린저</label>
       <label><input type="checkbox" data-layer="levels" checked><span class="sw sw-dash"></span>지지/저항</label>
       <label><input type="checkbox" data-layer="signals" checked>▲▼ 크로스</label>
+      <label><input type="checkbox" data-layer="plan" checked><span class="sw" style="background:#ff5c8a"></span>손절/익절</label>
     </div>
     <div class="chart-panel">
       <div class="chart-head">
@@ -903,6 +919,7 @@
       </div>
       <div id="ca-chart"><div class="panel-empty">위에서 종목을 고르면 차트가 표시됩니다</div></div>
       <div class="ca-facts" id="ca-facts"></div>
+      <div class="ca-plan" id="ca-plan"></div>
     </div>
     <div class="ca-ai-head">
       <button id="ca-analyze" type="button" disabled>AI 차트 해석</button>
@@ -2201,6 +2218,8 @@
     let vals = c.flatMap(k => [k.high, k.low]);
     ["sma5","sma20","sma60","sma120"].forEach(k => { if (caLayerOn(k)) vals = vals.concat(s[k].filter(v => v !== null)); });
     if (caLayerOn("bb")) vals = vals.concat(s.bb_upper.filter(v => v !== null), s.bb_lower.filter(v => v !== null));
+    const plan = caLayerOn("plan") ? data.plan : null;
+    if (plan) vals = vals.concat([plan.stop, ...plan.targets.map(t => t.price)]);
     const maxP = Math.max(...vals), minP = Math.min(...vals), padP = (maxP - minP) * 0.04 || 1;
     const hiP = maxP + padP, loP = minP - padP;
     const yP = v => 8 + (1 - (v - loP) / (hiP - loP)) * (priceH - 16);
@@ -2242,6 +2261,31 @@
         out += `<text x="${padL + 4}" y="${labelY}" font-size="10" fill="${color}" paint-order="stroke" stroke="#0f1116" stroke-width="3">${lv.kind === "resistance" ? "저항" : "지지"} ${caPrice(lv.price)} · ${lv.touches}회</text>`;
       });
     }
+    let planLabels = "";  // 크로스 마커에 가리지 않게 가격 패널 맨 마지막에 붙인다
+    if (plan){
+      // 손절/익절은 오른쪽 끝에 레이블을 달아 왼쪽의 지지/저항 레이블과 겹치지 않게 한다
+      const labels = [];
+      if (plan.buy_zone){
+        const z1 = yP(plan.buy_zone.high), z2 = yP(plan.buy_zone.low);
+        out += `<rect x="${padL}" y="${z1}" width="${W - padR - padL}" height="${Math.max(z2 - z1, 1)}" fill="rgba(111,140,255,0.13)"></rect>`;
+        labels.push([z2 - 3, "눌림 매수 구간", "#6f8cff"]);
+      }
+      [["손절", plan.stop, "#ff5c8a"], ...plan.targets.map((t, i) => [`${i + 1}차 익절`, t.price, "#2ec4b6"])].forEach(([label, price, color]) => {
+        const yy = yP(price);
+        out += `<line x1="${padL}" x2="${W - padR}" y1="${yy}" y2="${yy}" stroke="${color}" stroke-width="1.3" stroke-dasharray="2 3"></line>`;
+        labels.push([yy - 4, `${label} ${caPrice(price)}`, color]);
+      });
+      let lastPlanY = -Infinity;
+      planLabels = "";
+      labels.sort((a, b) => a[0] - b[0]).forEach(([yy, text, color]) => {
+        const labelY = Math.max(yy, lastPlanY + 12);
+        lastPlanY = labelY;
+        // 최신 캔들 위에 겹치므로 글자 뒤에 어두운 바탕을 깐다(폭은 글자 수로 어림)
+        const w = [...text].reduce((acc, ch) => acc + (/[가-힣]/.test(ch) ? 10 : 6), 0) + 6;
+        planLabels += `<rect x="${W - padR - 4 - w + 3}" y="${labelY - 10}" width="${w}" height="13" rx="2" fill="#0f1116" opacity="0.85"></rect>`;
+        planLabels += `<text x="${W - padR - 4}" y="${labelY}" text-anchor="end" font-size="10" font-weight="700" fill="${color}">${text}</text>`;
+      });
+    }
     if (caLayerOn("signals")){
       const byDate = Object.fromEntries(c.map((k, i) => [k.date, i]));
       data.signals.forEach(sg => {
@@ -2253,6 +2297,7 @@
         out += `<polygon points="${pts}" fill="${golden ? "#f0a94e" : "#8b92a6"}"><title>${escapeHtml(sg.date + " " + sg.label)}</title></polygon>`;
       });
     }
+    out += planLabels;
 
     // 거래량
     let top = priceH + gap;
@@ -2351,6 +2396,29 @@
       fact(m.partial ? `거래량 / 20일 평균 (${m.vol_date.slice(5)} 기준)` : "거래량 / 20일 평균", m.vol_ratio === null ? "데이터 없음" : `${m.vol_ratio.toFixed(2)}배`, m.vol_ratio >= 1.5 ? "up" : ""),
       fact("최근 크로스", lastSignal ? `${lastSignal.date.slice(5)} ${lastSignal.label}` : "구간 내 없음", lastSignal ? (lastSignal.type === "golden" ? "up" : "down") : ""),
     ].join("");
+    renderChartPlan();
+  }
+
+  function renderChartPlan(){
+    const el = document.getElementById("ca-plan");
+    const p = caData.plan;
+    if (!p){ el.innerHTML = ""; return; }
+    const pct = v => `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`;
+    const cell = (cls, k, v, basis) => `<div class="plan-cell ${cls}"><div class="k">${escapeHtml(k)}</div><div class="v">${v}</div>${basis ? `<div class="basis">${escapeHtml(basis)}</div>` : ""}</div>`;
+    const cells = [
+      cell("", caData.summary.partial ? "진입 기준 (현재가)" : "진입 기준 (종가)", caPrice(p.entry), `ATR(14) ${caPrice(p.atr)} · 하루 평균 변동 ${p.atr_pct.toFixed(1)}%`),
+      cell("stop", "손절가", `${caPrice(p.stop)}<small style="color:${CA_DOWN}">${pct(p.stop_pct)}</small>`, p.stop_basis),
+      ...p.targets.map((t, i) => cell("target", `${i + 1}차 익절가 · 손익비 1:${t.rr.toFixed(1)}`, `${caPrice(t.price)}<small style="color:${CA_UP}">${pct(t.pct)}</small>`, t.basis)),
+    ];
+    if (p.buy_zone){
+      const z = p.buy_zone;
+      cells.push(cell("zone", "눌림 매수 관심 구간", `${caPrice(z.low)} ~ ${caPrice(z.high)}`, z.rr ? `이 구간에서 사면 1차 익절 손익비 1:${z.rr.toFixed(1)}` : "지지선 부근"));
+    }
+    const rr1 = p.targets.length ? p.targets[0].rr : null;
+    el.innerHTML = `
+      <div class="plan-head">손절·익절 가격 가이드<span class="sub">지지/저항 + ATR(14)로 자동 계산</span></div>
+      <div class="plan-grid">${cells.join("")}</div>
+      <div class="plan-note">${rr1 !== null && rr1 < 1 ? "현재가 기준 1차 익절 손익비가 1 미만이라 지금 가격은 기대 수익보다 손실 폭이 큽니다. " : ""}차트 수치만으로 기계적으로 뽑은 참고 가격이며 매매 권유가 아닙니다.</div>`;
   }
 
   async function loadChartAnalysisData(){
@@ -2359,6 +2427,7 @@
     document.getElementById("ca-title").textContent = `${caTarget.name} (${caTarget.code}) 일봉`;
     document.getElementById("ca-latest").textContent = "";
     document.getElementById("ca-facts").innerHTML = "";
+    document.getElementById("ca-plan").innerHTML = "";
     container.innerHTML = '<div class="analysis-loading">차트 불러오는 중…</div>';
     caAnalyzeButton.disabled = true;
     try {
