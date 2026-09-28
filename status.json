@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T15:33:17",
+  "updated_at": "2026-09-28T15:38:20",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "제이드 이벤트 기록 (누적 8133건)",
-      "since": "2026-09-28T15:24:38"
+      "last_action": "세이지 이벤트 기록 (누적 8136건)",
+      "since": "2026-09-28T15:38:01"
     },
     "callie": {
       "name": "캘리",
@@ -174,7 +174,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-09-23T15:47:42",
+      "since": "2026-09-28T15:38:01",
       "last_action": "일간 결산 저장 완료"
     },
     "sage": {
@@ -184,9 +184,9 @@
       "emoji": "🎯",
       "room": "feedback",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-23T15:47:42",
-      "last_action": "비교할 전일 리서치 없음"
+      "status": "working",
+      "since": "2026-09-28T15:38:01",
+      "last_action": "전일 리서치 판단 정확도 검증 중"
     },
     "leo": {
       "name": "레오",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-28T15:33:17",
+      "since": "2026-09-28T15:38:20",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-28T15:33:17",
+      "since": "2026-09-28T15:38:20",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,35 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-28T15:33:17",
+      "since": "2026-09-28T15:38:20",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-28T14:42:48",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "done",
-      "action": "주간 포트폴리오 집중도 점검 완료"
-    },
-    {
-      "time": "2026-09-28T15:00:07",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-09-28T15:00:07",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
     {
       "time": "2026-09-28T15:00:17",
       "employee": "scout",
@@ -643,6 +619,30 @@
       "role": "리스크 총괄",
       "status": "done",
       "action": "품질 0건 · 리스크 6건 종합 완료"
+    },
+    {
+      "time": "2026-09-28T15:37:17",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "일간 결산 작성 중"
+    },
+    {
+      "time": "2026-09-28T15:38:01",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "일간 결산 저장 완료"
+    },
+    {
+      "time": "2026-09-28T15:38:01",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 정확도 추적",
+      "status": "working",
+      "action": "전일 리서치 판단 정확도 검증 중"
     }
   ],
   "trader_stats": {
