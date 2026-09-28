@@ -2234,7 +2234,8 @@
     ];
     if (p.buy_zone){
       const z = p.buy_zone;
-      cells.push(cell("zone", "눌림 매수 관심 구간", `${caPrice(z.low)} ~ ${caPrice(z.high)}`, z.rr ? `이 구간에서 사면 1차 익절 손익비 1:${z.rr.toFixed(1)}` : "지지선 부근"));
+      cells.push(cell("zone", "눌림 매수 관심 구간", `${caPrice(z.low)} ~ ${caPrice(z.high)}`,
+        [z.basis, z.stop ? `구간 진입 시 손절 ${caPrice(z.stop)}` : "", z.rr ? `이 구간에서 사면 1차 익절 손익비 1:${z.rr.toFixed(1)}` : ""].filter(Boolean).join(" · ")));
     }
     const rr1 = p.targets.length ? p.targets[0].rr : null;
     el.innerHTML = `
