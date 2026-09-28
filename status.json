@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T15:13:06",
+  "updated_at": "2026-09-28T15:18:32",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "주노 이벤트 기록 (누적 8103건)",
-      "since": "2026-09-28T15:12:57"
+      "last_action": "레오 이벤트 기록 (누적 8114건)",
+      "since": "2026-09-28T15:18:32"
     },
     "callie": {
       "name": "캘리",
@@ -63,9 +63,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-27T15:10:05",
-      "last_action": "휴장일 — 대기"
+      "status": "working",
+      "since": "2026-09-28T15:17:43",
+      "last_action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
     },
     "juno": {
       "name": "주노",
@@ -74,9 +74,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-09-28T15:12:57",
-      "last_action": "LG이노텍 애플 공급망 조사 중"
+      "status": "done",
+      "since": "2026-09-28T15:14:41",
+      "last_action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
     },
     "chip": {
       "name": "칩",
@@ -195,9 +195,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-27T15:10:05",
-      "last_action": "휴장일 — 대기"
+      "status": "working",
+      "since": "2026-09-28T15:18:32",
+      "last_action": "[3/6] 삼성전기 트레이더 콜 종합 중"
     },
     "ivy": {
       "name": "아이비",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-28T15:13:06",
+      "since": "2026-09-28T15:18:09",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-28T15:13:06",
+      "since": "2026-09-28T15:18:09",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,99 +229,11 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-28T15:13:06",
+      "since": "2026-09-28T15:18:09",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-27T14:10:06",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T14:10:06",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T14:10:06",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:00:05",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:00:05",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:00:05",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:05:04",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:05:04",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T15:10:05",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
     {
       "time": "2026-09-27T15:10:05",
       "employee": "juno",
@@ -633,6 +545,94 @@
       "role": "업종·특수종목 웹리서치 통합 담당",
       "status": "working",
       "action": "LG이노텍 애플 공급망 조사 중"
+    },
+    {
+      "time": "2026-09-28T15:13:39",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "[1/1] 현대차 관세·환율 이슈 조사 중"
+    },
+    {
+      "time": "2026-09-28T15:14:41",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "done",
+      "action": "업종 2개 협회·통계 · 지주사 1개 NAV · MLCC · 애플공급망 · 관세환율 1개 조사 완료"
+    },
+    {
+      "time": "2026-09-28T15:14:41",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 분석 중"
+    },
+    {
+      "time": "2026-09-28T15:14:41",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[1/6] 삼성전자 Claude 분석 중 (뉴스 6건, 리포트 1건)"
+    },
+    {
+      "time": "2026-09-28T15:15:46",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[1/6] 삼성전자 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-28T15:16:01",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 분석 중"
+    },
+    {
+      "time": "2026-09-28T15:16:30",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 Claude 분석 중 (뉴스 6건, 리포트 1건)"
+    },
+    {
+      "time": "2026-09-28T15:17:25",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-09-28T15:17:43",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-09-28T15:17:43",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-09-28T15:18:32",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
     }
   ],
   "trader_stats": {
