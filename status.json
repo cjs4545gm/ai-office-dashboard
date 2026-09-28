@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T15:10:05",
+  "updated_at": "2026-09-28T14:42:48",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "레오 이벤트 기록 (누적 8070건)",
-      "since": "2026-09-27T15:10:05"
+      "last_action": "아이비 이벤트 기록 (누적 8084건)",
+      "since": "2026-09-28T14:42:48"
     },
     "callie": {
       "name": "캘리",
@@ -41,9 +41,9 @@
       "emoji": "📅",
       "room": "workflow",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-27T15:00:05",
-      "last_action": "휴장일 — 대기"
+      "status": "done",
+      "since": "2026-09-28T14:40:46",
+      "last_action": "다음 FOMC 2026-10-28(D-30) · 10일 이내 예상 발표 없음"
     },
     "vera": {
       "name": "베라",
@@ -85,9 +85,9 @@
       "emoji": "🧪",
       "room": "research",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-27T15:00:05",
-      "last_action": "휴장일 — 대기"
+      "status": "done",
+      "since": "2026-09-28T14:38:36",
+      "last_action": "D램 7개·낸드 4개 품목 갱신"
     },
     "hank": {
       "name": "행크",
@@ -96,9 +96,9 @@
       "emoji": "🗄️",
       "room": "data",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-27T15:00:05",
-      "last_action": "휴장일 — 대기"
+      "status": "done",
+      "since": "2026-09-28T14:38:42",
+      "last_action": "이상없음"
     },
     "scout": {
       "name": "스카우트",
@@ -107,9 +107,9 @@
       "emoji": "📡",
       "room": "data",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-27T15:00:05",
-      "last_action": "휴장일 — 대기"
+      "status": "done",
+      "since": "2026-09-28T14:38:36",
+      "last_action": "신규 리포트 4건, 헤드라인 12건 수집"
     },
     "milo": {
       "name": "마일로",
@@ -118,9 +118,9 @@
       "emoji": "📊",
       "room": "data",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-27T15:00:05",
-      "last_action": "휴장일 — 대기"
+      "status": "done",
+      "since": "2026-09-28T14:38:36",
+      "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
       "name": "제이드",
@@ -207,7 +207,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T17:08:35",
+      "since": "2026-09-28T14:42:48",
       "last_action": "질문 대기 중"
     },
     "max": {
@@ -218,7 +218,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T17:08:35",
+      "since": "2026-09-28T14:42:48",
       "last_action": "질문 대기 중"
     },
     "rina": {
@@ -229,124 +229,12 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-09-23T17:08:35",
+      "since": "2026-09-28T14:42:48",
       "last_action": "질문 대기 중"
     }
   },
   "activity_log": [
     {
-      "time": "2026-09-25T16:00:03",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:00:03",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:00:03",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:05:03",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:05:03",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:10:07",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:10:07",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:10:07",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:10:07",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:10:07",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:10:07",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-25T16:10:07",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T11:18:00",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
-      "time": "2026-09-27T11:18:00",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "idle",
-      "action": "휴장일 — 대기"
-    },
-    {
       "time": "2026-09-27T11:18:00",
       "employee": "hank",
       "name": "행크",
@@ -633,6 +521,118 @@
       "role": "매수/매도 의견 종합",
       "status": "idle",
       "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-09-28T14:38:22",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-09-28T14:38:22",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-09-28T14:38:36",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 4건, 헤드라인 12건 수집"
+    },
+    {
+      "time": "2026-09-28T14:38:36",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-09-28T14:38:36",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 확인 중"
+    },
+    {
+      "time": "2026-09-28T14:38:36",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "done",
+      "action": "D램 7개·낸드 4개 품목 갱신"
+    },
+    {
+      "time": "2026-09-28T14:38:36",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-09-28T14:38:41",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-09-28T14:38:42",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-09-28T14:38:42",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-09-28T14:38:42",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "working",
+      "action": "FOMC/실적발표 일정 확인 중"
+    },
+    {
+      "time": "2026-09-28T14:40:46",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "done",
+      "action": "다음 FOMC 2026-10-28(D-30) · 10일 이내 예상 발표 없음"
+    },
+    {
+      "time": "2026-09-28T14:42:15",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "working",
+      "action": "주간 포트폴리오 집중도 점검 중"
+    },
+    {
+      "time": "2026-09-28T14:42:48",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "done",
+      "action": "주간 포트폴리오 집중도 점검 완료"
     }
   ],
   "trader_stats": {
@@ -969,7 +969,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 17,
+      "days_until": 16,
       "status": "safe"
     },
     "ppi": {
@@ -1007,7 +1007,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 18,
+      "days_until": 17,
       "status": "risk"
     }
   },
@@ -1293,9 +1293,9 @@
     "[노바] 원달러환율 급락 -0.77% (현재 1,363.1원)"
   ],
   "fomc_calendar": {
-    "date": "2026-09-23",
+    "date": "2026-09-28",
     "fomc_date": "2026-10-28",
-    "raw": "날짜: 2026-10-28 (출처: federalreserve.gov, https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)",
+    "raw": "날짜: 2026-10-28 (출처: federalreserve.gov/monetarypolicy/fomccalendars.htm)",
     "suspicious": false
   }
 }
