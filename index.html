@@ -2426,7 +2426,7 @@
     const hEl = document.getElementById("report-highlights");
     hEl.innerHTML = '<div class="analysis-loading">핵심 수치 추출 중… (처음 여는 리포트는 10~20초 소요, 이후 캐시로 즉시)</div>';
     try {
-      // 서버 최악 시간(OCR 상한 40초 + claude 90초)보다 길게 — 60초면 claude가 느릴 때 브라우저가 먼저 끊어 "Fetch is aborted"가 떴음
+      // 서버 최악 시간(텍스트 추출 하드 마감 70초 + claude 90초)보다 길게 — 60초면 claude가 느릴 때 브라우저가 먼저 끊어 "Fetch is aborted"가 떴음
       const resp = await fetch(`${ANALYSIS_ORIGIN}/report-highlights?path=${encodeURIComponent(path)}`, { signal: AbortSignal.timeout(180000) });
       const data = await resp.json();
       if (selectedReportPath !== path) return;  // 기다리는 사이 다른 리포트를 골랐으면 덮어쓰지 않음
