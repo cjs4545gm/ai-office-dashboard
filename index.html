@@ -2426,8 +2426,10 @@
     const hEl = document.getElementById("report-highlights");
     hEl.innerHTML = '<div class="analysis-loading">핵심 수치 추출 중… (처음 여는 리포트는 10~20초 소요, 이후 캐시로 즉시)</div>';
     try {
-      const resp = await fetch(`${ANALYSIS_ORIGIN}/report-highlights?path=${encodeURIComponent(path)}`, { signal: AbortSignal.timeout(60000) });
+      // 서버 쪽 claude 호출 타임아웃(90초)+OCR 시간보다 길게 — 60초면 claude가 느릴 때 브라우저가 먼저 끊어 "Fetch is aborted"가 떴음
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/report-highlights?path=${encodeURIComponent(path)}`, { signal: AbortSignal.timeout(150000) });
       const data = await resp.json();
+      if (selectedReportPath !== path) return;  // 기다리는 사이 다른 리포트를 골랐으면 덮어쓰지 않음
       if (!resp.ok || !data.ok) throw new Error(data.error || "추출 실패");
       if (data.error){
         hEl.innerHTML = `<div class="analysis-error">${escapeHtml(data.error)}</div>`;
@@ -2436,7 +2438,12 @@
           + (data.used_ocr ? '<div class="report-ocr-note">🔍 스캔본이라 OCR로 읽었습니다</div>' : "");
       }
     } catch (e) {
-      hEl.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
+      if (selectedReportPath !== path) return;
+      const msg = (e.name === "TimeoutError" || e.name === "AbortError")
+        ? "핵심 수치 추출이 너무 오래 걸려 중단됐습니다 (claude 응답 지연)."
+        : e.message;
+      hEl.innerHTML = `<div class="analysis-error">${escapeHtml(msg)} <button type="button" class="report-retry">다시 시도</button></div>`;
+      hEl.querySelector(".report-retry").addEventListener("click", () => selectReport(path));
     }
   }
 
