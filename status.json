@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T19:02:45",
+  "updated_at": "2026-09-28T19:05:10",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -9,7 +9,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-09-28T17:05:08",
+      "since": "2026-09-28T19:05:10",
       "last_action": "이상없음"
     },
     "bri": {
@@ -20,7 +20,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-09-28T17:05:08",
+      "since": "2026-09-28T19:05:10",
       "last_action": "데일리 시장 브리핑 작성 완료"
     },
     "nix": {
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "행크 이벤트 기록 (누적 8227건)",
-      "since": "2026-09-28T19:00:17"
+      "last_action": "오즈 이벤트 기록 (누적 8231건)",
+      "since": "2026-09-28T19:05:10"
     },
     "callie": {
       "name": "캘리",
@@ -234,38 +234,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-28T16:15:17",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 분석 중"
-    },
-    {
-      "time": "2026-09-28T16:15:17",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
-    },
-    {
-      "time": "2026-09-28T16:16:02",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "[6/6] LG이노텍 트레이더 콜 종합 중"
-    },
-    {
-      "time": "2026-09-28T16:17:36",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "6개 종목 리서치 노트 작성 완료"
-    },
     {
       "time": "2026-09-28T16:17:36",
       "employee": "leo",
@@ -653,6 +621,38 @@
       "employee": "hank",
       "name": "행크",
       "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이상없음"
+    },
+    {
+      "time": "2026-09-28T19:05:07",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "시장 브리핑 데이터 수집 중"
+    },
+    {
+      "time": "2026-09-28T19:05:10",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "데일리 시장 브리핑 작성 완료"
+    },
+    {
+      "time": "2026-09-28T19:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "자동화 파이프라인 헬스체크 중"
+    },
+    {
+      "time": "2026-09-28T19:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
     }
