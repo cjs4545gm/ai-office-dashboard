@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T19:05:10",
+  "updated_at": "2026-10-02T13:26:00",
   "employees": {
     "oz": {
       "name": "오즈",
@@ -31,8 +31,8 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "last_action": "오즈 이벤트 기록 (누적 8231건)",
-      "since": "2026-09-28T19:05:10"
+      "last_action": "리나 이벤트 기록 (누적 8246건)",
+      "since": "2026-10-02T13:26:00"
     },
     "callie": {
       "name": "캘리",
@@ -41,9 +41,9 @@
       "emoji": "📅",
       "room": "workflow",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-28T19:00:17",
-      "last_action": "새 IR 일정 공지 없음"
+      "status": "error",
+      "since": "2026-10-02T13:24:15",
+      "last_action": "FOMC 날짜 확인 실패 · 10일 이내 예상 발표 없음"
     },
     "vera": {
       "name": "베라",
@@ -85,9 +85,9 @@
       "emoji": "🧪",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-09-28T19:00:14",
-      "last_action": "D램 7개·낸드 4개 품목 갱신"
+      "status": "error",
+      "since": "2026-10-02T13:17:09",
+      "last_action": "D램, 낸드 현물가 수집 실패"
     },
     "hank": {
       "name": "행크",
@@ -97,8 +97,8 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-09-28T19:00:17",
-      "last_action": "이상없음"
+      "since": "2026-10-02T13:17:09",
+      "last_action": "이슈 2건 감지"
     },
     "scout": {
       "name": "스카우트",
@@ -108,8 +108,8 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-09-28T19:00:14",
-      "last_action": "신규 리포트 0건, 헤드라인 12건 수집"
+      "since": "2026-10-02T13:17:09",
+      "last_action": "신규 리포트 0건, 헤드라인 0건 수집"
     },
     "milo": {
       "name": "마일로",
@@ -119,7 +119,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-09-28T19:00:14",
+      "since": "2026-10-02T13:17:09",
       "last_action": "보유종목 6개 수급 데이터 갱신"
     },
     "jade": {
@@ -206,9 +206,9 @@
       "emoji": "🧭",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-28T19:02:45",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-10-02T13:26:00",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     },
     "max": {
       "name": "맥스",
@@ -217,9 +217,9 @@
       "emoji": "🛡️",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-28T19:02:45",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-10-02T13:26:00",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     },
     "rina": {
       "name": "리나",
@@ -228,142 +228,12 @@
       "emoji": "🧘",
       "room": "strategy",
       "automated": true,
-      "status": "idle",
-      "since": "2026-09-28T19:02:45",
-      "last_action": "질문 대기 중"
+      "status": "error",
+      "since": "2026-10-02T13:26:00",
+      "last_action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-09-28T16:17:36",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "매수 0 · 보유 6 · 매도 0 종합 완료 (장마감 확정)"
-    },
-    {
-      "time": "2026-09-28T16:17:36",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "리서치 품질 검수 중"
-    },
-    {
-      "time": "2026-09-28T16:17:36",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "working",
-      "action": "이상거래·급락 감지 중"
-    },
-    {
-      "time": "2026-09-28T16:18:02",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "working",
-      "action": "금리·환율 급변 감지 중"
-    },
-    {
-      "time": "2026-09-28T16:18:05",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "리스크 시그널 종합 중"
-    },
-    {
-      "time": "2026-09-28T16:18:05",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "이상없음"
-    },
-    {
-      "time": "2026-09-28T16:18:05",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "done",
-      "action": "경보 5건 감지",
-      "detail": [
-        "삼성전자: 급락 -5.41% (코스피도 동반 -2.70%)",
-        "SK하이닉스: 급락 -5.05% (코스피도 동반 -2.70%), 외국인 3거래일 연속 순매도 — 원인: **요약 (2줄)**\n추석 연휴 동안 미국 30년물 국채금리가 2004년 이후 최고치인 5.519%까지 급등하면서, 연휴 뒤 첫 거래일에 외국인·기관이 반도체 대형주를 중심으로 팔았습니다. 연휴 뒤 차익실현 매물과, 오라클이 전력 공급 차질을 통보한 뒤 약해진 AI 투자심리도 원인으로 꼽혔습니다. SK하이닉스 자체의 악재 공시나 개별 뉴스는 확인되지 않았습니다(재경일보).\n\n- 확인된 수치는 모두 장중 기준입니다. 외국인 순매도 규모는 기사 시점에 따라 1조1820억 원(오전 11시 10분)과 2조3027억 원으로 다르게 보도됐습니다.\n- 3거래일 연속 순매도의 앞선 이틀에 대한 원인 기사는 찾지 못했습니다. 위 원인은 9월 28일 하락에만 해당합니다.\n\n**출처**\n- [국제뉴스 – 삼성전자·SK하이닉스 4%대 급락… 코스피 6900선 안팎 등락](https://www.gukjenews.com/news/articleView.html?idxno=3707033)\n- [파이낸스투데이 – 대형 반도체주를 중심으로 매도 시장 급락 (9월28일 오전)](https://www.fntoday.co.kr/news/articleView.html?idxno=393972)\n- [재경일보 – [특징주] SK하이닉스 장중 4%대 급락, 투자 심리 위축](https://news.jkn.co.kr/post/998877)\n- [서울신문 – 삼성전자 4.8%·SK하이닉스 4.5% 하락](https://www.seoul.co.kr/news/economy/securities/2026/09/28/20260928500115)\n- [Seoul Economic Daily – Samsung Electronics, SK hynix Slide 4% as KOSPI Breaks Below 7,000](https://en.sedaily.com/finance/2026/09/28/samsung-electronics-sk-hynix-slide-4-percent-as-kospi)\n- [Sunday Guardian – Why is the Korean Stock Market Down Today? (Sept 28)](https://sundayguardianlive.com/business/korea-stock-market-krx-today-september-28-why-is-the-korean-stock-market-down-today-kospi-falls-below-7050-kosdaq-rises-samsung-electronics-sk-hynix-slide-check-top-gainers-losers-294272/)",
-        "현대차: 외국인 3거래일 연속 순매도 — 원인: 구체적 원인 특정 불가 — 시장 전반 흐름으로 추정\n\n출처: [뉴스1 9/23 시황](https://www.news1.kr/finance/market-exr/6300685), [톱스타뉴스 9/23 현대차 주가](https://www.topstarnews.net/news/articleView.html?idxno=16208307)",
-        "SK스퀘어: 급락 -7.20% (코스피도 동반 -2.70%)",
-        "LG이노텍: 급등 +7.08%"
-      ]
-    },
-    {
-      "time": "2026-09-28T16:18:05",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "done",
-      "action": "경보 1건 감지",
-      "detail": [
-        "KOSPI 지수 자체 급락 -2.70% (현재 6,889.74)"
-      ]
-    },
-    {
-      "time": "2026-09-28T16:18:05",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "품질 0건 · 리스크 6건 종합 완료"
-    },
-    {
-      "time": "2026-09-28T16:49:24",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110ddd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-28T16:49:24",
-      "employee": "max",
-      "name": "맥스",
-      "role": "포지션 크기·하방 방어 상담",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110ddd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-28T16:49:24",
-      "employee": "rina",
-      "name": "리나",
-      "role": "판단 편향·매매 심리 점검",
-      "status": "error",
-      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by ConnectTimeoutError(<HTTPSConnection(host='api.github.com', port=443) at 0x110ddd6a0>, 'Connection to api.github.com timed out. (connect timeout=20)'))"
-    },
-    {
-      "time": "2026-09-28T17:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "증권사 리포트·뉴스 수집 중"
-    },
-    {
-      "time": "2026-09-28T17:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "기관·외국인 수급 데이터 수집 중"
-    },
-    {
-      "time": "2026-09-28T17:00:15",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "신규 리포트 0건, 헤드라인 12건 수집"
-    },
     {
       "time": "2026-09-28T17:00:15",
       "employee": "milo",
@@ -655,6 +525,138 @@
       "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "이상없음"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "증권사 리포트·뉴스 수집 중"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "기관·외국인 수급 데이터 수집 중"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "신규 리포트 0건, 헤드라인 0건 수집",
+      "detail": [
+        "삼성전자: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "SK하이닉스: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "삼성전기: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "현대차: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "SK스퀘어: 뉴스 소스 전부 실패(네이버+야후 0건)",
+        "LG이노텍: 뉴스 소스 전부 실패(네이버+야후 0건)"
+      ]
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "보유종목 6개 수급 데이터 갱신"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "working",
+      "action": "D램·낸드 현물가 확인 중"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "error",
+      "action": "D램, 낸드 현물가 수집 실패"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "working",
+      "action": "IR 일정 공시 확인 중"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "done",
+      "action": "새 IR 일정 공지 없음"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "state 파일·리포트 저장소 무결성 점검 중"
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "이슈 2건 감지",
+      "detail": [
+        "리포트 스크래핑 구조 이상 의심(목록 API 응답 실패/형식 변경): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍, 산업분석",
+        "수급 데이터 스크래핑 구조 이상 의심(원본+폴백 모두 실패): 삼성전자, SK하이닉스, 삼성전기, 현대차, SK스퀘어, LG이노텍"
+      ]
+    },
+    {
+      "time": "2026-10-02T13:17:09",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "working",
+      "action": "FOMC/실적발표 일정 확인 중"
+    },
+    {
+      "time": "2026-10-02T13:24:15",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "error",
+      "action": "FOMC 날짜 확인 실패 · 10일 이내 예상 발표 없음"
+    },
+    {
+      "time": "2026-10-02T13:26:00",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
+    },
+    {
+      "time": "2026-10-02T13:26:00",
+      "employee": "max",
+      "name": "맥스",
+      "role": "포지션 크기·하방 방어 상담",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
+    },
+    {
+      "time": "2026-10-02T13:26:00",
+      "employee": "rina",
+      "name": "리나",
+      "role": "판단 편향·매매 심리 점검",
+      "status": "error",
+      "action": "질문 조회 실패: HTTPSConnectionPool(host='api.github.com', port=443): Max retries exceeded with url: /repos/cjs4545gm/ai-office-dashboard/issues?labels=strategy-question&state=open&sort=created&direction=asc (Caused by NameResolutionError(\"HTTPSConnection(host='api.github.com', port=443): Failed to resolve 'api.github.com' ([Errno 8] nodename nor servname provided, or not known)\"))"
     }
   ],
   "trader_stats": {
@@ -1317,9 +1319,9 @@
     "[노바] KOSPI 지수 자체 급락 -2.70% (현재 6,889.74)"
   ],
   "fomc_calendar": {
-    "date": "2026-09-28",
-    "fomc_date": "2026-10-28",
-    "raw": "날짜: 2026-10-28 (출처: federalreserve.gov/monetarypolicy/fomccalendars.htm)",
+    "date": "2026-10-02",
+    "fomc_date": null,
+    "raw": null,
     "suspicious": false
   }
 }
