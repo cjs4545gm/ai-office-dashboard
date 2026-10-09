@@ -1,0 +1,1262 @@
+{
+  "updated_at": "2026-10-09T17:10:43",
+  "employees": {
+    "oz": {
+      "name": "오즈",
+      "rank": "팀장",
+      "role": "전체 스케줄 총괄",
+      "emoji": "🧭",
+      "room": "workflow",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:05:06",
+      "last_action": "휴장일 — 대기"
+    },
+    "bri": {
+      "name": "브리",
+      "rank": "선임",
+      "role": "데일리 애널리스트",
+      "emoji": "☀️",
+      "room": "workflow",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:05:06",
+      "last_action": "휴장일 — 대기"
+    },
+    "nix": {
+      "name": "닉스",
+      "rank": "주니어",
+      "role": "실행 로그·타임라인 기록",
+      "emoji": "📝",
+      "room": "workflow",
+      "automated": true,
+      "status": "done",
+      "last_action": "던 이벤트 기록 (누적 9478건)",
+      "since": "2026-10-09T17:10:43"
+    },
+    "callie": {
+      "name": "캘리",
+      "rank": "캘린더 담당",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "emoji": "📅",
+      "room": "workflow",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:00:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "vera": {
+      "name": "베라",
+      "rank": "팀장",
+      "role": "리서치 총괄·품질 검수",
+      "emoji": "🧠",
+      "room": "research",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:10:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "tam": {
+      "name": "탐",
+      "rank": "선임",
+      "role": "리서치 분석가",
+      "emoji": "🔍",
+      "room": "research",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:10:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "juno": {
+      "name": "주노",
+      "rank": "선임",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "emoji": "🏛️",
+      "room": "research",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:10:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "chip": {
+      "name": "칩",
+      "rank": "가격분석 담당",
+      "role": "D램·낸드 현물가 분석",
+      "emoji": "🧪",
+      "room": "research",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:00:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "hank": {
+      "name": "행크",
+      "rank": "팀장",
+      "role": "데이터 품질 관리",
+      "emoji": "🗄️",
+      "room": "data",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:00:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "scout": {
+      "name": "스카우트",
+      "rank": "선임",
+      "role": "정보 수집원",
+      "emoji": "📡",
+      "room": "data",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:00:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "milo": {
+      "name": "마일로",
+      "rank": "주니어",
+      "role": "기관·외국인 수급 데이터",
+      "emoji": "📊",
+      "room": "data",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:00:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "jade": {
+      "name": "제이드",
+      "rank": "팀장",
+      "role": "리스크 총괄",
+      "emoji": "🛡️",
+      "room": "risk",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:10:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "kai": {
+      "name": "카이",
+      "rank": "선임",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "emoji": "📉",
+      "room": "risk",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:10:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "nova": {
+      "name": "노바",
+      "rank": "주니어",
+      "role": "금리·환율·지수 매크로 감지",
+      "emoji": "💹",
+      "room": "risk",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:10:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "dawn": {
+      "name": "던",
+      "rank": "팀장",
+      "role": "월간 총괄·회고 검수",
+      "emoji": "🌅",
+      "room": "feedback",
+      "automated": true,
+      "status": "done",
+      "since": "2026-10-09T17:10:43",
+      "last_action": "✅ 검수 통과"
+    },
+    "rewind": {
+      "name": "리와인드",
+      "rank": "선임",
+      "role": "결산 담당",
+      "emoji": "🗂️",
+      "room": "feedback",
+      "automated": true,
+      "status": "done",
+      "since": "2026-10-09T17:10:39",
+      "last_action": "주간 결산 저장 완료"
+    },
+    "sage": {
+      "name": "세이지",
+      "rank": "주니어",
+      "role": "판단 정확도 추적",
+      "emoji": "🎯",
+      "room": "feedback",
+      "automated": true,
+      "status": "done",
+      "since": "2026-10-08T15:47:02",
+      "last_action": "검증 완료"
+    },
+    "leo": {
+      "name": "레오",
+      "rank": "트레이더",
+      "role": "매수/매도 의견 종합",
+      "emoji": "📈",
+      "room": "feedback",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-09T17:10:07",
+      "last_action": "휴장일 — 대기"
+    },
+    "ivy": {
+      "name": "아이비",
+      "rank": "수석 전략가",
+      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "emoji": "🧭",
+      "room": "strategy",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-08T22:10:24",
+      "last_action": "질문 대기 중"
+    },
+    "max": {
+      "name": "맥스",
+      "rank": "리스크 전략가",
+      "role": "포지션 크기·하방 방어 상담",
+      "emoji": "🛡️",
+      "room": "strategy",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-08T22:10:24",
+      "last_action": "질문 대기 중"
+    },
+    "rina": {
+      "name": "리나",
+      "rank": "행동재무 코치",
+      "role": "판단 편향·매매 심리 점검",
+      "emoji": "🧘",
+      "room": "strategy",
+      "automated": true,
+      "status": "idle",
+      "since": "2026-10-08T22:10:24",
+      "last_action": "질문 대기 중"
+    },
+    "trend_bot": {
+      "name": "트렌디",
+      "rank": "자동매매 봇",
+      "role": "미국 일봉 추세추종 모의매매",
+      "emoji": "📈",
+      "room": "trading",
+      "automated": true,
+      "status": "done",
+      "since": "2026-10-09T17:08:52",
+      "last_action": "모의매매 갱신 · 10/08 장 기준"
+    }
+  },
+  "activity_log": [
+    {
+      "time": "2026-10-08T22:11:45",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[2/6] SK하이닉스 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-10-08T22:11:55",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 분석 중"
+    },
+    {
+      "time": "2026-10-08T22:11:55",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[3/6] 삼성전기 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-10-08T22:12:35",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[3/6] 삼성전기 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-10-08T22:12:46",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 분석 중"
+    },
+    {
+      "time": "2026-10-08T22:12:46",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[4/6] 현대차 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-10-08T22:13:29",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[4/6] 현대차 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-10-08T22:13:42",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 분석 중"
+    },
+    {
+      "time": "2026-10-08T22:13:42",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-10-08T22:14:29",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "[5/6] SK스퀘어 트레이더 콜 종합 중"
+    },
+    {
+      "time": "2026-10-08T22:14:39",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 분석 중"
+    },
+    {
+      "time": "2026-10-08T22:14:39",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "[6/6] LG이노텍 Claude 분석 중 (뉴스 6건, 리포트 0건)"
+    },
+    {
+      "time": "2026-10-09T15:40:12",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T15:40:12",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T15:40:12",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T15:40:12",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T15:40:12",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T15:40:14",
+      "employee": "trend_bot",
+      "name": "트렌디",
+      "role": "미국 일봉 추세추종 모의매매",
+      "status": "done",
+      "action": "모의매매 갱신 · 10/08 장 기준"
+    },
+    {
+      "time": "2026-10-09T16:00:07",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:00:07",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:00:07",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:00:07",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:00:07",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:05:08",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:05:08",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:10:07",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:10:07",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:10:07",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:10:07",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:10:07",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T16:10:07",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:00:07",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:00:07",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:00:07",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:00:07",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:00:07",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:05:06",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:09:53",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "working",
+      "action": "주간 결산 작성 중"
+    },
+    {
+      "time": "2026-10-09T17:10:07",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:10:07",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:10:07",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:10:07",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:10:07",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:10:07",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "idle",
+      "action": "휴장일 — 대기"
+    },
+    {
+      "time": "2026-10-09T17:10:39",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "결산 담당",
+      "status": "done",
+      "action": "주간 결산 저장 완료"
+    },
+    {
+      "time": "2026-10-09T17:10:39",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "working",
+      "action": "주간 결산 검수 중"
+    },
+    {
+      "time": "2026-10-09T17:10:43",
+      "employee": "dawn",
+      "name": "던",
+      "role": "월간 총괄·회고 검수",
+      "status": "done",
+      "action": "✅ 검수 통과"
+    }
+  ],
+  "trader_stats": {
+    "total": 80,
+    "hit": 27,
+    "miss": 53,
+    "hold": 0,
+    "hit_rate": 33.8,
+    "streak": {
+      "type": "miss",
+      "count": 4
+    },
+    "by_stock": {
+      "삼성전자": {
+        "total": 14,
+        "hit": 4,
+        "miss": 10,
+        "hold": 0,
+        "hit_rate": 28.6,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      },
+      "SK하이닉스": {
+        "total": 14,
+        "hit": 3,
+        "miss": 11,
+        "hold": 0,
+        "hit_rate": 21.4,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      },
+      "삼성전기": {
+        "total": 13,
+        "hit": 5,
+        "miss": 8,
+        "hold": 0,
+        "hit_rate": 38.5,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      },
+      "현대차": {
+        "total": 13,
+        "hit": 9,
+        "miss": 4,
+        "hold": 0,
+        "hit_rate": 69.2,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      },
+      "SK스퀘어": {
+        "total": 13,
+        "hit": 2,
+        "miss": 11,
+        "hold": 0,
+        "hit_rate": 15.4,
+        "streak": {
+          "type": "miss",
+          "count": 5
+        }
+      },
+      "LG이노텍": {
+        "total": 13,
+        "hit": 4,
+        "miss": 9,
+        "hold": 0,
+        "hit_rate": 30.8,
+        "streak": {
+          "type": "miss",
+          "count": 6
+        }
+      }
+    },
+    "by_call": {
+      "보유": {
+        "total": 72,
+        "hit": 23,
+        "miss": 49,
+        "hold": 0,
+        "hit_rate": 31.9,
+        "streak": {
+          "type": "miss",
+          "count": 4
+        }
+      },
+      "매도": {
+        "total": 6,
+        "hit": 3,
+        "miss": 3,
+        "hold": 0,
+        "hit_rate": 50.0,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      },
+      "매수": {
+        "total": 2,
+        "hit": 1,
+        "miss": 1,
+        "hold": 0,
+        "hit_rate": 50.0,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      }
+    },
+    "by_confidence": {
+      "미상": {
+        "total": 38,
+        "hit": 10,
+        "miss": 28,
+        "hold": 0,
+        "hit_rate": 26.3,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      },
+      "하": {
+        "total": 5,
+        "hit": 3,
+        "miss": 2,
+        "hold": 0,
+        "hit_rate": 60.0,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      },
+      "중": {
+        "total": 37,
+        "hit": 14,
+        "miss": 23,
+        "hold": 0,
+        "hit_rate": 37.8,
+        "streak": {
+          "type": "miss",
+          "count": 3
+        }
+      }
+    },
+    "by_market": {
+      "코스피 상승일": {
+        "total": 32,
+        "hit": 14,
+        "miss": 18,
+        "hold": 0,
+        "hit_rate": 43.8,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      },
+      "코스피 하락일": {
+        "total": 48,
+        "hit": 13,
+        "miss": 35,
+        "hold": 0,
+        "hit_rate": 27.1,
+        "streak": {
+          "type": "miss",
+          "count": 4
+        }
+      }
+    },
+    "confidence_calibration": "중 38% > 하 60% — 확신도가 실제 적중률과 안 맞아요",
+    "notable_pattern": "현대차 · 보유 콜은 유난히 잘 맞아요 (8/11건, 전체 평균 34%)",
+    "recent_7d": {
+      "total": 6,
+      "hit": 2,
+      "miss": 4,
+      "hold": 0,
+      "hit_rate": 33.3,
+      "streak": {
+        "type": "miss",
+        "count": 4
+      }
+    },
+    "recent_30d": {
+      "total": 36,
+      "hit": 13,
+      "miss": 23,
+      "hold": 0,
+      "hit_rate": 36.1,
+      "streak": {
+        "type": "miss",
+        "count": 4
+      }
+    }
+  },
+  "trader_calls": {
+    "삼성전자": {
+      "call": "보유",
+      "buy": "250,000원대 — 현재가보다 낮은 눌림목 구간이며, 기관·외국인 순매도가 줄어드는 것을 확인한 뒤 분할로 사는 것을 고려합니다.",
+      "sell": "특별한 매도 신호 없음, 245,000원 이탈 시 재검토 — 실적과 업황은 탄탄하지만, 순매도가 계속되면서 이 가격대를 밑돌면 매도 의견(베라)에 더 무게를 둡니다."
+    },
+    "SK하이닉스": {
+      "call": "보유",
+      "buy": "1,650,000원대 — 현재가(1,686,000원)보다 낮은 눌림목 구간으로, 주노가 기준으로 잡은 가격대에서 외국인 매도가 멈추는 걸 확인한 뒤 나눠서 사는 게 좋습니다.",
+      "sell": "1,650,000원대 — 특별한 매도 신호는 없지만, 1,650,000원을 뚫고 내려가면 외국인 매도와 실적 무반응이 겹친 것으로 보고 비중 축소를 다시 검토합니다."
+    },
+    "삼성전기": {
+      "call": "보유",
+      "buy": "1,500,000원 안팎 — 현재가보다 낮은 눌림목 구간(현재가 대비 약 -4%)에서 수급이 진정되고 4분기 가격 인상이 확인되면 분할 매수를 검토",
+      "sell": "특별한 매도 신호 없음, 1,450,000원대 이탈 시 재검토 — 외국인 매도가 길어져 시장 탓으로 보기 어려운 추가 하락이 나오면 비중 축소를 고려"
+    },
+    "현대차": {
+      "call": "보유",
+      "buy": "현재가(325,000원)보다 낮은 눌림목 구간 — 수급이 약하고 관세 부담도 계속되고 있어, 지금 새로 사기보다는 외국인·기관 매도가 멈추는 것을 확인하고 들어가는 편이 낫습니다.",
+      "sell": "특별한 매도 신호 없음, 300,000원 이탈 시 재검토 — 다만 동반 순매도가 이어지거나 관세·환율 부담이 실적 하향으로 확인되면 가격과 관계없이 매도로 바꿔야 합니다."
+    },
+    "SK스퀘어": {
+      "call": "보유",
+      "buy": "현재가(1,059,000원)보다 낮은 눌림목 구간, 100만원 안팎 — 외국인 매도가 멈추고 기관 매수가 이어지는지 확인한 뒤 분할로 접근하는 편이 유리합니다.",
+      "sell": "특별한 매도 신호 없음, 100만원 이탈 시 재검토 — 주노가 말한 목표가 괴리(75% 이상)를 보면 지금 가격에서 팔 근거는 약하지만, 외국인 매도가 계속되면서 심리적 지지선이 깨지면 리스크를 다시 평가해야 합니다."
+    },
+    "LG이노텍": {
+      "call": "보유",
+      "buy": "현재가(572,000원)보다 낮은 눌림목 구간 — 외국인 매도가 진정되고 11월 애플 생산계획으로 수요가 확인되기 전에는 추가 매수를 서두를 근거가 부족합니다.",
+      "sell": "591,000원대 — 전일 재검토 기준선으로, 반등이 이 구간을 회복하지 못하고 외국인 매도가 계속되면 비중 축소를 검토합니다."
+    }
+  },
+  "priority_alerts": [
+    "포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-2.23%), SK하이닉스(-2.15%), 삼성전기(-2.81%), 현대차(-3.27%), SK스퀘어(-7.27%), LG이노텍(-3.21%)"
+  ],
+  "strategy_room": {
+    "pending": 0,
+    "pending_list": [],
+    "recent": [],
+    "public_redacted": true
+  },
+  "youtube_pick": {
+    "title": "\"관우를 치료한 화타는 없었다\" 정사와 삼국지연의는 어떻게 달랐나 | 이성원 전남대 교수 [이성원의 삼국지]",
+    "url": "https://www.youtube.com/watch?v=gOFm0hmIaEE",
+    "channel": "삼프로TV",
+    "date": "2026-10-09"
+  },
+  "macro_cpi_ppi": {
+    "cpi": {
+      "label": "CPI(소비자물가)",
+      "as_of": "2026-09-11",
+      "reference": "Aug",
+      "actual": 3.4,
+      "previous": 3.4,
+      "consensus": 3.4,
+      "next_release": "2026-10-14",
+      "history": [
+        {
+          "reference": "Mar",
+          "actual": 3.3
+        },
+        {
+          "reference": "Apr",
+          "actual": 3.8
+        },
+        {
+          "reference": "May",
+          "actual": 4.2
+        },
+        {
+          "reference": "Jun",
+          "actual": 3.5
+        },
+        {
+          "reference": "Jul",
+          "actual": 3.3
+        },
+        {
+          "reference": "Aug",
+          "actual": 3.4
+        }
+      ],
+      "phase": "countdown",
+      "days_until": 6,
+      "status": "safe"
+    },
+    "ppi": {
+      "label": "PPI(생산자물가)",
+      "as_of": "2026-09-10",
+      "reference": "Aug",
+      "actual": 5.4,
+      "previous": 4.8,
+      "consensus": 5.3,
+      "next_release": "2026-10-15",
+      "history": [
+        {
+          "reference": "Mar",
+          "actual": 4.3
+        },
+        {
+          "reference": "Apr",
+          "actual": 5.7
+        },
+        {
+          "reference": "May",
+          "actual": 5.9
+        },
+        {
+          "reference": "Jun",
+          "actual": 5.6
+        },
+        {
+          "reference": "Jul",
+          "actual": 4.8
+        },
+        {
+          "reference": "Aug",
+          "actual": 5.4
+        }
+      ],
+      "phase": "countdown",
+      "days_until": 7,
+      "status": "risk"
+    }
+  },
+  "sage_stats": {
+    "total": 92,
+    "hit": 33,
+    "miss": 24,
+    "hold": 34,
+    "hit_rate": 57.9,
+    "streak": {
+      "type": "hit",
+      "count": 5
+    },
+    "by_stock": {
+      "삼성전자": {
+        "total": 15,
+        "hit": 7,
+        "miss": 6,
+        "hold": 2,
+        "hit_rate": 53.8,
+        "streak": {
+          "type": "hit",
+          "count": 2
+        }
+      },
+      "SK하이닉스": {
+        "total": 16,
+        "hit": 7,
+        "miss": 6,
+        "hold": 3,
+        "hit_rate": 53.8,
+        "streak": {
+          "type": "hit",
+          "count": 2
+        }
+      },
+      "삼성전기": {
+        "total": 16,
+        "hit": 4,
+        "miss": 4,
+        "hold": 8,
+        "hit_rate": 50.0,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      },
+      "현대차": {
+        "total": 15,
+        "hit": 5,
+        "miss": 4,
+        "hold": 6,
+        "hit_rate": 55.6,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      },
+      "SK스퀘어": {
+        "total": 15,
+        "hit": 7,
+        "miss": 2,
+        "hold": 6,
+        "hit_rate": 77.8,
+        "streak": {
+          "type": "hit",
+          "count": 3
+        }
+      },
+      "LG이노텍": {
+        "total": 15,
+        "hit": 3,
+        "miss": 2,
+        "hold": 9,
+        "hit_rate": 60.0,
+        "streak": {
+          "type": "miss",
+          "count": 1
+        }
+      }
+    },
+    "by_market": {
+      "코스피 하락일": {
+        "total": 57,
+        "hit": 18,
+        "miss": 16,
+        "hold": 22,
+        "hit_rate": 52.9,
+        "streak": {
+          "type": "hit",
+          "count": 5
+        }
+      },
+      "코스피 상승일": {
+        "total": 35,
+        "hit": 15,
+        "miss": 8,
+        "hold": 12,
+        "hit_rate": 65.2,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      }
+    },
+    "recent_7d": {
+      "total": 6,
+      "hit": 2,
+      "miss": 0,
+      "hold": 4,
+      "hit_rate": 100.0,
+      "streak": {
+        "type": "hit",
+        "count": 2
+      }
+    },
+    "recent_30d": {
+      "total": 39,
+      "hit": 13,
+      "miss": 9,
+      "hold": 17,
+      "hit_rate": 59.1,
+      "streak": {
+        "type": "hit",
+        "count": 5
+      }
+    }
+  },
+  "analyst_stats": {
+    "total": 470,
+    "hit": 193,
+    "miss": 277,
+    "hold": 0,
+    "hit_rate": 41.1,
+    "streak": {
+      "type": "miss",
+      "count": 3
+    },
+    "by_analyst": {
+      "탐": {
+        "total": 94,
+        "hit": 37,
+        "miss": 57,
+        "hold": 0,
+        "hit_rate": 39.4,
+        "streak": {
+          "type": "miss",
+          "count": 4
+        }
+      },
+      "베라": {
+        "total": 94,
+        "hit": 47,
+        "miss": 47,
+        "hold": 0,
+        "hit_rate": 50.0,
+        "streak": {
+          "type": "hit",
+          "count": 3
+        }
+      },
+      "주노": {
+        "total": 94,
+        "hit": 33,
+        "miss": 61,
+        "hold": 0,
+        "hit_rate": 35.1,
+        "streak": {
+          "type": "miss",
+          "count": 2
+        }
+      },
+      "카이": {
+        "total": 94,
+        "hit": 37,
+        "miss": 57,
+        "hold": 0,
+        "hit_rate": 39.4,
+        "streak": {
+          "type": "miss",
+          "count": 3
+        }
+      },
+      "제이드": {
+        "total": 94,
+        "hit": 39,
+        "miss": 55,
+        "hold": 0,
+        "hit_rate": 41.5,
+        "streak": {
+          "type": "miss",
+          "count": 4
+        }
+      }
+    },
+    "by_call": {
+      "매도": {
+        "total": 133,
+        "hit": 89,
+        "miss": 44,
+        "hold": 0,
+        "hit_rate": 66.9,
+        "streak": {
+          "type": "hit",
+          "count": 8
+        }
+      },
+      "보유": {
+        "total": 215,
+        "hit": 60,
+        "miss": 155,
+        "hold": 0,
+        "hit_rate": 27.9,
+        "streak": {
+          "type": "miss",
+          "count": 10
+        }
+      },
+      "매수": {
+        "total": 122,
+        "hit": 44,
+        "miss": 78,
+        "hold": 0,
+        "hit_rate": 36.1,
+        "streak": {
+          "type": "miss",
+          "count": 8
+        }
+      }
+    },
+    "by_market": {
+      "코스피 하락일": {
+        "total": 290,
+        "hit": 117,
+        "miss": 173,
+        "hold": 0,
+        "hit_rate": 40.3,
+        "streak": {
+          "type": "miss",
+          "count": 3
+        }
+      },
+      "코스피 상승일": {
+        "total": 180,
+        "hit": 76,
+        "miss": 104,
+        "hold": 0,
+        "hit_rate": 42.2,
+        "streak": {
+          "type": "hit",
+          "count": 1
+        }
+      }
+    },
+    "notable_pattern": "베라 · LG이노텍 콜은 유난히 잘 맞아요 (13/15건, 전체 평균 41%)",
+    "recent_7d": {
+      "total": 30,
+      "hit": 12,
+      "miss": 18,
+      "hold": 0,
+      "hit_rate": 40.0,
+      "streak": {
+        "type": "miss",
+        "count": 3
+      }
+    },
+    "recent_30d": {
+      "total": 200,
+      "hit": 83,
+      "miss": 117,
+      "hold": 0,
+      "hit_rate": 41.5,
+      "streak": {
+        "type": "miss",
+        "count": 3
+      }
+    }
+  },
+  "risk_alerts": [
+    "[카이] 삼성전자: 외국인 3거래일 연속 순매도, 기관 3거래일 연속 순매도 — 원인: - **원인:** 상반기 반도체 대형주 급등 뒤 외국인 차익실현이 이어졌고, 오늘(10/8) 발표 예정인 삼성전자 3분기 잠정실적을 앞두고 관망하며 매도한 것으로 보도됐습니다.\n- **배경:** 미국 10년물 국채금리가 5.29%로 2007년 이후 최고치를 기록했고 미국·이란 갈등이 길어지면서 투자심리가 나빠졌습니다. 외국인 매도는 삼성전자만이 아니라 반도체 업종과 코스피 전반에서 나왔습니다(9/1~10/2 코스피 20.3조 원 순매도, 이 중 삼성전자 5.19조 원).\n\n출처:\n- [Korea Times (10/7)](https://www.koreatimes.co.kr/amp/economy/20261007/seoul-stocks-fall-as-foreign-profit-taking-samsung-earnings-caution-weigh-on-investor-sentiment)\n- [Korea Herald](https://www.koreaherald.com/article/10892894)\n- [서울경제 (10/5)](https://m.sedaily.com/article/20098090)\n- [Seoul Economic Daily (10/1)](https://en.sedaily.com/finance/2026/10/01/foreign-investors-dump-135-trillion-won-in-five-months)\n- [블록미디어](https://www.blockmedia.co.kr/archives/1148738)",
+    "[카이] SK하이닉스: 외국인 3거래일 연속 순매도, 기관 3거래일 연속 순매도 — 원인: **요약:** 삼성전자 3분기 잠정실적 발표(10/8)를 앞두고 관망 심리가 커졌고, 최근 급등한 반도체주에서 외국인이 차익을 실현하고 있습니다. 여기에 원화 강세에 따른 실적 우려, 미국·이란 갈등과 금리 인상 가능성에 따른 위험회피, 10월 중순 SK하이닉스 자사주 매입 종료에 따른 수급 공백 우려가 겹쳤습니다. 외국인은 9/1~10/2에 SK하이닉스만 약 12조원을 순매도했고, 10/7 하루에는 약 1.38조원을 순매도했습니다.\n\n**확인 필요:** 코스피 -1.98%는 10/7 종가(6803.90)와 일치하므로 이 신호는 10/7 거래 기준으로 보입니다. 다만 기사에 나온 SK하이닉스 등락률은 -2.82%로 신호의 -3.27%와 다릅니다. 10/8 장 기사는 검색 시점에 아직 없었습니다.\n\nSources:\n- [뉴스핌 – 삼성전자 실적 앞둔 관망심리…코스피 6803선 하락 마감 (10/7)](https://www.newspim.com/news/view/20261007001012)\n- [서울신문 – 삼성전자·SK하이닉스 밀린 코스피, 이틀 연속 하락](https://www.seoul.co.kr/news/economy/securities/2026/10/07/20261007500231)\n- [전자신문 – 삼전닉스 17조 던진 외국인…코스피 한달새 20조 '매도 폭탄'](https://www.etnews.com/20261005000060)\n- [베타뉴스 – 외국인, 9월 이후 코스피 20조원 순매도](https://www.betanews.net/article/view/beta202610040008)\n- [핀포인트뉴스 – 10월 7일 매매동향](https://www.pinpointnews.co.kr/news/articleView.html?idxno=493502)\n- [Investing.com – 삼성전자·SK하이닉스, 3분기 실적 발표 앞두고 주가 하락](https://kr.investing.com/news/stock-market-news/article-2116998)",
+    "[카이] 현대차: 급락 -3.27% (코스피도 동반 -2.62%), 외국인 3거래일 연속 순매도, 기관 3거래일 연속 순매도 — 원인: 현대차 수급 이탈 원인 (2줄 요약)\n\n1. 개별 종목 요인: NH투자증권이 10월 6일 글로벌 도매 판매 둔화를 이유로 현대차 목표주가를 낮췄습니다. 3분기 영업이익 예상치는 2.4조원으로 시장 컨센서스 3.0조원보다 약 20% 낮게 제시했습니다. ([글로벌이코노믹](https://www.g-enews.com/article/Securities/2026/10/20261006083113986144093b5d4e_1))\n2. 시장 요인: 같은 시기 코스피는 삼성전자 실적 발표를 앞두고 외국인과 기관이 동반 매도하면서 이틀 연속 하락해 -1.98%로 마감했고, 현대차도 함께 약세였습니다. ([뉴스핌](https://www.newspim.com/news/view/20261007001012), [서울신문](https://www.seoul.co.kr/news/economy/securities/2026/10/07/20261007500231))\n\n참고로 검색된 시황은 10월 7일 마감 기사입니다. 코스피 하락률(-1.98%)은 감지된 신호와 같지만, 기사 속 현대차 하락률은 -3.45%로 신호의 -3.30%와 약간 다릅니다. 10월 8일 장 마감 기사는 검색되지 않았습니다.\n\nSources:\n- [글로벌이코노믹 – NH투자증권 \"현대차, 글로벌 도매 판매 둔화.. 목표가 하향\"](https://www.g-enews.com/article/Securities/2026/10/20261006083113986144093b5d4e_1)\n- [뉴스핌 – 코스피 6803선 하락 마감](https://www.newspim.com/news/view/20261007001012)\n- [서울신문 – 코스피 이틀 연속 하락](https://www.seoul.co.kr/news/economy/securities/2026/10/07/20261007500231)",
+    "[카이] SK스퀘어: 급락 -7.27% (코스피도 동반 -2.62%)",
+    "[카이] LG이노텍: 급락 -3.21% (코스피도 동반 -2.62%)",
+    "[노바] 원달러환율 급등 +0.56% (현재 1,347.2원)",
+    "[노바] KOSPI 지수 자체 급락 -2.62% (현재 6,625.93)",
+    "[제이드] 포트폴리오 집중도 리스크: 보유종목 6/6개 동반 급락 — 삼성전자(-2.23%), SK하이닉스(-2.15%), 삼성전기(-2.81%), 현대차(-3.27%), SK스퀘어(-7.27%), LG이노텍(-3.21%)"
+  ],
+  "fomc_calendar": {
+    "date": "2026-10-08",
+    "fomc_date": "2026-10-28",
+    "raw": "날짜: 2026-10-28 (출처: federalreserve.gov FOMC 일정 페이지 https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)",
+    "suspicious": false
+  }
+}
