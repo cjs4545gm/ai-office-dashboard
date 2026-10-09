@@ -2566,8 +2566,10 @@
   // stock-dashboard(Streamlit)의 "오늘의 주요뉴스"를 부서현황판에 통합하는 마지막 단계(2026-09-23).
   const NEWS_DIGEST_REFRESH_MS = 5 * 60 * 1000;
 
+  let lastPublicRedacted = false;  // applyData가 갱신 — 공개 미러면 로컬 서버 뉴스를 그리지 않는다
   async function loadNewsDigest(){
     const el = document.getElementById("news-digest-list");
+    if (lastPublicRedacted) return;
     try {
       const resp = await fetch(`${ANALYSIS_ORIGIN}/news-digest?limit=15`, { signal: AbortSignal.timeout(20000) });
       const data = await resp.json();
@@ -2582,7 +2584,7 @@
           <div class="news-meta">${escapeHtml(i.publisher)} · ${escapeHtml(i.when)}</div>
         </div>`).join("")}</div>`;
     } catch (e) {
-      el.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
+      if (!lastPublicRedacted) el.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;  // 응답 전에 공개본으로 판명됐으면 안내 문구 유지
     }
   }
 
@@ -2608,6 +2610,19 @@
     renderYoutubePick(data.youtube_pick);
     renderStrategyPanel(data.strategy_room);
     renderLog(data.activity_log);
+    lastPublicRedacted = !!data.public_redacted;
+    if (lastPublicRedacted) markPrivatePanels();
+  }
+
+  // 공개 GitHub Pages 미러는 sync_status.sh가 보유 종목·매매 의견·경보를 빼고 올린다(2026-10-09) — 빈 패널이
+  // "콜 없음", "경보 없음"처럼 보이면 실제로 아무 일도 없는 것처럼 오해하므로 로컬 전용이라고 표시한다.
+  const PRIVATE_PANEL_IDS = ["trader-calls", "priority-alerts", "priority-alerts-live", "risk-alerts",
+    "employee-accuracy", "analyst-comments", "youtube-pick", "news-digest-list"];
+  function markPrivatePanels(){
+    PRIVATE_PANEL_IDS.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = '<div class="panel-empty">공개 페이지에는 표시하지 않습니다 — Mac의 로컬 현황판(localhost:8767)에서 확인하세요</div>';
+    });
   }
 
   let hasLoadedRealData = false;
@@ -3037,16 +3052,19 @@
     let g = "";
     const tagYs = lines.map(l => y(l[0])).concat([y(livePx ?? bars[bars.length - 1][4])]);
     for (let i = 0; i <= 4; i++){ const v = lo + span * i / 4;
-      if (tagYs.some(t => Math.abs(t - y(v)) < 12)){ g += `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="#101a14"/>`; continue; }  // 가격 태그와 겹치는 눈금 글자는 생략
+      if (tagYs.some(t => Math.abs(t - y(v)) < 24)){ g += `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="#101a14"/>`; continue; }  // 가격 태그와 겹치는 눈금 글자는 생략
       g += `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="#101a14"/><text x="${W - PR + 4}" y="${y(v) + 3}" fill="#5d6b63" font-size="10">${fmt(v)}</text>`; }
     const c = bars.map((b, i) => { const [, o, h, l, cl] = b, x = PL + step * i + step / 2, up = cl >= o, col = up ? "#3cff7a" : "#ff4d5e";
       return `<line x1="${x}" x2="${x}" y1="${y(h)}" y2="${y(l)}" stroke="${col}"/><rect x="${x - bw / 2}" y="${y(Math.max(o, cl))}" width="${bw}" height="${Math.max(1, Math.abs(y(o) - y(cl)))}" fill="${up ? "#05070a" : col}" stroke="${col}"/>`; }).join("");
     const L = lines.map(([v, col, lab]) => `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="${col}" stroke-dasharray="4 3"/>
       <rect x="${W - PR + 1}" y="${y(v) - 7}" width="${PR - 2}" height="14" fill="${col}"/><text x="${W - PR + 4}" y="${y(v) + 4}" fill="#05070a" font-size="10">${lab} ${fmt(v)}</text>`).join("");
     const last = livePx ?? bars[bars.length - 1][4];  // 실시간가가 있으면 그 가격에 현재가 선
-    const lastTag = `<line x1="${PL}" x2="${W - PR}" y1="${y(last)}" y2="${y(last)}" stroke="#6ea8ff" stroke-width="${livePx != null ? 1 : .6}" ${livePx != null ? 'stroke-dasharray="2 2"' : ""}/><text x="${W - PR + 4}" y="${y(last) - 4}" fill="#6ea8ff" font-size="10">${livePx != null ? "● " : ""}${fmt(last)}</text>`;
+    // 매수·손절 태그와 가까우면 현재가 글자를 태그 반대편으로(겹쳐서 가려지지 않게)
+    const near = lines.map(l => y(l[0])).filter(t => Math.abs(t - y(last)) < 16).sort((p, q) => Math.abs(p - y(last)) - Math.abs(q - y(last)))[0];
+    const lastTxtY = near != null && near <= y(last) ? y(last) + 12 : near != null ? y(last) - 9 : y(last) - 4;
+    const lastTag = `<line x1="${PL}" x2="${W - PR}" y1="${y(last)}" y2="${y(last)}" stroke="#6ea8ff" stroke-width="${livePx != null ? 1 : .6}" ${livePx != null ? 'stroke-dasharray="2 2"' : ""}/><text x="${W - PR + 4}" y="${lastTxtY}" fill="#6ea8ff" font-size="10">${livePx != null ? "● " : ""}${fmt(last)}</text>`;
     const dates = [0, Math.floor(bars.length / 2), bars.length - 1].map(i => `<text x="${PL + step * i + step / 2}" y="${H - 4}" fill="#5d6b63" font-size="10" text-anchor="${i ? i === bars.length - 1 ? "end" : "middle" : "start"}">${bars[i][0].slice(5)}</text>`).join("");
-    return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="일봉 차트">${g}${c}${lastTag}${L}${dates}</svg>`;
+    return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="일봉 차트">${g}${c}${L}${lastTag}${dates}</svg>`;
   }
   function trmTerminal(s, control){
     const accts = trmAccounts(s), a = accts.find(x => x.id === TRM.acct) || accts[0];
