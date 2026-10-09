@@ -760,7 +760,7 @@
         <div class="occupant-list" id="room-strategy"></div>
       </div>
       <div class="dept-room" data-room="trading">
-        <div class="dept-head"><h2>자동매매실</h2><span class="dept-desc">미국 일봉 추세추종 모의매매 — 매일 07:10 GitHub에서 실행</span></div>
+        <div class="dept-head"><h2>자동매매실</h2><span class="dept-desc">미국 일봉 추세추종 모의매매 — 매일 아침 GitHub에서 실행(06:07부터 최대 4회)</span></div>
         <div class="occupant-list" id="room-trading"></div>
       </div>
     </div>
@@ -1705,7 +1705,7 @@
   // ---- 종목 분석 탭 — office_analysis_server.py(127.0.0.1:8769)에 붙는다.
   // office-local-server(8767)로 연 로컬 버전에서만 CORS가 허용된다 — 전략실과 동일한 제약.
   const ANALYSIS_ORIGIN = "http://127.0.0.1:8769";
-  const WATCHLIST_STOCKS = ["삼성전자", "SK하이닉스", "삼성전기", "현대차", "SK스퀘어", "LG이노텍"];
+  const WATCHLIST_STOCKS = [];
   let selectedWatchlistStock = null;
 
   function renderWatchlistButtons(){
@@ -2115,7 +2115,7 @@
   const caSuggestions = document.getElementById("ca-suggestions");
   const caAnalyzeButton = document.getElementById("ca-analyze");
 
-  const CA_WATCHLIST = [["삼성전자","005930"],["SK하이닉스","000660"],["삼성전기","009150"],["현대차","005380"],["SK스퀘어","402340"],["LG이노텍","011070"]];
+  const CA_WATCHLIST = [];
   document.getElementById("ca-watchlist").innerHTML = CA_WATCHLIST.map(([name, code]) =>
     `<button type="button" class="stock-btn" data-name="${escapeHtml(name)}" data-code="${code}">${escapeHtml(name)}</button>`).join("");
   document.querySelectorAll("#ca-watchlist .stock-btn").forEach(btn => {
@@ -2999,7 +2999,18 @@
   // ── 자동매매 터미널 패널 (2026-10-09) ─────────────────────────────────────────────
   // 계좌(기본·실험)를 골라 오늘 손익·계좌·리스크·시장분석(ADX/DI/ATR)·성과를 MetaTrader 정보창처럼 보여주고,
   // 버튼은 맥의 control_server.py(127.0.0.1:8771)로 보낸다 → GitHub control.json → 다음 미국장 시가에 모의 반영.
-  const TRM = { acct: "main", sym: null, confirm: null, msg: "" };
+  const TRM = { acct: "main", sym: null, confirm: null, msg: "", s: null, control: null, live: {}, liveAt: null, liveErr: false };
+  // 실시간 시세(2026-10-09) — 화면 표시 전용. 매매 판단·체결은 그대로 일봉 종가 기준(GitHub Actions)이다.
+  // 시세는 시세 탭과 같은 office_analysis_server의 /live-prices?us=(토스 우선·네이버 폴백, 프리·애프터 포함).
+  function trmSession(){
+    const et = new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
+    const d = et.getDay(), t = et.getHours() * 60 + et.getMinutes();
+    if (d === 0 || d === 6) return { key: "closed", label: "주말 휴장" };
+    if (t >= 570 && t < 960) return { key: "regular", label: "정규장" };
+    if (t >= 240 && t < 570) return { key: "pre", label: "프리마켓" };
+    if (t >= 960 && t < 1200) return { key: "after", label: "애프터마켓" };
+    return { key: "closed", label: "장 마감" };
+  }
   const TRM_ACTIONS = { close_all: "전량 청산", pause: "진입 일시정지", resume: "진입 재개" };
   const trmMoney = v => (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const trmSigned = v => `<span class="${v > 0 ? "trm-up" : v < 0 ? "trm-dn" : ""}">${v > 0 ? "+" : ""}${trmMoney(v)}</span>`;
@@ -3014,17 +3025,17 @@
               capital, equity: e.kpi.equity, cash: e.kpi.cash, curve: e.equity_curve, positions: e.positions, orders: e.orders,
               risk: e.risk_state, paused: !!e.paused, controls: e.controls || [], maxPos: e.id === "tqqq" ? 1 : 6, leverage: e.leverage })));
   }
-  function trmCandles(m, pos){
+  function trmCandles(m, pos, livePx){
     if (!m || !m.bars || m.bars.length < 2) return '<div class="panel-empty">차트 데이터 없음</div>';
     // 좁은 화면은 좌표계를 줄여 글자가 너무 작아지지 않게(viewBox가 화면 폭에 맞춰 늘어나므로)
     const narrow = innerWidth < 600, bars = m.bars.slice(narrow ? -60 : -90), W = narrow ? 380 : 640, H = narrow ? 240 : 300, PL = 4, PR = 58, PT = 8, PB = 18;
     const lines = pos ? [[pos.entry_px, "#e6e6e6", "매수"], ...(pos.stop != null ? [[pos.stop, "#ff4d5e", "손절"]] : [])] : [];
-    const vals = bars.flatMap(b => [b[2], b[3]]).concat(lines.map(l => l[0]));
+    const vals = bars.flatMap(b => [b[2], b[3]]).concat(lines.map(l => l[0]), livePx != null ? [livePx] : []);
     const lo = Math.min(...vals), hi = Math.max(...vals), span = Math.max(hi - lo, 1e-9);
     const y = v => PT + (hi - v) / span * (H - PT - PB), step = (W - PL - PR) / bars.length, bw = Math.max(1.5, step * 0.62);
     const fmt = v => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
     let g = "";
-    const tagYs = lines.map(l => y(l[0])).concat([y(bars[bars.length - 1][4])]);
+    const tagYs = lines.map(l => y(l[0])).concat([y(livePx ?? bars[bars.length - 1][4])]);
     for (let i = 0; i <= 4; i++){ const v = lo + span * i / 4;
       if (tagYs.some(t => Math.abs(t - y(v)) < 12)){ g += `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="#101a14"/>`; continue; }  // 가격 태그와 겹치는 눈금 글자는 생략
       g += `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="#101a14"/><text x="${W - PR + 4}" y="${y(v) + 3}" fill="#5d6b63" font-size="10">${fmt(v)}</text>`; }
@@ -3032,8 +3043,8 @@
       return `<line x1="${x}" x2="${x}" y1="${y(h)}" y2="${y(l)}" stroke="${col}"/><rect x="${x - bw / 2}" y="${y(Math.max(o, cl))}" width="${bw}" height="${Math.max(1, Math.abs(y(o) - y(cl)))}" fill="${up ? "#05070a" : col}" stroke="${col}"/>`; }).join("");
     const L = lines.map(([v, col, lab]) => `<line x1="${PL}" x2="${W - PR}" y1="${y(v)}" y2="${y(v)}" stroke="${col}" stroke-dasharray="4 3"/>
       <rect x="${W - PR + 1}" y="${y(v) - 7}" width="${PR - 2}" height="14" fill="${col}"/><text x="${W - PR + 4}" y="${y(v) + 4}" fill="#05070a" font-size="10">${lab} ${fmt(v)}</text>`).join("");
-    const last = bars[bars.length - 1][4];
-    const lastTag = `<line x1="${PL}" x2="${W - PR}" y1="${y(last)}" y2="${y(last)}" stroke="#6ea8ff" stroke-width=".6"/><text x="${W - PR + 4}" y="${y(last) - 4}" fill="#6ea8ff" font-size="10">${fmt(last)}</text>`;
+    const last = livePx ?? bars[bars.length - 1][4];  // 실시간가가 있으면 그 가격에 현재가 선
+    const lastTag = `<line x1="${PL}" x2="${W - PR}" y1="${y(last)}" y2="${y(last)}" stroke="#6ea8ff" stroke-width="${livePx != null ? 1 : .6}" ${livePx != null ? 'stroke-dasharray="2 2"' : ""}/><text x="${W - PR + 4}" y="${y(last) - 4}" fill="#6ea8ff" font-size="10">${livePx != null ? "● " : ""}${fmt(last)}</text>`;
     const dates = [0, Math.floor(bars.length / 2), bars.length - 1].map(i => `<text x="${PL + step * i + step / 2}" y="${H - 4}" fill="#5d6b63" font-size="10" text-anchor="${i ? i === bars.length - 1 ? "end" : "middle" : "start"}">${bars[i][0].slice(5)}</text>`).join("");
     return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="일봉 차트">${g}${c}${lastTag}${L}${dates}</svg>`;
   }
@@ -3049,8 +3060,12 @@
     const pending = ((control && control.requests) || []).filter(r => r.account === a.id && !done.has(r.id));
     // 반영 전 요청까지 감안한 '곧 적용될' 일시정지 상태
     const willPause = pending.reduce((p, r) => r.action === "resume" ? false : true, a.paused);
-    const invested = a.positions.reduce((t, p) => t + p.qty * p.last_close, 0);
-    const floating = a.positions.reduce((t, p) => t + p.qty * (p.last_close - p.entry_px), 0);
+    const px = sym => TRM.live[sym] ?? (a.positions.find(p => p.symbol === sym) || {}).last_close;
+    const isLive = a.positions.length > 0 && a.positions.every(p => TRM.live[p.symbol] != null);
+    const invested = a.positions.reduce((t, p) => t + p.qty * px(p.symbol), 0);
+    const floating = a.positions.reduce((t, p) => t + p.qty * (px(p.symbol) - p.entry_px), 0);
+    const liveEq = a.cash + invested, liveChg = liveEq - last, sess = trmSession();
+    const livePos = pos ? px(pos.symbol) : null, chartLive = TRM.live[TRM.sym] ?? null;
     const mode = { normal: '<span class="trm-up">정상</span>', reduce: '<span class="trm-warn">위험 축소</span>',
                    halt: '<span class="trm-dn">진입 중단(낙폭)</span>', paused: '<span class="trm-warn">일시정지(수동)</span>' }[a.risk.mode] || a.risk.mode;
     const daily = curve.map((p, i) => [p[0], p[1] - (i ? curve[i - 1][1] : a.capital), i ? curve[i - 1][1] : a.capital]);
@@ -3069,19 +3084,22 @@
         <div class="trm-accts">${accts.map(x => `<button type="button" class="trm-chip ${x.id === a.id ? "on" : ""}" data-trm-acct="${x.id}">${escapeHtml(x.name)}</button>`).join("")}</div>
         <div class="trm-dim">AUTO_TREND · 모의매매 · ${escapeHtml(s.last_date || "-")} 장 기준</div>
       </div>
-      <div class="trm-big ${day > 0 ? "trm-up" : day < 0 ? "trm-dn" : ""}">${day >= 0 ? "+" : "-"}${trmMoney(Math.abs(day)).replace("-", "")} (${day >= 0 ? "+" : ""}${(day / prev * 100).toFixed(2)}%)</div>
-      <div class="trm-sub">마지막 거래일 손익 · 누적 ${trmPct(last / a.capital - 1)} (${trmSigned(last - a.capital)})</div>
+      ${isLive
+        ? `<div class="trm-big ${liveChg > 0 ? "trm-up" : liveChg < 0 ? "trm-dn" : ""}">${liveChg >= 0 ? "+" : "-"}${trmMoney(Math.abs(liveChg))} (${liveChg >= 0 ? "+" : ""}${(liveChg / last * 100).toFixed(2)}%)</div>
+           <div class="trm-sub"><span class="trm-up">● 실시간</span> ${sess.label} · ${TRM.liveAt ? TRM.liveAt.toLocaleTimeString("en-GB", { hour12: false }) : ""} 갱신 · ${escapeHtml(s.last_date || "")} 종가 대비 · 평가 ${trmMoney(liveEq)} · 누적 ${trmPct(liveEq / a.capital - 1)}${TRM.liveErr ? ' · <span class="trm-warn">시세 갱신 실패 — 마지막 값 표시 중</span>' : ""}</div>`
+        : `<div class="trm-big ${day > 0 ? "trm-up" : day < 0 ? "trm-dn" : ""}">${day >= 0 ? "+" : "-"}${trmMoney(Math.abs(day)).replace("-", "")} (${day >= 0 ? "+" : ""}${(day / prev * 100).toFixed(2)}%)</div>
+           <div class="trm-sub">마지막 거래일 손익 · 누적 ${trmPct(last / a.capital - 1)} (${trmSigned(last - a.capital)})${a.positions.length && trmLocal() ? ' · <span class="trm-dim">실시간 시세 불러오는 중…</span>' : ""}</div>`}
       <div class="trm-grid">
         <div class="trm-chart">
           <div class="trm-syms">${symChips}</div>
-          ${trmCandles(m, pos)}
+          ${trmCandles(m, pos, chartLive)}
           <div class="trm-dim" style="font-size:10.5px">${escapeHtml(TRM.sym)} 일봉 ${innerWidth < 600 ? 60 : 90}일 · 점선: 흰색 매수가 / 빨강 손절선 · 아래 표에서 다른 종목 선택</div>
         </div>
         <div class="trm-box">
           <div class="trm-h">--- 계좌 ---</div>
-          ${trmRow("평가금액", trmMoney(last))}
+          ${trmRow("평가금액", trmMoney(isLive ? liveEq : last))}
           ${trmRow("현금", trmMoney(a.cash) + (a.cash < 0 ? ' <span class="trm-warn">(신용)</span>' : ""))}
-          ${trmRow("주식 평가", trmMoney(invested) + ` <span class="trm-dim">${(invested / last * 100).toFixed(0)}%</span>`)}
+          ${trmRow("주식 평가", trmMoney(invested) + ` <span class="trm-dim">${(invested / (isLive ? liveEq : last) * 100).toFixed(0)}%</span>`)}
           ${trmRow("평가손익", trmSigned(floating))}
           ${trmRow("보유 / 한도", `${a.positions.length} / ${a.maxPos}${a.leverage ? ` · ${a.leverage}배` : ""}`)}
           <div class="trm-h">--- 리스크 ---</div>
@@ -3095,8 +3113,9 @@
           ${trmRow("방향 · 상태", `<span class="${m.direction === "상승" ? "trm-up" : "trm-dn"}">${m.direction || "-"}</span> · ${m.status === "추세" ? '<span class="trm-up">추세</span>' : '<span class="trm-warn">' + (m.status || "-") + "</span>"}`)}
           <div class="trm-h">--- 포지션 · ${escapeHtml(TRM.sym)} ---</div>
           ${pos ? trmRow("수량 · 매수가", `${+pos.qty.toFixed(4)}주 · ${trmMoney(pos.entry_px)}`)
-                + trmRow("현재가 · 손익", `${trmMoney(pos.last_close)} · ${trmPct(pos.last_close / pos.entry_px - 1)}`)
-                + trmRow("손절선", pos.stop == null ? '<span class="trm-dim">없음</span>' : `${trmMoney(pos.stop)} <span class="trm-dim">(${((pos.stop / pos.last_close - 1) * 100).toFixed(1)}%)</span>`)
+                + trmRow(TRM.live[pos.symbol] != null ? "실시간가 · 손익" : "현재가 · 손익", `${trmMoney(livePos)} · ${trmPct(livePos / pos.entry_px - 1)}`)
+                + trmRow("손절선", pos.stop == null ? '<span class="trm-dim">없음</span>' : `${trmMoney(pos.stop)} <span class="trm-dim">(${((pos.stop / livePos - 1) * 100).toFixed(1)}%)</span>`)
+                + (pos.stop != null && livePos <= pos.stop ? '<div class="trm-note trm-dn">⚠️ 손절선 아래 — 장 마감 후 계산에서 손절 처리돼요(실시간 체결 아님)</div>' : "")
                 + trmRow("손절 시 손실", pos.stop == null ? "-" : trmSigned(pos.qty * (pos.stop - pos.entry_px)))
               : '<div class="trm-dim">이 계좌에 보유 없음</div>'}
           <div class="trm-h">--- 성과 ---</div>
@@ -3119,8 +3138,29 @@
       </table>
     </div>`;
   }
+  function trmRender(){
+    const w = document.getElementById("trm-wrap");
+    if (w && TRM.s) w.innerHTML = trmTerminal(TRM.s, TRM.control);
+  }
+  async function trmPollLive(){
+    const panel = document.querySelector('.tab-panel[data-tab-panel="trading"]');
+    if (!TRM.s || !trmLocal() || document.hidden || !panel.classList.contains("active")) return;
+    const a = trmAccounts(TRM.s).find(x => x.id === TRM.acct);
+    const syms = [...new Set((a ? a.positions.map(p => p.symbol) : []).concat(TRM.sym ? [TRM.sym] : []))].slice(0, 20);
+    if (!syms.length) return;
+    try {
+      const r = await fetch(`${ANALYSIS_ORIGIN}/live-prices?us=${encodeURIComponent(syms.join(","))}`, { signal: AbortSignal.timeout(8000) });
+      const j = await r.json();
+      if (!r.ok || !j.ok) throw new Error(j.error || r.status);
+      (j.us || []).forEach(q => { if (q.price != null) TRM.live[q.symbol] = q.price; });
+      TRM.liveAt = new Date(); TRM.liveErr = false;
+    } catch (e) { TRM.liveErr = true; }
+    trmRender();
+  }
+  // 정규·프리·애프터장엔 5초, 장 닫힌 시간엔 1분마다(탭이 열려 있고 화면이 보일 때만)
+  (function trmLoop(){ trmPollLive().finally(() => setTimeout(trmLoop, trmSession().key === "closed" ? 60000 : 5000)); })();
   async function trmSend(action){
-    TRM.msg = "요청 보내는 중…"; loadTrading();
+    TRM.msg = "요청 보내는 중…"; trmRender();
     try {
       const r = await fetch(`http://${location.hostname}:8771/control`, { method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ account: TRM.acct, action }) });
@@ -3140,7 +3180,8 @@
     else if (t.dataset.trmAct) TRM.confirm = t.dataset.trmAct;
     else if ("trmCancel" in t.dataset) TRM.confirm = null;
     else if (t.dataset.trmOk){ const act = t.dataset.trmOk; TRM.confirm = null; trmSend(act); return; }
-    loadTrading();
+    trmRender();
+    if (t.dataset.trmAcct || t.dataset.trmSym || t.dataset.sym) trmPollLive();  // 새 계좌·종목 시세 바로
   });
   async function loadTrading(){
     const body = document.getElementById("tr-body");
@@ -3155,12 +3196,15 @@
     }
     if (!s.strategy){ body.innerHTML = '<div class="panel-empty">전략 선택 대기 중</div>'; return; }
     const control = await fetch(`trader/control.json?t=${Date.now()}`, { cache: "no-store" }).then(r => r.ok ? r.json() : null).catch(() => null);
+    const firstLoad = !TRM.s;
+    TRM.s = s; TRM.control = control;
+    if (firstLoad) setTimeout(trmPollLive, 0);  // 탭을 처음 열면 5초 기다리지 않고 바로 시세
     const k = s.kpi, rs = s.risk_state;
     const mode = { normal: "정상", reduce: "위험 축소(신규 비중 절반)", halt: "신규 진입 중단" }[rs.mode];
     document.getElementById("tr-sub").textContent =
       `${s.strategy_name} · 시작 ${s.paper_start} · 마지막 데이터 ${s.last_date || "-"} · 갱신 ${s.updated_at}${s.data_fresh ? "" : " · ⚠️ 캐시 데이터"}`;
     const rows = (list, fn, cols, empty) => list.length ? list.map(fn).join("") : `<tr><td colspan="${cols}" class="panel-empty">${empty}</td></tr>`;
-    body.innerHTML = trmTerminal(s, control) + `
+    body.innerHTML = `<div id="trm-wrap">${trmTerminal(s, control)}</div>` + `
       <div class="quote-grid-label">상세 — 기본 계좌</div>
       <div class="tr-kpis">
         <div class="tr-kpi">평가금액<b>${trFmt(k.equity)}</b></div>
