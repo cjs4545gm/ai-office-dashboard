@@ -453,6 +453,10 @@
   .chart-head{ display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
   .chart-head .chart-title{ font-weight:700; font-size:14px; }
   .chart-head .chart-latest{ font-family:var(--mono); font-size:12px; color:var(--muted); }
+  /* 일봉/분봉 전환(2026-10-09) */
+  .iv-toggle{ display:inline-flex; gap:2px; border:1px solid var(--line); border-radius:7px; padding:2px; }
+  .iv-toggle button{ background:none; border:0; border-radius:5px; padding:2px 8px; font:inherit; font-size:11px; color:var(--muted); cursor:pointer; }
+  .iv-toggle button.on{ background:var(--accent); color:#fff; }
   #chart-container svg{ display:block; width:100%; height:auto; }
   #chart-container .chart-wick{ stroke-width:1; }
   #chart-container .chart-body{ stroke-width:1; }
@@ -890,6 +894,7 @@
       <div class="chart-panel">
         <div class="chart-head">
           <span class="chart-title" id="chart-title">위에서 종목을 클릭해주세요</span>
+          <span class="iv-toggle" id="chart-iv" role="group" aria-label="봉 간격"><button type="button" data-iv="1d" class="on">일봉</button><button type="button" data-iv="1m">1분</button><button type="button" data-iv="3m">3분</button><button type="button" data-iv="5m">5분</button></span>
           <span class="chart-latest" id="chart-latest"></span>
         </div>
         <div id="chart-container"><div class="panel-empty">일봉 캔들차트가 여기 표시됩니다</div></div>
@@ -1040,13 +1045,13 @@
       callie: { name: "캘리", rank: "캘린더 담당", role: "실적발표 예상 시기 추적", room: "workflow", status: "done", last_action: "10일 이내 예상 발표 없음", since: "2026-07-07T13:00:00" },
 
       vera:   { name: "베라", rank: "팀장", role: "리서치 총괄·품질 검수", room: "research", status: "working", last_action: "리서치 품질 검수 중", since: "2026-07-07T13:10:00" },
-      tam:    { name: "탐", rank: "선임", role: "리서치 분석가", room: "research", status: "working", last_action: "보유종목 6개 리서치 분석 중", since: "2026-07-07T13:10:00" },
+      tam:    { name: "탐", rank: "선임", role: "리서치 분석가", room: "research", status: "working", last_action: "리서치 분석 중", since: "2026-07-07T13:10:00" },
       juno:   { name: "주노", rank: "주니어", role: "업종별 협회·통계 리서처", room: "research", status: "done", last_action: "업종 2개 협회·통계 조사 완료", since: "2026-07-07T13:10:00" },
       chip:   { name: "칩", rank: "가격분석 담당", role: "D램·낸드·MLCC 가격 분석", room: "research", status: "done", last_action: "D램·낸드 현물가 + MLCC 동향 갱신", since: "2026-07-13T11:00:00" },
 
       hank:   { name: "행크", rank: "팀장", role: "데이터 품질 관리", room: "data", status: "done", last_action: "이상없음", since: "2026-07-07T13:00:00" },
       scout:  { name: "스카우트", rank: "선임", role: "정보 수집원", room: "data", status: "done", last_action: "신규 리포트 3건, 헤드라인 8건 수집", since: "2026-07-07T13:00:00" },
-      milo:   { name: "마일로", rank: "주니어", role: "기관·외국인 수급 데이터", room: "data", status: "done", last_action: "보유종목 6개 수급 데이터 갱신", since: "2026-07-07T13:00:00" },
+      milo:   { name: "마일로", rank: "주니어", role: "기관·외국인 수급 데이터", room: "data", status: "done", last_action: "수급 데이터 갱신", since: "2026-07-07T13:00:00" },
 
       jade:   { name: "제이드", rank: "팀장", role: "리스크 총괄", room: "risk", status: "working", last_action: "리스크 시그널 종합 중", since: "2026-07-07T13:10:00" },
       kai:    { name: "카이", rank: "선임", role: "이상거래·급락 감지", room: "risk", status: "done", last_action: "특이사항 없음", since: "2026-07-07T13:10:00" },
@@ -1063,7 +1068,7 @@
       trend_bot: { name: "트렌디", rank: "자동매매 봇", role: "미국 일봉 추세추종 모의매매", room: "trading", status: "done", last_action: "모의매매 갱신", since: "2026-10-08T21:35:00" },
     },
     activity_log: [
-      { time: "2026-07-07T13:10:00", employee: "tam", name: "탐", status: "working", action: "보유종목 6개 리서치 분석 중" },
+      { time: "2026-07-07T13:10:00", employee: "tam", name: "탐", status: "working", action: "리서치 분석 중" },
       { time: "2026-07-07T13:05:00", employee: "bri", name: "브리", status: "done", action: "데일리 시장 브리핑 작성 완료" },
       { time: "2026-07-07T13:00:00", employee: "scout", name: "스카우트", status: "done", action: "신규 리포트 3건, 헤드라인 8건 수집" },
     ],
@@ -1367,6 +1372,7 @@
     const el = document.getElementById("employee-accuracy");
     const byAnalyst = (analystStats && analystStats.by_analyst) || {};
     const opinionsByAnalyst = await fetchAnalystOpinions();
+    if (lastPublicRedacted) return;  // 응답을 기다리는 사이 공개본으로 판명된 경우
     renderAnalystComments(opinionsByAnalyst);
     const rows = [
       empRowHTML(DASHBOARD_PERSONAS.leo, traderStats),
@@ -1869,6 +1875,9 @@
   // stock-dashboard(Streamlit)의 실시간 시세+캔들차트를 부서현황판에 통합하는 첫 단계(2026-09-23).
   // 외부 차트 라이브러리 없이(이 파일 전체 관례) SVG로 직접 그린다.
   let selectedChartTarget = null;   // {symbol, name} — 현재 차트에 표시 중인 종목
+  // 봉 간격 — 1d 일봉, 1m·3m·5m 분봉(토스 1분봉을 서버가 합침, 한국시간). 분봉은 시세 탭이 보일 때 15초마다 다시 그린다
+  let chartInterval = "1d";
+  const IV_LABEL = { "1d": "일봉", "1m": "1분봉", "3m": "3분봉", "5m": "5분봉" };
   const LIVE_PRICE_POLL_MS = 3000;
 
   function formatPrice(price){
@@ -2044,7 +2053,8 @@
     let labels = "";
     labelIdx.forEach(i => {
       const cx = padLeft + slot * i + slot / 2;
-      const d = candles[i].date.slice(5).replace("-", "/");
+      // 분봉 date는 'YYYY-MM-DDTHH:MM' — 시각만, 첫 봉은 날짜도
+      const cd = candles[i].date, d = cd.length > 10 ? (i === 0 ? cd.slice(5, 10).replace("-", "/") + " " : "") + cd.slice(11) : cd.slice(5).replace("-", "/");
       labels += `<text x="${cx}" y="${H - 6}" font-size="10" text-anchor="middle" fill="var(--muted)">${d}</text>`;
     });
     labels += `<text x="${padLeft + 2}" y="${padTop + 10}" font-size="10" fill="var(--muted)">${fp(maxP)}</text>`;
@@ -2053,29 +2063,46 @@
     return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">${bars}${labels}</svg>`;
   }
 
-  async function loadChart(symbol, name){
+  async function loadChart(symbol, name, quiet){
     selectedChartTarget = { symbol, name };
     document.querySelectorAll("#live-portfolio-grid .quote-card, #live-us-grid .quote-card").forEach(card => {
       card.classList.toggle("active", card.dataset.symbol === symbol);
     });
-    document.getElementById("chart-title").textContent = `${name} 일봉`;
-    document.getElementById("chart-latest").textContent = "";
+    const iv = chartInterval;
+    document.getElementById("chart-title").textContent = `${name} ${IV_LABEL[iv]}`;
     const container = document.getElementById("chart-container");
-    container.innerHTML = '<div class="analysis-loading">차트 불러오는 중…</div>';
+    if (!quiet){  // 자동 새로고침은 기존 차트를 지우지 않고 바꿔 끼운다
+      document.getElementById("chart-latest").textContent = "";
+      container.innerHTML = '<div class="analysis-loading">차트 불러오는 중…</div>';
+    }
     try {
-      const resp = await fetch(`${ANALYSIS_ORIGIN}/candles?symbol=${encodeURIComponent(symbol)}&count=90`, { signal: AbortSignal.timeout(15000) });
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/candles?symbol=${encodeURIComponent(symbol)}&count=90&interval=${iv}`, { signal: AbortSignal.timeout(15000) });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "차트를 불러오지 못함");
       if (!data.candles || data.candles.length === 0) throw new Error("캔들 데이터 없음 (시세 소스 일시 장애일 수 있음)");
       const usd = /^[A-Z]/.test(symbol);
+      if (iv !== chartInterval || selectedChartTarget.symbol !== symbol) return;  // 응답 오는 사이 간격·종목이 바뀜
       container.innerHTML = svgCandlestick(data.candles, usd);
       const last = data.candles[data.candles.length - 1];
-      document.getElementById("chart-latest").textContent = `${last.date} 종가 ${usd ? "$" + last.close.toFixed(2) : formatPrice(last.close)}`;
+      document.getElementById("chart-latest").textContent = iv === "1d"
+        ? `${last.date} 종가 ${usd ? "$" + last.close.toFixed(2) : formatPrice(last.close)}`
+        : `${last.date.replace("T", " ")} (한국시간) ${usd ? "$" + last.close.toFixed(2) : formatPrice(last.close)}`;
     } catch (e) {
-      container.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
+      if (!quiet) container.innerHTML = `<div class="analysis-error">${escapeHtml(e.message)}</div>`;
     }
-    loadStockNews(symbol);
+    if (!quiet) loadStockNews(symbol);
   }
+  document.getElementById("chart-iv").addEventListener("click", e => {
+    const b = e.target.closest("[data-iv]");
+    if (!b) return;
+    chartInterval = b.dataset.iv;
+    document.querySelectorAll("#chart-iv [data-iv]").forEach(x => x.classList.toggle("on", x === b));
+    if (selectedChartTarget) loadChart(selectedChartTarget.symbol, selectedChartTarget.name, false);
+  });
+  setInterval(() => {
+    if (chartInterval !== "1d" && selectedChartTarget && livePricesVisible())
+      loadChart(selectedChartTarget.symbol, selectedChartTarget.name, true);
+  }, 15000);
 
   async function loadStockNews(symbol){
     const el = document.getElementById("stock-news-list");
@@ -2566,7 +2593,10 @@
   // stock-dashboard(Streamlit)의 "오늘의 주요뉴스"를 부서현황판에 통합하는 마지막 단계(2026-09-23).
   const NEWS_DIGEST_REFRESH_MS = 5 * 60 * 1000;
 
-  let lastPublicRedacted = false;  // applyData가 갱신 — 공개 미러면 로컬 서버 뉴스를 그리지 않는다
+  // 공개 GitHub Pages 미러인지는 주소로 처음부터 안다 — status.json을 받기 전에 시작되는 뉴스·의견 요청이
+  // (그 기기에 로컬 분석 서버가 떠 있으면) 보유 종목 데이터를 공개 화면에 그리는 걸 막는다.
+  const IS_PUBLIC_MIRROR = location.hostname.endsWith("github.io");
+  let lastPublicRedacted = IS_PUBLIC_MIRROR;  // applyData가 status.json의 public_redacted로도 갱신
   async function loadNewsDigest(){
     const el = document.getElementById("news-digest-list");
     if (lastPublicRedacted) return;
@@ -2574,6 +2604,7 @@
       const resp = await fetch(`${ANALYSIS_ORIGIN}/news-digest?limit=15`, { signal: AbortSignal.timeout(20000) });
       const data = await resp.json();
       if (!resp.ok || !data.ok) throw new Error(data.error || "불러오기 실패");
+      if (lastPublicRedacted) return;
       if (!data.items.length){
         el.innerHTML = '<div class="panel-empty">오늘자 헤드라인 없음</div>';
         return;
@@ -2601,7 +2632,8 @@
     renderRooms(latestEmployees);
     renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
-    renderEmployeeAccuracy(data.trader_stats, data.sage_stats, data.analyst_stats);
+    lastPublicRedacted = IS_PUBLIC_MIRROR || !!data.public_redacted;
+    if (!lastPublicRedacted) renderEmployeeAccuracy(data.trader_stats, data.sage_stats, data.analyst_stats);
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
     renderRiskAlerts(data.risk_alerts);
@@ -2610,7 +2642,6 @@
     renderYoutubePick(data.youtube_pick);
     renderStrategyPanel(data.strategy_room);
     renderLog(data.activity_log);
-    lastPublicRedacted = !!data.public_redacted;
     if (lastPublicRedacted) markPrivatePanels();
   }
 
@@ -3014,16 +3045,60 @@
   // ── 자동매매 터미널 패널 (2026-10-09) ─────────────────────────────────────────────
   // 계좌(기본·실험)를 골라 오늘 손익·계좌·리스크·시장분석(ADX/DI/ATR)·성과를 MetaTrader 정보창처럼 보여주고,
   // 버튼은 맥의 control_server.py(127.0.0.1:8771)로 보낸다 → GitHub control.json → 다음 미국장 시가에 모의 반영.
-  const TRM = { acct: "main", sym: null, confirm: null, msg: "", s: null, control: null, live: {}, liveAt: null, liveErr: false };
+  const TRM = { acct: "main", sym: null, confirm: null, msg: "", s: null, control: null, live: {}, liveAt: null, liveErr: false,
+                iv: "1d", minute: {} };  // iv: 차트 봉 간격, minute: {"AMD|5m": bars} 분봉 캐시
   // 실시간 시세(2026-10-09) — 화면 표시 전용. 매매 판단·체결은 그대로 일봉 종가 기준(GitHub Actions)이다.
   // 시세는 시세 탭과 같은 office_analysis_server의 /live-prices?us=(토스 우선·네이버 폴백, 프리·애프터 포함).
-  function trmSession(){
-    const et = new Date(new Date().toLocaleString("en-US", { timeZone: "America/New_York" }));
+  // 미국(NYSE) 휴장일·조기폐장 — 규칙으로 계산해 해마다 목록을 고칠 필요가 없다(2026-10-09).
+  // 주말에 걸리면 토→금, 일→월로 대체(단 1/1이 토요일이면 전년 12/31은 개장). 조기폐장은 13:00 ET.
+  // 허리케인·국장 같은 임시 휴장은 규칙으로 알 수 없다 — 매매 계산(GitHub)은 실제 SPY 일봉 유무로 거래일을 정하므로 영향 없음.
+  function trmMarketDay(y, m, d){  // m: 1~12 → { holiday: "이름" } | { early: "이름" } | {}
+    const ymd = (mm, dd) => mm * 100 + dd, key = ymd(m, d);
+    const nth = (mm, wd, n) => { const f = new Date(y, mm - 1, 1).getDay(); return 1 + (wd - f + 7) % 7 + (n - 1) * 7; };
+    const lastMon = mm => { const L = new Date(y, mm, 0); return L.getDate() - (L.getDay() + 6) % 7; };
+    const observed = (mm, dd) => { const w = new Date(y, mm - 1, dd).getDay(), t = new Date(y, mm - 1, dd + (w === 6 ? -1 : w === 0 ? 1 : 0));
+      return t.getFullYear() === y ? ymd(t.getMonth() + 1, t.getDate()) : null; };
+    // 부활절(그레고리력 계산) 이틀 전 = 성금요일
+    const a = y % 19, b = Math.floor(y / 100), c = y % 100, h = (19 * a + b - Math.floor(b / 4) - Math.floor((8 * b + 13) / 25) + 15) % 30;
+    const l = (32 + 2 * (b % 4) + 2 * Math.floor(c / 4) - h - c % 4) % 7, mo = Math.floor((h + l - 7 * Math.floor((a + 11 * h + 22 * l) / 451) + 114) / 31);
+    const gf = new Date(y, mo - 1, ((h + l - 7 * Math.floor((a + 11 * h + 22 * l) / 451) + 114) % 31) + 1 - 2);
+    const holidays = [[observed(1, 1), "새해"], [ymd(1, nth(1, 1, 3)), "마틴 루서 킹 데이"], [ymd(2, nth(2, 1, 3)), "대통령의 날"],
+      [ymd(gf.getMonth() + 1, gf.getDate()), "성금요일"], [ymd(5, lastMon(5)), "메모리얼 데이"],
+      [y >= 2022 ? observed(6, 19) : null, "준틴스"], [observed(7, 4), "독립기념일"], [ymd(9, nth(9, 1, 1)), "노동절"],
+      [ymd(11, nth(11, 4, 4)), "추수감사절"], [observed(12, 25), "크리스마스"]];
+    const hit = holidays.find(([k]) => k === key);
+    if (hit) return { holiday: hit[1] };
+    const wd = new Date(y, m - 1, d).getDay();
+    if (wd === 0 || wd === 6) return {};
+    if (key === ymd(7, 3) || key === ymd(11, nth(11, 4, 4) + 1) || key === ymd(12, 24)) return { early: key === 1224 ? "크리스마스이브" : key === 703 ? "독립기념일 전날" : "블랙프라이데이" };
+    return {};
+  }
+  // 다음 정규장 개장(09:30 ET) 시각 — 휴장일·주말을 건너뛴다(표시는 한국 시간)
+  function trmNextOpen(now = new Date()){
+    const toET = dt => new Date(dt.toLocaleString("en-US", { timeZone: "America/New_York" }));
+    const et = toET(now);
+    for (let i = 0; i < 10; i++){
+      const day = new Date(et.getFullYear(), et.getMonth(), et.getDate() + i), w = day.getDay();
+      if (w === 0 || w === 6 || trmMarketDay(day.getFullYear(), day.getMonth() + 1, day.getDate()).holiday) continue;
+      if (i === 0 && et.getHours() * 60 + et.getMinutes() >= 570) continue;
+      // 09:30 ET를 UTC로 — EDT로 가정한 뒤 실제 ET 시각과의 차이만큼 보정(서머타임 자동 처리)
+      let t = new Date(Date.UTC(day.getFullYear(), day.getMonth(), day.getDate(), 13, 30));
+      const e = toET(t);
+      return new Date(t.getTime() + (570 - (e.getHours() * 60 + e.getMinutes())) * 60000);
+    }
+    return null;
+  }
+  const trmFmtOpen = t => t ? t.toLocaleString("ko-KR", { timeZone: "Asia/Seoul", month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }) : "-";
+  function trmSession(now = new Date()){
+    const et = new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" }));
     const d = et.getDay(), t = et.getHours() * 60 + et.getMinutes();
     if (d === 0 || d === 6) return { key: "closed", label: "주말 휴장" };
-    if (t >= 570 && t < 960) return { key: "regular", label: "정규장" };
-    if (t >= 240 && t < 570) return { key: "pre", label: "프리마켓" };
-    if (t >= 960 && t < 1200) return { key: "after", label: "애프터마켓" };
+    const md = trmMarketDay(et.getFullYear(), et.getMonth() + 1, et.getDate());
+    if (md.holiday) return { key: "closed", label: `휴장(${md.holiday})` };
+    const close = md.early ? 780 : 960, tag = md.early ? `조기폐장 13:00 · ${md.early}` : "";
+    if (t >= 570 && t < close) return { key: "regular", label: md.early ? `정규장(${tag})` : "정규장" };
+    if (t >= 240 && t < 570) return { key: "pre", label: md.early ? `프리마켓(${tag})` : "프리마켓" };
+    if (t >= close && t < (md.early ? 1020 : 1200)) return { key: "after", label: "애프터마켓" };
     return { key: "closed", label: "장 마감" };
   }
   const TRM_ACTIONS = { close_all: "전량 청산", pause: "진입 일시정지", resume: "진입 재개" };
@@ -3063,7 +3138,8 @@
     const near = lines.map(l => y(l[0])).filter(t => Math.abs(t - y(last)) < 16).sort((p, q) => Math.abs(p - y(last)) - Math.abs(q - y(last)))[0];
     const lastTxtY = near != null && near <= y(last) ? y(last) + 12 : near != null ? y(last) - 9 : y(last) - 4;
     const lastTag = `<line x1="${PL}" x2="${W - PR}" y1="${y(last)}" y2="${y(last)}" stroke="#6ea8ff" stroke-width="${livePx != null ? 1 : .6}" ${livePx != null ? 'stroke-dasharray="2 2"' : ""}/><text x="${W - PR + 4}" y="${lastTxtY}" fill="#6ea8ff" font-size="10">${livePx != null ? "● " : ""}${fmt(last)}</text>`;
-    const dates = [0, Math.floor(bars.length / 2), bars.length - 1].map(i => `<text x="${PL + step * i + step / 2}" y="${H - 4}" fill="#5d6b63" font-size="10" text-anchor="${i ? i === bars.length - 1 ? "end" : "middle" : "start"}">${bars[i][0].slice(5)}</text>`).join("");
+    const dlabel = (dt, i) => dt.length > 10 ? (i === 0 ? dt.slice(5, 10) + " " : "") + dt.slice(11) : dt.slice(5);  // 분봉은 시각
+    const dates = [0, Math.floor(bars.length / 2), bars.length - 1].map(i => `<text x="${PL + step * i + step / 2}" y="${H - 4}" fill="#5d6b63" font-size="10" text-anchor="${i ? i === bars.length - 1 ? "end" : "middle" : "start"}">${dlabel(bars[i][0], i)}</text>`).join("");
     return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="일봉 차트">${g}${c}${L}${lastTag}${dates}</svg>`;
   }
   function trmTerminal(s, control){
@@ -3104,14 +3180,16 @@
       </div>
       ${isLive
         ? `<div class="trm-big ${liveChg > 0 ? "trm-up" : liveChg < 0 ? "trm-dn" : ""}">${liveChg >= 0 ? "+" : "-"}${trmMoney(Math.abs(liveChg))} (${liveChg >= 0 ? "+" : ""}${(liveChg / last * 100).toFixed(2)}%)</div>
-           <div class="trm-sub"><span class="trm-up">● 실시간</span> ${sess.label} · ${TRM.liveAt ? TRM.liveAt.toLocaleTimeString("en-GB", { hour12: false }) : ""} 갱신 · ${escapeHtml(s.last_date || "")} 종가 대비 · 평가 ${trmMoney(liveEq)} · 누적 ${trmPct(liveEq / a.capital - 1)}${TRM.liveErr ? ' · <span class="trm-warn">시세 갱신 실패 — 마지막 값 표시 중</span>' : ""}</div>`
+           <div class="trm-sub"><span class="trm-up">● 실시간</span> ${sess.label}${sess.key === "closed" || sess.key === "after" ? ` (다음 개장 ${trmFmtOpen(trmNextOpen())})` : ""} · ${TRM.liveAt ? TRM.liveAt.toLocaleTimeString("en-GB", { hour12: false }) : ""} 갱신 · ${escapeHtml(s.last_date || "")} 종가 대비 · 평가 ${trmMoney(liveEq)} · 누적 ${trmPct(liveEq / a.capital - 1)}${TRM.liveErr ? ' · <span class="trm-warn">시세 갱신 실패 — 마지막 값 표시 중</span>' : ""}</div>`
         : `<div class="trm-big ${day > 0 ? "trm-up" : day < 0 ? "trm-dn" : ""}">${day >= 0 ? "+" : "-"}${trmMoney(Math.abs(day)).replace("-", "")} (${day >= 0 ? "+" : ""}${(day / prev * 100).toFixed(2)}%)</div>
            <div class="trm-sub">마지막 거래일 손익 · 누적 ${trmPct(last / a.capital - 1)} (${trmSigned(last - a.capital)})${a.positions.length && trmLocal() ? ' · <span class="trm-dim">실시간 시세 불러오는 중…</span>' : ""}</div>`}
       <div class="trm-grid">
         <div class="trm-chart">
-          <div class="trm-syms">${symChips}</div>
-          ${trmCandles(m, pos, chartLive)}
-          <div class="trm-dim" style="font-size:10.5px">${escapeHtml(TRM.sym)} 일봉 ${innerWidth < 600 ? 60 : 90}일 · 점선: 흰색 매수가 / 빨강 손절선 · 아래 표에서 다른 종목 선택</div>
+          <div class="trm-syms">${symChips}<span style="flex:1"></span>${["1d", "1m", "3m", "5m"].map(v => `<button type="button" class="trm-chip ${TRM.iv === v ? "on" : ""}" data-trm-iv="${v}">${v === "1d" ? "일봉" : v.slice(0, 1) + "분"}</button>`).join("")}</div>
+          ${TRM.iv === "1d" ? trmCandles(m, pos, chartLive)
+            : TRM.minute[`${TRM.sym}|${TRM.iv}`] ? (TRM.minute[`${TRM.sym}|${TRM.iv}`].length > 1 ? trmCandles({ bars: TRM.minute[`${TRM.sym}|${TRM.iv}`] }, pos, chartLive) : '<div class="panel-empty">분봉 데이터 없음 (시세 소스 장애일 수 있음)</div>')
+            : '<div class="panel-empty">분봉 불러오는 중…</div>'}
+          <div class="trm-dim" style="font-size:10.5px">${escapeHtml(TRM.sym)} ${TRM.iv === "1d" ? `일봉 ${innerWidth < 600 ? 60 : 90}일` : `${TRM.iv.slice(0, 1)}분봉(한국시간, 프리·애프터 포함)`} · 점선: 흰색 매수가 / 빨강 손절선 · 아래 표에서 다른 종목 선택</div>
         </div>
         <div class="trm-box">
           <div class="trm-h">--- 계좌 ---</div>
@@ -3145,7 +3223,7 @@
                         : `<button type="button" class="trm-btn amber" data-trm-act="pause" ${local ? "" : "disabled"}>진입 일시정지</button>`}
           </div>
           ${TRM.confirm ? `<div class="trm-confirm">${confirmText}<div class="trm-btns"><button type="button" class="trm-btn ${TRM.confirm === "resume" ? "green" : TRM.confirm === "pause" ? "amber" : "red"}" data-trm-ok="${TRM.confirm}">확인</button><button type="button" class="trm-btn blue" data-trm-cancel>취소</button></div></div>` : ""}
-          ${pending.length ? `<div class="trm-note trm-warn">대기 중: ${pending.map(r => `${TRM_ACTIONS[r.action]} (${r.ts.slice(5, 16).replace("T", " ")} 요청)`).join(", ")} → 다음 미국장 시가에 반영</div>` : ""}
+          ${pending.length ? `<div class="trm-note trm-warn">대기 중: ${pending.map(r => `${TRM_ACTIONS[r.action]} (${r.ts.slice(5, 16).replace("T", " ")} 요청)`).join(", ")} → ${trmFmtOpen(trmNextOpen())} 미국장 시가에 반영</div>` : ""}
           ${TRM.msg ? `<div class="trm-note">${TRM.msg}</div>` : ""}
           <div class="trm-note">${local ? "모의매매 전용 — 실제 주문은 나가지 않아요." : "버튼은 맥의 로컬 현황판(localhost:8767)에서만 작동해요."}</div>
         </div>
@@ -3160,12 +3238,22 @@
     const w = document.getElementById("trm-wrap");
     if (w && TRM.s) w.innerHTML = trmTerminal(TRM.s, TRM.control);
   }
+  async function trmLoadMinute(){
+    if (TRM.iv === "1d" || !TRM.sym) return;
+    const key = `${TRM.sym}|${TRM.iv}`, want = innerWidth < 600 ? 60 : 90;
+    try {
+      const r = await fetch(`${ANALYSIS_ORIGIN}/candles?symbol=${encodeURIComponent(TRM.sym)}&interval=${TRM.iv}&count=${want}`, { signal: AbortSignal.timeout(15000) });
+      const j = await r.json();
+      if (!r.ok || !j.ok) throw new Error(j.error);
+      TRM.minute[key] = j.candles.map(c => [c.date, c.open, c.high, c.low, c.close]);
+    } catch (e) { if (!TRM.minute[key]) TRM.minute[key] = []; }
+  }
   async function trmPollLive(){
     const panel = document.querySelector('.tab-panel[data-tab-panel="trading"]');
     if (!TRM.s || !trmLocal() || document.hidden || !panel.classList.contains("active")) return;
     const a = trmAccounts(TRM.s).find(x => x.id === TRM.acct);
     const syms = [...new Set((a ? a.positions.map(p => p.symbol) : []).concat(TRM.sym ? [TRM.sym] : []))].slice(0, 20);
-    if (!syms.length) return;
+    if (!syms.length){ await trmLoadMinute(); trmRender(); return; }
     try {
       const r = await fetch(`${ANALYSIS_ORIGIN}/live-prices?us=${encodeURIComponent(syms.join(","))}`, { signal: AbortSignal.timeout(8000) });
       const j = await r.json();
@@ -3173,6 +3261,7 @@
       (j.us || []).forEach(q => { if (q.price != null) TRM.live[q.symbol] = q.price; });
       TRM.liveAt = new Date(); TRM.liveErr = false;
     } catch (e) { TRM.liveErr = true; }
+    await trmLoadMinute();
     trmRender();
   }
   // 정규·프리·애프터장엔 5초, 장 닫힌 시간엔 1분마다(탭이 열려 있고 화면이 보일 때만)
@@ -3191,15 +3280,16 @@
     loadTrading();
   }
   document.getElementById("tr-body").addEventListener("click", e => {
-    const t = e.target.closest("[data-trm-acct],[data-trm-sym],[data-sym],[data-trm-act],[data-trm-ok],[data-trm-cancel]");
+    const t = e.target.closest("[data-trm-acct],[data-trm-sym],[data-sym],[data-trm-iv],[data-trm-act],[data-trm-ok],[data-trm-cancel]");
     if (!t) return;
     if (t.dataset.trmAcct){ TRM.acct = t.dataset.trmAcct; TRM.sym = null; TRM.confirm = null; TRM.msg = ""; }
     else if (t.dataset.trmSym || t.dataset.sym) TRM.sym = t.dataset.trmSym || t.dataset.sym;
+    else if (t.dataset.trmIv) TRM.iv = t.dataset.trmIv;
     else if (t.dataset.trmAct) TRM.confirm = t.dataset.trmAct;
     else if ("trmCancel" in t.dataset) TRM.confirm = null;
     else if (t.dataset.trmOk){ const act = t.dataset.trmOk; TRM.confirm = null; trmSend(act); return; }
     trmRender();
-    if (t.dataset.trmAcct || t.dataset.trmSym || t.dataset.sym) trmPollLive();  // 새 계좌·종목 시세 바로
+    if (t.dataset.trmAcct || t.dataset.trmSym || t.dataset.sym || t.dataset.trmIv) trmPollLive();  // 새 계좌·종목 시세 바로
   });
   async function loadTrading(){
     const body = document.getElementById("tr-body");
