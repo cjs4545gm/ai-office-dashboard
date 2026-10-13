@@ -3100,7 +3100,7 @@
   // ── 자동매매 터미널 패널 (2026-10-09) ─────────────────────────────────────────────
   // 계좌(기본·실험)를 골라 오늘 손익·계좌·리스크·시장분석(ADX/DI/ATR)·성과를 MetaTrader 정보창처럼 보여주고,
   // 버튼은 맥의 control_server.py(127.0.0.1:8771)로 보낸다 → GitHub control.json → 다음 미국장 시가에 모의 반영.
-  const TRM = { acct: "main", sym: null, confirm: null, msg: "", s: null, control: null, live: {}, liveAt: null, liveErr: false,
+  const TRM = { acct: "main", sym: null, confirm: null, msg: "", s: null, control: null, toss: null, live: {}, liveAt: null, liveErr: false,
                 iv: "1d", minute: {} };  // iv: 차트 봉 간격, minute: {"AMD|5m": bars} 분봉 캐시
   // 실시간 시세(2026-10-09) — 화면 표시 전용. 매매 판단·체결은 그대로 일봉 종가 기준(GitHub Actions)이다.
   // 시세는 시세 탭과 같은 office_analysis_server의 /live-prices?us=(토스 우선·네이버 폴백, 프리·애프터 포함).
@@ -3314,6 +3314,8 @@
     const riskAttention = a.risk.drawdown >= .08 || stopRows.some(p => p.dist < 8);
     const modeText = a.risk.mode === "halt" ? "중지" : a.risk.mode === "reduce" ? "주의" : riskAttention ? "주의" : "정상";
     const liveStamp = TRM.liveAt ? TRM.liveAt.toLocaleTimeString("ko-KR", { hour:"2-digit", minute:"2-digit", second:"2-digit" }) : "수신 대기";
+    const tossAccounts = Object.values(TRM.toss?.accounts || {}), tossOrders = tossAccounts.flatMap(x => x.orders || []);
+    const tossPlan = tossAccounts.length ? `토스 ETF 모의계획 · KR ₩${(TRM.toss.accounts.kr?.capital || 0).toLocaleString("ko-KR")} · US $${(TRM.toss.accounts.us?.capital || 0).toLocaleString("en-US")} · 제안 주문 ${tossOrders.length}건` : "토스 ETF 모의계획 불러오는 중";
     const spark = (curve.length > 1) ? trChart(curve, null) : '<div class="panel-empty">수익 추적 데이터 대기 중</div>';
     const orders = a.orders.length ? a.orders.map(o => `<div class="trd-todo ${o.side === "sell" ? "danger" : "warn"}"><i></i><span><b>${escapeHtml(o.symbol)}</b> · ${o.side === "buy" ? "매수" : "매도"} · ${escapeHtml(o.reason || "규칙 신호")}</span><time>다음 시가</time></div>`).join("")
       : '<div class="trd-empty"><span style="font-size:36px">▧</span><strong>주문 없음</strong><span>현재 대기 중인 모의 주문이 없습니다.</span></div>';
@@ -3331,7 +3333,7 @@
       </div>
       <div class="trd-grid"><section class="trd-panel"><h3>☷ 오늘 할 일 <span class="trd-count">${todos.length}건</span></h3>${todos.slice(0,3).map(t => `<div class="trd-todo ${t.level}"><i></i><span>${t.text}</span><time>${hasLive ? "실시간" : "종가 기준"}</time></div>`).join("")}</section><section class="trd-panel"><h3>▧ 다음 주문</h3>${orders}</section></div>
       <div class="trd-bottom"><section class="trd-panel"><h3>▰ 보유 종목</h3><table class="trd-table"><tr><th>종목명</th><th>보유 수량</th><th>평균 단가</th><th>현재가</th><th>평가 손익</th><th>수익률</th><th>추세 판단</th></tr>${a.positions.map(p => { const current = price(p.symbol), pnl = p.qty * (current - p.entry_px), ret = p.entry_px ? (current / p.entry_px - 1) : 0, market = (s.market || {})[p.symbol] || {}, rising = market.direction === "상승"; return `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${+p.qty.toFixed(4)}</td><td>${trmMoney(p.entry_px)}</td><td>${trmMoney(current)}</td><td class="${pnl >= 0 ? "tr-up" : "tr-down"}">${trmMoney(pnl)}</td><td class="${ret >= 0 ? "tr-up" : "tr-down"}">${ret >= 0 ? "+" : ""}${(ret * 100).toFixed(1)}%</td><td><span class="trd-badge ${rising ? "up" : ""}">${rising ? "↗ 추세 유지" : "− " + (market.status || "관망")}</span></td></tr>`; }).join("") || '<tr><td colspan="7" class="panel-empty">보유 종목 없음</td></tr>'}</table></section><section class="trd-panel"><h3>⌁ 포트폴리오 추이</h3><div class="trd-chart-wrap">${spark}</div><div class="trd-note">모의매매 자산곡선 · 토스 현재가는 평가금액과 보유 표에 반영됩니다.</div></section></div>
-      ${TRM.msg ? `<div class="trd-note">${TRM.msg}</div>` : ""}</div>`;
+      <div class="trd-note">${tossPlan} · 실제 주문은 나가지 않습니다.</div>${TRM.msg ? `<div class="trd-note">${TRM.msg}</div>` : ""}</div>`;
   }
   function trmRender(){
     const w = document.getElementById("trm-wrap");
@@ -3403,8 +3405,9 @@
     }
     if (!s.strategy){ body.innerHTML = '<div class="panel-empty">전략 선택 대기 중</div>'; return; }
     const control = await fetch(`trader/control.json?t=${Date.now()}`, { cache: "no-store" }).then(r => r.ok ? r.json() : null).catch(() => null);
+    const toss = await fetch(`trader/toss_summary.json?t=${Date.now()}`, { cache: "no-store" }).then(r => r.ok ? r.json() : null).catch(() => null);
     const firstLoad = !TRM.s;
-    TRM.s = s; TRM.control = control;
+    TRM.s = s; TRM.control = control; TRM.toss = toss;
     if (firstLoad) setTimeout(trmPollLive, 0);  // 탭을 처음 열면 5초 기다리지 않고 바로 시세
     const k = s.kpi, rs = s.risk_state;
     const mode = { normal: "정상", reduce: "위험 축소(신규 비중 절반)", halt: "신규 진입 중단" }[rs.mode];
