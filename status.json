@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T15:01:38",
+  "updated_at": "2026-10-13T15:05:26",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -10,7 +10,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:05:11",
+      "since": "2026-10-13T15:05:12",
       "last_action": "작업 완료"
     },
     "bri": {
@@ -21,7 +21,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:05:11",
+      "since": "2026-10-13T15:05:12",
       "last_action": "작업 완료"
     },
     "nix": {
@@ -32,7 +32,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T15:01:38",
+      "since": "2026-10-13T15:05:12",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -208,7 +208,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T15:00:23",
+      "since": "2026-10-13T15:05:26",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T15:00:23",
+      "since": "2026-10-13T15:05:26",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T15:00:23",
+      "since": "2026-10-13T15:05:26",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,38 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-13T14:00:23",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T14:05:07",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T14:05:11",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 애널리스트",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T14:05:11",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "전체 스케줄 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-13T14:05:11",
       "employee": "oz",
@@ -643,6 +611,38 @@
       "employee": "hank",
       "name": "행크",
       "role": "데이터 품질 관리",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T15:05:07",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T15:05:12",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 애널리스트",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T15:05:12",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T15:05:12",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "전체 스케줄 총괄",
       "status": "done",
       "action": "작업 완료"
     }
