@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T14:53:49",
+  "updated_at": "2026-10-13T15:01:38",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:15:18",
+      "since": "2026-10-13T15:01:38",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -43,7 +43,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:00:23",
+      "since": "2026-10-13T15:01:38",
       "last_action": "작업 완료"
     },
     "vera": {
@@ -87,7 +87,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:00:20",
+      "since": "2026-10-13T15:01:36",
       "last_action": "작업 완료"
     },
     "hank": {
@@ -98,7 +98,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:00:23",
+      "since": "2026-10-13T15:01:38",
       "last_action": "작업 완료"
     },
     "scout": {
@@ -109,7 +109,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:00:20",
+      "since": "2026-10-13T15:01:36",
       "last_action": "작업 완료"
     },
     "milo": {
@@ -120,7 +120,7 @@
       "room": "data",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:00:20",
+      "since": "2026-10-13T15:01:36",
       "last_action": "작업 완료"
     },
     "jade": {
@@ -208,7 +208,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T14:53:49",
+      "since": "2026-10-13T15:00:23",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T14:53:49",
+      "since": "2026-10-13T15:00:23",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T14:53:49",
+      "since": "2026-10-13T15:00:23",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,86 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-13T13:22:50",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T14:00:08",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T14:00:08",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T14:00:20",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T14:00:20",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T14:00:20",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T14:00:20",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T14:00:20",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T14:00:23",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T14:00:23",
-      "employee": "hank",
-      "name": "행크",
-      "role": "데이터 품질 관리",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-13T14:00:23",
       "employee": "hank",
@@ -643,6 +563,86 @@
       "employee": "jade",
       "name": "제이드",
       "role": "리스크 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T15:01:24",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T15:01:24",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T15:01:36",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "정보 수집원",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T15:01:36",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "기관·외국인 수급 데이터",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T15:01:36",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T15:01:36",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T15:01:36",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T15:01:38",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "실적발표 · FOMC · IR일정 추적",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T15:01:38",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T15:01:38",
+      "employee": "hank",
+      "name": "행크",
+      "role": "데이터 품질 관리",
       "status": "done",
       "action": "작업 완료"
     }

@@ -3472,6 +3472,18 @@
     }
     loadTrading();
   }
+  async function trmSendLimits(limits){
+    TRM.msg = "리스크 한도 저장 요청 중…"; trmRender();
+    try {
+      const r = await fetch(`http://${location.hostname}:8771/control`, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ account: "main", action: "update_limits", limits }) });
+      const j = await r.json().catch(() => ({}));
+      TRM.msg = r.ok ? "✅ 리스크 한도 저장 요청을 기록했습니다. 다음 미국장 시가 전에 모의매매 규칙에 반영됩니다."
+                     : `⚠️ 한도 저장 실패: ${escapeHtml(j.error || r.status)}`;
+      if (r.ok) trmRecordEvent(`limits:${Date.now()}`, "warn", "리스크 한도", `일일 손실 ${(limits.daily_loss_limit * 100).toFixed(1)}% · 종목 ${(limits.max_position_pct * 100).toFixed(0)}% · 전체 ${(limits.max_investment_pct * 100).toFixed(0)}%`);
+    } catch (_) { TRM.msg = "⚠️ 제어 서버(127.0.0.1:8771)에 연결하지 못했어요 — 한도는 저장되지 않았습니다."; }
+    loadTrading();
+  }
   document.getElementById("tr-body").addEventListener("click", e => {
     const t = e.target.closest("[data-trm-acct],[data-trm-sym],[data-sym],[data-trm-iv],[data-trm-act],[data-trm-ok],[data-trm-cancel],[data-trm-news]");
     if (!t) return;
@@ -3484,6 +3496,17 @@
     else if (t.dataset.trmOk){ const act = t.dataset.trmOk; TRM.confirm = null; trmSend(act); return; }
     trmRender();
     if (t.dataset.trmAcct || t.dataset.trmSym || t.dataset.sym || t.dataset.trmIv) trmPollLive();  // 새 계좌·종목 시세 바로
+  });
+  document.getElementById("tr-body").addEventListener("submit", e => {
+    if (e.target.id !== "trd-limit-form") return;
+    e.preventDefault();
+    const v = new FormData(e.target), limits = {
+      daily_loss_limit: Number(v.get("daily")) / 100,
+      max_position_pct: Number(v.get("position")) / 100,
+      max_investment_pct: Number(v.get("investment")) / 100,
+      max_positions: Number(v.get("positions")), leverage_allowed: v.get("leverage") === "on"
+    };
+    trmSendLimits(limits);
   });
   async function loadTrading(){
     const body = document.getElementById("tr-body");
