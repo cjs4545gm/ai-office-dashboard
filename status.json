@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T14:11:23",
+  "updated_at": "2026-10-13T14:15:18",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T14:11:23",
+      "since": "2026-10-13T14:15:18",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -54,7 +54,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T13:22:50",
+      "since": "2026-10-13T14:15:18",
       "last_action": "작업 완료"
     },
     "tam": {
@@ -64,9 +64,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-13T14:11:23",
-      "last_action": "작업 중"
+      "status": "done",
+      "since": "2026-10-13T14:14:55",
+      "last_action": "작업 완료"
     },
     "juno": {
       "name": "주노",
@@ -131,7 +131,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T13:22:50",
+      "since": "2026-10-13T14:15:18",
       "last_action": "작업 완료"
     },
     "kai": {
@@ -142,7 +142,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T13:22:50",
+      "since": "2026-10-13T14:15:18",
       "last_action": "작업 완료"
     },
     "nova": {
@@ -153,7 +153,7 @@
       "room": "risk",
       "automated": true,
       "status": "done",
-      "since": "2026-10-13T13:22:50",
+      "since": "2026-10-13T14:15:18",
       "last_action": "작업 완료"
     },
     "dawn": {
@@ -196,9 +196,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-13T14:11:14",
-      "last_action": "작업 중"
+      "status": "done",
+      "since": "2026-10-13T14:14:55",
+      "last_action": "작업 완료"
     },
     "ivy": {
       "name": "아이비",
@@ -208,7 +208,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T14:07:08",
+      "since": "2026-10-13T14:12:11",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T14:07:08",
+      "since": "2026-10-13T14:12:11",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-13T14:07:08",
+      "since": "2026-10-13T14:12:11",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,166 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-13T13:16:47",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:17:18",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:17:29",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:17:54",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:18:43",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:18:56",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:19:20",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:19:47",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:19:57",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:20:37",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:21:04",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:22:31",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T13:22:31",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T13:22:31",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:22:31",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:22:49",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:22:50",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "리스크 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T13:22:50",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T13:22:50",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-13T13:22:50",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-13T13:22:50",
       "employee": "jade",
@@ -645,6 +485,166 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:11:56",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:12:05",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:12:05",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:12:32",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:12:44",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:12:44",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:13:13",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:13:22",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:13:22",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:13:52",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:14:55",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T14:14:55",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T14:14:55",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:14:55",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:15:16",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:15:18",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-13T14:15:18",
+      "employee": "vera",
+      "name": "베라",
+      "role": "리서치 총괄·품질 검수",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T14:15:18",
+      "employee": "kai",
+      "name": "카이",
+      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T14:15:18",
+      "employee": "nova",
+      "name": "노바",
+      "role": "금리·환율·지수 매크로 감지",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-13T14:15:18",
+      "employee": "jade",
+      "name": "제이드",
+      "role": "리스크 총괄",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
