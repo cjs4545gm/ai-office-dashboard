@@ -151,7 +151,9 @@
   .trd-kpis{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:14px; }.trd-card{ min-height:142px; padding:17px 18px; border:1px solid #233a56; border-radius:9px; background:linear-gradient(135deg,#13243a,#0e1929); }.trd-label{ display:flex; justify-content:space-between; gap:8px; color:#dbe6f8; font-size:15px; font-weight:700; }.trd-help{ display:inline-grid; place-items:center; width:19px; height:19px; border-radius:50%; background:#42536d; color:#122035; font-size:13px; }.trd-value{ margin:18px 0 8px; font-size:clamp(25px,3vw,39px); font-weight:800; letter-spacing:-.045em; }.trd-value.up{ color:#55e4ad; }.trd-value.down{ color:#ff6f78; }.trd-value.warn{ color:#ffba35; }.trd-meta{ display:flex; justify-content:space-between; gap:10px; margin-top:9px; color:#9fb1c9; font-size:12px; }.trd-meta b{ color:#e8eef8; }.trd-spark{ float:right; width:42%; height:58px; margin-top:-62px; }.trd-bar{ height:23px; overflow:hidden; margin:22px 0 9px; border-radius:5px; background:#415572; }.trd-bar i{ display:block; height:100%; border-radius:5px; background:#3994ff; box-shadow:0 0 14px #2479dd; }
   .trd-grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:14px; margin-bottom:14px; }.trd-panel{ min-width:0; padding:16px; border:1px solid #233a56; border-radius:9px; background:linear-gradient(135deg,#122238,#0e1929); }.trd-panel h3{ margin:0 0 14px; color:#f0f5fe; font-size:17px; letter-spacing:-.02em; }.trd-count{ display:inline-block; margin-left:7px; padding:3px 9px; border-radius:12px; background:#263a54; color:#bdcce0; font-size:11px; vertical-align:2px; }.trd-todo{ display:flex; align-items:center; gap:11px; min-height:46px; padding:0 13px; border:1px solid #263d59; border-radius:7px; background:#14253a; color:#d8e2f2; font-size:13px; }.trd-todo + .trd-todo{ margin-top:8px; }.trd-todo i{ width:11px; height:11px; flex:none; border-radius:50%; background:#91a4c1; }.trd-todo.danger i{ background:#ff6435; }.trd-todo.warn i{ background:#ffbf29; }.trd-todo time{ margin-left:auto; color:#8ca0ba; white-space:nowrap; font-size:11px; }.trd-empty{ display:grid; min-height:150px; place-items:center; align-content:center; gap:6px; border:1px solid #233a56; border-radius:7px; color:#9fb1c9; text-align:center; font-size:13px; }.trd-empty strong{ color:#e9effa; font-size:16px; }.trd-bottom{ display:grid; grid-template-columns:1.45fr .9fr; gap:14px; }.trd-table{ width:100%; border-collapse:collapse; overflow:hidden; border:1px solid #233a56; border-radius:7px; font-size:12px; }.trd-table th,.trd-table td{ padding:10px 9px; border-bottom:1px solid #213750; text-align:right; }.trd-table th{ color:#91a5c0; font-weight:600; }.trd-table td:first-child,.trd-table th:first-child{ text-align:left; }.trd-table tr:last-child td{ border-bottom:0; }.trd-badge{ display:inline-flex; align-items:center; gap:5px; padding:4px 8px; border:1px solid #756017; border-radius:7px; color:#f5c34a; background:#292413; font-size:11px; }.trd-badge.up{ border-color:#176b4e; background:#112e28; color:#52e2aa; }.trd-chart-wrap{ min-height:222px; }.trd-chart-wrap .tr-legend{ display:flex; justify-content:space-between; }.trd-chart-wrap svg{ min-height:180px; }.trd-note{ margin:10px 0 0; color:#8da1b9; font-size:11px; }
   .trd-events{ margin-top:14px; }.trd-event-list{ display:flex; flex-direction:column; gap:7px; }.trd-event{ display:grid; grid-template-columns:142px 84px minmax(0,1fr); gap:10px; align-items:center; min-height:39px; padding:0 11px; border:1px solid #263d59; border-radius:7px; background:#13243a; color:#d8e3f4; font-size:12px; }.trd-event time{ color:#8da1b9; font-family:var(--mono); }.trd-event-tag{ color:#aec0d9; font-weight:700; }.trd-event.warn{ border-color:#65521d; }.trd-event.warn .trd-event-tag{ color:#ffc54d; }.trd-event.risk{ border-color:#713743; }.trd-event.risk .trd-event-tag{ color:#ff7c88; }
+  .trd-approval{ margin-bottom:14px; }.trd-approval-grid{ display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:9px; }.trd-approval-card{ min-height:92px; padding:12px; border:1px solid #263d59; border-radius:7px; background:#14253a; }.trd-approval-card small{ display:block; color:#8da1b9; font-size:11px; }.trd-approval-card b{ display:block; margin:7px 0 4px; color:#eaf2ff; font-size:15px; }.trd-approval-card.warn{ border-color:#65521d; }.trd-approval-card.warn b{ color:#ffc54d; }.trd-approval-card.risk{ border-color:#713743; }.trd-approval-card.risk b{ color:#ff7c88; }.trd-approval-card.ok{ border-color:#1e624b; }.trd-approval-card.ok b{ color:#55e4ad; }.trd-news-link{ margin-top:10px; border:0; padding:0; color:#75baff; background:none; font:600 11px var(--sans); cursor:pointer; }
   @media(max-width:780px){ .trd-kpis{ grid-template-columns:repeat(2,minmax(0,1fr)); }.trd-bottom,.trd-grid{ grid-template-columns:1fr; }.trd-actions{ margin-left:0; }.trd-top{ align-items:flex-start; }.trd-event{ grid-template-columns:126px 74px minmax(0,1fr); gap:7px; font-size:11px; } }
+  @media(max-width:780px){ .trd-approval-grid{ grid-template-columns:1fr; }.trd-approval-card{ min-height:auto; } }
   @media(max-width:560px){ .trd-kpis{ grid-template-columns:1fr; }.trd-card{ min-height:120px; }.trd-actions{ width:100%; }.trd-action{ flex:1; padding:0 8px; font-size:11px; }.trd-table{ font-size:11px; }.trd-table th:nth-child(3),.trd-table td:nth-child(3),.trd-table th:nth-child(6),.trd-table td:nth-child(6){ display:none; } }
 
   /* 자동매매 터미널 패널 (2026-10-09) — MetaTrader EA 정보창 스타일. 버튼은 맥 control_server.py(8771)로 요청 → 다음 미국장 시가에 모의 반영 */
@@ -3101,7 +3103,7 @@
   // ── 자동매매 터미널 패널 (2026-10-09) ─────────────────────────────────────────────
   // 계좌(기본·실험)를 골라 오늘 손익·계좌·리스크·시장분석(ADX/DI/ATR)·성과를 MetaTrader 정보창처럼 보여주고,
   // 버튼은 맥의 control_server.py(127.0.0.1:8771)로 보낸다 → GitHub control.json → 다음 미국장 시가에 모의 반영.
-  const TRM = { acct: "main", sym: null, confirm: null, msg: "", s: null, control: null, toss: null, live: {}, liveAt: null, liveErr: false,
+  const TRM = { acct: "main", sym: null, confirm: null, msg: "", s: null, control: null, toss: null, live: {}, liveAt: null, liveErr: false, news: { items: [], flags: [], checkedAt: null, loading: false, error: false },
                 iv: "1d", minute: {} };  // iv: 차트 봉 간격, minute: {"AMD|5m": bars} 분봉 캐시
   // 실시간 시세(2026-10-09) — 화면 표시 전용. 매매 판단·체결은 그대로 일봉 종가 기준(GitHub Actions)이다.
   // 시세는 시세 탭과 같은 office_analysis_server의 /live-prices?us=(토스 우선·네이버 폴백, 프리·애프터 포함).
@@ -3306,6 +3308,27 @@
       </table>
     </div>`;
   }
+  const TRM_NEWS_RISK = /\b(fraud|probe|investigation|lawsuit|recall|bankrupt|downgrade|sanction|default|delist|hack|breach)\b|사기|조사|소송|리콜|파산|하향|제재|디폴트|상장폐지|해킹|유출/i;
+  async function trmLoadNewsGuard(){
+    if (!TRM.s || TRM.news.loading || (TRM.news.checkedAt && Date.now() - TRM.news.checkedAt.getTime() < 300000)) return;
+    const account = trmAccounts(TRM.s).find(x => x.id === TRM.acct) || trmAccounts(TRM.s)[0];
+    const symbols = [...new Set([...(account?.positions || []).map(p => p.symbol), ...(account?.orders || []).map(o => o.symbol)])].slice(0, 8);
+    if (!symbols.length) { TRM.news = { items: [], flags: [], checkedAt: new Date(), loading: false, error: false }; return; }
+    TRM.news.loading = true; TRM.news.error = false; trmRender();
+    try {
+      const results = await Promise.allSettled(symbols.map(async symbol => {
+        const r = await fetch(`${ANALYSIS_ORIGIN}/stock-news?symbol=${encodeURIComponent(symbol)}`, { signal: AbortSignal.timeout(12000) });
+        const data = await r.json();
+        if (!r.ok || !data.ok) throw new Error(symbol);
+        return (data.items || []).slice(0, 5).map(item => ({ ...item, symbol }));
+      }));
+      const items = results.flatMap(result => result.status === "fulfilled" ? result.value : []);
+      const flags = items.filter(item => TRM_NEWS_RISK.test(`${item.title || ""} ${item.summary || ""}`)).slice(0, 3);
+      TRM.news = { items, flags, checkedAt: new Date(), loading: false, error: results.every(result => result.status === "rejected") };
+      flags.forEach(item => trmRecordEvent(`news:${item.symbol}:${item.title}`, "warn", "뉴스 필터", `${item.symbol} · ${String(item.title || "악재 키워드 감지").slice(0, 80)}`));
+    } catch (_) { TRM.news = { ...TRM.news, checkedAt: new Date(), loading: false, error: true }; }
+    trmRender();
+  }
   function trmDashboard(s, control){
     const accts = trmAccounts(s), a = accts.find(x => x.id === TRM.acct) || accts[0];
     TRM.acct = a.id;
@@ -3329,6 +3352,12 @@
     const liveStamp = TRM.liveAt ? TRM.liveAt.toLocaleTimeString("ko-KR", { hour:"2-digit", minute:"2-digit", second:"2-digit" }) : "수신 대기";
     const tossAccounts = Object.values(TRM.toss?.accounts || {}), tossOrders = tossAccounts.flatMap(x => x.orders || []);
     const tossPlan = tossAccounts.length ? `토스 ETF 모의계획 · KR ₩${(TRM.toss.accounts.kr?.capital || 0).toLocaleString("ko-KR")} · US $${(TRM.toss.accounts.us?.capital || 0).toLocaleString("en-US")} · 제안 주문 ${tossOrders.length}건` : "토스 ETF 모의계획 불러오는 중";
+    const news = TRM.news, newsFlagged = news.flags?.length || 0;
+    const decision = a.risk.mode === "halt" || willPause ? "신규 진입 중지" : riskAttention || newsFlagged ? "신규 진입 보류" : a.orders.length ? "주문 제안 검토" : "관망 · 조건 대기";
+    const decisionClass = a.risk.mode === "halt" || willPause ? "risk" : riskAttention || newsFlagged ? "warn" : "ok";
+    const newsStatus = news.loading || !news.checkedAt ? "뉴스 확인 중" : news.error ? "뉴스 조회 실패" : newsFlagged ? `위험 기사 ${newsFlagged}건` : `위험 기사 없음 · ${news.items?.length || 0}건 확인`;
+    const newsClass = news.error || newsFlagged ? "warn" : "ok";
+    const briefing = `${a.name} · ${decision} · 보유 ${a.positions.length}종목 · 다음 주문 ${a.orders.length}건 · 위험 ${riskAttention ? "주의" : "정상"}`;
     const events = trmReadEvents();
     const eventRows = events.slice(0, 8).map(event => `<div class="trd-event ${escapeHtml(event.level || "")}"><time>${escapeHtml(trmEventTime(event.at))}</time><span class="trd-event-tag">${escapeHtml(event.tag)}</span><span>${escapeHtml(event.text)}</span></div>`).join("")
       || '<div class="trd-empty" style="min-height:82px"><strong>기록 대기 중</strong><span>모의 결과나 제어 요청이 발생하면 여기에 남습니다.</span></div>';
@@ -3347,6 +3376,11 @@
         <section class="trd-card"><div class="trd-label">자산 배분 <span class="trd-help">?</span></div><div class="trd-bar"><i style="width:${Math.max(0, Math.min(100, 100 - cashPct)).toFixed(1)}%"></i></div><div class="trd-meta"><span>투자 중 <b>${(100 - cashPct).toFixed(0)}%</b></span><span>현금 <b>${cashPct.toFixed(0)}%</b></span></div><div class="trd-meta"><span>투자 금액</span><b>${trmMoney(invested)}</b></div><div class="trd-meta"><span>현금</span><b>${trmMoney(a.cash)}</b></div></section>
         <section class="trd-card"><div class="trd-label">포트폴리오 위험도 <span class="trd-help">?</span></div><div class="trd-value ${riskAttention ? "warn" : "up"}">${riskAttention ? "⚠ 주의" : "● 정상"}</div><div class="trd-meta"><span>고점 대비 낙폭</span><b>${(a.risk.drawdown * 100).toFixed(2)}%</b></div><div class="trd-meta"><span>보유 종목</span><b>${a.positions.length} / ${a.maxPos}</b></div></section>
       </div>
+      <section class="trd-panel trd-approval"><h3>◈ 매매 승인 센터 <span class="trd-count">실제 주문 없음</span></h3><div class="trd-approval-grid">
+        <div class="trd-approval-card ${decisionClass}"><small>현재 실행 판단</small><b>${decision}</b><small>${briefing}</small></div>
+        <div class="trd-approval-card ${newsClass}"><small>뉴스 안전 필터</small><b>${newsStatus}</b><small>뉴스는 매매 신호가 아니라 신규 진입 보류를 위한 보조 필터입니다.</small><button type="button" class="trd-news-link" data-trm-news>뉴스 상세 보기 →</button></div>
+        <div class="trd-approval-card ${riskAttention ? "warn" : "ok"}"><small>위험관리 상태</small><b>${riskAttention ? "손절선·낙폭 확인 필요" : "손실 한도 정상"}</b><small>손절선 근접 종목 ${stopRows.filter(p => p.dist < 8).length}개 · 일일 손실 한도는 모의 규칙으로 감시합니다.</small></div>
+      </div></section>
       <div class="trd-grid"><section class="trd-panel"><h3>☷ 오늘 할 일 <span class="trd-count">${todos.length}건</span></h3>${todos.slice(0,3).map(t => `<div class="trd-todo ${t.level}"><i></i><span>${t.text}</span><time>${hasLive ? "실시간" : "종가 기준"}</time></div>`).join("")}</section><section class="trd-panel"><h3>▧ 다음 주문</h3>${orders}</section></div>
       <div class="trd-bottom"><section class="trd-panel"><h3>▰ 보유 종목</h3><table class="trd-table"><tr><th>종목명</th><th>보유 수량</th><th>평균 단가</th><th>현재가</th><th>평가 손익</th><th>수익률</th><th>추세 판단</th></tr>${a.positions.map(p => { const current = price(p.symbol), pnl = p.qty * (current - p.entry_px), ret = p.entry_px ? (current / p.entry_px - 1) : 0, market = (s.market || {})[p.symbol] || {}, rising = market.direction === "상승"; return `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${+p.qty.toFixed(4)}</td><td>${trmMoney(p.entry_px)}</td><td>${trmMoney(current)}</td><td class="${pnl >= 0 ? "tr-up" : "tr-down"}">${trmMoney(pnl)}</td><td class="${ret >= 0 ? "tr-up" : "tr-down"}">${ret >= 0 ? "+" : ""}${(ret * 100).toFixed(1)}%</td><td><span class="trd-badge ${rising ? "up" : ""}">${rising ? "↗ 추세 유지" : "− " + (market.status || "관망")}</span></td></tr>`; }).join("") || '<tr><td colspan="7" class="panel-empty">보유 종목 없음</td></tr>'}</table></section><section class="trd-panel"><h3>⌁ 포트폴리오 추이</h3><div class="trd-chart-wrap">${spark}</div><div class="trd-note">모의매매 자산곡선 · 토스 현재가는 평가금액과 보유 표에 반영됩니다.</div></section></div>
       <section class="trd-panel trd-events"><h3>▤ 자동매매 사건 로그 <span class="trd-count">${events.length}건</span></h3><div class="trd-event-list">${eventRows}</div></section>
@@ -3399,8 +3433,9 @@
     loadTrading();
   }
   document.getElementById("tr-body").addEventListener("click", e => {
-    const t = e.target.closest("[data-trm-acct],[data-trm-sym],[data-sym],[data-trm-iv],[data-trm-act],[data-trm-ok],[data-trm-cancel]");
+    const t = e.target.closest("[data-trm-acct],[data-trm-sym],[data-sym],[data-trm-iv],[data-trm-act],[data-trm-ok],[data-trm-cancel],[data-trm-news]");
     if (!t) return;
+    if ("trmNews" in t.dataset){ document.querySelector('.tab-btn[data-tab="news"]').click(); return; }
     if (t.dataset.trmAcct){ TRM.acct = t.dataset.trmAcct; TRM.sym = null; TRM.confirm = null; TRM.msg = ""; }
     else if (t.dataset.trmSym || t.dataset.sym) TRM.sym = t.dataset.trmSym || t.dataset.sym;
     else if (t.dataset.trmIv) TRM.iv = t.dataset.trmIv;
@@ -3434,6 +3469,7 @@
       .filter(position => position.distance != null).sort((left, right) => left.distance - right.distance)[0];
     if (nearStop && nearStop.distance < 8) trmRecordEvent(`risk:${s.last_date}:${nearStop.symbol}:${nearStop.distance.toFixed(1)}`, "risk", "위험 경고", `${nearStop.symbol} 손절선까지 ${nearStop.distance.toFixed(1)}% · 추세 약화 감시`);
     if (firstLoad) setTimeout(trmPollLive, 0);  // 탭을 처음 열면 5초 기다리지 않고 바로 시세
+    trmLoadNewsGuard();
     const k = s.kpi, rs = s.risk_state;
     const mode = { normal: "정상", reduce: "위험 축소(신규 비중 절반)", halt: "신규 진입 중단" }[rs.mode];
     document.getElementById("tr-sub").textContent =
