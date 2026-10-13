@@ -3158,6 +3158,18 @@
     return { key: "closed", label: "장 마감" };
   }
   const TRM_ACTIONS = { close_all: "전량 청산", pause: "진입 일시정지", resume: "진입 재개" };
+  const TRM_EVENTS_KEY = "tradingEventLogV1";
+  function trmReadEvents(){
+    try { const saved = JSON.parse(localStorage.getItem(TRM_EVENTS_KEY)); return Array.isArray(saved) ? saved : []; }
+    catch (_) { return []; }
+  }
+  function trmRecordEvent(id, level, tag, text){
+    const events = trmReadEvents();
+    if (events.some(event => event.id === id)) return;
+    events.unshift({ id, level, tag, text, at: new Date().toISOString() });
+    localStorage.setItem(TRM_EVENTS_KEY, JSON.stringify(events.slice(0, 100)));
+  }
+  const trmEventTime = iso => new Date(iso).toLocaleString("ko-KR", { month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", second:"2-digit", hour12:false });
   const trmMoney = v => (v < 0 ? "-$" : "$") + Math.abs(v).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const trmSigned = v => `<span class="${v > 0 ? "trm-up" : v < 0 ? "trm-dn" : ""}">${v > 0 ? "+" : ""}${trmMoney(v)}</span>`;
   const trmPct = v => `<span class="${v > 0 ? "trm-up" : v < 0 ? "trm-dn" : ""}">${v > 0 ? "+" : ""}${(v * 100).toFixed(2)}%</span>`;
@@ -3317,6 +3329,9 @@
     const liveStamp = TRM.liveAt ? TRM.liveAt.toLocaleTimeString("ko-KR", { hour:"2-digit", minute:"2-digit", second:"2-digit" }) : "수신 대기";
     const tossAccounts = Object.values(TRM.toss?.accounts || {}), tossOrders = tossAccounts.flatMap(x => x.orders || []);
     const tossPlan = tossAccounts.length ? `토스 ETF 모의계획 · KR ₩${(TRM.toss.accounts.kr?.capital || 0).toLocaleString("ko-KR")} · US $${(TRM.toss.accounts.us?.capital || 0).toLocaleString("en-US")} · 제안 주문 ${tossOrders.length}건` : "토스 ETF 모의계획 불러오는 중";
+    const events = trmReadEvents();
+    const eventRows = events.slice(0, 8).map(event => `<div class="trd-event ${escapeHtml(event.level || "")}"><time>${escapeHtml(trmEventTime(event.at))}</time><span class="trd-event-tag">${escapeHtml(event.tag)}</span><span>${escapeHtml(event.text)}</span></div>`).join("")
+      || '<div class="trd-empty" style="min-height:82px"><strong>기록 대기 중</strong><span>모의 결과나 제어 요청이 발생하면 여기에 남습니다.</span></div>';
     const spark = (curve.length > 1) ? trChart(curve, null) : '<div class="panel-empty">수익 추적 데이터 대기 중</div>';
     const orders = a.orders.length ? a.orders.map(o => `<div class="trd-todo ${o.side === "sell" ? "danger" : "warn"}"><i></i><span><b>${escapeHtml(o.symbol)}</b> · ${o.side === "buy" ? "매수" : "매도"} · ${escapeHtml(o.reason || "규칙 신호")}</span><time>다음 시가</time></div>`).join("")
       : '<div class="trd-empty"><span style="font-size:36px">▧</span><strong>주문 없음</strong><span>현재 대기 중인 모의 주문이 없습니다.</span></div>';
@@ -3334,6 +3349,7 @@
       </div>
       <div class="trd-grid"><section class="trd-panel"><h3>☷ 오늘 할 일 <span class="trd-count">${todos.length}건</span></h3>${todos.slice(0,3).map(t => `<div class="trd-todo ${t.level}"><i></i><span>${t.text}</span><time>${hasLive ? "실시간" : "종가 기준"}</time></div>`).join("")}</section><section class="trd-panel"><h3>▧ 다음 주문</h3>${orders}</section></div>
       <div class="trd-bottom"><section class="trd-panel"><h3>▰ 보유 종목</h3><table class="trd-table"><tr><th>종목명</th><th>보유 수량</th><th>평균 단가</th><th>현재가</th><th>평가 손익</th><th>수익률</th><th>추세 판단</th></tr>${a.positions.map(p => { const current = price(p.symbol), pnl = p.qty * (current - p.entry_px), ret = p.entry_px ? (current / p.entry_px - 1) : 0, market = (s.market || {})[p.symbol] || {}, rising = market.direction === "상승"; return `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${+p.qty.toFixed(4)}</td><td>${trmMoney(p.entry_px)}</td><td>${trmMoney(current)}</td><td class="${pnl >= 0 ? "tr-up" : "tr-down"}">${trmMoney(pnl)}</td><td class="${ret >= 0 ? "tr-up" : "tr-down"}">${ret >= 0 ? "+" : ""}${(ret * 100).toFixed(1)}%</td><td><span class="trd-badge ${rising ? "up" : ""}">${rising ? "↗ 추세 유지" : "− " + (market.status || "관망")}</span></td></tr>`; }).join("") || '<tr><td colspan="7" class="panel-empty">보유 종목 없음</td></tr>'}</table></section><section class="trd-panel"><h3>⌁ 포트폴리오 추이</h3><div class="trd-chart-wrap">${spark}</div><div class="trd-note">모의매매 자산곡선 · 토스 현재가는 평가금액과 보유 표에 반영됩니다.</div></section></div>
+      <section class="trd-panel trd-events"><h3>▤ 자동매매 사건 로그 <span class="trd-count">${events.length}건</span></h3><div class="trd-event-list">${eventRows}</div></section>
       <div class="trd-note">${tossPlan} · 실제 주문은 나가지 않습니다.</div>${TRM.msg ? `<div class="trd-note">${TRM.msg}</div>` : ""}</div>`;
   }
   function trmRender(){
@@ -3376,6 +3392,7 @@
       const j = await r.json().catch(() => ({}));
       TRM.msg = r.ok ? `✅ ${TRM_ACTIONS[action]} 요청 접수 — GitHub에 올렸어요. 다음 미국장 시가에 모의 반영됩니다.`
                      : `⚠️ 접수 실패: ${escapeHtml(j.error || r.status)}`;
+      if (r.ok) trmRecordEvent(`control:${action}:${Date.now()}`, action === "close_all" ? "risk" : "warn", "제어 요청", `${TRM_ACTIONS[action]} 요청 접수 · 다음 미국장 시가 모의 반영`);
     } catch (e) {
       TRM.msg = "⚠️ 제어 서버(127.0.0.1:8771)에 연결하지 못했어요 — launchd com.junseok.us-swing-control 확인";
     }
@@ -3409,6 +3426,13 @@
     const toss = await fetch(`trader/toss_summary.json?t=${Date.now()}`, { cache: "no-store" }).then(r => r.ok ? r.json() : null).catch(() => null);
     const firstLoad = !TRM.s;
     TRM.s = s; TRM.control = control; TRM.toss = toss;
+    trmRecordEvent(`summary:${s.updated_at}:${s.last_date}`, "", "모의매매", `추세추종 결과 갱신 · 마지막 데이터 ${s.last_date || "-"}`);
+    const tossUpdated = Object.values(toss?.accounts || {}).map(account => account.updated_at || "-").join("|");
+    const tossOrderCount = Object.values(toss?.accounts || {}).reduce((count, account) => count + (account.orders || []).length, 0);
+    if (tossUpdated) trmRecordEvent(`toss:${tossUpdated}`, "", "토스 ETF", `KR ₩1,000,000 / US $1,000 모의계획 갱신 · 제안 주문 ${tossOrderCount}건`);
+    const nearStop = (s.positions || []).map(position => ({ ...position, distance: position.stop == null || !position.last_close ? null : (position.last_close - position.stop) / position.last_close * 100 }))
+      .filter(position => position.distance != null).sort((left, right) => left.distance - right.distance)[0];
+    if (nearStop && nearStop.distance < 8) trmRecordEvent(`risk:${s.last_date}:${nearStop.symbol}:${nearStop.distance.toFixed(1)}`, "risk", "위험 경고", `${nearStop.symbol} 손절선까지 ${nearStop.distance.toFixed(1)}% · 추세 약화 감시`);
     if (firstLoad) setTimeout(trmPollLive, 0);  // 탭을 처음 열면 5초 기다리지 않고 바로 시세
     const k = s.kpi, rs = s.risk_state;
     const mode = { normal: "정상", reduce: "위험 축소(신규 비중 절반)", halt: "신규 진입 중단" }[rs.mode];
