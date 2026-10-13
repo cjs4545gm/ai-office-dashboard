@@ -174,6 +174,7 @@
   .dept-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:6px; }
   .dept-head h2{ margin:0; font-size:13px; }
   .dept-head .dept-desc{ font-family:var(--mono); font-size:9.5px; color:var(--muted); }
+  #live-prices-updated{ font-family:var(--mono); font-size:9px; font-weight:400; color:#4fbf70; margin-left:8px; white-space:nowrap; }
 
   .office-floor{
     position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line);
@@ -905,7 +906,7 @@
 
   <div class="tab-panel" data-tab-panel="live-prices">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>시세</h2><span class="dept-desc">보유종목·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
+    <div class="dept-head"><h2>시세 <span id="live-prices-updated" role="status" aria-live="polite">수신 대기 중</span></h2><span class="dept-desc">보유종목·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
     <div class="analysis-error" id="live-prices-state" role="status" hidden></div>
     <div class="quote-grid-label">보유종목</div>
     <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중…</div></div>
@@ -2035,6 +2036,10 @@
   // 끝난 직후 한 번 더 돌린다.
   let livePricesInFlight = false, livePricesQueued = false, livePricesFailures = 0;
   const LIVE_PRICE_STALE_AFTER = 3;  // 연속 실패 횟수 — 이만큼 실패하면 화면 값이 오래됐다고 표시
+  function setLivePricesUpdated(at = new Date()){
+    document.getElementById("live-prices-updated").textContent =
+      `마지막 수신 ${at.toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}`;
+  }
   function livePricesVisible(){
     return !document.hidden && document.querySelector('.tab-panel[data-tab-panel="live-prices"]').classList.contains("active");
   }
@@ -2048,6 +2053,7 @@
       if (!resp.ok || !data.ok) throw new Error(data.error || `HTTP ${resp.status}`);
       renderLivePrices(data);
       livePricesFailures = 0;
+      setLivePricesUpdated();
     } catch (e) {
       livePricesFailures += 1;
     } finally {
@@ -2057,6 +2063,9 @@
     const stateEl = document.getElementById("live-prices-state");
     stateEl.hidden = livePricesFailures < LIVE_PRICE_STALE_AFTER;
     stateEl.textContent = `시세 갱신 실패 ${livePricesFailures}회 연속 — 아래 값은 마지막으로 받은 시세입니다 (분석 서버 확인 필요)`;
+    if (livePricesFailures >= LIVE_PRICE_STALE_AFTER) {
+      document.getElementById("live-prices-updated").textContent = "시세 수신 중단";
+    }
     if (livePricesQueued) { livePricesQueued = false; pollLivePrices(); }
   }
 
