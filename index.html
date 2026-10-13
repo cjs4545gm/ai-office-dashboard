@@ -429,6 +429,9 @@
   .news-stock-tabs{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px; }
   .news-stock-tabs button{ background:none; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:12px; padding:3px 10px; cursor:pointer; }
   .news-stock-tabs button.on{ color:var(--cream); border-color:var(--accent); }
+  .news-cite{ font-family:var(--mono); font-size:10px; color:var(--accent); vertical-align:super; text-decoration:none; margin:0 1px; }
+  .news-cite::before{ content:"["; } .news-cite::after{ content:"]"; }
+  .news-cite:hover{ text-decoration:underline; }
   .news-source{ font-size:11.5px; color:var(--muted); margin-top:18px; line-height:1.6; }
 
   /* 📈 시세 탭 — 상승은 빨강, 하락은 파랑(국내 증시 관례). --done/--error(매수/매도 태그 색)와는
@@ -3379,9 +3382,14 @@
   const newsItem = a => `<a class="news-item" href="${newsEsc(a.url)}" target="_blank" rel="noopener">
       <div class="nt">${newsEsc(a.title)}</div>${a.summary ? `<div class="ns">${newsEsc(a.summary.slice(0, 110))}…</div>` : ""}
       <div class="nm">${newsEsc(a.publisher)} · ${newsTime(a.published_at)}</div></a>`;
+  // 해석 문장의 [n]을 근거 기사 원문 링크로 바꾼다(news_board.py가 원문 번호로 인용하게 함).
+  const newsCite = t => newsEsc(t).replace(/\[(\d+)\]/g, (m, n) => {
+    const src = NEWS.d?.view?.sources?.[n - 1];
+    return src ? `<a class="news-cite" href="${newsEsc(src.url)}" target="_blank" rel="noopener" title="${newsEsc(src.publisher + " · " + src.title)}">${n}</a>` : m;
+  });
   function newsLens(kind, lens, v){
     return `<div class="news-lens"><div class="lens-kind">${kind}</div><h3>${newsEsc(lens.name)}</h3><div class="lens-desc">${newsEsc(lens.desc)}</div>
-      ${v ? `<p>${newsEsc(v.what)}</p><p>${newsEsc(v.reading)}</p><p class="lens-watch">지켜볼 것 · ${newsEsc(v.watch)}</p>`
+      ${v ? `<p>${newsEsc(v.what)}</p><p>${newsCite(v.reading)}</p><p class="lens-watch">지켜볼 것 · ${newsCite(v.watch)}</p>`
           : '<div class="panel-empty">오늘 헤드라인이 충분히 모이면 이 관점의 해석이 생성돼요.</div>'}</div>`;
   }
   function renderNews(){
@@ -3391,7 +3399,8 @@
     body.innerHTML = `
       <div class="newsb-meta">${newsEsc(d.date)} · 마지막 갱신 ${newsTime(d.updated_at)} · ${d.interval_min}분 주기${d.errors?.length ? ` · 일부 수집 실패: ${newsEsc(d.errors.join(", "))}` : ""}</div>
       ${v.macro_lens ? `<div class="news-view">${newsLens("오늘의 매크로 관점", v.macro_lens, v.macro)}${newsLens("오늘의 마이크로 관점", v.micro_lens, v.micro)}</div>
-        ${v.synthesis ? `<div class="news-synth">${newsEsc(v.synthesis)}</div>` : ""}` : ""}
+        ${v.synthesis ? `<div class="news-synth">${newsCite(v.synthesis)}</div>` : ""}
+        ${v.unverified?.length ? `<div class="analysis-error" style="margin:-12px 0 18px">⚠ 인용 기사 원문에서 확인되지 않은 수치: ${newsEsc(v.unverified.join(", "))} — 해당 문장은 원문을 직접 확인하세요.</div>` : ""}` : ""}
       <div class="news-cols">
         <div><h3>주요 뉴스 (${d.market.length})</h3>${d.market.map(newsItem).join("") || '<div class="panel-empty">오늘 수집된 기사가 아직 없어요.</div>'}</div>
         <div><h3>보유 종목 뉴스</h3>
@@ -3399,7 +3408,8 @@
           ${stock?.items.map(newsItem).join("") || '<div class="panel-empty">오늘 기사가 없어요.</div>'}</div>
       </div>
       <div class="news-source">출처: 네이버 증권 주요뉴스(m.stock.naver.com) · 종목 뉴스(네이버 증권 종목별 뉴스) — 기사를 누르면 네이버 뉴스 원문이 열려요.
-        관점 해석은 그날 주요뉴스 헤드라인만 근거로 AI(claude)가 하루 한 번 작성${v.generated_at ? ` (${newsTime(v.generated_at)} 생성, 헤드라인 ${v.headline_count}건 기준)` : ""}.</div>`;
+        관점 해석은 그날 기사 원문을 AI(claude)가 읽고 작성 — 문장 끝 번호를 누르면 근거 기사 원문이 열리고, 해석 속 수치는 인용 기사 원문과 자동 대조해요.
+        ${v.generated_at ? `${newsTime(v.generated_at)} 생성 · 기사 ${v.sources?.length ?? 0}건(원문 ${v.full_text_count ?? 0}건) 기준${v.close_refreshed ? " · 장 마감 반영" : " · 16시 이후 장 마감 기사로 한 번 갱신"}.` : ""}</div>`;
   }
   async function loadNews(){
     try {
