@@ -407,6 +407,29 @@
   .rate-tag.none{ background:transparent; color:var(--vacant); border:1px dashed var(--vacant); }
   .analysis-loading{ font-family:var(--mono); font-size:12px; color:var(--working); }
   .analysis-error{ font-size:12.5px; color:var(--error); }
+  /* 뉴스 탭 (2026-10-13) — obsidian-employees/news_board.py가 30분마다 쓰는 news.json을 읽는다 */
+  .newsb-meta{ font-family:var(--mono); font-size:11px; color:var(--muted); margin:2px 0 14px; }
+  .news-view{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:12px; }
+  @media (max-width:720px){ .news-view{ grid-template-columns:1fr; } }
+  .news-lens{ border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .news-lens .lens-kind{ font-family:var(--mono); font-size:10.5px; color:var(--accent); letter-spacing:.04em; }
+  .news-lens h3{ margin:4px 0 2px; font-size:15px; color:var(--cream); }
+  .news-lens .lens-desc{ font-size:12px; color:var(--muted); margin-bottom:8px; }
+  .news-lens p{ font-size:13px; line-height:1.6; margin:6px 0; color:var(--cream); }
+  .news-lens .lens-watch{ font-size:12.5px; color:var(--working); }
+  .news-synth{ font-size:13px; line-height:1.6; color:var(--cream); border-left:2px solid var(--accent); padding:4px 0 4px 12px; margin-bottom:22px; }
+  .news-cols{ display:grid; grid-template-columns:3fr 2fr; gap:20px; }
+  @media (max-width:900px){ .news-cols{ grid-template-columns:1fr; } }
+  .news-cols h3{ font-size:13px; color:var(--muted); margin:0 0 8px; font-weight:600; }
+  .news-item{ display:block; padding:9px 0; border-bottom:1px solid var(--line); text-decoration:none; }
+  .news-item .nt{ font-size:13.5px; color:var(--cream); line-height:1.45; }
+  .news-item:hover .nt{ color:var(--accent); }
+  .news-item .ns{ font-size:12px; color:var(--muted); line-height:1.5; margin-top:3px; }
+  .news-item .nm{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:3px; }
+  .news-stock-tabs{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:6px; }
+  .news-stock-tabs button{ background:none; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:12px; padding:3px 10px; cursor:pointer; }
+  .news-stock-tabs button.on{ color:var(--cream); border-color:var(--accent); }
+  .news-source{ font-size:11.5px; color:var(--muted); margin-top:18px; line-height:1.6; }
 
   /* 📈 시세 탭 — 상승은 빨강, 하락은 파랑(국내 증시 관례). --done/--error(매수/매도 태그 색)와는
      별개 의미라 전용 변수로 둔다. stock-dashboard(Streamlit)의 캔들차트 색과 동일하게 맞춰서
@@ -732,6 +755,7 @@
     <button class="tab-btn" type="button" data-tab="chart-analysis">차트 분석</button>
     <button class="tab-btn" type="button" data-tab="reports">리포트</button>
     <button class="tab-btn" type="button" data-tab="trading">자동매매</button>
+    <button class="tab-btn" type="button" data-tab="news">뉴스</button>
   </div>
 
   <div class="tab-panel active" data-tab-panel="live">
@@ -951,6 +975,13 @@
 
   <!-- 2026-10-08: 자동매매(~/develop/us-swing-trader) — GitHub Actions가 계산한 summary.json을 맥의 sync_from_github.sh가
        오피스/trader/로 복사한다. trader/는 GitHub Pages 미러 대상이 아니라 금액·종목은 로컬 현황판에서만 보인다. -->
+  <div class="tab-panel" data-tab-panel="news">
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>뉴스</h2><span class="dept-desc">오늘의 증시 뉴스 · 30분마다 갱신 · 매일 바뀌는 매크로/마이크로 관점</span></div>
+    <div id="news-body"><div class="analysis-loading">불러오는 중…</div></div>
+  </div>
+  </div>
+
   <div class="tab-panel" data-tab-panel="trading">
   <div class="strategy-panel-full">
     <div class="dept-head"><h2>자동매매</h2><span class="dept-desc" id="tr-sub">미국 일봉 추세추종 · 모의매매</span></div>
@@ -3341,6 +3372,53 @@
       <table class="tr-table"><tr><th>날짜</th><th>종목</th><th>구분</th><th>수량</th><th>체결가</th><th>사유</th></tr>
         ${rows(s.fills.slice(-20).reverse(), f => `<tr><td>${f.date}</td><td>${escapeHtml(f.symbol)}</td><td>${{ buy: "매수", sell: "매도", div: "배당" }[f.side]}</td><td>${(+f.qty.toFixed(4))}</td><td>${trFmt(f.price)}</td><td>${escapeHtml(f.reason)}</td></tr>`, 6, "아직 체결 없음")}</table>`;
   }
+  // 뉴스 탭 — news.json(news_board.py, 30분 주기)을 열 때 읽고, 열려 있는 동안 5분마다 다시 읽는다.
+  const NEWS = { d: null, stock: null };
+  const newsEsc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+  const newsTime = iso => iso ? iso.slice(11, 16) : "";
+  const newsItem = a => `<a class="news-item" href="${newsEsc(a.url)}" target="_blank" rel="noopener">
+      <div class="nt">${newsEsc(a.title)}</div>${a.summary ? `<div class="ns">${newsEsc(a.summary.slice(0, 110))}…</div>` : ""}
+      <div class="nm">${newsEsc(a.publisher)} · ${newsTime(a.published_at)}</div></a>`;
+  function newsLens(kind, lens, v){
+    return `<div class="news-lens"><div class="lens-kind">${kind}</div><h3>${newsEsc(lens.name)}</h3><div class="lens-desc">${newsEsc(lens.desc)}</div>
+      ${v ? `<p>${newsEsc(v.what)}</p><p>${newsEsc(v.reading)}</p><p class="lens-watch">지켜볼 것 · ${newsEsc(v.watch)}</p>`
+          : '<div class="panel-empty">오늘 헤드라인이 충분히 모이면 이 관점의 해석이 생성돼요.</div>'}</div>`;
+  }
+  function renderNews(){
+    const d = NEWS.d, body = document.getElementById("news-body");
+    const stock = d.stocks.find(s => s.name === NEWS.stock) || d.stocks[0];
+    const v = d.view || {};
+    body.innerHTML = `
+      <div class="newsb-meta">${newsEsc(d.date)} · 마지막 갱신 ${newsTime(d.updated_at)} · ${d.interval_min}분 주기${d.errors?.length ? ` · 일부 수집 실패: ${newsEsc(d.errors.join(", "))}` : ""}</div>
+      ${v.macro_lens ? `<div class="news-view">${newsLens("오늘의 매크로 관점", v.macro_lens, v.macro)}${newsLens("오늘의 마이크로 관점", v.micro_lens, v.micro)}</div>
+        ${v.synthesis ? `<div class="news-synth">${newsEsc(v.synthesis)}</div>` : ""}` : ""}
+      <div class="news-cols">
+        <div><h3>주요 뉴스 (${d.market.length})</h3>${d.market.map(newsItem).join("") || '<div class="panel-empty">오늘 수집된 기사가 아직 없어요.</div>'}</div>
+        <div><h3>보유 종목 뉴스</h3>
+          <div class="news-stock-tabs">${d.stocks.map(s => `<button type="button" data-news-stock="${newsEsc(s.name)}" class="${s === stock ? "on" : ""}">${newsEsc(s.name)} ${s.items.length}</button>`).join("")}</div>
+          ${stock?.items.map(newsItem).join("") || '<div class="panel-empty">오늘 기사가 없어요.</div>'}</div>
+      </div>
+      <div class="news-source">출처: 네이버 증권 주요뉴스(m.stock.naver.com) · 종목 뉴스(네이버 증권 종목별 뉴스) — 기사를 누르면 네이버 뉴스 원문이 열려요.
+        관점 해석은 그날 주요뉴스 헤드라인만 근거로 AI(claude)가 하루 한 번 작성${v.generated_at ? ` (${newsTime(v.generated_at)} 생성, 헤드라인 ${v.headline_count}건 기준)` : ""}.</div>`;
+  }
+  async function loadNews(){
+    try {
+      const r = await fetch(`news.json?t=${Date.now()}`, { cache: "no-store" });
+      if (!r.ok) throw new Error(r.status);
+      NEWS.d = await r.json();
+      renderNews();
+    } catch (e) {
+      document.getElementById("news-body").innerHTML = '<div class="panel-empty">뉴스는 맥의 로컬 현황판(http://localhost:8767/office.html)에서만 볼 수 있어요.</div>';
+    }
+  }
+  document.getElementById("news-body").addEventListener("click", e => {
+    const b = e.target.closest("[data-news-stock]");
+    if (b){ NEWS.stock = b.dataset.newsStock; renderNews(); }
+  });
+  document.querySelector('.tab-btn[data-tab="news"]').addEventListener("click", loadNews);
+  setInterval(() => {
+    if (!document.hidden && document.querySelector('.tab-panel[data-tab-panel="news"]').classList.contains("active")) loadNews();
+  }, 5 * 60 * 1000);
   document.querySelector('.tab-btn[data-tab="trading"]').addEventListener("click", loadTrading);
   // office.html#reports 처럼 주소로 탭을 바로 연다
   document.querySelector(`.tab-btn[data-tab="${CSS.escape(location.hash.slice(1))}"]`)?.click();
