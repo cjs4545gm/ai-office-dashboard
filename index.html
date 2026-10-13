@@ -150,7 +150,7 @@
   .trd-actions{ display:flex; gap:9px; margin-left:auto; }.trd-action{ min-height:40px; padding:0 16px; border:1px solid #526783; border-radius:8px; background:#142236; color:#e6eefb; font:700 13px var(--sans); cursor:pointer; }.trd-action.danger{ border-color:#ec5264; color:#ff6d7c; background:#291822; }.trd-action:disabled{ opacity:.4; cursor:not-allowed; }
   .trd-kpis{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:14px; }.trd-card{ min-height:142px; padding:17px 18px; border:1px solid #233a56; border-radius:9px; background:linear-gradient(135deg,#13243a,#0e1929); }.trd-label{ display:flex; justify-content:space-between; gap:8px; color:#dbe6f8; font-size:15px; font-weight:700; }.trd-help{ display:inline-grid; place-items:center; width:19px; height:19px; border-radius:50%; background:#42536d; color:#122035; font-size:13px; }.trd-value{ margin:18px 0 8px; font-size:clamp(25px,3vw,39px); font-weight:800; letter-spacing:-.045em; }.trd-value.up{ color:#55e4ad; }.trd-value.down{ color:#ff6f78; }.trd-value.warn{ color:#ffba35; }.trd-meta{ display:flex; justify-content:space-between; gap:10px; margin-top:9px; color:#9fb1c9; font-size:12px; }.trd-meta b{ color:#e8eef8; }.trd-spark{ float:right; width:42%; height:58px; margin-top:-62px; }.trd-bar{ height:23px; overflow:hidden; margin:22px 0 9px; border-radius:5px; background:#415572; }.trd-bar i{ display:block; height:100%; border-radius:5px; background:#3994ff; box-shadow:0 0 14px #2479dd; }
   .trd-grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:14px; margin-bottom:14px; }.trd-panel{ min-width:0; padding:16px; border:1px solid #233a56; border-radius:9px; background:linear-gradient(135deg,#122238,#0e1929); }.trd-panel h3{ margin:0 0 14px; color:#f0f5fe; font-size:17px; letter-spacing:-.02em; }.trd-count{ display:inline-block; margin-left:7px; padding:3px 9px; border-radius:12px; background:#263a54; color:#bdcce0; font-size:11px; vertical-align:2px; }.trd-todo{ display:flex; align-items:center; gap:11px; min-height:46px; padding:0 13px; border:1px solid #263d59; border-radius:7px; background:#14253a; color:#d8e2f2; font-size:13px; }.trd-todo + .trd-todo{ margin-top:8px; }.trd-todo i{ width:11px; height:11px; flex:none; border-radius:50%; background:#91a4c1; }.trd-todo.danger i{ background:#ff6435; }.trd-todo.warn i{ background:#ffbf29; }.trd-todo time{ margin-left:auto; color:#8ca0ba; white-space:nowrap; font-size:11px; }.trd-empty{ display:grid; min-height:150px; place-items:center; align-content:center; gap:6px; border:1px solid #233a56; border-radius:7px; color:#9fb1c9; text-align:center; font-size:13px; }.trd-empty strong{ color:#e9effa; font-size:16px; }.trd-bottom{ display:grid; grid-template-columns:1.45fr .9fr; gap:14px; }.trd-table{ width:100%; border-collapse:collapse; overflow:hidden; border:1px solid #233a56; border-radius:7px; font-size:12px; }.trd-table th,.trd-table td{ padding:10px 9px; border-bottom:1px solid #213750; text-align:right; }.trd-table th{ color:#91a5c0; font-weight:600; }.trd-table td:first-child,.trd-table th:first-child{ text-align:left; }.trd-table tr:last-child td{ border-bottom:0; }.trd-badge{ display:inline-flex; align-items:center; gap:5px; padding:4px 8px; border:1px solid #756017; border-radius:7px; color:#f5c34a; background:#292413; font-size:11px; }.trd-badge.up{ border-color:#176b4e; background:#112e28; color:#52e2aa; }.trd-chart-wrap{ min-height:222px; }.trd-chart-wrap .tr-legend{ display:flex; justify-content:space-between; }.trd-chart-wrap svg{ min-height:180px; }.trd-note{ margin:10px 0 0; color:#8da1b9; font-size:11px; }
-  @media(max-width:980px){ .trd-kpis{ grid-template-columns:repeat(2,minmax(0,1fr)); }.trd-bottom,.trd-grid{ grid-template-columns:1fr; }.trd-actions{ margin-left:0; }.trd-top{ align-items:flex-start; } }
+  @media(max-width:780px){ .trd-kpis{ grid-template-columns:repeat(2,minmax(0,1fr)); }.trd-bottom,.trd-grid{ grid-template-columns:1fr; }.trd-actions{ margin-left:0; }.trd-top{ align-items:flex-start; } }
   @media(max-width:560px){ .trd-kpis{ grid-template-columns:1fr; }.trd-card{ min-height:120px; }.trd-actions{ width:100%; }.trd-action{ flex:1; padding:0 8px; font-size:11px; }.trd-table{ font-size:11px; }.trd-table th:nth-child(3),.trd-table td:nth-child(3),.trd-table th:nth-child(6),.trd-table td:nth-child(6){ display:none; } }
 
   /* 자동매매 터미널 패널 (2026-10-09) — MetaTrader EA 정보창 스타일. 버튼은 맥 control_server.py(8771)로 요청 → 다음 미국장 시가에 모의 반영 */
@@ -3293,9 +3293,49 @@
       </table>
     </div>`;
   }
+  function trmDashboard(s, control){
+    const accts = trmAccounts(s), a = accts.find(x => x.id === TRM.acct) || accts[0];
+    TRM.acct = a.id;
+    const curve = a.curve || [], last = curve.length ? curve[curve.length - 1][1] : a.capital;
+    const prev = curve.length > 1 ? curve[curve.length - 2][1] : a.capital;
+    const price = sym => TRM.live[sym] ?? (a.positions.find(p => p.symbol === sym) || {}).last_close ?? 0;
+    const invested = a.positions.reduce((sum, p) => sum + p.qty * price(p.symbol), 0);
+    const equity = a.cash + invested, hasLive = a.positions.length > 0 && a.positions.every(p => TRM.live[p.symbol] != null);
+    const shownEquity = hasLive ? equity : last, today = shownEquity - prev, todayPct = prev ? today / prev : 0;
+    const totalPct = a.capital ? shownEquity / a.capital - 1 : 0, cashPct = shownEquity ? Math.max(0, a.cash / shownEquity * 100) : 0;
+    const pending = ((control && control.requests) || []).filter(r => r.account === a.id && !new Set(a.controls.map(c => c.id)).has(r.id));
+    const willPause = pending.reduce((paused, r) => r.action !== "resume", a.paused);
+    const stopRows = a.positions.map(p => ({ ...p, live: price(p.symbol), dist: p.stop == null || !price(p.symbol) ? null : (price(p.symbol) - p.stop) / price(p.symbol) * 100 }))
+      .filter(p => p.dist != null).sort((x, y) => x.dist - y.dist).slice(0, 2);
+    const todos = stopRows.map(p => ({ level: p.dist < 8 ? "danger" : "warn", text: `${p.symbol} · 손절선까지 ${p.dist.toFixed(1)}% · ${p.dist < 8 ? "추세 약화 감시" : "보유 근거 확인 필요"}` }));
+    if (!todos.length) todos.push({ level:"", text:"보유 종목 손절선 정상 범위" });
+    if (a.orders.length) todos.push({ level:"warn", text:`다음 시가 주문 ${a.orders.length}건 · 주문 내용 확인 필요` });
+    else todos.push({ level:"", text:"신규 주문 없음" });
+    const riskAttention = a.risk.drawdown >= .08 || stopRows.some(p => p.dist < 8);
+    const modeText = a.risk.mode === "halt" ? "중지" : a.risk.mode === "reduce" ? "주의" : riskAttention ? "주의" : "정상";
+    const liveStamp = TRM.liveAt ? TRM.liveAt.toLocaleTimeString("ko-KR", { hour:"2-digit", minute:"2-digit", second:"2-digit" }) : "수신 대기";
+    const spark = (curve.length > 1) ? trChart(curve, null) : '<div class="panel-empty">수익 추적 데이터 대기 중</div>';
+    const orders = a.orders.length ? a.orders.map(o => `<div class="trd-todo ${o.side === "sell" ? "danger" : "warn"}"><i></i><span><b>${escapeHtml(o.symbol)}</b> · ${o.side === "buy" ? "매수" : "매도"} · ${escapeHtml(o.reason || "규칙 신호")}</span><time>다음 시가</time></div>`).join("")
+      : '<div class="trd-empty"><span style="font-size:36px">▧</span><strong>주문 없음</strong><span>현재 대기 중인 모의 주문이 없습니다.</span></div>';
+    return `<div class="trd">
+      <div class="trd-top"><h2 class="trd-title">자동매매 관제실</h2>
+        <span class="trd-chip live"><i class="trd-dot"></i>모의매매</span><span class="trd-chip">데이터 최신 ${liveStamp}</span><span class="trd-chip">토스 현재가</span>
+        <div class="trd-actions"><button type="button" class="trd-action danger" data-trm-act="close_all" ${!trmLocal() || !a.positions.length ? "disabled" : ""}>■ 전체 중지</button><button type="button" class="trd-action" data-trm-act="${willPause ? "resume" : "pause"}" ${!trmLocal() ? "disabled" : ""}>${willPause ? "▶ 신규 진입 재개" : "Ⅱ 신규 진입 일시정지"}</button></div>
+      </div>
+      ${TRM.confirm ? `<div class="trd-note" style="border:1px solid #bb4c5d;padding:10px;border-radius:7px;color:#ffd2d6">${TRM.confirm === "close_all" ? "모든 보유 종목을 다음 미국장 시가에 청산하고 신규 진입도 중단합니다." : TRM.confirm === "pause" ? "신규 매수만 중단합니다. 손절·청산 규칙은 계속 작동합니다." : "신규 진입을 다시 허용합니다."}<div class="trm-btns"><button class="trm-btn ${TRM.confirm === "resume" ? "green" : TRM.confirm === "pause" ? "amber" : "red"}" data-trm-ok="${TRM.confirm}">확인</button><button class="trm-btn blue" data-trm-cancel>취소</button></div></div>` : ""}
+      <div class="trd-kpis">
+        <section class="trd-card"><div class="trd-label">오늘 손익 <span class="trd-help">?</span></div><div class="trd-value ${today >= 0 ? "up" : "down"}">${trmMoney(today)}<small> (${todayPct >= 0 ? "+" : ""}${(todayPct * 100).toFixed(2)}%)</small></div><svg class="trd-spark" viewBox="0 0 120 56" aria-hidden="true"><polyline fill="none" stroke="#50e1ac" stroke-width="3" points="0,46 18,39 34,42 52,28 72,33 91,18 120,6"/></svg><div class="trd-meta"><span>시작 잔고</span><b>${trmMoney(prev)}</b></div><div class="trd-meta"><span>현재 잔고</span><b>${trmMoney(shownEquity)}</b></div></section>
+        <section class="trd-card"><div class="trd-label">누적 수익률 <span class="trd-help">?</span></div><div class="trd-value ${totalPct >= 0 ? "up" : "down"}">${totalPct >= 0 ? "+" : ""}${(totalPct * 100).toFixed(2)}%</div><div class="trd-meta"><span>누적 손익</span><b class="${totalPct >= 0 ? "tr-up" : "tr-down"}">${trmMoney(shownEquity - a.capital)}</b></div><div class="trd-meta"><span>총 거래 수</span><b>${(s.fills || []).length + (s.trades || []).length}회</b></div></section>
+        <section class="trd-card"><div class="trd-label">자산 배분 <span class="trd-help">?</span></div><div class="trd-bar"><i style="width:${Math.max(0, Math.min(100, 100 - cashPct)).toFixed(1)}%"></i></div><div class="trd-meta"><span>투자 중 <b>${(100 - cashPct).toFixed(0)}%</b></span><span>현금 <b>${cashPct.toFixed(0)}%</b></span></div><div class="trd-meta"><span>투자 금액</span><b>${trmMoney(invested)}</b></div><div class="trd-meta"><span>현금</span><b>${trmMoney(a.cash)}</b></div></section>
+        <section class="trd-card"><div class="trd-label">포트폴리오 위험도 <span class="trd-help">?</span></div><div class="trd-value ${riskAttention ? "warn" : "up"}">${riskAttention ? "⚠ 주의" : "● 정상"}</div><div class="trd-meta"><span>고점 대비 낙폭</span><b>${(a.risk.drawdown * 100).toFixed(2)}%</b></div><div class="trd-meta"><span>보유 종목</span><b>${a.positions.length} / ${a.maxPos}</b></div></section>
+      </div>
+      <div class="trd-grid"><section class="trd-panel"><h3>☷ 오늘 할 일 <span class="trd-count">${todos.length}건</span></h3>${todos.slice(0,3).map(t => `<div class="trd-todo ${t.level}"><i></i><span>${t.text}</span><time>${hasLive ? "실시간" : "종가 기준"}</time></div>`).join("")}</section><section class="trd-panel"><h3>▧ 다음 주문</h3>${orders}</section></div>
+      <div class="trd-bottom"><section class="trd-panel"><h3>▰ 보유 종목</h3><table class="trd-table"><tr><th>종목명</th><th>보유 수량</th><th>평균 단가</th><th>현재가</th><th>평가 손익</th><th>수익률</th><th>추세 판단</th></tr>${a.positions.map(p => { const current = price(p.symbol), pnl = p.qty * (current - p.entry_px), ret = p.entry_px ? (current / p.entry_px - 1) : 0, market = (s.market || {})[p.symbol] || {}, rising = market.direction === "상승"; return `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${+p.qty.toFixed(4)}</td><td>${trmMoney(p.entry_px)}</td><td>${trmMoney(current)}</td><td class="${pnl >= 0 ? "tr-up" : "tr-down"}">${trmMoney(pnl)}</td><td class="${ret >= 0 ? "tr-up" : "tr-down"}">${ret >= 0 ? "+" : ""}${(ret * 100).toFixed(1)}%</td><td><span class="trd-badge ${rising ? "up" : ""}">${rising ? "↗ 추세 유지" : "− " + (market.status || "관망")}</span></td></tr>`; }).join("") || '<tr><td colspan="7" class="panel-empty">보유 종목 없음</td></tr>'}</table></section><section class="trd-panel"><h3>⌁ 포트폴리오 추이</h3><div class="trd-chart-wrap">${spark}</div><div class="trd-note">모의매매 자산곡선 · 토스 현재가는 평가금액과 보유 표에 반영됩니다.</div></section></div>
+      ${TRM.msg ? `<div class="trd-note">${TRM.msg}</div>` : ""}</div>`;
+  }
   function trmRender(){
     const w = document.getElementById("trm-wrap");
-    if (w && TRM.s) w.innerHTML = trmTerminal(TRM.s, TRM.control);
+    if (w && TRM.s) w.innerHTML = trmDashboard(TRM.s, TRM.control);
   }
   async function trmLoadMinute(){
     if (TRM.iv === "1d" || !TRM.sym) return;
@@ -3323,8 +3363,8 @@
     await trmLoadMinute();
     trmRender();
   }
-  // 정규·프리·애프터장엔 5초, 장 닫힌 시간엔 1분마다(탭이 열려 있고 화면이 보일 때만)
-  (function trmLoop(){ trmPollLive().finally(() => setTimeout(trmLoop, trmSession().key === "closed" ? 60000 : 5000)); })();
+  // 관제실을 연 동안 토스 현재가를 3초 주기로 반영한다. 실제 주문 판단·체결은 여전히 일봉 규칙과 모의 실행만 사용한다.
+  (function trmLoop(){ trmPollLive().finally(() => setTimeout(trmLoop, 3000)); })();
   async function trmSend(action){
     TRM.msg = "요청 보내는 중…"; trmRender();
     try {
@@ -3395,6 +3435,8 @@
       <div class="quote-grid-label">최근 체결 (기본 계좌)</div>
       <table class="tr-table"><tr><th>날짜</th><th>종목</th><th>구분</th><th>수량</th><th>체결가</th><th>사유</th></tr>
         ${rows(s.fills.slice(-20).reverse(), f => `<tr><td>${f.date}</td><td>${escapeHtml(f.symbol)}</td><td>${{ buy: "매수", sell: "매도", div: "배당" }[f.side]}</td><td>${(+f.qty.toFixed(4))}</td><td>${trFmt(f.price)}</td><td>${escapeHtml(f.reason)}</td></tr>`, 6, "아직 체결 없음")}</table>`;
+    // 위의 과거 상세 표 대신 관제실 레이아웃을 단일 진입점으로 렌더링한다.
+    body.innerHTML = `<div id="trm-wrap">${trmDashboard(s, control)}</div>`;
   }
   // 뉴스 탭 — news.json(news_board.py, 30분 주기)을 열 때 읽고, 열려 있는 동안 5분마다 다시 읽는다.
   const NEWS = { d: null, stock: null };
