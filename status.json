@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T15:19:44",
+  "updated_at": "2026-10-14T15:24:47",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -202,35 +202,35 @@
     },
     "ivy": {
       "name": "아이비",
-      "rank": "수석 전략가",
-      "role": "포트폴리오 전체 방향·자산배분 상담",
+      "rank": "본부장",
+      "role": "포트폴리오 방향·자산배분 총괄",
       "emoji": "🧭",
-      "room": "strategy",
+      "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T15:19:44",
+      "since": "2026-10-14T15:24:47",
       "last_action": "대기"
     },
     "max": {
       "name": "맥스",
       "rank": "리스크 전략가",
-      "role": "포지션 크기·하방 방어 상담",
+      "role": "포지션 크기·하방 방어 설계",
       "emoji": "🛡️",
-      "room": "strategy",
+      "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T15:19:44",
+      "since": "2026-10-14T15:24:47",
       "last_action": "대기"
     },
     "rina": {
       "name": "리나",
       "rank": "행동재무 코치",
-      "role": "판단 편향·매매 심리 점검",
+      "role": "최종 결정 편향 점검",
       "emoji": "🧘",
-      "room": "strategy",
+      "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T15:19:44",
+      "since": "2026-10-14T15:24:47",
       "last_action": "대기"
     },
     "trend_bot": {
