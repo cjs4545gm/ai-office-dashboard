@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T14:28:39",
+  "updated_at": "2026-10-14T14:34:24",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T14:25:08",
+      "since": "2026-10-14T14:34:24",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -197,7 +197,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T14:24:42",
+      "since": "2026-10-14T14:34:04",
       "last_action": "작업 완료"
     },
     "ivy": {
@@ -208,7 +208,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:28:39",
+      "since": "2026-10-14T14:33:42",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:28:39",
+      "since": "2026-10-14T14:33:42",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:28:39",
+      "since": "2026-10-14T14:33:42",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -241,35 +241,11 @@
       "room": "trading",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T13:34:22",
+      "since": "2026-10-14T14:34:24",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-14T13:47:10",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T14:00:07",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T14:00:07",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-14T14:00:20",
       "employee": "scout",
@@ -643,6 +619,30 @@
       "employee": "jade",
       "name": "제이드",
       "role": "리스크 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T14:34:00",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:34:04",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T14:34:24",
+      "employee": "trend_bot",
+      "name": "트렌디",
+      "role": "미국 일봉 추세추종 모의매매",
       "status": "done",
       "action": "작업 완료"
     }
