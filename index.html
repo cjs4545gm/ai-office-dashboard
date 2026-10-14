@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<title>부서 현황판</title>
+<title>부서 현황판 · 조직개편</title>
 <style>
   :root{
     /* 2026-07-31 밝은 팔레트로 전환했다가, 2026-09-23 힉스필드 일러스트 도입과 함께 블랙 테마로
@@ -108,26 +108,23 @@
 
   .org{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(2, 1fr);
     grid-template-areas:
-      "wf wf wf"
-      "research data risk"
-      "feedback feedback strategy"
-      "trading trading trading";
+      "info research"
+      "portfolio performance";
     gap:10px;
   }
   @media (max-width:720px){
-    .org{ grid-template-columns:1fr; grid-template-areas:"wf" "research" "data" "risk" "feedback" "strategy" "trading"; }
+    .org{ grid-template-columns:1fr; grid-template-areas:"info" "research" "portfolio" "performance"; }
   }
 
   .dept-room{ background:var(--wall-2); border:1px solid var(--line); border-radius:12px; padding:10px 12px 12px; min-width:0; }
-  .dept-room[data-room="workflow"]{ grid-area:wf; }
+  .dept-room[data-room="info"]{ grid-area:info; }
   .dept-room[data-room="research"]{ grid-area:research; }
-  .dept-room[data-room="data"]{ grid-area:data; }
-  .dept-room[data-room="risk"]{ grid-area:risk; }
-  .dept-room[data-room="feedback"]{ grid-area:feedback; }
-  .dept-room[data-room="strategy"]{ grid-area:strategy; }
-  .dept-room[data-room="trading"]{ grid-area:trading; }
+  .dept-room[data-room="portfolio"]{ grid-area:portfolio; }
+  .dept-room[data-room="performance"]{ grid-area:performance; }
+  .org-flow{ display:flex; align-items:center; gap:8px; margin:0 4px 12px; padding:9px 12px; border:1px solid var(--line); border-radius:10px; background:var(--wall-2); color:var(--muted); font:10px var(--mono); overflow:auto; white-space:nowrap; }
+  .org-flow b{ color:var(--cream); font-weight:600; }.org-flow i{ color:var(--accent); font-style:normal; }
 
   /* 자동매매 탭 (2026-10-08, ~/develop/us-swing-trader 모의매매 — trader/summary.json을 읽는다) */
   .tr-kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px; margin:10px 0 14px; }
@@ -870,7 +867,7 @@
       <span class="bars"><i></i><i></i><i></i><i></i></span>
       <div>
         <h1>준석 시장브리핑 오피스</h1>
-        <div class="sub">7개 부서 · 24명 · status.json 실시간 연동</div>
+        <div class="sub">4개 본부 · 22명 · status.json 실시간 연동</div>
       </div>
     </div>
     <div class="live"><span class="pulse"></span><span id="updated-at" aria-live="polite">연결 중…</span></div>
@@ -898,35 +895,24 @@
     <div><h2>부서 현황판</h2><p>각 부서의 자동화 상태와 지금 확인할 운영 신호를 한 화면에서 봅니다.</p></div>
     <div class="office-command-state">실시간 상태 연동</div>
   </div>
+  <div class="org-flow" aria-label="조직 운영 흐름"><b>시장정보·데이터</b><i>→</i><b>리서치·시그널</b><i>→</i><b>포트폴리오·리스크 승인</b><i>→</i><b>실행·성과관리</b><i>↺</i><span>검증 결과를 다음 분석에 반영</span></div>
   <div class="layout">
     <div class="org">
-      <div class="dept-room" data-room="workflow">
-        <div class="dept-head"><h2>워크플로우·스케줄링</h2><span class="dept-desc">데일리·이벤트 트리거</span></div>
-        <div class="occupant-list" id="room-workflow"></div>
+      <div class="dept-room" data-room="info">
+        <div class="dept-head"><h2>시장정보·데이터 본부</h2><span class="dept-desc">시세·뉴스·수급·일정의 신뢰도 관리</span></div>
+        <div class="occupant-list" id="room-info"></div>
       </div>
       <div class="dept-room" data-room="research">
         <div class="dept-head"><h2>AI 리서치</h2><span class="dept-desc">종목·산업·자금흐름</span></div>
         <div class="occupant-list" id="room-research"></div>
       </div>
-      <div class="dept-room" data-room="data">
-        <div class="dept-head"><h2>데이터 인프라</h2><span class="dept-desc">시세·공시·뉴스</span></div>
-        <div class="occupant-list" id="room-data"></div>
+      <div class="dept-room" data-room="portfolio">
+        <div class="dept-head"><h2>포트폴리오·리스크 본부</h2><span class="dept-desc">최종 의견·비중·손절 기준 승인</span></div>
+        <div class="occupant-list" id="room-portfolio"></div>
       </div>
-      <div class="dept-room" data-room="risk">
-        <div class="dept-head"><h2>리스크 스크리닝</h2><span class="dept-desc">위험 신호 점검</span></div>
-        <div class="occupant-list" id="room-risk"></div>
-      </div>
-      <div class="dept-room" data-room="feedback">
-        <div class="dept-head"><h2>결과 추적·피드백</h2><span class="dept-desc">판단 정확도 검증, 리서치에 반영</span></div>
-        <div class="occupant-list" id="room-feedback"></div>
-      </div>
-      <div class="dept-room" data-room="strategy">
-        <div class="dept-head"><h2>전략실</h2><span class="dept-desc">전략 상담 — 질문 있을 때만 근무</span></div>
-        <div class="occupant-list" id="room-strategy"></div>
-      </div>
-      <div class="dept-room" data-room="trading">
-        <div class="dept-head"><h2>자동매매실</h2><span class="dept-desc">미국 일봉 추세추종 모의매매 — 매일 아침 GitHub에서 실행(06:07부터 최대 4회)</span></div>
-        <div class="occupant-list" id="room-trading"></div>
+      <div class="dept-room" data-room="performance">
+        <div class="dept-head"><h2>실행·성과관리 본부</h2><span class="dept-desc">모의매매 실행·성과 검증·자동화 감사</span></div>
+        <div class="occupant-list" id="room-performance"></div>
       </div>
     </div>
 
@@ -1184,21 +1170,21 @@
   // (assets/chars/*.png)로 교체 — 이미지 비율에 맞춰 2열x3행 그리드로 재배치. floor는 방 그림 속
   // 바닥선 위치(rect 높이 대비 비율)이고, 이미지를 못 불러오면 예전 벡터 그림으로 폴백한다.
   const ROOMS = [
-    { key: "workflow", label: "워크플로우·스케줄링", emoji: "⏰", color: "#f0a94e", dim: "#6b5330",
+    { key: "info", label: "시장정보·데이터 본부", emoji: "📡", color: "#b79bf0", dim: "#5c4d7a",
       rect: { x: 0, y: 0, w: 580, h: 233 }, floor: 0.86, members: [
-      { id: "oz", hair: "crown" }, { id: "bri", hair: "cap" }, { id: "nix", hair: "badge" }, { id: "callie", hair: "book" },
+      { id: "hank", hair: "crown" }, { id: "scout", hair: "bag" }, { id: "milo", hair: "badge" }, { id: "callie", hair: "book" },
     ]},
     { key: "research", label: "AI 리서치", emoji: "🔍", color: "#5fd0b0", dim: "#2f5a4d",
       rect: { x: 580, y: 0, w: 580, h: 233 }, floor: 0.86, members: [
-      { id: "vera", hair: "crown" }, { id: "tam", hair: "glasses" }, { id: "juno", hair: "badge" }, { id: "chip", hair: "chip" },
+      { id: "vera", hair: "crown" }, { id: "tam", hair: "glasses" }, { id: "juno", hair: "badge" }, { id: "chip", hair: "chip" }, { id: "bri", hair: "cap" },
     ]},
-    { key: "data", label: "데이터 인프라", emoji: "📡", color: "#b79bf0", dim: "#5c4d7a",
+    { key: "portfolio", label: "포트폴리오·리스크 본부", emoji: "🧭", color: "#ef6b63", dim: "#7a3a35",
       rect: { x: 0, y: 233, w: 580, h: 233 }, floor: 0.86, members: [
-      { id: "hank", hair: "crown" }, { id: "scout", hair: "bag" }, { id: "milo", hair: "badge" },
+      { id: "ivy", hair: "crown" }, { id: "jade", hair: "crown" }, { id: "max", hair: "visor" }, { id: "kai", hair: "visor" }, { id: "nova", hair: "badge" }, { id: "leo", hair: "tie" }, { id: "rina", hair: "glasses" },
     ]},
-    { key: "risk", label: "리스크 스크리닝", emoji: "⚠️", color: "#ef6b63", dim: "#7a3a35",
+    { key: "performance", label: "실행·성과관리 본부", emoji: "⚙️", color: "#4fc3f7", dim: "#2a5a70", art: false,
       rect: { x: 580, y: 233, w: 580, h: 233 }, floor: 0.86, members: [
-      { id: "jade", hair: "crown" }, { id: "kai", hair: "visor" }, { id: "nova", hair: "badge" },
+      { id: "oz", hair: "crown" }, { id: "dawn", hair: "crown" }, { id: "rewind", hair: "book" }, { id: "sage", hair: "badge" }, { id: "nix", hair: "badge" }, { id: "trend_bot", hair: "chip" },
     ]},
     { key: "feedback", label: "결과 추적·피드백", emoji: "🗂️", color: "#8fa6c2", dim: "#4a5a70",
       rect: { x: 0, y: 466, w: 580, h: 234 }, floor: 0.86, members: [
