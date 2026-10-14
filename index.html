@@ -940,7 +940,7 @@
   </div>
 
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>경보 피드</h2><span class="dept-desc">카이·노바·제이드 — 리스크 스크리닝 부서가 낸 경보 전체(제이드 교차확인 전 원본), 새 경보가 뜨면 자동으로 추가됩니다</span></div>
+    <div class="dept-head"><h2>경보 피드</h2><span class="dept-desc">카이·노바·제이드 — 포트폴리오·리스크 본부가 낸 경보 전체(제이드 교차확인 전 원본), 새 경보가 뜨면 자동으로 추가됩니다</span></div>
     <div id="risk-alerts"><div class="panel-empty">현재 감지된 경보 없음</div></div>
   </div>
   </div>
@@ -1001,19 +1001,12 @@
     <div id="news-digest-list"><div class="panel-empty">불러오는 중…</div></div>
   </div>
 
-  <div class="dept-links">
-    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EC%9B%8C%ED%81%AC%ED%94%8C%EB%A1%9C%EC%9A%B0%C2%B7%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81">⏰ 워크플로우·스케줄링</a>
-    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/AI%20%EB%A6%AC%EC%84%9C%EC%B9%98">🔍 AI 리서치</a>
-    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EC%9D%B8%ED%94%84%EB%9D%BC">📡 데이터 인프라</a>
-    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EC%8A%A4%ED%81%AC%EB%A6%AC%EB%8B%9D">리스크 스크리닝</a>
-    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EA%B2%B0%EA%B3%BC%20%EC%B6%94%EC%A0%81%C2%B7%ED%94%BC%EB%93%9C%EB%B0%B1">🗂️ 결과 추적·피드백</a>
-    <a class="dept-link" href="obsidian://open?vault=%EC%98%B5%EC%8B%9C%EB%94%94%EC%96%B8&file=%EB%B6%80%EC%84%9C/%EC%A0%84%EB%9E%B5%EC%8B%A4">🧭 전략실</a>
-  </div>
+  <!-- 2026-10-14 조직개편: 옛 7개 부서 Obsidian 노트 링크(dept-links)는 4본부 체계와 맞지 않아 제거 -->
   </div>
 
   <div class="tab-panel" data-tab-panel="ceo">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>대표 채팅 — 전략실에 물어보기</h2><span class="dept-desc">아이비·맥스·리나 — 5~10분 내 검토 후 답변</span></div>
+    <div class="dept-head"><h2>대표 채팅 — 전략 상담</h2><span class="dept-desc">포트폴리오·리스크 본부 아이비·맥스·리나 — 5~10분 내 검토 후 답변</span></div>
     <div class="strategy-form">
       <textarea id="strategy-input" maxlength="2000" aria-label="전략실 질문" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
       <button id="strategy-submit" type="button">질문 남기기</button>
@@ -1201,33 +1194,33 @@
     updated_at: "2026-07-07T13:10:00",
     is_snapshot: true,
     employees: {
-      oz:     { name: "오즈", rank: "팀장", role: "전체 스케줄 총괄", room: "workflow", status: "done", last_action: "이상없음", since: "2026-07-07T13:05:00" },
-      bri:    { name: "브리", rank: "선임", role: "데일리 애널리스트", room: "workflow", status: "done", last_action: "데일리 시장 브리핑 작성 완료", since: "2026-07-07T13:05:00" },
-      nix:    { name: "닉스", rank: "주니어", role: "실행 로그·타임라인 기록", room: "workflow", status: "done", last_action: "이벤트 기록 누적", since: "2026-07-07T13:05:00" },
-      callie: { name: "캘리", rank: "캘린더 담당", role: "실적발표 예상 시기 추적", room: "workflow", status: "done", last_action: "10일 이내 예상 발표 없음", since: "2026-07-07T13:00:00" },
+      oz:     { name: "오즈", rank: "본부장", role: "실행 자동화·예외 대응 총괄", room: "performance", status: "done", last_action: "이상없음", since: "2026-07-07T13:05:00" },
+      bri:    { name: "브리", rank: "선임", role: "데일리 시장 시그널 분석", room: "research", status: "done", last_action: "데일리 시장 브리핑 작성 완료", since: "2026-07-07T13:05:00" },
+      nix:    { name: "닉스", rank: "주니어", role: "자동화 감사·실행 로그 관리", room: "performance", status: "done", last_action: "이벤트 기록 누적", since: "2026-07-07T13:05:00" },
+      callie: { name: "캘리", rank: "캘린더 담당", role: "시장 이벤트·공시 일정 관리", room: "info", status: "done", last_action: "10일 이내 예상 발표 없음", since: "2026-07-07T13:00:00" },
 
-      vera:   { name: "베라", rank: "팀장", role: "리서치 총괄·품질 검수", room: "research", status: "working", last_action: "리서치 품질 검수 중", since: "2026-07-07T13:10:00" },
+      vera:   { name: "베라", rank: "본부장", role: "리서치 총괄·품질 검수", room: "research", status: "working", last_action: "리서치 품질 검수 중", since: "2026-07-07T13:10:00" },
       tam:    { name: "탐", rank: "선임", role: "리서치 분석가", room: "research", status: "working", last_action: "리서치 분석 중", since: "2026-07-07T13:10:00" },
-      juno:   { name: "주노", rank: "주니어", role: "업종별 협회·통계 리서처", room: "research", status: "done", last_action: "업종 2개 협회·통계 조사 완료", since: "2026-07-07T13:10:00" },
-      chip:   { name: "칩", rank: "가격분석 담당", role: "D램·낸드·MLCC 가격 분석", room: "research", status: "done", last_action: "D램·낸드 현물가 + MLCC 동향 갱신", since: "2026-07-13T11:00:00" },
+      juno:   { name: "주노", rank: "선임", role: "업종·특수종목 웹리서치 통합 담당", room: "research", status: "done", last_action: "업종 2개 협회·통계 조사 완료", since: "2026-07-07T13:10:00" },
+      chip:   { name: "칩", rank: "가격분석 담당", role: "D램·낸드 현물가 분석", room: "research", status: "done", last_action: "D램·낸드 현물가 + MLCC 동향 갱신", since: "2026-07-13T11:00:00" },
 
-      hank:   { name: "행크", rank: "팀장", role: "데이터 품질 관리", room: "data", status: "done", last_action: "이상없음", since: "2026-07-07T13:00:00" },
-      scout:  { name: "스카우트", rank: "선임", role: "정보 수집원", room: "data", status: "done", last_action: "신규 리포트 3건, 헤드라인 8건 수집", since: "2026-07-07T13:00:00" },
-      milo:   { name: "마일로", rank: "주니어", role: "기관·외국인 수급 데이터", room: "data", status: "done", last_action: "수급 데이터 갱신", since: "2026-07-07T13:00:00" },
+      hank:   { name: "행크", rank: "본부장", role: "시장 데이터 품질 총괄", room: "info", status: "done", last_action: "이상없음", since: "2026-07-07T13:00:00" },
+      scout:  { name: "스카우트", rank: "선임", role: "뉴스·공시·리포트 수집", room: "info", status: "done", last_action: "신규 리포트 3건, 헤드라인 8건 수집", since: "2026-07-07T13:00:00" },
+      milo:   { name: "마일로", rank: "주니어", role: "수급 데이터 운영", room: "info", status: "done", last_action: "수급 데이터 갱신", since: "2026-07-07T13:00:00" },
 
-      jade:   { name: "제이드", rank: "팀장", role: "리스크 총괄", room: "risk", status: "working", last_action: "리스크 시그널 종합 중", since: "2026-07-07T13:10:00" },
-      kai:    { name: "카이", rank: "선임", role: "이상거래·급락 감지", room: "risk", status: "done", last_action: "특이사항 없음", since: "2026-07-07T13:10:00" },
-      nova:   { name: "노바", rank: "주니어", role: "금리·환율 매크로 감지", room: "risk", status: "done", last_action: "특이사항 없음", since: "2026-07-07T13:10:00" },
+      jade:   { name: "제이드", rank: "팀장", role: "투자 리스크 승인 총괄", room: "portfolio", status: "working", last_action: "리스크 시그널 종합 중", since: "2026-07-07T13:10:00" },
+      kai:    { name: "카이", rank: "선임", role: "이상거래·급락 감지 · 수급이탈 원인 추적", room: "portfolio", status: "done", last_action: "특이사항 없음", since: "2026-07-07T13:10:00" },
+      nova:   { name: "노바", rank: "주니어", role: "금리·환율·지수 매크로 감지", room: "portfolio", status: "done", last_action: "특이사항 없음", since: "2026-07-07T13:10:00" },
 
-      dawn:   { name: "던", rank: "팀장", role: "월간 총괄·회고 검수", room: "feedback", status: "idle", last_action: "다음 결산 대기", since: "2026-07-04T17:00:00" },
-      rewind: { name: "리와인드", rank: "선임", role: "결산 담당", room: "feedback", status: "idle", last_action: "일간 결산 저장 완료", since: "2026-07-04T15:30:00" },
-      sage:   { name: "세이지", rank: "주니어", role: "판단 정확도 추적", room: "feedback", status: "idle", last_action: "검증 완료", since: "2026-07-04T15:30:00" },
-      leo:    { name: "레오", rank: "트레이더", role: "매수/매도 의견 종합", room: "feedback", status: "idle", last_action: "종합 완료", since: "2026-07-04T15:30:00" },
+      dawn:   { name: "던", rank: "팀장", role: "성과 회고·개선 총괄", room: "performance", status: "idle", last_action: "다음 결산 대기", since: "2026-07-04T17:00:00" },
+      rewind: { name: "리와인드", rank: "선임", role: "성과 측정·결산 운영", room: "performance", status: "idle", last_action: "일간 결산 저장 완료", since: "2026-07-04T15:30:00" },
+      sage:   { name: "세이지", rank: "주니어", role: "판단 적중·원인 분석", room: "performance", status: "idle", last_action: "검증 완료", since: "2026-07-04T15:30:00" },
+      leo:    { name: "레오", rank: "트레이더", role: "매수·매도 의견 통합", room: "portfolio", status: "idle", last_action: "종합 완료", since: "2026-07-04T15:30:00" },
 
-      ivy: { name: "아이비", rank: "수석 전략가", role: "포트폴리오 전체 방향·자산배분 상담", room: "strategy", status: "idle", last_action: "질문 대기 중", since: "2026-07-13T10:00:00" },
-      max: { name: "맥스", rank: "리스크 전략가", role: "포지션 크기·하방 방어 상담", room: "strategy", status: "idle", last_action: "질문 대기 중", since: "2026-07-13T10:00:00" },
-      rina:{ name: "리나", rank: "행동재무 코치", role: "판단 편향·매매 심리 점검", room: "strategy", status: "idle", last_action: "질문 대기 중", since: "2026-07-13T10:00:00" },
-      trend_bot: { name: "트렌디", rank: "자동매매 봇", role: "미국 일봉 추세추종 모의매매", room: "trading", status: "done", last_action: "모의매매 갱신", since: "2026-10-08T21:35:00" },
+      ivy: { name: "아이비", rank: "본부장", role: "포트폴리오 방향·자산배분 총괄", room: "portfolio", status: "idle", last_action: "질문 대기 중", since: "2026-07-13T10:00:00" },
+      max: { name: "맥스", rank: "리스크 전략가", role: "포지션 크기·하방 방어 설계", room: "portfolio", status: "idle", last_action: "질문 대기 중", since: "2026-07-13T10:00:00" },
+      rina:{ name: "리나", rank: "행동재무 코치", role: "최종 결정 편향 점검", room: "portfolio", status: "idle", last_action: "질문 대기 중", since: "2026-07-13T10:00:00" },
+      trend_bot: { name: "트렌디", rank: "자동매매 봇", role: "미국 일봉 추세추종 모의 실행", room: "performance", status: "done", last_action: "모의매매 갱신", since: "2026-10-08T21:35:00" },
     },
     activity_log: [
       { time: "2026-07-07T13:10:00", employee: "tam", name: "탐", status: "working", action: "리서치 분석 중" },
