@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T14:13:57",
+  "updated_at": "2026-10-14T14:19:10",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T14:13:57",
+      "since": "2026-10-14T14:19:10",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -64,9 +64,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "interrupted",
-      "since": "2026-10-14T13:33:22",
-      "last_action": "중단됨"
+      "status": "working",
+      "since": "2026-10-14T14:19:10",
+      "last_action": "작업 중"
     },
     "juno": {
       "name": "주노",
@@ -75,9 +75,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-14T14:13:57",
-      "last_action": "작업 중"
+      "status": "done",
+      "since": "2026-10-14T14:14:53",
+      "last_action": "작업 완료"
     },
     "chip": {
       "name": "칩",
@@ -196,9 +196,9 @@
       "emoji": "📈",
       "room": "feedback",
       "automated": true,
-      "status": "interrupted",
-      "since": "2026-10-14T13:33:22",
-      "last_action": "중단됨"
+      "status": "working",
+      "since": "2026-10-14T14:18:59",
+      "last_action": "작업 중"
     },
     "ivy": {
       "name": "아이비",
@@ -208,7 +208,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:13:31",
+      "since": "2026-10-14T14:18:33",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:13:31",
+      "since": "2026-10-14T14:18:33",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:13:31",
+      "since": "2026-10-14T14:18:33",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,102 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-13T15:11:27",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T15:11:27",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T15:11:52",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T15:12:02",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-13T15:12:02",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T13:33:22",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "interrupted",
-      "action": "중단됨"
-    },
-    {
-      "time": "2026-10-14T13:33:22",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "interrupted",
-      "action": "중단됨"
-    },
-    {
-      "time": "2026-10-14T13:34:54",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T13:34:54",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T13:35:09",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T13:35:09",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T13:35:09",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-14T13:35:10",
       "employee": "chip",
@@ -643,6 +547,102 @@
       "employee": "juno",
       "name": "주노",
       "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:14:27",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:14:53",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T14:14:53",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:16:15",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:16:47",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:16:56",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:17:33",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:18:16",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:18:28",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:18:28",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:18:59",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:19:10",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
     }

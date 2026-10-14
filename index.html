@@ -398,6 +398,18 @@
   .chat-bubble .bubble-text{ font-size:13px; line-height:1.65; white-space:pre-line; }
   .chat-bubble .bubble-content{ margin-top:2px; }
 
+  /* 라이브 오피스: 부서별 카드와 운영 신호를 한 개의 현황판으로 묶는다. */
+  .office-command{ margin:0 4px; padding:20px; border:1px solid #25364f; border-radius:18px; background:radial-gradient(circle at 93% 0,rgba(54,102,140,.18),transparent 26%),#0a111c; }
+  .office-command-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin:0 0 18px; padding-bottom:17px; border-bottom:1px solid #263850; }.office-command-head h2{ margin:0; color:#f2f6fd; font-size:clamp(27px,3.5vw,39px); letter-spacing:-.055em; }.office-command-head p{ margin:7px 0 0; color:#92a4bd; font-size:12px; }.office-command-state{ padding:8px 10px; border:1px solid #34516b; border-radius:4px; color:#89dca9; font:11px var(--mono); white-space:nowrap; }
+  .office-command .layout{ grid-template-columns:minmax(0,1fr) 280px; gap:1px; margin:0; border:1px solid #263850; border-radius:8px; overflow:hidden; background:#263850; }.office-command .org{ gap:1px; padding:1px; background:#263850; }.office-command .dept-room{ padding:13px 14px 14px; border:0; border-radius:0; background:#0c1623; }.office-command .dept-room[data-room="workflow"],.office-command .dept-room[data-room="trading"]{ background:#0e1a2a; }.office-command .dept-head{ margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid #22334a; }.office-command .dept-head h2{ color:#eaf0fa; font-size:13px; }.office-command .dept-head .dept-desc{ color:#8194af; font-size:9px; }.office-command .occupant{ padding:5px 0; }.office-command .occupant + .occupant{ border-top:1px solid rgba(39,56,78,.6); }.office-command .occupant .avatar{ background:#172538; border-color:#2d425f; }.office-command .occupant .name{ color:#e8eef8; }.office-command .occupant .role,.office-command .occupant .action{ color:#91a2b9; }
+  .office-command .sidebar{ gap:1px; background:#263850; }.office-command .side-panel{ padding:14px; border:0; border-radius:0; background:#0b1421; }.office-command .side-panel h2{ color:#a7b8cf; font-size:11px; }.office-command .side-panel:first-child h2{ color:#f1bb71; }.office-command .side-panel:nth-child(3) h2{ color:#ff928b; }.office-command .task-row,.office-command .done-row{ border-color:#22334a; }.office-command .strategy-panel-full{ margin:18px 0 0; padding:15px 16px; border-color:#263850; border-radius:8px; background:#0b1421; }.office-command .strategy-panel-full .dept-head{ border-color:#263850; }.office-command .strategy-panel-full .dept-head h2{ color:#f0f4fb; }.office-command .strategy-panel-full .dept-desc{ color:#8fa1ba; }
+  @media(max-width:900px){ .office-command .layout{ grid-template-columns:1fr; }.office-command .sidebar{ display:grid; grid-template-columns:1fr 1fr; }.office-command .log-panel{ grid-column:span 2; } }
+  @media(max-width:560px){ .office-command{ margin:0; padding:14px; border-radius:10px; }.office-command-head{ display:block; }.office-command-state{ display:inline-block; margin-top:11px; }.office-command .sidebar{ grid-template-columns:1fr; }.office-command .log-panel{ grid-column:auto; } }
+
+  /* 대시보드: 사람이 아니라 "지금 검토할 판단"을 첫 화면에 둔다. */
+  .judgement-board{ margin:0 4px 18px; padding:20px; border:1px solid #263b56; border-radius:15px; background:radial-gradient(circle at 100% 0,rgba(76,118,174,.2),transparent 30%),#0b1320; }.judgement-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:16px; padding-bottom:16px; border-bottom:1px solid #263b56; }.judgement-head h2{ margin:0; color:#f4f7fc; font-size:clamp(27px,3.7vw,40px); letter-spacing:-.055em; }.judgement-head p{ margin:7px 0 0; color:#93a5bd; font-size:12px; }.judgement-meta{ padding:8px 10px; border:1px solid #39516f; border-radius:4px; color:#a9bad0; font:11px var(--mono); white-space:nowrap; }.judgement-groups{ display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:16px; overflow:hidden; border:1px solid #263b56; border-radius:7px; background:#263b56; }.judgement-group{ min-width:0; background:#0a121e; }.judgement-group.warn{ box-shadow:inset 3px 0 #ff817b; }.judgement-group.stable{ box-shadow:inset 3px 0 #75dda6; }.judgement-group h3{ margin:0; padding:13px 15px 10px; border-bottom:1px solid #263b56; color:#f0f4fa; font-size:14px; }.judgement-group.warn h3{ color:#ff9a94; }.judgement-group.stable h3{ color:#86e6b0; }.judgement-group .emp-row{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:7px 14px; padding:14px 15px; border-bottom:1px solid #203148; }.judgement-group .emp-row:last-child{ border-bottom:0; }.judgement-group .emp-line1{ min-width:0; display:flex; align-items:baseline; gap:7px; }.judgement-group .emp-name{ color:#f2f6fc; font-size:15px; font-weight:750; }.judgement-group .emp-role{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#90a2ba; font-size:11px; }.judgement-group .emp-line2{ grid-column:1/-1; display:flex; justify-content:space-between; gap:8px; color:#9eafc4; font-size:12px; }.judgement-group .emp-streak.bad{ color:#ff928c; }.judgement-group .emp-streak.good{ color:#77dca4; }.judgement-group .rate-tag{ align-self:center; padding:0; border:0; background:none; color:#ff837d; font-size:29px; letter-spacing:-.06em; }.judgement-group .rate-tag.good{ color:#6fdbab; }.judgement-group .rate-tag.mid{ color:#f5bb68; }.judgement-group .rate-tag.none{ color:#8391a4; font-size:11px; letter-spacing:0; }.judgement-empty{ padding:20px 15px; color:#90a2b9; font-size:12px; line-height:1.5; }
+  @media(max-width:650px){ .judgement-board{ margin:0 0 14px; padding:15px; border-radius:10px; }.judgement-head{ display:block; }.judgement-meta{ display:inline-block; margin-top:11px; white-space:normal; }.judgement-groups{ grid-template-columns:1fr; } }
+
   .emp-row{ padding:8px 0; border-bottom:1px dashed var(--line); }
   .emp-row:last-child{ border-bottom:none; }
   .emp-row .emp-line1{ display:flex; align-items:baseline; gap:8px; }
@@ -784,6 +796,11 @@
   <div class="tab-panel active" data-tab-panel="live">
   <!-- 2026-10-08: 사용자 요청으로 라이브 오피스 상단의 캐릭터 일러스트 캔버스(office-canvas)를 제거 —
        부서별 직원 카드 목록만 남긴다. 그림 코드는 캔버스가 없으면 그리지 않도록 가드돼 있다. -->
+  <div class="office-command">
+  <div class="office-command-head">
+    <div><h2>부서 현황판</h2><p>각 부서의 자동화 상태와 지금 확인할 운영 신호를 한 화면에서 봅니다.</p></div>
+    <div class="office-command-state">실시간 상태 연동</div>
+  </div>
   <div class="layout">
     <div class="org">
       <div class="dept-room" data-room="workflow">
@@ -841,8 +858,16 @@
     <div id="risk-alerts"><div class="panel-empty">현재 감지된 경보 없음</div></div>
   </div>
   </div>
+  </div>
 
   <div class="tab-panel" data-tab-panel="dashboard">
+  <section class="judgement-board">
+    <div class="judgement-head">
+      <div><h2>팀 판정 현황</h2><p>연속 오답과 낮은 적중률을 먼저 확인하고, 안정적인 판단은 아래에서 비교합니다.</p></div>
+      <div class="judgement-meta" id="accuracy-summary">판정 기록을 불러오는 중</div>
+    </div>
+    <div id="employee-accuracy" class="judgement-groups"><div class="panel-empty">아직 검증된 기록 없음</div></div>
+  </section>
   <div class="layout">
     <div class="sidebar">
       <div class="side-panel">
@@ -866,10 +891,6 @@
       <div class="side-panel">
         <h2>오늘의 추천 영상</h2>
         <div id="youtube-pick"><div class="panel-empty">아직 선정된 영상 없음</div></div>
-      </div>
-      <div class="side-panel">
-        <h2>직원별 적중률</h2>
-        <div id="employee-accuracy"><div class="panel-empty">아직 검증된 기록 없음</div></div>
       </div>
     </div>
   </div>
@@ -1355,9 +1376,20 @@
   // 적중률(%)은 레오의 "오늘의 매수/매도 가이드" 행처럼 이름 옆 작은 배지로 — 큰 숫자 블록 대신
   // 헤더 줄 옆(사이드)에 붙인다(2026-07-31, 사용자 요청).
   function rateTagHTML(rate){
-    if (rate === null || rate === undefined) return '<span class="rate-tag none">기록없음</span>';
+    if (rate === null || rate === undefined) return '<span class="rate-tag none">기록 없음</span>';
     const cls = rate >= 60 ? "good" : rate >= 35 ? "mid" : "bad";
-    return `<span class="rate-tag ${cls}">${rate.toFixed(0)}% 맞음</span>`;
+    return `<span class="rate-tag ${cls}">${rate.toFixed(0)}%</span>`;
+  }
+
+  function accuracyTotal(stats){
+    if (!stats) return 0;
+    return Number(stats.total) || (Number(stats.hit) || 0) + (Number(stats.miss) || 0);
+  }
+
+  function accuracyState(stats){
+    const streak = stats && stats.streak;
+    if (streak && streak.type === "miss" && streak.count >= 2) return "warn";
+    return accuracyTotal(stats) >= 10 && Number(stats.hit_rate) < 40 ? "warn" : "stable";
   }
 
   // 직원별 적중률 — 레오의 "오늘의 매수/매도 가이드"가 종목마다 한 줄(이름+배지)인 것처럼,
@@ -1367,19 +1399,27 @@
   // 분리한다(2026-07-31, 사용자 요청 — "사이드에는 적중률만 두고 이 내용은 크게 중앙에").
   function empRowHTML(persona, stats){
     const rate = stats ? stats.hit_rate : null;
-    const summary = (!stats || stats.total === 0)
-      ? "아직 검증된 기록 없음"
-      : `${stats.hit + stats.miss}번 판정 중 ${stats.hit}번 맞음`;
-    const streak = stats ? streakSentence(stats.streak) : "";
+    const total = accuracyTotal(stats);
+    const streak = stats && stats.streak;
+    const bad = streak && streak.type === "miss" && streak.count >= 2;
+    const good = streak && streak.type === "hit" && streak.count >= 2;
+    const signal = bad ? `최근 ${streak.count}회 연속 오답` : good ? `최근 ${streak.count}회 연속 정답` : "최근 연속 판정 없음";
     return `
       <div class="emp-row">
         <div class="emp-line1">
           <span class="emp-name">${escapeHtml(persona.name)}</span>
           <span class="emp-role">${escapeHtml(persona.role)}</span>
-          ${rateTagHTML(rate)}
         </div>
-        <div class="emp-line2">${escapeHtml(summary)}${streak ? " · " + escapeHtml(streak) : ""}</div>
+        ${rateTagHTML(rate)}
+        <div class="emp-line2"><span class="emp-streak ${bad ? "bad" : good ? "good" : ""}">${escapeHtml(signal)}</span><span>판정 ${total}회</span></div>
       </div>`;
+  }
+
+  function accuracyGroupHTML(kind, rows){
+    const warn = kind === "warn";
+    const title = warn ? "주의 필요" : "안정적";
+    const empty = warn ? "지금 우선 확인할 연속 오답·저적중 직원이 없습니다." : "확정된 판정 기록이 쌓이면 이곳에 표시됩니다.";
+    return `<section class="judgement-group ${kind}"><h3>${title} · ${rows.length}명</h3>${rows.length ? rows.map(({ persona, stats }) => empRowHTML(persona, stats)).join("") : `<div class="judgement-empty">${empty}</div>`}</section>`;
   }
 
   // 레오의 "오늘의 매수/매도 가이드"와 같은 형식(종목명+코멘트+매수/매도 배지)이지만, 화면
@@ -1424,16 +1464,20 @@
 
   async function renderEmployeeAccuracy(traderStats, sageStats, analystStats){
     const el = document.getElementById("employee-accuracy");
+    const summaryEl = document.getElementById("accuracy-summary");
     const byAnalyst = (analystStats && analystStats.by_analyst) || {};
     const opinionsByAnalyst = await fetchAnalystOpinions();
     if (lastPublicRedacted) return;  // 응답을 기다리는 사이 공개본으로 판명된 경우
     renderAnalystComments(opinionsByAnalyst);
-    const rows = [
-      empRowHTML(DASHBOARD_PERSONAS.leo, traderStats),
-      empRowHTML(DASHBOARD_PERSONAS.sage, sageStats),
-      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) => empRowHTML({ name, role: p.role }, byAnalyst[name])),
-    ];
-    el.innerHTML = rows.join("");
+    const people = [
+      { persona: DASHBOARD_PERSONAS.leo, stats: traderStats },
+      { persona: DASHBOARD_PERSONAS.sage, stats: sageStats },
+      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) => ({ persona: { name, role: p.role }, stats: byAnalyst[name] })),
+    ].filter(({ stats }) => accuracyTotal(stats) > 0);
+    const warning = people.filter(({ stats }) => accuracyState(stats) === "warn");
+    const stable = people.filter(({ stats }) => accuracyState(stats) === "stable");
+    if (summaryEl) summaryEl.innerHTML = people.length ? `<b>주의 ${warning.length}명</b> · 안정 ${stable.length}명` : "확정된 판정 기록 없음";
+    el.innerHTML = accuracyGroupHTML("warn", warning) + accuracyGroupHTML("stable", stable);
   }
 
   function traderCallTag(call){
@@ -2723,7 +2767,7 @@
   // 공개 GitHub Pages 미러는 sync_status.sh가 보유 종목·매매 의견·경보를 빼고 올린다(2026-10-09) — 빈 패널이
   // "콜 없음", "경보 없음"처럼 보이면 실제로 아무 일도 없는 것처럼 오해하므로 로컬 전용이라고 표시한다.
   const PRIVATE_PANEL_IDS = ["trader-calls", "priority-alerts", "priority-alerts-live", "risk-alerts",
-    "employee-accuracy", "analyst-comments", "youtube-pick", "news-digest-list"];
+    "employee-accuracy", "accuracy-summary", "analyst-comments", "youtube-pick", "news-digest-list"];
   function markPrivatePanels(){
     PRIVATE_PANEL_IDS.forEach(id => {
       const el = document.getElementById(id);
@@ -3395,6 +3439,14 @@
     const spark = (curve.length > 1) ? trChart(curve, null) : '<div class="panel-empty">수익 추적 데이터 대기 중</div>';
     const orders = a.orders.length ? a.orders.map(o => `<div class="trd-todo ${o.side === "sell" ? "danger" : "warn"}"><i></i><span><b>${escapeHtml(o.symbol)}</b> · ${o.side === "buy" ? "매수" : "매도"} · ${escapeHtml(o.reason || "규칙 신호")}</span><time>다음 시가</time></div>`).join("")
       : '<div class="trd-empty"><span style="font-size:36px">▧</span><strong>주문 없음</strong><span>현재 대기 중인 모의 주문이 없습니다.</span></div>';
+    const previews = a.id === "main" ? (s.order_preview || []) : [];
+    const previewRows = previews.length ? previews.map(p => `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${p.side === "buy" ? "매수" : "매도"}</td><td>${p.quantity}</td><td>${trmMoney(p.expected_fill_price)}</td><td>${trmMoney(p.estimated_fee)}</td><td>${p.stop_price == null ? "-" : trmMoney(p.stop_price)}</td><td class="tr-down">${trmMoney(p.worst_case_loss)}</td><td>${(p.cash_ratio_after * 100).toFixed(1)}%</td><td>${escapeHtml(p.reason)}</td></tr>`).join("") : '<tr><td colspan="9" class="panel-empty">다음 거래일 주문 없음</td></tr>';
+    const pr = a.id === "main" ? (s.portfolio_risk || {}) : {};
+    const riskRows = (pr.exposures || []).map(p => `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${escapeHtml(p.sector)}</td><td>${(p.weight * 100).toFixed(1)}%</td><td>${p.stop_loss == null ? "-" : trmMoney(p.stop_loss)}</td><td>${p.risk_contribution == null ? "-" : (p.risk_contribution * 100).toFixed(1) + "%"}</td></tr>`).join("") || '<tr><td colspan="5" class="panel-empty">보유 종목 없음</td></tr>';
+    const riskWarnings = (pr.warnings || []).join(" · ") || "특이 쏠림 없음";
+    const journal = a.id === "main" ? (s.decision_journal || {}) : {};
+    const journalLabel = { planned: "주문 예정", held: "보유", pending: "대기", blocked: "차단", deferred: "보류", no_signal: "신호 없음" };
+    const journalRows = (journal.records || []).sort((x, y) => ({ planned: 0, blocked: 1, deferred: 2, held: 3, no_signal: 4 }[x.status] ?? 9) - ({ planned: 0, blocked: 1, deferred: 2, held: 3, no_signal: 4 }[y.status] ?? 9)).map(j => `<tr><td><b>${escapeHtml(j.symbol)}</b></td><td>${j.entry_signal ? "진입" : "-"}${j.exit_signal ? " / 청산" : ""}</td><td>${j.adx == null ? "-" : j.adx.toFixed(1)}</td><td>${j.stop_line == null ? "-" : trmMoney(j.stop_line)}</td><td><span class="trd-badge ${j.status === "planned" ? "up" : j.status === "blocked" ? "risk" : ""}">${journalLabel[j.status] || escapeHtml(j.status)}</span></td><td>${escapeHtml(j.reason)}</td></tr>`).join("") || '<tr><td colspan="6" class="panel-empty">일지 데이터는 다음 일일 모의매매 실행 뒤 표시됩니다.</td></tr>';
     return `<div class="trd">
       <div class="trd-top"><h2 class="trd-title">자동매매 관제실</h2>
         <span class="trd-chip live"><i class="trd-dot"></i>모의매매</span><span class="trd-chip">데이터 최신 ${liveStamp}</span><span class="trd-chip">토스 현재가</span>
@@ -3422,6 +3474,9 @@
         <button class="trd-limit-save" type="submit" ${!trmLocal() || health.blocked ? "disabled" : ""}>한도 저장</button>
       </form><p class="trd-limit-note">하루 최대 손실에 닿으면 그날 신규 진입만 잠기며, 손절·청산은 계속 실행됩니다. 모의매매에서 충분히 검증한 뒤 실거래에 반영하세요.</p></section>
       <div class="trd-grid"><section class="trd-panel"><h3>☷ 오늘 할 일 <span class="trd-count">${todos.length}건</span></h3>${todos.slice(0,3).map(t => `<div class="trd-todo ${t.level}"><i></i><span>${t.text}</span><time>${hasLive ? "실시간" : "종가 기준"}</time></div>`).join("")}</section><section class="trd-panel"><h3>▧ 다음 주문</h3>${orders}</section></div>
+      <section class="trd-panel"><h3>▣ 주문 미리보기 <span class="trd-count">다음 시가 · 실제 주문 없음</span></h3><table class="trd-table"><tr><th>종목</th><th>구분</th><th>수량</th><th>예상 체결가</th><th>수수료</th><th>손절선</th><th>최대손실</th><th>주문 후 현금</th><th>판단</th></tr>${previewRows}</table></section>
+      <section class="trd-panel"><h3>▤ 오늘의 판단 일지 <span class="trd-count">${journal.date || "다음 실행 대기"}</span></h3><div class="trd-note">종가 기준 신호와 리스크 판단입니다. 실제 주문은 생성하지 않습니다.</div><table class="trd-table"><tr><th>종목</th><th>신호</th><th>ADX</th><th>손절선</th><th>결론</th><th>판단 사유</th></tr>${journalRows}</table></section>
+      <section class="trd-panel"><h3>◒ 포트폴리오 위험 분석 <span class="trd-count">손절 기준 예상손실 ${pr.total_stop_loss == null ? "-" : trmMoney(pr.total_stop_loss)}${pr.total_stop_loss_pct == null ? "" : " · " + (pr.total_stop_loss_pct * 100).toFixed(1) + "%"}</span></h3><div class="trd-note">${escapeHtml(riskWarnings)}</div><table class="trd-table"><tr><th>종목</th><th>섹터</th><th>비중</th><th>손절 기준 손실</th><th>변동성 위험 기여</th></tr>${riskRows}</table></section>
       <div class="trd-bottom"><section class="trd-panel"><h3>▰ 보유 종목</h3><table class="trd-table"><tr><th>종목명</th><th>보유 수량</th><th>평균 단가</th><th>현재가</th><th>평가 손익</th><th>수익률</th><th>추세 판단</th></tr>${a.positions.map(p => { const current = price(p.symbol), pnl = p.qty * (current - p.entry_px), ret = p.entry_px ? (current / p.entry_px - 1) : 0, market = (s.market || {})[p.symbol] || {}, rising = market.direction === "상승"; return `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${+p.qty.toFixed(4)}</td><td>${trmMoney(p.entry_px)}</td><td>${trmMoney(current)}</td><td class="${pnl >= 0 ? "tr-up" : "tr-down"}">${trmMoney(pnl)}</td><td class="${ret >= 0 ? "tr-up" : "tr-down"}">${ret >= 0 ? "+" : ""}${(ret * 100).toFixed(1)}%</td><td><span class="trd-badge ${rising ? "up" : ""}">${rising ? "↗ 추세 유지" : "− " + (market.status || "관망")}</span></td></tr>`; }).join("") || '<tr><td colspan="7" class="panel-empty">보유 종목 없음</td></tr>'}</table></section><section class="trd-panel"><h3>⌁ 포트폴리오 추이</h3><div class="trd-chart-wrap">${spark}</div><div class="trd-note">모의매매 자산곡선 · 토스 현재가는 평가금액과 보유 표에 반영됩니다.</div></section></div>
       <section class="trd-panel trd-events"><h3>▤ 자동매매 사건 로그 <span class="trd-count">${events.length}건</span></h3><div class="trd-event-list">${eventRows}</div></section>
       <div class="trd-note">${tossPlan} · 실제 주문은 나가지 않습니다.</div>${TRM.msg ? `<div class="trd-note">${TRM.msg}</div>` : ""}</div>`;
