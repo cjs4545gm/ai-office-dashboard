@@ -3464,6 +3464,9 @@
       if (!r.ok || !j.ok) throw new Error(j.error || r.status);
       (j.us || []).forEach(q => { if (q.price != null) TRM.live[q.symbol] = q.price; });
       TRM.liveAt = new Date(); TRM.liveErr = false;
+      // 서버의 watchdog은 화면 상태가 아니라 이 확인된 시세 수신 시각만 신뢰한다.
+      // 응답을 기다리지 않아 시세 화면의 폴링을 늦추지 않는다.
+      fetch(`http://${location.hostname}:8771/watchdog/heartbeat`, { method: "POST" }).catch(() => {});
     } catch (e) { TRM.liveErr = true; }
     await trmLoadMinute();
     trmEnforceHealthBlock();
