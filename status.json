@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T16:05:11",
+  "updated_at": "2026-10-14T16:10:07",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T16:05:11",
+      "since": "2026-10-14T16:10:07",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -64,9 +64,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-10-14T15:16:32",
-      "last_action": "작업 완료"
+      "status": "working",
+      "since": "2026-10-14T16:10:07",
+      "last_action": "작업 중"
     },
     "juno": {
       "name": "주노",
@@ -76,7 +76,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T15:10:10",
+      "since": "2026-10-14T16:10:07",
       "last_action": "작업 완료"
     },
     "chip": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T16:01:12",
+      "since": "2026-10-14T16:06:14",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T16:01:12",
+      "since": "2026-10-14T16:06:14",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T16:01:12",
+      "since": "2026-10-14T16:06:14",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,78 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-14T15:11:53",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:11:53",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:12:28",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:12:39",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:12:39",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:13:17",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:13:24",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:13:24",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:14:02",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-14T15:14:11",
       "employee": "tam",
@@ -645,6 +573,78 @@
       "role": "실행 자동화·예외 대응 총괄",
       "status": "done",
       "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:10:07",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
     }
   ],
   "strategy_room": {
