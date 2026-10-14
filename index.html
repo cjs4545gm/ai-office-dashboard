@@ -1510,17 +1510,30 @@
       <div class="macro-spark-labels">${labels}</div>`;
   }
 
+  // D-day는 status.json의 days_until(스크립트 실행 시점 기준이라 스크래핑 실패 시 며칠 묵을 수 있음)
+  // 대신 next_release 날짜와 오늘 날짜로 브라우저에서 직접 계산한다. 이미 지난 날짜면 null.
+  function macroDaysUntil(series){
+    if (!series.next_release) return null;
+    const [y, m, d] = series.next_release.split("-").map(Number);
+    if (!y || !m || !d) return null;
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const days = Math.round((new Date(y, m - 1, d) - today) / 86400000);
+    return days >= 0 ? days : null;
+  }
+
   function macroRowHTML(series){
+    const daysUntil = macroDaysUntil(series);
     const tagClass = series.status || "countdown";
     const tagLabel = series.status ? MACRO_STATUS_LABEL[series.status] : (
-      series.phase === "countdown" && series.days_until != null ? `D-${series.days_until}` : "미정"
+      series.phase === "countdown" && daysUntil != null ? `D-${daysUntil}` : "미정"
     );
     const detailParts = [];
     if (series.actual != null) {
       detailParts.push(`실제 ${series.actual}% · 예상 ${series.consensus}% · 전월 ${series.previous}%`);
     }
     if (series.next_release) {
-      const dday = series.days_until != null ? ` (D-${series.days_until})` : "";
+      const dday = daysUntil != null ? ` (D-${daysUntil})` : "";
       detailParts.push(`다음 발표 ${series.next_release}${dday}`);
     }
     return `
