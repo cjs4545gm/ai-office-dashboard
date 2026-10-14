@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T15:29:50",
+  "updated_at": "2026-10-14T15:34:53",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T15:16:54",
+      "since": "2026-10-14T15:34:35",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -164,7 +164,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-09T17:10:43",
+      "since": "2026-10-14T15:34:35",
       "last_action": "작업 완료"
     },
     "rewind": {
@@ -175,7 +175,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-09T17:10:39",
+      "since": "2026-10-14T15:33:56",
       "last_action": "작업 완료"
     },
     "sage": {
@@ -186,7 +186,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-08T15:47:02",
+      "since": "2026-10-14T15:34:31",
       "last_action": "작업 완료"
     },
     "leo": {
@@ -197,7 +197,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T15:16:32",
+      "since": "2026-10-14T15:34:31",
       "last_action": "작업 완료"
     },
     "ivy": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T15:29:50",
+      "since": "2026-10-14T15:34:53",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T15:29:50",
+      "since": "2026-10-14T15:34:53",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T15:29:50",
+      "since": "2026-10-14T15:34:53",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -241,75 +241,11 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T14:34:24",
+      "since": "2026-10-14T15:34:25",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-14T14:44:45",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수/매도 의견 종합",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T15:00:07",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:00:07",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:00:18",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T15:00:18",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T15:00:18",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:00:18",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T15:00:18",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "실적발표 · FOMC · IR일정 추적",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-14T15:00:21",
       "employee": "callie",
@@ -643,6 +579,70 @@
       "employee": "jade",
       "name": "제이드",
       "role": "리스크 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T15:33:18",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "성과 측정·결산 운영",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T15:33:56",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "성과 측정·결산 운영",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T15:33:56",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 적중·원인 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T15:34:31",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 적중·원인 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T15:34:31",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T15:34:31",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T15:34:31",
+      "employee": "dawn",
+      "name": "던",
+      "role": "성과 회고·개선 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T15:34:35",
+      "employee": "dawn",
+      "name": "던",
+      "role": "성과 회고·개선 총괄",
       "status": "done",
       "action": "작업 완료"
     }
