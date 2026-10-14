@@ -414,6 +414,15 @@
   @media(max-width:650px){ .history-score{ grid-template-columns:1fr; }.history-score-count{ padding:15px 0 0; border-left:0; border-top:1px solid #323442; }.history-table-head{ display:none; }.history-row{ grid-template-columns:1fr 1fr; padding:16px; }.history-stock{ grid-column:1/-1; }.history-verdict{ justify-self:end; }.history-pill{ padding:10px; font-size:13px; }.history-result{ font-size:13px; } }
 
   .judgement-groups{ margin-bottom:26px; }.judgement-group button.emp-row{ width:100%; border:0; border-bottom:1px solid #203148; background:none; color:inherit; font:inherit; text-align:left; cursor:pointer; }.judgement-group button.emp-row:hover{ background:#0f1a29; }.judgement-group button.emp-row[aria-pressed="true"]{ background:#14202f; box-shadow:inset 0 0 0 1px #3a5679; }
+  .team-card{ margin-top:11px; padding:18px 22px; border:1px solid #20344b; border-radius:13px; background:rgba(11,18,28,.85); }.team-card-head{ display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }.team-card-result{ text-align:right; color:#b9c4d4; font-size:14px; }.team-card-result b.up{ color:#ff817b; }.team-card-result b.down{ color:#9bc4ff; }.team-card-split{ margin-top:5px; color:#8494aa; font-size:12px; }
+  .team-chips{ display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }.team-chip{ padding:7px 11px; border:1px solid #2d3f56; border-radius:9px; background:#101a27; color:#c3cede; font-size:13px; white-space:nowrap; }.team-chip b{ margin-right:3px; color:#eef3fa; }.team-chip.up{ color:#ff9a94; }.team-chip.down{ color:#a8ccff; }.team-chip.hit{ border-color:#17624d; background:#102b26; }.team-chip.hit::after{ content:" ✓"; color:#6ee4b1; }.team-chip:not(.hit):not(.pending):not(.excluded){ border-color:#6a3038; background:#28171c; }.team-chip:not(.hit):not(.pending):not(.excluded)::after{ content:" ✗"; color:#ff827b; }.team-chip.excluded{ opacity:.6; }
+  .judgement-group h3.fresh-head{ border-top:1px solid #263b56; color:#9fb0c6; }
+  .mkt-tag.held{ border-color:#2c6a4f; color:#79e0ad; }.judgement-meta a{ color:#9cc2ff; }
+  .universe-manager{ margin:4px 0 18px; padding:14px 16px; border:1px solid #263b56; border-radius:12px; background:#0a121e; }.universe-add-row{ display:flex; gap:10px; align-items:center; }.universe-add-row .analysis-search{ flex:1; position:relative; }.universe-add-row input#universe-input{ width:100%; }
+  .universe-chips .universe-group{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-top:8px; }.universe-chips .universe-group > span{ width:34px; color:#8fa1b8; font-size:12px; font-weight:700; }
+  .universe-chip{ display:inline-flex; align-items:center; gap:5px; padding:5px 6px 5px 10px; border:1px solid #2d3f56; border-radius:999px; background:#101a27; color:#dbe4f0; font-size:12.5px; }.universe-chip.held{ border-color:#2c6a4f; }.universe-chip .mkt-tag{ margin:0; }.universe-chip label{ display:inline-flex; align-items:center; gap:3px; color:#9fb0c6; font-size:11px; cursor:pointer; }.universe-chip .universe-remove{ padding:2px 8px; border-radius:999px; font-size:12px; }
+  .universe-count{ margin:16px 0 6px; color:#9fb0c6; font-size:13px; }.universe-group{ margin:18px 0 6px; color:#cdd7e5; font-size:14px; }.universe-row{ display:grid; grid-template-columns:1fr auto auto; gap:14px; align-items:center; padding:12px 14px; border:1px solid #20344b; border-radius:10px; margin-top:7px; background:rgba(11,18,28,.85); }.universe-row .history-stock b{ font-size:16px; }.universe-held{ display:inline-flex; align-items:center; gap:5px; color:#b5c3d6; font-size:13px; white-space:nowrap; }.universe-remove{ padding:6px 11px; border:1px solid #5a2f36; border-radius:8px; background:#1d1317; color:#ff9a94; font:700 12px var(--sans); cursor:pointer; }.analysis-hint.error{ color:#ff8f88; }
+  @media(max-width:650px){ .team-card-head{ display:block; }.team-card-result{ margin-top:10px; text-align:left; } }
   .judgement-group .emp-row .rate-tag{ padding:0; border:0; background:none; }
   .history-sub b{ color:#e6ecf5; }.history-score-extra{ margin-top:8px; color:#8fa1b8; font-size:13px; line-height:1.6; }
   .history-filters{ display:flex; flex-wrap:wrap; gap:7px; margin:0 0 14px; }.history-filters button{ padding:7px 12px; border:1px solid #30445f; border-radius:999px; background:#0c1623; color:#a9bad0; font:700 12px var(--sans); cursor:pointer; }.history-filters button[aria-pressed="true"]{ border-color:#8fb6ff; background:#14233a; color:#cfe0ff; }.history-filter-gap{ width:12px; }
@@ -951,6 +960,20 @@
   <div class="tab-panel" data-tab-panel="dashboard">
   <section class="judgement-board">
     <div id="employee-history" class="history-board"><div class="panel-empty">판정 이력을 불러오는 중</div></div>
+    <div class="universe-manager" id="universe-manager">
+      <div class="universe-add-row">
+        <div class="analysis-search">
+          <input id="universe-input" aria-label="예측 종목 추가" placeholder="종목 추가 — 종목명·6자리 코드·미국 티커 (예: 에코프로비엠, 069500, NVDA, QQQ)" autocomplete="off">
+          <div class="search-suggestions" id="universe-suggestions" style="display:none;"></div>
+        </div>
+        <label class="universe-held"><input type="checkbox" id="universe-held-new"> 보유</label>
+        <button id="universe-add" type="button">추가</button>
+      </div>
+      <div class="analysis-hint" id="universe-msg">국내외 개별주·ETF만 추가됩니다(토스 종목정보로 확인). 추가하면 다음 장 마감 후부터 팀 7명이 예측합니다.</div>
+      <div class="universe-count" id="universe-count"></div>
+      <div id="universe-list" class="universe-chips"></div>
+    </div>
+    <div id="team-history-rows" class="history-board"></div>
   </section>
   <div class="layout">
     <div class="sidebar">
@@ -1516,121 +1539,278 @@
     }
   }
 
-  // 판정 화면(2026-10-14 개편) — 위: "지금 누굴 확인해야 하는지"(주의/안정 그룹), 아래: 고른 직원의
-  // 판정 이력. 레오는 direction_predictions.py의 "예측일 종가 → 다음 거래일 종가" 상승/하락 예측으로
-  // 채점되고(보합·데이터 없음은 제외), 나머지 직원은 기존 매수/보유/매도 콜 채점을 그대로 보여 준다.
-  let selectedHistoryPerson = "leo";
-  let historyFilter = "all";
-  let historyMarket = "all";
-  let latestHistoryPeople = {};
-
-  const HISTORY_PEOPLE = [
+  // 판정 화면(2026-10-14 개편) — 위: "지금 누굴 확인해야 하는지"(주의/안정 그룹), 아래: 팀 판정 이력.
+  // 팀 7명이 각자 "다음 거래일 상승/하락"을 예측하고(direction_predictions.py), 예측일 종가 → 판정일 종가로
+  // 자동 판정된다(보합·데이터 없음은 제외). 이력은 양이 많아 status.json이 아니라 /predictions에서 받는다.
+  const TEAM_ORDER = [
     ["leo", "레오", "트레이더"], ["sage", "세이지", "판단 정확도 추적"], ["tam", "탐", "리서치 분석가"],
     ["vera", "베라", "리서치 총괄"], ["juno", "주노", "업종 리서처"], ["kai", "카이", "이상거래 감지"], ["jade", "제이드", "리스크 총괄"],
   ];
+  const TEAM_NAME = Object.fromEntries(TEAM_ORDER.map(([id, name]) => [id, name]));
+  const historyView = { person: "all", verdict: "all", market: "all", heldOnly: false };
+  let teamStats = { by_employee: {} };
+  let teamRows = [];
+  let heldSymbols = new Set();
+  let teamRowsFetchedAt = 0;
+  let universeCount = null;
 
   function shortDate(iso){
     const m = /^\d{4}-(\d{2})-(\d{2})$/.exec(iso || "");
     return m ? `${Number(m[1])}/${Number(m[2])}` : (iso || "");
   }
-
   function dirArrow(dir){ return dir === "상승" ? "↑" : dir === "하락" ? "↓" : "–"; }
   function dirClass(dir){ return dir === "상승" ? "up" : dir === "하락" ? "down" : "flat"; }
   function pctText(pct){ return pct === null || pct === undefined ? "" : ` ${pct > 0 ? "+" : ""}${Number(pct).toFixed(2)}%`; }
-
-  // 레오: 상승/하락 예측. 그 외: 매수=상승 기대, 매도=하락 기대, 보유는 방향 예측이 아니라 화살표 없이.
-  function historyRowHTML(row, personName){
-    if (row.prediction){
-      const pending = row.verdict === "대기";
-      const excluded = row.verdict === "제외";
-      const verdictLabel = pending ? "판정 대기" : excluded ? `제외(${row.actual || "보합"})` : row.verdict;
-      const result = pending
-        ? `<span class="history-result flat">${shortDate(row.target_date)} 장 마감 후 판정</span>`
-        : `<span class="history-result ${dirClass(row.actual)}">${shortDate(row.target_date)} 결과 · ${escapeHtml(row.actual || "")} ${row.actual === "데이터 없음" ? "" : dirArrow(row.actual)}${pctText(row.pct)}</span>`;
-      return `<div class="history-row"><div class="history-stock"><b>${escapeHtml(row.stock)}</b><span><i class="mkt-tag">${escapeHtml(row.market)}</i>${row.type === "etf" ? '<i class="mkt-tag etf">ETF</i>' : ""}${escapeHtml(row.symbol || "")}</span></div><span class="history-pill ${dirClass(row.prediction)}">${shortDate(row.base_date)} 예측 · ${escapeHtml(row.prediction)} ${dirArrow(row.prediction)}</span>${result}<span class="history-verdict ${row.verdict === "정답" ? "hit" : pending ? "pending" : excluded ? "excluded" : ""}">${escapeHtml(verdictLabel)}</span></div>`;
-    }
-    const callDir = row.call === "매수" ? "상승" : row.call === "매도" ? "하락" : null;
-    const pick = callDir ? `${row.call} (${callDir} 기대) ${dirArrow(callDir)}` : row.call;
-    return `<div class="history-row"><div class="history-stock"><b>${escapeHtml(row.stock)}</b><span>${escapeHtml(row.date)}</span></div><span class="history-pill ${callDir ? dirClass(callDir) : "flat"}">${escapeHtml(pick)}</span><span class="history-result ${dirClass(row.actual)}">${escapeHtml(row.actual)} ${dirArrow(row.actual)}${pctText(row.pct)}</span><span class="history-verdict${row.verdict === "정답" ? " hit" : ""}">${escapeHtml(row.verdict)}</span></div>`;
+  function verdictClass(v){ return v === "정답" ? "hit" : v === "대기" ? "pending" : v === "제외" ? "excluded" : ""; }
+  function stockTags(r){
+    return `<i class="mkt-tag">${escapeHtml(r.market)}</i>${r.type === "etf" ? '<i class="mkt-tag etf">ETF</i>' : ""}${heldSymbols.has(r.symbol) ? '<i class="mkt-tag held">보유</i>' : ""}`;
+  }
+  function resultText(r){
+    if (r.status === "대기") return `${shortDate(r.target_date)} 장 마감 후 판정`;
+    if (r.actual === "데이터 없음") return `${shortDate(r.target_date)} 종가 없음`;
+    return `${shortDate(r.target_date)} ${escapeHtml(r.actual || "")} ${dirArrow(r.actual)}${pctText(r.pct)}`;
   }
 
-  function summaryRowHTML(id, p){
-    const stats = p.stats;
-    const total = accuracyTotal(stats);
+  function summaryRowHTML(id, name, role){
+    const stats = teamStats.by_employee[id] || {};
+    const total = Number(stats.total) || 0;
     const streak = stats.streak;
     const bad = streak && streak.type === "miss" && streak.count >= 2;
     const good = streak && streak.type === "hit" && streak.count >= 2;
-    const signal = bad ? `최근 ${streak.count}회 연속 오답` : good ? `최근 ${streak.count}회 연속 정답` : total ? "최근 연속 기록 없음" : "판정 기록 없음";
     const pending = Number(stats.pending) || 0;
+    const signal = bad ? `최근 ${streak.count}회 연속 오답` : good ? `최근 ${streak.count}회 연속 정답` : total ? "최근 연속 기록 없음" : pending ? "첫 판정 대기 중" : "판정 기록 없음";
     const rate = stats.hit_rate === null || stats.hit_rate === undefined ? null : Number(stats.hit_rate);
-    return `<button type="button" class="emp-row" data-history-person="${id}" aria-pressed="${id === selectedHistoryPerson}"><div class="emp-line1"><span class="emp-name">${escapeHtml(p.name)}</span><span class="emp-role">${escapeHtml(p.role)}</span></div>${rateTagHTML(rate)}<div class="emp-line2"><span class="emp-streak ${bad ? "bad" : good ? "good" : ""}">${escapeHtml(signal)}</span><span>판정 ${total}회${pending ? ` · 대기 ${pending}` : ""} ›</span></div></button>`;
+    return `<button type="button" class="emp-row" data-history-person="${id}" aria-pressed="${historyView.person === id}"><div class="emp-line1"><span class="emp-name">${escapeHtml(name)}</span><span class="emp-role">${escapeHtml(role)}</span></div>${rateTagHTML(rate)}<div class="emp-line2"><span class="emp-streak ${bad ? "bad" : good ? "good" : ""}">${escapeHtml(signal)}</span><span>판정 ${total}회${pending ? ` · 대기 ${pending}` : ""} ›</span></div></button>`;
+  }
+
+  function filteredTeamRows(){
+    return teamRows.filter(r =>
+      (historyView.person === "all" || r.employee === historyView.person)
+      && (historyView.verdict === "all" || r.status === historyView.verdict)
+      && (historyView.market === "all" || r.market === historyView.market)
+      && (!historyView.heldOnly || heldSymbols.has(r.symbol)));
+  }
+
+  // 전체 보기: 종목·기준일마다 한 장의 카드에 팀원 7명의 예측을 나란히(맞으면 초록, 틀리면 빨강)
+  function stockCardsHTML(rows){
+    const groups = new Map();
+    rows.forEach(r => {
+      const key = `${r.base_date}|${r.symbol}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(r);
+    });
+    return [...groups.values()].map(list => {
+      const r0 = list[0];
+      const byPerson = Object.fromEntries(list.map(r => [r.employee, r]));
+      const decided = list.filter(r => r.status === "정답" || r.status === "오답");
+      const hits = decided.filter(r => r.status === "정답").length;
+      const ups = list.filter(r => r.prediction === "상승").length;
+      const head = r0.status === "대기" ? `${shortDate(r0.target_date)} 장 마감 후 판정`
+        : r0.actual === "데이터 없음" || r0.actual === "보합" ? `${shortDate(r0.target_date)} 결과 · ${escapeHtml(r0.actual)} (판정 제외)`
+        : `${shortDate(r0.target_date)} 결과 · <b class="${dirClass(r0.actual)}">${escapeHtml(r0.actual)} ${dirArrow(r0.actual)}${pctText(r0.pct)}</b> · ${hits}/${decided.length}명 정답`;
+      const chips = TEAM_ORDER.filter(([id]) => byPerson[id]).map(([id, name]) => {
+        const r = byPerson[id];
+        return `<span class="team-chip ${verdictClass(r.status)} ${dirClass(r.prediction)}" title="${escapeHtml(name)}: ${escapeHtml(r.prediction)} 예측 · ${escapeHtml(r.status)}"><b>${escapeHtml(name)}</b> ${escapeHtml(r.prediction)} ${dirArrow(r.prediction)}</span>`;
+      }).join("");
+      return `<div class="team-card"><div class="team-card-head"><div class="history-stock"><b>${escapeHtml(r0.name)}</b><span>${stockTags(r0)}${escapeHtml(r0.symbol)} · ${shortDate(r0.base_date)} 종가 기준 예측</span></div><div class="team-card-result">${head}<div class="team-card-split">팀 의견 상승 ${ups} · 하락 ${list.length - ups}</div></div></div><div class="team-chips">${chips}</div></div>`;
+    }).join("");
+  }
+
+  // 직원 한 명 보기: 한 줄에 종목 · 예측 · 결과 · 판정
+  function personRowsHTML(rows){
+    return `<div class="history-table-head"><span>종목</span><span>${escapeHtml(TEAM_NAME[historyView.person])} 예측</span><span>실제 결과</span><span>판정</span></div>` + rows.map(r => {
+      const label = r.status === "대기" ? "판정 대기" : r.status === "제외" ? `제외(${r.actual || "보합"})` : r.status;
+      return `<div class="history-row"><div class="history-stock"><b>${escapeHtml(r.name)}</b><span>${stockTags(r)}${escapeHtml(r.symbol)}</span></div><span class="history-pill ${dirClass(r.prediction)}">${shortDate(r.base_date)} 예측 · ${escapeHtml(r.prediction)} ${dirArrow(r.prediction)}</span><span class="history-result ${r.status === "대기" ? "flat" : dirClass(r.actual)}">${resultText(r)}</span><span class="history-verdict ${verdictClass(r.status)}">${escapeHtml(label)}</span></div>`;
+    }).join("");
   }
 
   function drawEmployeeAccuracy(){
     const el = document.getElementById("employee-history");
     if (!el) return;
-    const people = latestHistoryPeople;
-    const groups = { warn: [], stable: [] };
-    HISTORY_PEOPLE.forEach(([id]) => groups[accuracyState(people[id].stats)].push(id));
+    // 판정이 한 번도 안 난 사람은 "안정적"이 아니라 "판정 전"으로 따로 묶는다
+    const groups = { warn: [], stable: [], fresh: [] };
+    TEAM_ORDER.forEach(row => {
+      const st = teamStats.by_employee[row[0]] || {};
+      groups[Number(st.total) ? accuracyState(st) : "fresh"].push(row);
+    });
     const groupHTML = (kind) => {
-      const ids = groups[kind];
+      const list = groups[kind];
       const empty = kind === "warn" ? "지금 우선 확인할 연속 오답·저적중 직원이 없습니다." : "확정된 판정 기록이 쌓이면 이곳에 표시됩니다.";
-      return `<section class="judgement-group ${kind}"><h3>${kind === "warn" ? "주의 필요" : "안정적"} · ${ids.length}명</h3>${ids.length ? ids.map(id => summaryRowHTML(id, people[id])).join("") : `<div class="judgement-empty">${empty}</div>`}</section>`;
+      const fresh = kind === "stable" && groups.fresh.length
+        ? `<h3 class="fresh-head">판정 전 · ${groups.fresh.length}명</h3>${groups.fresh.map(([id, name, role]) => summaryRowHTML(id, name, role)).join("")}` : "";
+      return `<section class="judgement-group ${kind}"><h3>${kind === "warn" ? "주의 필요" : "안정적"} · ${list.length}명</h3>${list.length ? list.map(([id, name, role]) => summaryRowHTML(id, name, role)).join("") : `<div class="judgement-empty">${empty}</div>`}${fresh}</section>`;
     };
-
-    const person = people[selectedHistoryPerson];
-    const stats = person.stats;
-    const isLeo = selectedHistoryPerson === "leo";
-    const total = accuracyTotal(stats);
+    const person = historyView.person;
+    const stats = person === "all" ? (teamStats.team || {}) : (teamStats.by_employee[person] || {});
+    const total = Number(stats.total) || 0;
     const rate = stats.hit_rate === null || stats.hit_rate === undefined ? null : Number(stats.hit_rate);
-    const rows = person.history.filter(r =>
-      (historyFilter === "all" || (historyFilter === "pending" ? r.verdict === "대기" : historyFilter === "excluded" ? r.verdict === "제외" : r.verdict === historyFilter))
-      && (historyMarket === "all" || r.market === historyMarket));
-    const chip = (group, value, label) => `<button type="button" data-history-${group}="${value}" aria-pressed="${(group === "filter" ? historyFilter : historyMarket) === value}">${label}</button>`;
     const byMarket = stats.by_market || {};
-    const marketLine = isLeo ? ["KR", "US"].map(m => `${m} ${byMarket[m] && byMarket[m].hit_rate !== null ? `${Math.round(byMarket[m].hit_rate)}% (${byMarket[m].hit}/${byMarket[m].total})` : "기록 없음"}`).join(" · ") : "";
-
+    const marketLine = ["KR", "US"].map(m => `${m} ${byMarket[m] && byMarket[m].hit_rate !== null && byMarket[m].hit_rate !== undefined ? `${Math.round(byMarket[m].hit_rate)}% (${byMarket[m].hit}/${byMarket[m].total})` : "기록 없음"}`).join(" · ");
+    const rows = filteredTeamRows();
+    drawTeamRows(rows);
+    const stockCount = new Set(teamRows.map(r => r.symbol)).size;
+    const chip = (key, value, label) => `<button type="button" data-history-${key}="${value}" aria-pressed="${String(historyView[key === "held" ? "heldOnly" : key]) === String(value)}">${label}</button>`;
     el.innerHTML = `
-      <div class="judgement-head"><div><h2>팀 판정 현황</h2><p>주의 ${groups.warn.length}명 · 안정 ${groups.stable.length}명 — 이름을 누르면 아래에 판정 이력이 열립니다</p></div></div>
+      <div class="judgement-head"><div><h2>팀 판정 현황</h2><p>주의 ${groups.warn.length}명 · 안정 ${groups.stable.length}명${groups.fresh.length ? ` · 판정 전 ${groups.fresh.length}명` : ""} — 이름을 누르면 그 직원의 판정만 아래에 모아 봅니다</p></div><div class="judgement-meta">예측 종목 ${universeCount ?? stockCount}개 · <a href="#universe-manager" data-goto-universe>종목 추가</a></div></div>
       <div class="judgement-groups">${groupHTML("warn")}${groupHTML("stable")}</div>
-      <h2 class="history-title">${escapeHtml(person.name)}의 판정 이력</h2>
-      <p class="history-sub">${isLeo
-        ? "장 마감 후 다음 거래일 상승/하락을 예측해 잠그고, 다음 거래일 장 마감 뒤 <b>예측일 종가 → 판정일 종가</b>로 자동 판정합니다. 국내(KR)·미국(US)은 각 시장 기준이며, 보합은 판정에서 제외합니다."
-        : `${escapeHtml(person.role)} · 매수=상승 기대, 매도=하락 기대로 다음 거래일 등락과 비교`}</p>
-      <section class="history-score"><div><div class="history-score-label">적중률</div><div class="history-score-rate">${rate === null ? "–" : `${rate.toFixed(0)}%`}</div></div><div class="history-score-count"><b>${Number(stats.hit) || 0}</b> / ${total} 정답${isLeo ? `<div class="history-score-extra">판정 대기 ${Number(stats.pending) || 0}건 · 제외 ${Number(stats.excluded) || 0}건<br>${escapeHtml(marketLine)}</div>` : ""}</div></section>
-      <div class="history-filters">${chip("filter", "all", "전체")}${chip("filter", "정답", "정답")}${chip("filter", "오답", "오답")}${isLeo ? chip("filter", "pending", "대기") + chip("filter", "excluded", "제외") + '<span class="history-filter-gap"></span>' + chip("market", "all", "전체 시장") + chip("market", "KR", "KR") + chip("market", "US", "US") : ""}</div>
-      <div class="history-table-head"><span>종목</span><span>${escapeHtml(person.name)}의 ${isLeo ? "예측" : "선택"}</span><span>실제 결과</span><span>판정</span></div>
-      ${rows.length ? rows.map(r => historyRowHTML(r, person.name)).join("") : `<div class="judgement-empty">${person.history.length ? "조건에 맞는 판정이 없습니다." : isLeo ? "아직 등록된 예측이 없습니다. 각 시장 장 마감 후 예측이 등록됩니다." : "최근 확정된 판정 이력이 없습니다."}</div>`}`;
+      <h2 class="history-title">팀 판정 이력</h2>
+      <p class="history-sub">팀원 7명이 장 마감 후 다음 거래일 상승/하락을 각자 예측해 잠그고, 다음 거래일 장 마감 뒤 <b>예측일 종가 → 판정일 종가</b>로 자동 판정합니다. 국내(KR)·미국(US)은 각 시장 기준, 보합은 판정 제외.</p>
+      <section class="history-score"><div><div class="history-score-label">${person === "all" ? "팀 전체 적중률" : `팀 중 ${escapeHtml(TEAM_NAME[person])} 적중률`}</div><div class="history-score-rate">${rate === null ? "–" : `${rate.toFixed(0)}%`}</div></div><div class="history-score-count"><b>${Number(stats.hit) || 0}</b> / ${total} 정답<div class="history-score-extra">판정 대기 ${Number(stats.pending) || 0}건 · 제외 ${Number(stats.excluded) || 0}건<br>${escapeHtml(marketLine)}</div></div></section>
+      <div class="history-filters">${chip("person", "all", "팀 전체 7명")}${TEAM_ORDER.map(([id, name]) => chip("person", id, name)).join("")}</div>
+      <div class="history-filters">${chip("verdict", "all", "전체")}${chip("verdict", "정답", "정답")}${chip("verdict", "오답", "오답")}${chip("verdict", "대기", "대기")}${chip("verdict", "제외", "제외")}<span class="history-filter-gap"></span>${chip("market", "all", "전체 시장")}${chip("market", "KR", "KR")}${chip("market", "US", "US")}<span class="history-filter-gap"></span>${chip("held", true, "보유 종목만")}</div>`;
   }
 
-  async function renderEmployeeAccuracy(traderStats, sageStats, analystStats, histories = {}){
+  function drawTeamRows(rows){
+    const box = document.getElementById("team-history-rows");
+    if (!box) return;
+    box.innerHTML = rows.length ? (historyView.person === "all" ? stockCardsHTML(rows) : personRowsHTML(rows)) : `<div class="judgement-empty">${teamRows.length ? "조건에 맞는 판정이 없습니다." : "아직 등록된 예측이 없습니다. 각 시장 장 마감 후 예측이 등록됩니다."}</div>`;
+  }
+
+  async function renderEmployeeAccuracy(directionStats){
     const opinionsByAnalyst = await fetchAnalystOpinions();
     if (lastPublicRedacted) return;  // 응답을 기다리는 사이 공개본으로 판명된 경우
     renderAnalystComments(opinionsByAnalyst);
-    const byAnalyst = (analystStats && analystStats.by_analyst) || {};
-    const statsFor = { leo: traderStats, sage: sageStats };
-    latestHistoryPeople = Object.fromEntries(HISTORY_PEOPLE.map(([id, name, role]) =>
-      [id, { name, role, stats: (id in statsFor ? statsFor[id] : byAnalyst[name]) || {}, history: histories[id] || [] }]));
+    teamStats = directionStats && directionStats.by_employee ? directionStats : { by_employee: {} };
+    // 상태는 4초마다 오지만 예측 이력은 15분마다 바뀌므로 1분에 한 번만 받는다
+    if (Date.now() - teamRowsFetchedAt > 60000){
+      try {
+        const resp = await fetch(`${ANALYSIS_ORIGIN}/predictions?days=30`, { signal: AbortSignal.timeout(5000) });
+        const data = await resp.json();
+        if (data.ok){ teamRows = data.rows || []; heldSymbols = new Set(data.held || []); universeCount = data.universe_count; teamRowsFetchedAt = Date.now(); }
+      } catch (e) { /* 분석 서버가 꺼져 있으면 마지막으로 받은 이력을 그대로 보여 준다 */ }
+    }
     drawEmployeeAccuracy();
   }
 
   document.getElementById("employee-history").addEventListener("click", (event) => {
-    const person = event.target.closest("[data-history-person]");
-    const filter = event.target.closest("[data-history-filter]");
-    const market = event.target.closest("[data-history-market]");
-    if (person && latestHistoryPeople[person.dataset.historyPerson]){
-      selectedHistoryPerson = person.dataset.historyPerson;
-      historyFilter = "all";
-      historyMarket = "all";
-    } else if (filter){
-      historyFilter = filter.dataset.historyFilter;
+    const t = event.target;
+    const person = t.closest("[data-history-person]");
+    const verdict = t.closest("[data-history-verdict]");
+    const market = t.closest("[data-history-market]");
+    const held = t.closest("[data-history-held]");
+    if (t.closest("[data-goto-universe]")){
+      event.preventDefault();
+      document.getElementById("universe-manager").scrollIntoView({ behavior: "smooth", block: "center" });
+      document.getElementById("universe-input").focus();
+      return;
+    }
+    if (person){
+      const id = person.dataset.historyPerson;
+      historyView.person = historyView.person === id && person.classList.contains("emp-row") ? "all" : id;
+    } else if (verdict){
+      historyView.verdict = verdict.dataset.historyVerdict;
     } else if (market){
-      historyMarket = market.dataset.historyMarket;
+      historyView.market = market.dataset.historyMarket;
+    } else if (held){
+      historyView.heldOnly = !historyView.heldOnly;
     } else {
       return;
     }
     drawEmployeeAccuracy();
   });
+
+  // ── 예측 종목 탭: 팀이 매일 상승/하락을 예측할 종목 목록(국내외 개별주·ETF) ──
+  let universeSymbols = [];
+
+  function universeRowHTML(s){
+    return `<span class="universe-chip${s.held ? " held" : ""}"><b>${escapeHtml(s.name)}</b><i class="mkt-tag">${escapeHtml(s.market)}</i>${s.type === "etf" ? '<i class="mkt-tag etf">ETF</i>' : ""}<label title="보유 표시"><input type="checkbox" data-universe-held="${escapeHtml(s.symbol)}" ${s.held ? "checked" : ""}>보유</label><button type="button" class="universe-remove" data-universe-remove="${escapeHtml(s.symbol)}" aria-label="${escapeHtml(s.name)} 삭제">×</button></span>`;
+  }
+
+  function drawUniverse(message, isError){
+    const list = document.getElementById("universe-list");
+    const kr = universeSymbols.filter(s => s.market === "KR"), us = universeSymbols.filter(s => s.market === "US");
+    document.getElementById("universe-count").textContent = `예측 종목 ${universeSymbols.length}개 · 국내 ${kr.length} · 미국 ${us.length} · 보유 ${universeSymbols.filter(s => s.held).length}`;
+    list.innerHTML = universeSymbols.length
+      ? [["국내", kr], ["미국", us]].filter(([, l]) => l.length).map(([title, l]) => `<div class="universe-group"><span>${title}</span>${l.map(universeRowHTML).join("")}</div>`).join("")
+      : '<div class="panel-empty">예측 종목이 없습니다. 위에서 추가하세요.</div>';
+    if (message !== undefined){
+      const msg = document.getElementById("universe-msg");
+      msg.textContent = message;
+      msg.className = `analysis-hint${isError ? " error" : ""}`;
+    }
+  }
+
+  async function universeRequest(body){
+    const resp = await fetch(`${ANALYSIS_ORIGIN}/prediction-universe`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: AbortSignal.timeout(15000),
+    });
+    const data = await resp.json();
+    if (!data.ok) throw new Error(data.error || "요청 실패");
+    universeSymbols = data.symbols || [];
+    teamRowsFetchedAt = 0;  // 보유 표시가 판정 이력에도 바로 반영되게
+    return data;
+  }
+
+  async function loadUniverse(){
+    try {
+      const resp = await fetch(`${ANALYSIS_ORIGIN}/prediction-universe`, { signal: AbortSignal.timeout(5000) });
+      const data = await resp.json();
+      universeSymbols = data.symbols || [];
+      drawUniverse();
+    } catch (e) {
+      if (location.hostname.endsWith("github.io")){ document.getElementById("universe-manager").hidden = true; return; }  // 공개 미러엔 종목 목록·추가 기능을 두지 않는다
+      drawUniverse("분석 서버(127.0.0.1:8769)에 연결하지 못했습니다 — Mac에서 http://localhost:8767/office.html로 열어 주세요.", true);
+    }
+  }
+
+  async function addUniverseSymbol(code){
+    const input = document.getElementById("universe-input");
+    const held = document.getElementById("universe-held-new").checked;
+    code = (code || input.value).trim();
+    if (!code) return;
+    drawUniverse(`${code} 확인 중…`);
+    try {
+      const data = await universeRequest({ action: "add", code, held });
+      input.value = "";
+      document.getElementById("universe-suggestions").style.display = "none";
+      drawUniverse(`추가됨: ${data.added.name} (${data.added.market}${data.added.type === "etf" ? " ETF" : ""}) — 다음 장 마감 후부터 팀이 예측합니다.`);
+    } catch (e) {
+      drawUniverse(e.message, true);
+    }
+  }
+
+  let universeSearchTimer = null;
+  document.getElementById("universe-input").addEventListener("input", (event) => {
+    clearTimeout(universeSearchTimer);
+    const q = event.target.value.trim();
+    const box = document.getElementById("universe-suggestions");
+    if (!q){ box.style.display = "none"; return; }
+    universeSearchTimer = setTimeout(async () => {
+      try {
+        const resp = await fetch(`${ANALYSIS_ORIGIN}/search?q=${encodeURIComponent(q)}`, { signal: AbortSignal.timeout(8000) });
+        const data = await resp.json();
+        const results = data.results || [];
+        box.innerHTML = results.map(r => `<div class="sug-item" data-universe-pick="${escapeHtml(r.code)}">${escapeHtml(r.name)} <span class="sug-code">${escapeHtml(r.code)}</span></div>`).join("");
+        box.style.display = results.length ? "block" : "none";
+      } catch (e) { box.style.display = "none"; }
+    }, 250);
+  });
+  document.getElementById("universe-input").addEventListener("keydown", (event) => { if (event.key === "Enter") addUniverseSymbol(); });
+  document.getElementById("universe-add").addEventListener("click", () => addUniverseSymbol());
+  document.getElementById("universe-suggestions").addEventListener("click", (event) => {
+    const pick = event.target.closest("[data-universe-pick]");
+    if (pick) addUniverseSymbol(pick.dataset.universePick);
+  });
+  document.getElementById("universe-list").addEventListener("click", async (event) => {
+    const remove = event.target.closest("[data-universe-remove]");
+    if (!remove) return;
+    const sym = remove.dataset.universeRemove;
+    if (remove.dataset.confirm !== "1"){  // 브라우저 confirm 대화상자 대신 두 번 눌러 삭제
+      remove.dataset.confirm = "1";
+      remove.textContent = "삭제?";
+      setTimeout(() => { remove.dataset.confirm = ""; remove.textContent = "×"; }, 3000);
+      return;
+    }
+    try { await universeRequest({ action: "remove", symbol: sym }); drawUniverse(`${sym} 삭제됨 — 이미 등록된 예측은 그대로 판정됩니다.`); }
+    catch (e) { drawUniverse(e.message, true); }
+  });
+  document.getElementById("universe-list").addEventListener("change", async (event) => {
+    const box = event.target.closest("[data-universe-held]");
+    if (!box) return;
+    try { await universeRequest({ action: "held", symbol: box.dataset.universeHeld, held: box.checked }); drawUniverse(); }
+    catch (e) { drawUniverse(e.message, true); }
+  });
+  setTimeout(loadUniverse, 0);  // 아래쪽 초기화(ANALYSIS_ORIGIN 등)가 끝난 뒤에 불러온다
 
   function traderCallTag(call){
     if (call === "매수") return '<span class="call-tag buy">매수</span>';
@@ -2904,7 +3084,7 @@
     renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
     lastPublicRedacted = IS_PUBLIC_MIRROR || !!data.public_redacted;
-    if (!lastPublicRedacted) renderEmployeeAccuracy(data.direction_stats, data.sage_stats, data.analyst_stats, data.prediction_histories);
+    if (!lastPublicRedacted) renderEmployeeAccuracy(data.direction_stats);
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
     renderRiskAlerts(data.risk_alerts);

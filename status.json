@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T14:44:24",
+  "updated_at": "2026-10-14T14:49:27",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "workflow",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T14:34:24",
+      "since": "2026-10-14T14:44:45",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -197,7 +197,7 @@
       "room": "feedback",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T14:34:04",
+      "since": "2026-10-14T14:44:45",
       "last_action": "작업 완료"
     },
     "ivy": {
@@ -208,7 +208,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:44:24",
+      "since": "2026-10-14T14:49:27",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:44:24",
+      "since": "2026-10-14T14:49:27",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "strategy",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-14T14:44:24",
+      "since": "2026-10-14T14:49:27",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,22 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-14T14:00:20",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "정보 수집원",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T14:00:20",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "기관·외국인 수급 데이터",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-14T14:00:20",
       "employee": "chip",
@@ -643,6 +627,22 @@
       "employee": "trend_bot",
       "name": "트렌디",
       "role": "미국 일봉 추세추종 모의매매",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-14T14:44:36",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T14:44:45",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수/매도 의견 종합",
       "status": "done",
       "action": "작업 완료"
     }
