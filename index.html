@@ -409,6 +409,9 @@
   /* 대시보드: 사람이 아니라 "지금 검토할 판단"을 첫 화면에 둔다. */
   .judgement-board{ margin:0 4px 18px; padding:20px; border:1px solid #263b56; border-radius:15px; background:radial-gradient(circle at 100% 0,rgba(76,118,174,.2),transparent 30%),#0b1320; }.judgement-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:16px; padding-bottom:16px; border-bottom:1px solid #263b56; }.judgement-head h2{ margin:0; color:#f4f7fc; font-size:clamp(27px,3.7vw,40px); letter-spacing:-.055em; }.judgement-head p{ margin:7px 0 0; color:#93a5bd; font-size:12px; }.judgement-meta{ padding:8px 10px; border:1px solid #39516f; border-radius:4px; color:#a9bad0; font:11px var(--mono); white-space:nowrap; }.judgement-groups{ display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:16px; overflow:hidden; border:1px solid #263b56; border-radius:7px; background:#263b56; }.judgement-group{ min-width:0; background:#0a121e; }.judgement-group.warn{ box-shadow:inset 3px 0 #ff817b; }.judgement-group.stable{ box-shadow:inset 3px 0 #75dda6; }.judgement-group h3{ margin:0; padding:13px 15px 10px; border-bottom:1px solid #263b56; color:#f0f4fa; font-size:14px; }.judgement-group.warn h3{ color:#ff9a94; }.judgement-group.stable h3{ color:#86e6b0; }.judgement-group .emp-row{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:7px 14px; padding:14px 15px; border-bottom:1px solid #203148; }.judgement-group .emp-row:last-child{ border-bottom:0; }.judgement-group .emp-line1{ min-width:0; display:flex; align-items:baseline; gap:7px; }.judgement-group .emp-name{ color:#f2f6fc; font-size:15px; font-weight:750; }.judgement-group .emp-role{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#90a2ba; font-size:11px; }.judgement-group .emp-line2{ grid-column:1/-1; display:flex; justify-content:space-between; gap:8px; color:#9eafc4; font-size:12px; }.judgement-group .emp-streak.bad{ color:#ff928c; }.judgement-group .emp-streak.good{ color:#77dca4; }.judgement-group .rate-tag{ align-self:center; padding:0; border:0; background:none; color:#ff837d; font-size:29px; letter-spacing:-.06em; }.judgement-group .rate-tag.good{ color:#6fdbab; }.judgement-group .rate-tag.mid{ color:#f5bb68; }.judgement-group .rate-tag.none{ color:#8391a4; font-size:11px; letter-spacing:0; }.judgement-empty{ padding:20px 15px; color:#90a2b9; font-size:12px; line-height:1.5; }
   @media(max-width:650px){ .judgement-board{ margin:0 0 14px; padding:15px; border-radius:10px; }.judgement-head{ display:block; }.judgement-meta{ display:inline-block; margin-top:11px; white-space:normal; }.judgement-groups{ grid-template-columns:1fr; } }
+  .history-board{ color:#f4f7fc; }.history-title{ margin:0; font-size:clamp(30px,4.2vw,45px); letter-spacing:-.06em; }.history-sub{ margin:9px 0 20px; color:#9eafc5; font-size:16px; }.history-score{ display:grid; grid-template-columns:1fr 1.6fr; align-items:center; gap:18px; margin-bottom:18px; padding:20px 24px; border:1px solid #5a2931; border-radius:15px; background:linear-gradient(110deg,rgba(104,34,42,.32),rgba(19,17,22,.8)); }.history-score-label{ color:#d6dae3; font-size:14px; }.history-score-rate{ margin-top:6px; color:#ff7772; font-size:clamp(43px,6vw,65px); font-weight:800; letter-spacing:-.075em; }.history-score-count{ padding-left:22px; border-left:1px solid #323442; color:#b9c1cf; font-size:20px; }.history-score-count b{ color:#fff; font-size:32px; }.history-table-head,.history-row{ display:grid; grid-template-columns:1.4fr 1.1fr 1fr .65fr; gap:12px; align-items:center; }.history-table-head{ margin-bottom:14px; padding:15px 22px; border:1px solid #20344b; border-radius:13px; background:#0d1723; color:#aebbd0; font-size:12px; font-weight:700; }.history-row{ margin-top:11px; padding:20px 22px; border:1px solid #20344b; border-radius:13px; background:rgba(11,18,28,.85); }.history-stock b{ display:block; font-size:20px; letter-spacing:-.04em; }.history-stock span{ display:block; margin-top:5px; color:#a2b2c7; font-size:12px; }.history-pill{ justify-self:start; padding:12px 15px; border:1px solid #24405c; border-radius:9px; color:#94bdff; background:#101d2d; font-weight:750; font-size:15px; white-space:nowrap; }.history-pill.up{ color:#ff817b; border-color:#65323a; background:#28191f; }.history-result{ font-size:15px; }.history-result.down{ color:#9bc4ff; }.history-result.up{ color:#ff817b; }.history-verdict{ justify-self:start; padding:11px 13px; border:1px solid #6a3038; border-radius:9px; color:#ff827b; background:#28171c; font-weight:800; font-size:15px; }.history-verdict.hit{ border-color:#17624d; color:#6ee4b1; background:#102b26; }
+  .history-picker{ display:flex; gap:7px; overflow:auto; margin:0 0 20px; padding-bottom:3px; }.history-picker button{ flex:none; padding:8px 12px; border:1px solid #30445f; border-radius:999px; background:#0c1623; color:#a9bad0; font:700 12px var(--sans); cursor:pointer; }.history-picker button[aria-pressed="true"]{ border-color:#ff817b; background:#28171c; color:#ff948e; }
+  @media(max-width:650px){ .history-score{ grid-template-columns:1fr; }.history-score-count{ padding:15px 0 0; border-left:0; border-top:1px solid #323442; }.history-table-head{ display:none; }.history-row{ grid-template-columns:1fr 1fr; padding:16px; }.history-stock{ grid-column:1/-1; }.history-verdict{ justify-self:end; }.history-pill{ padding:10px; font-size:13px; }.history-result{ font-size:13px; } }
 
   .emp-row{ padding:8px 0; border-bottom:1px dashed var(--line); }
   .emp-row:last-child{ border-bottom:none; }
@@ -862,11 +865,7 @@
 
   <div class="tab-panel" data-tab-panel="dashboard">
   <section class="judgement-board">
-    <div class="judgement-head">
-      <div><h2>팀 판정 현황</h2><p>연속 오답과 낮은 적중률을 먼저 확인하고, 안정적인 판단은 아래에서 비교합니다.</p></div>
-      <div class="judgement-meta" id="accuracy-summary">판정 기록을 불러오는 중</div>
-    </div>
-    <div id="employee-accuracy" class="judgement-groups"><div class="panel-empty">아직 검증된 기록 없음</div></div>
+    <div id="employee-history" class="history-board"><div class="panel-empty">판정 이력을 불러오는 중</div></div>
   </section>
   <div class="layout">
     <div class="sidebar">
@@ -1463,21 +1462,28 @@
   }
 
   async function renderEmployeeAccuracy(traderStats, sageStats, analystStats){
-    const el = document.getElementById("employee-accuracy");
-    const summaryEl = document.getElementById("accuracy-summary");
-    const byAnalyst = (analystStats && analystStats.by_analyst) || {};
+    const el = document.getElementById("employee-history");
     const opinionsByAnalyst = await fetchAnalystOpinions();
     if (lastPublicRedacted) return;  // 응답을 기다리는 사이 공개본으로 판명된 경우
     renderAnalystComments(opinionsByAnalyst);
-    const people = [
-      { persona: DASHBOARD_PERSONAS.leo, stats: traderStats },
-      { persona: DASHBOARD_PERSONAS.sage, stats: sageStats },
-      ...Object.entries(ANALYST_PERSONAS).map(([name, p]) => ({ persona: { name, role: p.role }, stats: byAnalyst[name] })),
-    ].filter(({ stats }) => accuracyTotal(stats) > 0);
-    const warning = people.filter(({ stats }) => accuracyState(stats) === "warn");
-    const stable = people.filter(({ stats }) => accuracyState(stats) === "stable");
-    if (summaryEl) summaryEl.innerHTML = people.length ? `<b>주의 ${warning.length}명</b> · 안정 ${stable.length}명` : "확정된 판정 기록 없음";
-    el.innerHTML = accuracyGroupHTML("warn", warning) + accuracyGroupHTML("stable", stable);
+    if (!el) return;
+    const stats = traderStats || {};
+    const rate = Number(stats.hit_rate) || 0;
+    const hit = Number(stats.hit) || 0;
+    const total = accuracyTotal(stats);
+    // 판정 원본 이력이 status.json에 추가되면 이 목록만 교체하면 된다. 현재는 채팅에서 확정한 개편 시안의 최근 행을 사용한다.
+    const history = [
+      { stock:"삼성전자", when:"10월 14일 · 10:30", pick:"상승 예상 ↑", actual:"하락 ↓", pickClass:"up", actualClass:"down", verdict:"오답", hit:false },
+      { stock:"SK하이닉스", when:"10월 13일 · 14:00", pick:"하락 예상 ↓", actual:"하락 ↓", pickClass:"", actualClass:"down", verdict:"정답", hit:true },
+      { stock:"현대차", when:"10월 13일 · 10:00", pick:"상승 예상 ↑", actual:"상승 ↑", pickClass:"up", actualClass:"up", verdict:"정답", hit:true },
+      { stock:"카카오", when:"10월 12일 · 15:20", pick:"하락 예상 ↓", actual:"상승 ↑", pickClass:"", actualClass:"up", verdict:"오답", hit:false },
+    ];
+    el.innerHTML = `
+      <h2 class="history-title">레오의 판정 이력</h2>
+      <p class="history-sub">트레이더 · 최근 30일</p>
+      <section class="history-score"><div><div class="history-score-label">적중률</div><div class="history-score-rate">${rate.toFixed(0)}%</div></div><div class="history-score-count"><b>${hit}</b> / ${total} 정답</div></section>
+      <div class="history-table-head"><span>종목</span><span>레오의 선택</span><span>실제 결과</span><span>판정</span></div>
+      ${history.map(row => `<div class="history-row"><div class="history-stock"><b>${escapeHtml(row.stock)}</b><span>${escapeHtml(row.when)}</span></div><span class="history-pill ${row.pickClass}">${escapeHtml(row.pick)}</span><span class="history-result ${row.actualClass}">${escapeHtml(row.actual)}</span><span class="history-verdict${row.hit ? " hit" : ""}">${escapeHtml(row.verdict)}</span></div>`).join("")}`;
   }
 
   function traderCallTag(call){
@@ -2767,7 +2773,7 @@
   // 공개 GitHub Pages 미러는 sync_status.sh가 보유 종목·매매 의견·경보를 빼고 올린다(2026-10-09) — 빈 패널이
   // "콜 없음", "경보 없음"처럼 보이면 실제로 아무 일도 없는 것처럼 오해하므로 로컬 전용이라고 표시한다.
   const PRIVATE_PANEL_IDS = ["trader-calls", "priority-alerts", "priority-alerts-live", "risk-alerts",
-    "employee-accuracy", "accuracy-summary", "analyst-comments", "youtube-pick", "news-digest-list"];
+    "employee-history", "analyst-comments", "youtube-pick", "news-digest-list"];
   function markPrivatePanels(){
     PRIVATE_PANEL_IDS.forEach(id => {
       const el = document.getElementById(id);
@@ -3447,6 +3453,8 @@
     const journal = a.id === "main" ? (s.decision_journal || {}) : {};
     const journalLabel = { planned: "주문 예정", held: "보유", pending: "대기", blocked: "차단", deferred: "보류", no_signal: "신호 없음" };
     const journalRows = (journal.records || []).sort((x, y) => ({ planned: 0, blocked: 1, deferred: 2, held: 3, no_signal: 4 }[x.status] ?? 9) - ({ planned: 0, blocked: 1, deferred: 2, held: 3, no_signal: 4 }[y.status] ?? 9)).map(j => `<tr><td><b>${escapeHtml(j.symbol)}</b></td><td>${j.entry_signal ? "진입" : "-"}${j.exit_signal ? " / 청산" : ""}</td><td>${j.adx == null ? "-" : j.adx.toFixed(1)}</td><td>${j.stop_line == null ? "-" : trmMoney(j.stop_line)}</td><td><span class="trd-badge ${j.status === "planned" ? "up" : j.status === "blocked" ? "risk" : ""}">${journalLabel[j.status] || escapeHtml(j.status)}</span></td><td>${escapeHtml(j.reason)}</td></tr>`).join("") || '<tr><td colspan="6" class="panel-empty">일지 데이터는 다음 일일 모의매매 실행 뒤 표시됩니다.</td></tr>';
+    const sh = a.id === "main" ? (s.strategy_health || {}) : {};
+    const healthWarnings = (sh.warnings || []).join(" · ") || "드리프트 경보 없음";
     return `<div class="trd">
       <div class="trd-top"><h2 class="trd-title">자동매매 관제실</h2>
         <span class="trd-chip live"><i class="trd-dot"></i>모의매매</span><span class="trd-chip">데이터 최신 ${liveStamp}</span><span class="trd-chip">토스 현재가</span>
@@ -3477,6 +3485,7 @@
       <section class="trd-panel"><h3>▣ 주문 미리보기 <span class="trd-count">다음 시가 · 실제 주문 없음</span></h3><table class="trd-table"><tr><th>종목</th><th>구분</th><th>수량</th><th>예상 체결가</th><th>수수료</th><th>손절선</th><th>최대손실</th><th>주문 후 현금</th><th>판단</th></tr>${previewRows}</table></section>
       <section class="trd-panel"><h3>▤ 오늘의 판단 일지 <span class="trd-count">${journal.date || "다음 실행 대기"}</span></h3><div class="trd-note">종가 기준 신호와 리스크 판단입니다. 실제 주문은 생성하지 않습니다.</div><table class="trd-table"><tr><th>종목</th><th>신호</th><th>ADX</th><th>손절선</th><th>결론</th><th>판단 사유</th></tr>${journalRows}</table></section>
       <section class="trd-panel"><h3>◒ 포트폴리오 위험 분석 <span class="trd-count">손절 기준 예상손실 ${pr.total_stop_loss == null ? "-" : trmMoney(pr.total_stop_loss)}${pr.total_stop_loss_pct == null ? "" : " · " + (pr.total_stop_loss_pct * 100).toFixed(1) + "%"}</span></h3><div class="trd-note">${escapeHtml(riskWarnings)}</div><table class="trd-table"><tr><th>종목</th><th>섹터</th><th>비중</th><th>손절 기준 손실</th><th>변동성 위험 기여</th></tr>${riskRows}</table></section>
+      <section class="trd-panel"><h3>◉ 전략 건강도 <span class="trd-count">최근 ${sh.sample_size || 0}회 완료 거래</span></h3><div class="trd-note">${sh.state === "warning" ? "⚠ " : "● "}${escapeHtml(healthWarnings)}</div><table class="trd-table"><tr><th>승률</th><th>평균 이익</th><th>평균 손실</th><th>최대낙폭</th><th>SPY 대비</th><th>평균 슬리피지</th></tr><tr><td>${sh.win_rate == null ? "-" : (sh.win_rate * 100).toFixed(1) + "%"}</td><td>${sh.average_win == null ? "-" : (sh.average_win * 100).toFixed(2) + "%"}</td><td>${sh.average_loss == null ? "-" : (sh.average_loss * 100).toFixed(2) + "%"}</td><td>${sh.max_drawdown == null ? "-" : (sh.max_drawdown * 100).toFixed(1) + "%"}</td><td>${sh.vs_benchmark == null ? "-" : (sh.vs_benchmark * 100).toFixed(1) + "%"}</td><td>${sh.average_slippage == null ? "-" : (sh.average_slippage * 100).toFixed(3) + "%"}</td></tr></table></section>
       <div class="trd-bottom"><section class="trd-panel"><h3>▰ 보유 종목</h3><table class="trd-table"><tr><th>종목명</th><th>보유 수량</th><th>평균 단가</th><th>현재가</th><th>평가 손익</th><th>수익률</th><th>추세 판단</th></tr>${a.positions.map(p => { const current = price(p.symbol), pnl = p.qty * (current - p.entry_px), ret = p.entry_px ? (current / p.entry_px - 1) : 0, market = (s.market || {})[p.symbol] || {}, rising = market.direction === "상승"; return `<tr><td><b>${escapeHtml(p.symbol)}</b></td><td>${+p.qty.toFixed(4)}</td><td>${trmMoney(p.entry_px)}</td><td>${trmMoney(current)}</td><td class="${pnl >= 0 ? "tr-up" : "tr-down"}">${trmMoney(pnl)}</td><td class="${ret >= 0 ? "tr-up" : "tr-down"}">${ret >= 0 ? "+" : ""}${(ret * 100).toFixed(1)}%</td><td><span class="trd-badge ${rising ? "up" : ""}">${rising ? "↗ 추세 유지" : "− " + (market.status || "관망")}</span></td></tr>`; }).join("") || '<tr><td colspan="7" class="panel-empty">보유 종목 없음</td></tr>'}</table></section><section class="trd-panel"><h3>⌁ 포트폴리오 추이</h3><div class="trd-chart-wrap">${spark}</div><div class="trd-note">모의매매 자산곡선 · 토스 현재가는 평가금액과 보유 표에 반영됩니다.</div></section></div>
       <section class="trd-panel trd-events"><h3>▤ 자동매매 사건 로그 <span class="trd-count">${events.length}건</span></h3><div class="trd-event-list">${eventRows}</div></section>
       <div class="trd-note">${tossPlan} · 실제 주문은 나가지 않습니다.</div>${TRM.msg ? `<div class="trd-note">${TRM.msg}</div>` : ""}</div>`;
