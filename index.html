@@ -766,6 +766,46 @@
   @media (max-width:560px){ .quote-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); } .quote-card .q-price{ font-size:var(--text-md); } }
   .highlight-grid{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); }
   .highlight-tile .highlight-value{ word-break:keep-all; font-variant-numeric:tabular-nums; }
+
+  /* 자동매매: 구형 파란 관제실·녹색 터미널만 라이브 오피스 워크벤치 문법으로 통일.
+     다른 탭은 위 공통 토큰을 이미 쓰므로 별도 재도색하지 않는다. */
+  .trd, .trm{ color:var(--color-ink); font-family:var(--sans); }
+  .trd-top{ gap:var(--space-3); margin-bottom:var(--space-5); }
+  .trd-title{ color:var(--color-ink); font-size:var(--text-xl); letter-spacing:-.025em; }
+  .trd-chip{ min-height:auto; padding:5px var(--space-2); border-color:var(--color-rule); border-radius:999px; background:none; color:var(--color-ink-2); font-size:var(--text-2xs); }
+  .trd-chip.live{ border-color:var(--done); background:none; color:var(--done); }
+  .trd-dot{ box-shadow:none; }
+  .trd-actions{ gap:var(--space-2); }
+  .trd-action, .trd-limit-save{ min-height:36px; border-color:var(--color-rule-2); border-radius:var(--radius-control); background:none; color:var(--color-ink); font-size:var(--text-xs); transition:border-color var(--dur-short) var(--ease-out),background var(--dur-short) var(--ease-out); }
+  .trd-action:hover:not(:disabled), .trd-limit-save:hover:not(:disabled){ border-color:var(--color-accent); background:var(--color-accent-soft); }
+  .trd-action.danger{ border-color:color-mix(in oklch,var(--error) 65%,var(--color-rule)); background:none; color:var(--error); }
+  .trd-kpis{ gap:var(--space-2); margin-bottom:var(--space-4); }
+  .trd-card, .trd-panel{ border-color:var(--color-rule); border-radius:var(--radius-card); background:var(--color-paper-2); box-shadow:none; }
+  .trd-card{ min-height:128px; padding:var(--space-4); }
+  .trd-panel{ padding:var(--space-4); }
+  .trd-label, .trd-panel h3{ color:var(--color-ink); font-size:var(--text-sm); }
+  .trd-help{ background:var(--color-paper-3); color:var(--color-ink-2); }
+  .trd-value{ margin:var(--space-4) 0 var(--space-2); font-size:clamp(25px,3vw,34px); }
+  .trd-value.up, .trd-badge.up{ color:var(--done); }.trd-value.down{ color:var(--error); }.trd-value.warn{ color:var(--working); }
+  .trd-meta, .trd-note{ color:var(--color-ink-3); font-size:var(--text-2xs); }.trd-meta b{ color:var(--color-ink); }
+  .trd-bar{ height:6px; margin:var(--space-5) 0 var(--space-3); border-radius:0; background:var(--color-paper-3); }.trd-bar i{ border-radius:0; background:var(--color-accent); box-shadow:none; }
+  .trd-grid, .trd-bottom{ gap:var(--space-3); margin-bottom:var(--space-3); }
+  .trd-count{ margin-left:var(--space-2); padding:2px 6px; border-radius:4px; background:var(--color-paper-3); color:var(--color-ink-3); font-size:10px; }
+  .trd-todo, .trd-empty, .trd-event, .trd-approval-card{ border-color:var(--color-rule); border-radius:var(--radius-control); background:var(--color-paper); color:var(--color-ink-2); }
+  .trd-todo{ min-height:42px; padding:0 var(--space-3); font-size:var(--text-xs); }.trd-todo time{ color:var(--color-ink-3); font-size:var(--text-2xs); }
+  .trd-empty{ min-height:120px; color:var(--color-ink-3); }.trd-empty strong{ color:var(--color-ink); }
+  .trd-table{ border-color:var(--color-rule); border-radius:0; font-size:var(--text-xs); }.trd-table th,.trd-table td{ border-color:var(--color-rule); padding:var(--space-2) var(--space-2); }.trd-table th{ color:var(--color-ink-3); font-weight:600; }
+  .trd-badge{ border-color:var(--color-rule-2); border-radius:4px; background:none; color:var(--color-ink-2); font-size:10px; }.trd-badge.up{ border-color:color-mix(in oklch,var(--done) 55%,var(--color-rule)); background:none; }
+  .trd-safety{ margin-bottom:var(--space-3); padding:var(--space-3); border-color:color-mix(in oklch,var(--error) 60%,var(--color-rule)); border-radius:var(--radius-control); background:color-mix(in oklch,var(--error) 8%,var(--color-paper-2)); color:var(--color-ink); font-size:var(--text-xs); }.trd-safety small{ color:var(--color-ink-2); }.trd-safety.ok{ border-color:color-mix(in oklch,var(--done) 55%,var(--color-rule)); background:color-mix(in oklch,var(--done) 7%,var(--color-paper-2)); color:var(--color-ink); }.trd-safety.ok small{ color:var(--color-ink-2); }
+  body.trd-critical{ background:var(--color-paper)!important; box-shadow:none; }.trd-critical .monitor{ border-color:var(--error); box-shadow:inset 3px 0 0 var(--error); }
+  .trd-approval{ margin-bottom:var(--space-3); }.trd-approval-grid{ gap:var(--space-2); }.trd-approval-card{ min-height:84px; padding:var(--space-3); }.trd-approval-card small{ color:var(--color-ink-3); }.trd-approval-card b{ color:var(--color-ink); font-size:var(--text-sm); }.trd-approval-card.warn,.trd-event.warn{ border-color:color-mix(in oklch,var(--working) 55%,var(--color-rule)); }.trd-approval-card.warn b,.trd-event.warn .trd-event-tag{ color:var(--working); }.trd-approval-card.risk,.trd-event.risk{ border-color:color-mix(in oklch,var(--error) 55%,var(--color-rule)); }.trd-approval-card.risk b,.trd-event.risk .trd-event-tag{ color:var(--error); }.trd-approval-card.ok{ border-color:color-mix(in oklch,var(--done) 55%,var(--color-rule)); }.trd-approval-card.ok b{ color:var(--done); }
+  .trd-limit-field label,.trd-limit-check,.trd-limit-note{ color:var(--color-ink-3); font-size:var(--text-2xs); }.trd-limit-field input{ min-height:34px; border-color:var(--color-rule-2); border-radius:var(--radius-control); background:var(--color-paper); color:var(--color-ink); font-family:var(--mono); }
+  .trm{ margin:0 0 var(--space-4); padding:var(--space-4); border-color:var(--color-rule); border-radius:var(--radius-card); background:var(--color-paper-2); color:var(--color-ink); font-family:var(--sans); font-size:var(--text-xs); }
+  .trm-chip{ border-color:var(--color-rule); border-radius:var(--radius-control); color:var(--color-ink-3); font-family:var(--sans); }.trm-chip:hover,.trm-chip.on{ border-color:var(--color-accent); color:var(--color-ink); background:var(--color-accent-soft); }
+  .trm-big{ letter-spacing:-.035em; text-shadow:none; }.trm-sub,.trm-dim,.trm-h,.trm-row span:first-child,.trm-note{ color:var(--color-ink-3); }.trm-up{ color:var(--done); }.trm-dn{ color:var(--error); }.trm-warn{ color:var(--working); }
+  .trm-chart,.trm-box{ border-color:var(--color-rule); border-radius:var(--radius-control); background:var(--color-paper); }.trm-box{ padding:var(--space-3); }.trm-h{ border-top:1px solid var(--color-rule); padding-top:var(--space-2); }.trm-h:first-child{ border-top:0; padding-top:0; }
+  .trm-btn{ border-radius:var(--radius-control); background:none; font-family:var(--sans); }.trm-btn.red{ color:var(--error); border-color:var(--error); }.trm-btn.amber{ color:var(--working); border-color:var(--working); }.trm-btn.green{ color:var(--done); border-color:var(--done); }.trm-btn.blue{ color:var(--color-accent); border-color:var(--color-accent); }
+  .trm-confirm{ border-color:var(--error); border-radius:var(--radius-control); }.trm-scan th,.trm-scan td{ border-color:var(--color-rule); padding:var(--space-2); }.trm-scan th{ color:var(--color-ink-3); }.trm-scan tr[data-sym]:hover td{ background:var(--color-paper-3); }.trm-scan tr.on td{ color:var(--color-accent); }
 </style>
 </head>
 <body>
@@ -1461,30 +1501,51 @@
     }
   }
 
-  async function renderEmployeeAccuracy(traderStats, sageStats, analystStats){
+  let selectedHistoryPerson = "leo";
+  let latestHistoryPeople = {};
+
+  async function renderEmployeeAccuracy(traderStats, sageStats, analystStats, histories = {}){
     const el = document.getElementById("employee-history");
     const opinionsByAnalyst = await fetchAnalystOpinions();
     if (lastPublicRedacted) return;  // 응답을 기다리는 사이 공개본으로 판명된 경우
     renderAnalystComments(opinionsByAnalyst);
     if (!el) return;
-    const stats = traderStats || {};
+    const byAnalyst = (analystStats && analystStats.by_analyst) || {};
+    latestHistoryPeople = {
+      leo: { name:"레오", role:"트레이더", stats:traderStats || {}, history:histories.leo || [] },
+      sage: { name:"세이지", role:"판단 정확도 추적", stats:sageStats || {}, history:histories.sage || [] },
+      tam: { name:"탐", role:"리서치 분석가", stats:byAnalyst["탐"] || {}, history:histories.tam || [] },
+      vera: { name:"베라", role:"리서치 총괄", stats:byAnalyst["베라"] || {}, history:histories.vera || [] },
+      juno: { name:"주노", role:"업종 리서처", stats:byAnalyst["주노"] || {}, history:histories.juno || [] },
+      kai: { name:"카이", role:"이상거래 감지", stats:byAnalyst["카이"] || {}, history:histories.kai || [] },
+      jade: { name:"제이드", role:"리스크 총괄", stats:byAnalyst["제이드"] || {}, history:histories.jade || [] },
+    };
+    if (!latestHistoryPeople[selectedHistoryPerson]) selectedHistoryPerson = "leo";
+    const person = latestHistoryPeople[selectedHistoryPerson];
+    const stats = person.stats;
     const rate = Number(stats.hit_rate) || 0;
     const hit = Number(stats.hit) || 0;
     const total = accuracyTotal(stats);
-    // 판정 원본 이력이 status.json에 추가되면 이 목록만 교체하면 된다. 현재는 채팅에서 확정한 개편 시안의 최근 행을 사용한다.
-    const history = [
-      { stock:"삼성전자", when:"10월 14일 · 10:30", pick:"상승 예상 ↑", actual:"하락 ↓", pickClass:"up", actualClass:"down", verdict:"오답", hit:false },
-      { stock:"SK하이닉스", when:"10월 13일 · 14:00", pick:"하락 예상 ↓", actual:"하락 ↓", pickClass:"", actualClass:"down", verdict:"정답", hit:true },
-      { stock:"현대차", when:"10월 13일 · 10:00", pick:"상승 예상 ↑", actual:"상승 ↑", pickClass:"up", actualClass:"up", verdict:"정답", hit:true },
-      { stock:"카카오", when:"10월 12일 · 15:20", pick:"하락 예상 ↓", actual:"상승 ↑", pickClass:"", actualClass:"up", verdict:"오답", hit:false },
-    ];
+    const history = person.history;
     el.innerHTML = `
-      <h2 class="history-title">레오의 판정 이력</h2>
-      <p class="history-sub">트레이더 · 최근 30일</p>
+      <div class="history-picker">${Object.entries(latestHistoryPeople).map(([id, p]) => `<button type="button" data-history-person="${id}" aria-pressed="${id === selectedHistoryPerson}">${escapeHtml(p.name)}</button>`).join("")}</div>
+      <h2 class="history-title">${escapeHtml(person.name)}의 판정 이력</h2>
+      <p class="history-sub">${escapeHtml(person.role)} · 최근 30일</p>
       <section class="history-score"><div><div class="history-score-label">적중률</div><div class="history-score-rate">${rate.toFixed(0)}%</div></div><div class="history-score-count"><b>${hit}</b> / ${total} 정답</div></section>
       <div class="history-table-head"><span>종목</span><span>레오의 선택</span><span>실제 결과</span><span>판정</span></div>
-      ${history.map(row => `<div class="history-row"><div class="history-stock"><b>${escapeHtml(row.stock)}</b><span>${escapeHtml(row.when)}</span></div><span class="history-pill ${row.pickClass}">${escapeHtml(row.pick)}</span><span class="history-result ${row.actualClass}">${escapeHtml(row.actual)}</span><span class="history-verdict${row.hit ? " hit" : ""}">${escapeHtml(row.verdict)}</span></div>`).join("")}`;
+      ${history.length ? history.map(row => { const up = row.actual === "상승"; const hitRow = row.verdict === "정답"; const pickUp = row.call === "매수"; return `<div class="history-row"><div class="history-stock"><b>${escapeHtml(row.stock)}</b><span>${escapeHtml(row.date)}</span></div><span class="history-pill ${pickUp ? "up" : ""}">${escapeHtml(row.call)} 예상 ${pickUp ? "↑" : "↓"}</span><span class="history-result ${up ? "up" : "down"}">${escapeHtml(row.actual)} ${up ? "↑" : "↓"}</span><span class="history-verdict${hitRow ? " hit" : ""}">${escapeHtml(row.verdict)}</span></div>`; }).join("") : '<div class="judgement-empty">최근 확정된 판정 이력이 없습니다.</div>'}`;
   }
+
+  document.getElementById("employee-history").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-history-person]");
+    if (!button || !latestHistoryPeople[button.dataset.historyPerson]) return;
+    selectedHistoryPerson = button.dataset.historyPerson;
+    const people = latestHistoryPeople;
+    renderEmployeeAccuracy(people.leo.stats, people.sage.stats, { by_analyst: {
+      "탐": people.tam.stats, "베라": people.vera.stats, "주노": people.juno.stats,
+      "카이": people.kai.stats, "제이드": people.jade.stats,
+    }}, Object.fromEntries(Object.entries(people).map(([id, p]) => [id, p.history])));
+  });
 
   function traderCallTag(call){
     if (call === "매수") return '<span class="call-tag buy">매수</span>';
@@ -2758,7 +2819,7 @@
     renderTasksInProgress(latestEmployees);
     renderTasksDone(data.activity_log);
     lastPublicRedacted = IS_PUBLIC_MIRROR || !!data.public_redacted;
-    if (!lastPublicRedacted) renderEmployeeAccuracy(data.trader_stats, data.sage_stats, data.analyst_stats);
+    if (!lastPublicRedacted) renderEmployeeAccuracy(data.trader_stats, data.sage_stats, data.analyst_stats, data.prediction_histories);
     renderTraderCalls(data.trader_calls);
     renderPriorityAlerts(data.priority_alerts);
     renderRiskAlerts(data.risk_alerts);
