@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T14:46:41",
+  "updated_at": "2026-10-15T14:51:43",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-15T14:46:41",
+      "since": "2026-10-15T14:51:42",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-15T14:46:41",
+      "since": "2026-10-15T14:51:42",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-15T14:46:41",
+      "since": "2026-10-15T14:51:42",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -241,7 +241,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-15T13:51:42",
+      "since": "2026-10-15T14:51:43",
       "last_action": "작업 완료"
     }
   },
