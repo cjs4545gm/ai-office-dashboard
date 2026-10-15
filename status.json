@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T16:15:24",
+  "updated_at": "2026-10-15T13:51:32",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T16:15:24",
+      "since": "2026-10-15T13:51:31",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -64,9 +64,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-14T16:15:24",
-      "last_action": "작업 중"
+      "status": "interrupted",
+      "since": "2026-10-15T13:51:31",
+      "last_action": "중단됨"
     },
     "juno": {
       "name": "주노",
@@ -196,9 +196,9 @@
       "emoji": "📈",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-14T16:15:08",
-      "last_action": "작업 중"
+      "status": "interrupted",
+      "since": "2026-10-15T13:51:31",
+      "last_action": "중단됨"
     },
     "ivy": {
       "name": "아이비",
@@ -207,9 +207,9 @@
       "emoji": "🧭",
       "room": "portfolio",
       "automated": true,
-      "status": "done",
-      "since": "2026-10-14T16:12:32",
-      "last_action": "작업 완료"
+      "status": "idle",
+      "since": "2026-10-14T16:17:36",
+      "last_action": "대기"
     },
     "max": {
       "name": "맥스",
@@ -218,9 +218,9 @@
       "emoji": "🛡️",
       "room": "portfolio",
       "automated": true,
-      "status": "done",
-      "since": "2026-10-14T16:12:32",
-      "last_action": "작업 완료"
+      "status": "idle",
+      "since": "2026-10-14T16:17:36",
+      "last_action": "대기"
     },
     "rina": {
       "name": "리나",
@@ -229,9 +229,9 @@
       "emoji": "🧘",
       "room": "portfolio",
       "automated": true,
-      "status": "done",
-      "since": "2026-10-14T16:12:32",
-      "last_action": "작업 완료"
+      "status": "idle",
+      "since": "2026-10-14T16:17:36",
+      "last_action": "대기"
     },
     "trend_bot": {
       "name": "트렌디",
@@ -246,70 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-14T15:33:56",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 적중·원인 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:34:31",
-      "employee": "sage",
-      "name": "세이지",
-      "role": "판단 적중·원인 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T15:34:31",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수·매도 의견 통합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:34:31",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수·매도 의견 통합",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T15:34:31",
-      "employee": "dawn",
-      "name": "던",
-      "role": "성과 회고·개선 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:34:35",
-      "employee": "dawn",
-      "name": "던",
-      "role": "성과 회고·개선 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-14T15:51:22",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수·매도 의견 통합",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-14T15:51:30",
-      "employee": "leo",
-      "name": "레오",
-      "role": "매수·매도 의견 통합",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-14T15:54:06",
       "employee": "bri",
@@ -645,6 +581,70 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:16:35",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:17:01",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:17:01",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:18:00",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:18:24",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-14T16:18:24",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-15T13:51:31",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "interrupted",
+      "action": "중단됨"
+    },
+    {
+      "time": "2026-10-15T13:51:31",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "interrupted",
+      "action": "중단됨"
     }
   ],
   "strategy_room": {
@@ -689,7 +689,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 0,
+      "days_until": null,
       "status": "safe"
     },
     "ppi": {
@@ -727,7 +727,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 1,
+      "days_until": 0,
       "status": "risk"
     }
   },
