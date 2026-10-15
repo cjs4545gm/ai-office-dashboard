@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T14:31:35",
+  "updated_at": "2026-10-15T14:34:44",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -656,17 +656,13 @@
   "macro_cpi_ppi": {
     "cpi": {
       "label": "CPI(소비자물가)",
-      "as_of": "2026-09-11",
-      "reference": "Aug",
-      "actual": 3.4,
+      "as_of": "2026-10-14",
+      "reference": "Sep",
+      "actual": 3.7,
       "previous": 3.4,
-      "consensus": 3.4,
-      "next_release": "2026-10-14",
+      "consensus": 3.6,
+      "next_release": "2026-11-10",
       "history": [
-        {
-          "reference": "Mar",
-          "actual": 3.3
-        },
         {
           "reference": "Apr",
           "actual": 3.8
@@ -686,11 +682,15 @@
         {
           "reference": "Aug",
           "actual": 3.4
+        },
+        {
+          "reference": "Sep",
+          "actual": 3.7
         }
       ],
       "phase": "countdown",
-      "days_until": null,
-      "status": "safe"
+      "days_until": 26,
+      "status": "risk"
     },
     "ppi": {
       "label": "PPI(생산자물가)",
