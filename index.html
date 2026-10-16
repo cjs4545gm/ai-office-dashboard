@@ -958,7 +958,7 @@
         <label class="universe-held"><input type="checkbox" id="universe-held-new"> 보유</label>
         <button id="universe-add" type="button">추가</button>
       </div>
-      <div class="analysis-hint" id="universe-msg">국내외 개별주·ETF만 추가됩니다(토스 종목정보로 확인). 추가하면 다음 장 마감 후부터 팀 5명이 예측합니다.</div>
+      <div class="analysis-hint" id="universe-msg">국내외 개별주·ETF만 추가됩니다(토스 종목정보로 확인). 추가하면 다음 예측 시간(미국 장 마감 후, 국내 07:30)부터 팀 5명이 예측합니다.</div>
       <div class="universe-count" id="universe-count"></div>
       <div id="universe-list" class="universe-chips"></div>
     </div>
@@ -1628,7 +1628,7 @@
       <div class="judgement-head"><div><h2>팀 판정 현황</h2><p>주의 ${groups.warn.length}명 · 안정 ${groups.stable.length}명${groups.fresh.length ? ` · 판정 전 ${groups.fresh.length}명` : ""} — 이름을 누르면 그 직원의 판정만 아래에 모아 봅니다</p></div><div class="judgement-meta">예측 종목 ${universeCount ?? stockCount}개 · <a href="#universe-manager" data-goto-universe>종목 추가</a></div></div>
       <div class="judgement-groups">${groupHTML("warn")}${groupHTML("stable")}</div>
       <h2 class="history-title">팀 판정 이력</h2>
-      <p class="history-sub">팀원 5명이 장 마감 후 다음 거래일 상승/하락을 각자 예측해 잠그고, 다음 거래일 장 마감 뒤 <b>예측일 종가 → 판정일 종가</b>로 자동 판정합니다. 국내(KR)·미국(US)은 각 시장 기준, 보합은 판정 제외.</p>
+      <p class="history-sub">팀원 5명이 다음 거래일 상승/하락을 각자 예측해 잠그고(미국은 장 마감 후, 국내는 밤사이 미국장을 본 뒤 장 시작 90분 전인 07:30부터), 다음 거래일 장 마감 뒤 <b>예측일 종가 → 판정일 종가</b>로 자동 판정합니다. 국내(KR)·미국(US)은 각 시장 기준, 보합은 판정 제외.</p>
       <section class="history-score"><div><div class="history-score-label">${person === "all" ? "팀 전체 적중률" : `팀 중 ${escapeHtml(TEAM_NAME[person])} 적중률`}</div><div class="history-score-rate">${rate === null ? "–" : `${rate.toFixed(0)}%`}</div></div><div class="history-score-count"><b>${Number(stats.hit) || 0}</b> / ${total} 정답<div class="history-score-extra">판정 대기 ${Number(stats.pending) || 0}건 · 제외 ${Number(stats.excluded) || 0}건<br>${escapeHtml(marketLine)}</div></div></section>
       <div class="history-filters">${chip("person", "all", "팀 전체 5명")}${TEAM_ORDER.map(([id, name]) => chip("person", id, name)).join("")}</div>
       <div class="history-filters">${chip("verdict", "all", "전체")}${chip("verdict", "정답", "정답")}${chip("verdict", "오답", "오답")}${chip("verdict", "대기", "대기")}${chip("verdict", "제외", "제외")}<span class="history-filter-gap"></span>${chip("market", "all", "전체 시장")}${chip("market", "KR", "KR")}${chip("market", "US", "US")}<span class="history-filter-gap"></span>${chip("held", true, "보유 종목만")}</div>`;

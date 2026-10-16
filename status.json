@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T13:19:52",
+  "updated_at": "2026-10-16T13:26:14",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-16T13:16:05",
+      "since": "2026-10-16T13:26:14",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -197,7 +197,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "done",
-      "since": "2026-10-16T13:15:44",
+      "since": "2026-10-16T13:26:14",
       "last_action": "작업 완료"
     },
     "ivy": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-16T13:19:52",
+      "since": "2026-10-16T13:24:56",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-16T13:19:52",
+      "since": "2026-10-16T13:24:56",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-16T13:19:52",
+      "since": "2026-10-16T13:24:56",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,38 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-16T11:11:25",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-16T11:11:25",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-16T11:11:25",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-16T11:11:25",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-16T11:11:25",
       "employee": "tam",
@@ -643,6 +611,38 @@
       "employee": "jade",
       "name": "제이드",
       "role": "투자 리스크 승인 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-16T13:25:51",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-16T13:26:02",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-16T13:26:02",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-16T13:26:14",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
       "status": "done",
       "action": "작업 완료"
     }
