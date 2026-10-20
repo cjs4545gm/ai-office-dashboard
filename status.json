@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T14:23:15",
+  "updated_at": "2026-10-20T14:29:50",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -207,9 +207,9 @@
       "emoji": "🧭",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-20T14:23:15",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-10-20T14:29:50",
+      "last_action": "대기"
     },
     "max": {
       "name": "맥스",
@@ -218,9 +218,9 @@
       "emoji": "🛡️",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-20T14:23:15",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-10-20T14:29:50",
+      "last_action": "대기"
     },
     "rina": {
       "name": "리나",
@@ -229,9 +229,9 @@
       "emoji": "🧘",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-20T14:23:15",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-10-20T14:29:50",
+      "last_action": "대기"
     },
     "trend_bot": {
       "name": "트렌디",
