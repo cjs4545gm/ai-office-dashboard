@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T14:44:58",
+  "updated_at": "2026-10-21T13:42:06",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -689,7 +689,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 21,
+      "days_until": 20,
       "status": "risk"
     },
     "ppi": {
@@ -727,7 +727,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 24,
+      "days_until": 23,
       "status": "risk"
     }
   },
