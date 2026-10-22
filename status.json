@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T11:17:28",
+  "updated_at": "2026-10-22T11:22:17",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-21T15:16:44",
+      "since": "2026-10-22T11:18:48",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -43,7 +43,7 @@
       "room": "info",
       "automated": true,
       "status": "done",
-      "since": "2026-10-21T15:00:21",
+      "since": "2026-10-22T11:18:48",
       "last_action": "작업 완료"
     },
     "vera": {
@@ -87,7 +87,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-10-21T15:00:18",
+      "since": "2026-10-22T11:18:43",
       "last_action": "작업 완료"
     },
     "hank": {
@@ -98,7 +98,7 @@
       "room": "info",
       "automated": true,
       "status": "done",
-      "since": "2026-10-21T15:00:21",
+      "since": "2026-10-22T11:18:48",
       "last_action": "작업 완료"
     },
     "scout": {
@@ -109,7 +109,7 @@
       "room": "info",
       "automated": true,
       "status": "done",
-      "since": "2026-10-21T15:00:18",
+      "since": "2026-10-22T11:18:42",
       "last_action": "작업 완료"
     },
     "milo": {
@@ -120,7 +120,7 @@
       "room": "info",
       "automated": true,
       "status": "done",
-      "since": "2026-10-21T15:00:18",
+      "since": "2026-10-22T11:18:42",
       "last_action": "작업 완료"
     },
     "jade": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-21T15:32:19",
+      "since": "2026-10-22T11:22:16",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-21T15:32:19",
+      "since": "2026-10-22T11:22:16",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-21T15:32:19",
+      "since": "2026-10-22T11:22:16",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -241,115 +241,11 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-21T14:42:16",
+      "since": "2026-10-22T11:18:20",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-21T14:24:33",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "투자 리스크 승인 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-21T15:00:05",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "뉴스·공시·리포트 수집",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-21T15:00:05",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "수급 데이터 운영",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-21T15:00:18",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "뉴스·공시·리포트 수집",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-21T15:00:18",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "수급 데이터 운영",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-21T15:00:18",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-21T15:00:18",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-21T15:00:18",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-21T15:00:21",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-21T15:00:21",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-21T15:00:21",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-21T15:05:02",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 시장 시그널 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-21T15:05:07",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 시장 시그널 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-21T15:05:07",
       "employee": "oz",
@@ -645,6 +541,110 @@
       "role": "투자 리스크 승인 총괄",
       "status": "done",
       "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T11:18:20",
+      "employee": "trend_bot",
+      "name": "트렌디",
+      "role": "미국 일봉 추세추종 모의 실행",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T11:18:26",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "뉴스·공시·리포트 수집",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T11:18:26",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "수급 데이터 운영",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T11:18:42",
+      "employee": "scout",
+      "name": "스카우트",
+      "role": "뉴스·공시·리포트 수집",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T11:18:42",
+      "employee": "milo",
+      "name": "마일로",
+      "role": "수급 데이터 운영",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T11:18:42",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T11:18:43",
+      "employee": "chip",
+      "name": "칩",
+      "role": "D램·낸드 현물가 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T11:18:43",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "시장 이벤트·공시 일정 관리",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T11:18:47",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "시장 이벤트·공시 일정 관리",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T11:18:47",
+      "employee": "hank",
+      "name": "행크",
+      "role": "시장 데이터 품질 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T11:18:48",
+      "employee": "hank",
+      "name": "행크",
+      "role": "시장 데이터 품질 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T11:18:48",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "시장 이벤트·공시 일정 관리",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T11:18:48",
+      "employee": "callie",
+      "name": "캘리",
+      "role": "시장 이벤트·공시 일정 관리",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
@@ -732,7 +732,7 @@
     }
   },
   "fomc_calendar": {
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "fomc_date": "2026-10-28",
     "raw": "federalreserve.gov 공식 캘린더 파싱 (https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)",
     "suspicious": false
