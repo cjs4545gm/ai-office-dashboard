@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T17:04:52",
+  "updated_at": "2026-10-22T17:09:55",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -10,7 +10,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T16:05:09",
+      "since": "2026-10-22T17:05:09",
       "last_action": "작업 완료"
     },
     "bri": {
@@ -21,7 +21,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T16:05:09",
+      "since": "2026-10-22T17:05:09",
       "last_action": "작업 완료"
     },
     "nix": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T17:00:56",
+      "since": "2026-10-22T17:05:09",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T17:04:52",
+      "since": "2026-10-22T17:09:55",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T17:04:52",
+      "since": "2026-10-22T17:09:55",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T17:04:52",
+      "since": "2026-10-22T17:09:55",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,38 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-22T16:05:09",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "실행 자동화·예외 대응 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-22T16:06:34",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "성과 측정·결산 운영",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T16:09:33",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "성과 측정·결산 운영",
-      "status": "error",
-      "action": "오류"
-    },
-    {
-      "time": "2026-10-22T16:10:05",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-22T16:13:00",
       "employee": "juno",
@@ -643,6 +611,38 @@
       "employee": "jade",
       "name": "제이드",
       "role": "투자 리스크 승인 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T17:05:05",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T17:05:09",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T17:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T17:05:09",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
       "status": "done",
       "action": "작업 완료"
     }
