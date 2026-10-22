@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T14:09:22",
+  "updated_at": "2026-10-22T14:14:24",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T14:05:11",
+      "since": "2026-10-22T14:13:10",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -75,9 +75,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-10-22T13:22:52",
-      "last_action": "작업 완료"
+      "status": "working",
+      "since": "2026-10-22T14:13:10",
+      "last_action": "작업 중"
     },
     "chip": {
       "name": "칩",
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T14:09:22",
+      "since": "2026-10-22T14:14:24",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T14:09:22",
+      "since": "2026-10-22T14:14:24",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T14:09:22",
+      "since": "2026-10-22T14:14:24",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,22 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-22T13:06:24",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T13:06:24",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-22T13:07:59",
       "employee": "juno",
@@ -645,6 +629,22 @@
       "role": "실행 자동화·예외 대응 총괄",
       "status": "done",
       "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-22T14:10:10",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T14:13:10",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
     }
   ],
   "strategy_room": {
