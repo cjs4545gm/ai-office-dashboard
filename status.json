@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T13:25:50",
+  "updated_at": "2026-10-22T13:30:36",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T13:25:50",
+      "since": "2026-10-22T13:28:50",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -65,7 +65,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-10-22T13:25:50",
+      "since": "2026-10-22T13:28:50",
       "last_action": "작업 중"
     },
     "juno": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T13:25:11",
+      "since": "2026-10-22T13:30:14",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T13:25:11",
+      "since": "2026-10-22T13:30:14",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T13:25:11",
+      "since": "2026-10-22T13:30:14",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -241,19 +241,11 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T11:18:20",
+      "since": "2026-10-22T13:30:36",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-21T15:16:19",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-21T15:16:19",
       "employee": "kai",
@@ -645,6 +637,14 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T13:28:50",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
     }
   ],
   "strategy_room": {
@@ -663,22 +663,6 @@
       "consensus": 3.6,
       "next_release": "2026-11-10",
       "history": [
-        {
-          "reference": "Apr",
-          "actual": 3.8
-        },
-        {
-          "reference": "May",
-          "actual": 4.2
-        },
-        {
-          "reference": "Jun",
-          "actual": 3.5
-        },
-        {
-          "reference": "Jul",
-          "actual": 3.3
-        },
         {
           "reference": "Aug",
           "actual": 3.4
@@ -702,24 +686,8 @@
       "next_release": "2026-11-13",
       "history": [
         {
-          "reference": "Apr",
-          "actual": 5.7
-        },
-        {
-          "reference": "May",
-          "actual": 5.9
-        },
-        {
-          "reference": "Jun",
-          "actual": 5.6
-        },
-        {
-          "reference": "Jul",
-          "actual": 4.9
-        },
-        {
           "reference": "Aug",
-          "actual": 5.6
+          "actual": 5.4
         },
         {
           "reference": "Sep",
