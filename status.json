@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T15:15:00",
+  "updated_at": "2026-10-22T15:20:02",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T15:13:04",
+      "since": "2026-10-22T15:19:03",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -76,7 +76,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-10-22T15:13:04",
+      "since": "2026-10-22T15:19:03",
       "last_action": "작업 중"
     },
     "chip": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T15:15:00",
+      "since": "2026-10-22T15:20:02",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T15:15:00",
+      "since": "2026-10-22T15:20:02",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T15:15:00",
+      "since": "2026-10-22T15:20:02",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,22 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-22T14:13:10",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T14:16:05",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-22T14:19:05",
       "employee": "juno",
@@ -640,6 +624,22 @@
     },
     {
       "time": "2026-10-22T15:13:04",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:16:04",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:19:03",
       "employee": "juno",
       "name": "주노",
       "role": "업종·특수종목 웹리서치 통합 담당",
