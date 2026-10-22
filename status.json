@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T15:35:10",
+  "updated_at": "2026-10-22T15:40:13",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T15:33:52",
+      "since": "2026-10-22T15:39:48",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -65,7 +65,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-10-22T15:33:52",
+      "since": "2026-10-22T15:39:48",
       "last_action": "작업 중"
     },
     "juno": {
@@ -174,9 +174,9 @@
       "emoji": "🗂️",
       "room": "performance",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-22T15:33:31",
-      "last_action": "작업 중"
+      "status": "error",
+      "since": "2026-10-22T15:36:31",
+      "last_action": "오류"
     },
     "sage": {
       "name": "세이지",
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T15:35:10",
+      "since": "2026-10-22T15:40:13",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T15:35:10",
+      "since": "2026-10-22T15:40:13",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-22T15:35:10",
+      "since": "2026-10-22T15:40:13",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,62 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-22T14:37:04",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T14:37:04",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T14:37:04",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T14:40:04",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T14:40:04",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T14:40:04",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-22T14:43:04",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-22T14:43:04",
       "employee": "tam",
@@ -640,6 +584,62 @@
     },
     {
       "time": "2026-10-22T15:33:52",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:36:31",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "성과 측정·결산 운영",
+      "status": "error",
+      "action": "오류"
+    },
+    {
+      "time": "2026-10-22T15:36:48",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:36:48",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:36:48",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:39:48",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:39:48",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-22T15:39:48",
       "employee": "tam",
       "name": "탐",
       "role": "리서치 분석가",
