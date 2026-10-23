@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T17:53:13",
+  "updated_at": "2026-10-23T12:53:48",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T17:52:54",
+      "since": "2026-10-23T12:53:48",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -241,19 +241,11 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-22T17:22:46",
+      "since": "2026-10-23T12:53:48",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-22T17:13:09",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-22T17:16:09",
       "employee": "juno",
@@ -645,6 +637,14 @@
       "role": "성과 측정·결산 운영",
       "status": "error",
       "action": "오류"
+    },
+    {
+      "time": "2026-10-23T12:53:48",
+      "employee": "trend_bot",
+      "name": "트렌디",
+      "role": "미국 일봉 추세추종 모의 실행",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
@@ -664,6 +664,22 @@
       "next_release": "2026-11-10",
       "history": [
         {
+          "reference": "Apr",
+          "actual": 3.8
+        },
+        {
+          "reference": "May",
+          "actual": 4.2
+        },
+        {
+          "reference": "Jun",
+          "actual": 3.5
+        },
+        {
+          "reference": "Jul",
+          "actual": 3.3
+        },
+        {
           "reference": "Aug",
           "actual": 3.4
         },
@@ -673,7 +689,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 19,
+      "days_until": 18,
       "status": "risk"
     },
     "ppi": {
@@ -686,8 +702,24 @@
       "next_release": "2026-11-13",
       "history": [
         {
+          "reference": "Apr",
+          "actual": 5.7
+        },
+        {
+          "reference": "May",
+          "actual": 5.9
+        },
+        {
+          "reference": "Jun",
+          "actual": 5.6
+        },
+        {
+          "reference": "Jul",
+          "actual": 4.9
+        },
+        {
           "reference": "Aug",
-          "actual": 5.4
+          "actual": 5.6
         },
         {
           "reference": "Sep",
@@ -695,7 +727,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 22,
+      "days_until": 21,
       "status": "risk"
     }
   },
