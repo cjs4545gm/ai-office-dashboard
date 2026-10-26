@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T15:39:41",
+  "updated_at": "2026-10-26T15:44:14",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-26T15:39:41",
+      "since": "2026-10-26T15:40:27",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -164,7 +164,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-14T15:34:35",
+      "since": "2026-10-26T15:40:27",
       "last_action": "작업 완료"
     },
     "rewind": {
@@ -185,9 +185,9 @@
       "emoji": "🎯",
       "room": "performance",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-26T15:39:41",
-      "last_action": "작업 중"
+      "status": "done",
+      "since": "2026-10-26T15:40:23",
+      "last_action": "작업 완료"
     },
     "leo": {
       "name": "레오",
@@ -197,7 +197,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "done",
-      "since": "2026-10-26T15:17:48",
+      "since": "2026-10-26T15:40:23",
       "last_action": "작업 완료"
     },
     "ivy": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-26T15:38:27",
+      "since": "2026-10-26T15:44:14",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-26T15:38:27",
+      "since": "2026-10-26T15:44:14",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-26T15:38:27",
+      "since": "2026-10-26T15:44:14",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,46 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-26T15:00:18",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "뉴스·공시·리포트 수집",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-26T15:00:18",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "수급 데이터 운영",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-26T15:00:18",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-26T15:00:18",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-26T15:00:18",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-26T15:00:21",
       "employee": "callie",
@@ -645,6 +605,46 @@
       "role": "판단 적중·원인 분석",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-10-26T15:40:23",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 적중·원인 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-26T15:40:23",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-26T15:40:23",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-26T15:40:23",
+      "employee": "dawn",
+      "name": "던",
+      "role": "성과 회고·개선 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-26T15:40:27",
+      "employee": "dawn",
+      "name": "던",
+      "role": "성과 회고·개선 총괄",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
