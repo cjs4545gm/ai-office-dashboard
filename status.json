@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T13:43:51",
+  "updated_at": "2026-10-26T13:47:23",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-26T13:43:51",
+      "since": "2026-10-26T13:47:23",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -207,9 +207,9 @@
       "emoji": "🧭",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-26T13:43:51",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-10-26T13:47:23",
+      "last_action": "대기"
     },
     "max": {
       "name": "맥스",
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-23T13:48:36",
+      "since": "2026-10-26T13:47:23",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-23T13:48:36",
+      "since": "2026-10-26T13:47:23",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,14 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-23T13:10:08",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-23T13:10:38",
       "employee": "juno",
@@ -645,6 +637,14 @@
       "role": "포트폴리오 방향·자산배분 총괄",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-10-26T13:47:23",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 방향·자산배분 총괄",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
