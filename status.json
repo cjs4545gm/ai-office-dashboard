@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-23T13:48:36",
+  "updated_at": "2026-10-26T13:39:22",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-23T13:27:20",
+      "since": "2026-10-26T13:39:22",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -241,19 +241,11 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-23T12:53:48",
+      "since": "2026-10-26T13:39:22",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-23T13:00:06",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "뉴스·공시·리포트 수집",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-23T13:00:06",
       "employee": "milo",
@@ -645,6 +637,14 @@
       "role": "성과 측정·결산 운영",
       "status": "idle",
       "action": "대기"
+    },
+    {
+      "time": "2026-10-26T13:39:22",
+      "employee": "trend_bot",
+      "name": "트렌디",
+      "role": "미국 일봉 추세추종 모의 실행",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
@@ -689,7 +689,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 18,
+      "days_until": 15,
       "status": "risk"
     },
     "ppi": {
@@ -727,7 +727,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 21,
+      "days_until": 18,
       "status": "risk"
     }
   },
