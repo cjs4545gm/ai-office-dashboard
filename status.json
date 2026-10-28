@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T15:31:00",
+  "updated_at": "2026-10-28T15:33:59",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-28T15:31:00",
+      "since": "2026-10-28T15:33:59",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -65,7 +65,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-10-28T15:31:00",
+      "since": "2026-10-28T15:33:59",
       "last_action": "작업 중"
     },
     "juno": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-28T15:26:35",
+      "since": "2026-10-28T15:31:38",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-28T15:26:35",
+      "since": "2026-10-28T15:31:38",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-28T15:26:35",
+      "since": "2026-10-28T15:31:38",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,14 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-28T11:54:16",
-      "employee": "trend_bot",
-      "name": "트렌디",
-      "role": "미국 일봉 추세추종 모의 실행",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-28T11:54:16",
       "employee": "scout",
@@ -640,6 +632,14 @@
     },
     {
       "time": "2026-10-28T15:31:00",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-28T15:33:59",
       "employee": "tam",
       "name": "탐",
       "role": "리서치 분석가",
