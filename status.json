@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T15:26:03",
+  "updated_at": "2026-10-28T15:31:00",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-28T15:25:03",
+      "since": "2026-10-28T15:31:00",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -64,9 +64,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-10-27T15:17:36",
-      "last_action": "작업 완료"
+      "status": "working",
+      "since": "2026-10-28T15:31:00",
+      "last_action": "작업 중"
     },
     "juno": {
       "name": "주노",
@@ -75,9 +75,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-28T15:25:03",
-      "last_action": "작업 중"
+      "status": "done",
+      "since": "2026-10-28T15:28:03",
+      "last_action": "작업 완료"
     },
     "chip": {
       "name": "칩",
@@ -207,9 +207,9 @@
       "emoji": "🧭",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-28T15:26:03",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-10-28T15:26:35",
+      "last_action": "대기"
     },
     "max": {
       "name": "맥스",
@@ -218,9 +218,9 @@
       "emoji": "🛡️",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-28T15:26:03",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-10-28T15:26:35",
+      "last_action": "대기"
     },
     "rina": {
       "name": "리나",
@@ -229,9 +229,9 @@
       "emoji": "🧘",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-10-28T15:26:03",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-10-28T15:26:35",
+      "last_action": "대기"
     },
     "trend_bot": {
       "name": "트렌디",
@@ -246,46 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-27T15:17:59",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "투자 리스크 승인 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-27T15:17:59",
-      "employee": "vera",
-      "name": "베라",
-      "role": "리서치 총괄·품질 검수",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-27T15:17:59",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-27T15:17:59",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-27T15:17:59",
-      "employee": "jade",
-      "name": "제이드",
-      "role": "투자 리스크 승인 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-28T11:54:16",
       "employee": "trend_bot",
@@ -643,6 +603,46 @@
       "employee": "juno",
       "name": "주노",
       "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-28T15:28:03",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-28T15:28:03",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-28T15:28:03",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-28T15:31:00",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-28T15:31:00",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
     }
