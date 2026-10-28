@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-28T15:21:00",
+  "updated_at": "2026-10-28T15:26:03",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-28T15:19:03",
+      "since": "2026-10-28T15:25:03",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -76,7 +76,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-10-28T15:19:03",
+      "since": "2026-10-28T15:25:03",
       "last_action": "작업 중"
     },
     "chip": {
@@ -207,9 +207,9 @@
       "emoji": "🧭",
       "room": "portfolio",
       "automated": true,
-      "status": "idle",
-      "since": "2026-10-28T15:21:00",
-      "last_action": "대기"
+      "status": "working",
+      "since": "2026-10-28T15:26:03",
+      "last_action": "작업 중"
     },
     "max": {
       "name": "맥스",
@@ -218,9 +218,9 @@
       "emoji": "🛡️",
       "room": "portfolio",
       "automated": true,
-      "status": "idle",
-      "since": "2026-10-28T15:21:00",
-      "last_action": "대기"
+      "status": "working",
+      "since": "2026-10-28T15:26:03",
+      "last_action": "작업 중"
     },
     "rina": {
       "name": "리나",
@@ -229,9 +229,9 @@
       "emoji": "🧘",
       "room": "portfolio",
       "automated": true,
-      "status": "idle",
-      "since": "2026-10-28T15:21:00",
-      "last_action": "대기"
+      "status": "working",
+      "since": "2026-10-28T15:26:03",
+      "last_action": "작업 중"
     },
     "trend_bot": {
       "name": "트렌디",
@@ -241,27 +241,11 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-28T14:21:11",
+      "since": "2026-10-28T15:21:12",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-27T15:17:36",
-      "employee": "kai",
-      "name": "카이",
-      "role": "이상거래·급락 감지 · 수급이탈 원인 추적",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-27T15:17:58",
-      "employee": "nova",
-      "name": "노바",
-      "role": "금리·환율·지수 매크로 감지",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-10-27T15:17:59",
       "employee": "jade",
@@ -640,6 +624,22 @@
     },
     {
       "time": "2026-10-28T15:19:03",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-28T15:22:03",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-28T15:25:03",
       "employee": "juno",
       "name": "주노",
       "role": "업종·특수종목 웹리서치 통합 담당",
