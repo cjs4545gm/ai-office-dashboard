@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T15:04:04",
+  "updated_at": "2026-10-30T15:09:06",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -10,7 +10,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-30T14:14:38",
+      "since": "2026-10-30T15:05:10",
       "last_action": "작업 완료"
     },
     "bri": {
@@ -21,7 +21,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-10-30T14:14:38",
+      "since": "2026-10-30T15:05:10",
       "last_action": "작업 완료"
     },
     "nix": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-30T15:00:21",
+      "since": "2026-10-30T15:05:10",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-30T15:04:04",
+      "since": "2026-10-30T15:09:06",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-30T15:04:04",
+      "since": "2026-10-30T15:09:06",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-10-30T15:04:04",
+      "since": "2026-10-30T15:09:06",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,38 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-10-30T14:14:36",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-10-30T14:14:36",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-30T14:14:36",
-      "employee": "tam",
-      "name": "탐",
-      "role": "리서치 분석가",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-10-30T14:14:38",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 시장 시그널 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-10-30T14:14:38",
       "employee": "oz",
@@ -643,6 +611,38 @@
       "employee": "hank",
       "name": "행크",
       "role": "시장 데이터 품질 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-30T15:05:06",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-30T15:05:10",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-10-30T15:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-10-30T15:05:10",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
       "status": "done",
       "action": "작업 완료"
     }
