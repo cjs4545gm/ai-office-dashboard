@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09T10:00:41",
+  "updated_at": "2026-11-09T10:05:05",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -10,7 +10,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-30T15:05:10",
+      "since": "2026-11-09T10:05:05",
       "last_action": "작업 완료"
     },
     "bri": {
@@ -21,7 +21,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-10-30T15:05:10",
+      "since": "2026-11-09T10:05:05",
       "last_action": "작업 완료"
     },
     "nix": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-09T10:00:41",
+      "since": "2026-11-09T10:05:05",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -207,9 +207,9 @@
       "emoji": "🧭",
       "room": "portfolio",
       "automated": true,
-      "status": "working",
-      "since": "2026-11-09T10:00:41",
-      "last_action": "작업 중"
+      "status": "idle",
+      "since": "2026-11-09T10:04:46",
+      "last_action": "대기"
     },
     "max": {
       "name": "맥스",
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-06T12:45:28",
+      "since": "2026-11-09T10:04:46",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-06T12:45:28",
+      "since": "2026-11-09T10:04:46",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,46 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-06T12:06:31",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-06T12:06:32",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-06T12:06:32",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-06T12:06:32",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-06T12:06:32",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-11-06T12:06:33",
       "employee": "callie",
@@ -645,6 +605,46 @@
       "role": "포트폴리오 방향·자산배분 총괄",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-11-09T10:04:46",
+      "employee": "ivy",
+      "name": "아이비",
+      "role": "포트폴리오 방향·자산배분 총괄",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-09T10:05:02",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-09T10:05:05",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-09T10:05:05",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-09T10:05:05",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
