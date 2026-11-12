@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T15:11:35",
+  "updated_at": "2026-11-12T15:16:38",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-12T15:10:08",
+      "since": "2026-11-12T15:16:03",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -76,7 +76,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-11-12T15:10:08",
+      "since": "2026-11-12T15:16:03",
       "last_action": "작업 중"
     },
     "chip": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-12T15:11:35",
+      "since": "2026-11-12T15:16:38",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-12T15:11:35",
+      "since": "2026-11-12T15:16:38",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-12T15:11:35",
+      "since": "2026-11-12T15:16:38",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,22 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-12T10:51:29",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-12T10:51:30",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-11-12T10:51:30",
       "employee": "callie",
@@ -640,6 +624,22 @@
     },
     {
       "time": "2026-11-12T15:10:08",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-12T15:13:08",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-12T15:16:03",
       "employee": "juno",
       "name": "주노",
       "role": "업종·특수종목 웹리서치 통합 담당",
