@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T15:06:32",
+  "updated_at": "2026-11-12T15:11:35",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-12T15:05:10",
+      "since": "2026-11-12T15:10:08",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -75,9 +75,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-11-12T11:27:59",
-      "last_action": "작업 완료"
+      "status": "working",
+      "since": "2026-11-12T15:10:08",
+      "last_action": "작업 중"
     },
     "chip": {
       "name": "칩",
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-12T15:06:32",
+      "since": "2026-11-12T15:11:35",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-12T15:06:32",
+      "since": "2026-11-12T15:11:35",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-12T15:06:32",
+      "since": "2026-11-12T15:11:35",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,14 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-12T10:51:29",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "수급 데이터 운영",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-11-12T10:51:29",
       "employee": "chip",
@@ -645,6 +637,14 @@
       "role": "실행 자동화·예외 대응 총괄",
       "status": "done",
       "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-12T15:10:08",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
     }
   ],
   "strategy_room": {
