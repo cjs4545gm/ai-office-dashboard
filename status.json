@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T16:50:53",
+  "updated_at": "2026-11-12T10:50:48",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-10T16:50:23",
+      "since": "2026-11-12T10:50:48",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -241,19 +241,11 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-10T16:46:17",
+      "since": "2026-11-12T10:50:48",
       "last_action": "작업 완료"
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-10T09:19:14",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 시장 시그널 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-11-10T09:19:14",
       "employee": "oz",
@@ -645,6 +637,14 @@
       "role": "매수·매도 의견 통합",
       "status": "done",
       "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-12T10:50:48",
+      "employee": "trend_bot",
+      "name": "트렌디",
+      "role": "미국 일봉 추세추종 모의 실행",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
@@ -661,7 +661,7 @@
       "actual": 3.7,
       "previous": 3.4,
       "consensus": 3.6,
-      "next_release": "2026-11-10",
+      "next_release": "2026-12-10",
       "history": [
         {
           "reference": "Apr",
@@ -689,7 +689,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 0,
+      "days_until": 28,
       "status": "risk"
     },
     "ppi": {
@@ -727,7 +727,7 @@
         }
       ],
       "phase": "countdown",
-      "days_until": 3,
+      "days_until": 1,
       "status": "risk"
     }
   },
