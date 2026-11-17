@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T18:00:57",
+  "updated_at": "2026-11-17T18:05:15",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -10,7 +10,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-17T17:12:44",
+      "since": "2026-11-17T18:05:15",
       "last_action": "작업 완료"
     },
     "bri": {
@@ -21,7 +21,7 @@
       "room": "research",
       "automated": true,
       "status": "done",
-      "since": "2026-11-17T17:12:44",
+      "since": "2026-11-17T18:05:15",
       "last_action": "작업 완료"
     },
     "nix": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-17T18:00:57",
+      "since": "2026-11-17T18:05:15",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -65,7 +65,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-11-17T18:00:57",
+      "since": "2026-11-17T18:03:57",
       "last_action": "작업 중"
     },
     "juno": {
@@ -174,9 +174,9 @@
       "emoji": "🗂️",
       "room": "performance",
       "automated": true,
-      "status": "error",
-      "since": "2026-11-17T17:33:57",
-      "last_action": "오류"
+      "status": "working",
+      "since": "2026-11-17T18:03:59",
+      "last_action": "작업 중"
     },
     "sage": {
       "name": "세이지",
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:59:37",
+      "since": "2026-11-17T18:04:39",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:59:37",
+      "since": "2026-11-17T18:04:39",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:59:37",
+      "since": "2026-11-17T18:04:39",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,54 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-17T17:12:44",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 시장 시그널 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-17T17:12:44",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "실행 자동화·예외 대응 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-17T17:12:44",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "실행 자동화·예외 대응 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-17T17:31:07",
-      "employee": "rewind",
-      "name": "리와인드",
-      "role": "성과 측정·결산 운영",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-17T17:31:07",
-      "employee": "ivy",
-      "name": "아이비",
-      "role": "포트폴리오 방향·자산배분 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-17T17:31:13",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-11-17T17:31:21",
       "employee": "scout",
@@ -645,6 +597,54 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T18:03:57",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T18:03:59",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "성과 측정·결산 운영",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T18:05:09",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T18:05:15",
+      "employee": "bri",
+      "name": "브리",
+      "role": "데일리 시장 시그널 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-17T18:05:15",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T18:05:15",
+      "employee": "oz",
+      "name": "오즈",
+      "role": "실행 자동화·예외 대응 총괄",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
