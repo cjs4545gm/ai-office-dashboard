@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T17:45:55",
+  "updated_at": "2026-11-17T17:49:31",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-17T17:45:55",
+      "since": "2026-11-17T17:49:22",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -65,7 +65,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-11-17T17:45:55",
+      "since": "2026-11-17T17:48:53",
       "last_action": "작업 중"
     },
     "juno": {
@@ -196,9 +196,9 @@
       "emoji": "📈",
       "room": "portfolio",
       "automated": true,
-      "status": "idle",
-      "since": "2026-11-17T12:40:12",
-      "last_action": "대기"
+      "status": "done",
+      "since": "2026-11-17T17:49:22",
+      "last_action": "작업 완료"
     },
     "ivy": {
       "name": "아이비",
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:44:28",
+      "since": "2026-11-17T17:49:31",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:44:28",
+      "since": "2026-11-17T17:49:31",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:44:28",
+      "since": "2026-11-17T17:49:31",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,30 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-17T13:08:05",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 시장 시그널 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-17T13:08:05",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "실행 자동화·예외 대응 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-17T13:08:05",
-      "employee": "oz",
-      "name": "오즈",
-      "role": "실행 자동화·예외 대응 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
     {
       "time": "2026-11-17T13:24:28",
       "employee": "juno",
@@ -645,6 +621,30 @@
       "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T17:46:04",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T17:48:53",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T17:49:22",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
