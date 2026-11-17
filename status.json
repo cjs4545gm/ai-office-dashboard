@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T17:49:31",
+  "updated_at": "2026-11-17T17:54:56",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-17T17:49:22",
+      "since": "2026-11-17T17:54:56",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -65,7 +65,7 @@
       "room": "research",
       "automated": true,
       "status": "working",
-      "since": "2026-11-17T17:48:53",
+      "since": "2026-11-17T17:54:56",
       "last_action": "작업 중"
     },
     "juno": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:49:31",
+      "since": "2026-11-17T17:54:34",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:49:31",
+      "since": "2026-11-17T17:54:34",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-17T17:49:31",
+      "since": "2026-11-17T17:54:34",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,30 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-17T13:24:28",
-      "employee": "juno",
-      "name": "주노",
-      "role": "업종·특수종목 웹리서치 통합 담당",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-17T13:40:08",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "뉴스·공시·리포트 수집",
-      "status": "idle",
-      "action": "대기"
-    },
-    {
-      "time": "2026-11-17T13:40:08",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "수급 데이터 운영",
-      "status": "idle",
-      "action": "대기"
-    },
     {
       "time": "2026-11-17T13:40:08",
       "employee": "hank",
@@ -645,6 +621,30 @@
       "role": "매수·매도 의견 통합",
       "status": "done",
       "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-17T17:51:53",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T17:51:53",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-17T17:54:56",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
     }
   ],
   "strategy_room": {
