@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T14:36:04",
+  "updated_at": "2026-11-18T14:45:14",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T14:36:04",
+      "since": "2026-11-18T14:41:06",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T14:36:04",
+      "since": "2026-11-18T14:41:06",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T14:36:04",
+      "since": "2026-11-18T14:41:06",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -694,17 +694,13 @@
     },
     "ppi": {
       "label": "PPI(생산자물가)",
-      "as_of": "2026-10-15",
-      "reference": "Sep",
-      "actual": 6.3,
-      "previous": 5.6,
-      "consensus": 5.3,
-      "next_release": "2026-11-13",
+      "as_of": "2026-11-13",
+      "reference": "Oct",
+      "actual": 6.5,
+      "previous": 6.3,
+      "consensus": 6.6,
+      "next_release": "2026-12-15",
       "history": [
-        {
-          "reference": "Apr",
-          "actual": 5.7
-        },
         {
           "reference": "May",
           "actual": 5.9
@@ -719,16 +715,20 @@
         },
         {
           "reference": "Aug",
-          "actual": 5.6
+          "actual": 5.5
         },
         {
           "reference": "Sep",
           "actual": 6.3
+        },
+        {
+          "reference": "Oct",
+          "actual": 6.5
         }
       ],
       "phase": "countdown",
-      "days_until": null,
-      "status": "risk"
+      "days_until": 27,
+      "status": "caution"
     }
   },
   "fomc_calendar": {
