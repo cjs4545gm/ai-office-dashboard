@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T13:48:48",
+  "updated_at": "2026-11-18T13:54:41",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-18T13:48:48",
+      "since": "2026-11-18T13:54:41",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -64,9 +64,9 @@
       "emoji": "🔍",
       "room": "research",
       "automated": true,
-      "status": "done",
-      "since": "2026-11-18T12:05:20",
-      "last_action": "작업 완료"
+      "status": "working",
+      "since": "2026-11-18T13:54:41",
+      "last_action": "작업 중"
     },
     "juno": {
       "name": "주노",
@@ -75,9 +75,9 @@
       "emoji": "🏛️",
       "room": "research",
       "automated": true,
-      "status": "working",
-      "since": "2026-11-18T13:48:48",
-      "last_action": "작업 중"
+      "status": "done",
+      "since": "2026-11-18T13:51:43",
+      "last_action": "작업 완료"
     },
     "chip": {
       "name": "칩",
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T13:45:34",
+      "since": "2026-11-18T13:50:38",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T13:45:34",
+      "since": "2026-11-18T13:50:38",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T13:45:34",
+      "since": "2026-11-18T13:50:38",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,46 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-18T11:04:17",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-18T11:04:18",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-18T11:04:18",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-18T11:04:18",
-      "employee": "hank",
-      "name": "행크",
-      "role": "시장 데이터 품질 총괄",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-18T11:06:33",
-      "employee": "bri",
-      "name": "브리",
-      "role": "데일리 시장 시그널 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-11-18T11:06:36",
       "employee": "bri",
@@ -643,6 +603,46 @@
       "employee": "juno",
       "name": "주노",
       "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T13:51:43",
+      "employee": "juno",
+      "name": "주노",
+      "role": "업종·특수종목 웹리서치 통합 담당",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-18T13:51:43",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T13:51:45",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T13:54:41",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T13:54:41",
+      "employee": "tam",
+      "name": "탐",
+      "role": "리서치 분석가",
       "status": "working",
       "action": "작업 중"
     }
