@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T15:45:47",
+  "updated_at": "2026-11-18T15:49:49",
   "public_redacted": true,
   "employees": {
     "oz": {
@@ -32,7 +32,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-11-18T15:45:28",
+      "since": "2026-11-18T15:46:11",
       "last_action": "작업 완료"
     },
     "callie": {
@@ -164,7 +164,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-26T15:40:27",
+      "since": "2026-11-18T15:46:11",
       "last_action": "작업 완료"
     },
     "rewind": {
@@ -174,9 +174,9 @@
       "emoji": "🗂️",
       "room": "performance",
       "automated": true,
-      "status": "working",
-      "since": "2026-11-18T15:45:28",
-      "last_action": "작업 중"
+      "status": "done",
+      "since": "2026-11-18T15:46:04",
+      "last_action": "작업 완료"
     },
     "sage": {
       "name": "세이지",
@@ -186,7 +186,7 @@
       "room": "performance",
       "automated": true,
       "status": "done",
-      "since": "2026-10-26T15:40:23",
+      "since": "2026-11-18T15:46:09",
       "last_action": "작업 완료"
     },
     "leo": {
@@ -197,7 +197,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "done",
-      "since": "2026-11-18T15:21:15",
+      "since": "2026-11-18T15:46:09",
       "last_action": "작업 완료"
     },
     "ivy": {
@@ -208,7 +208,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T15:41:41",
+      "since": "2026-11-18T15:46:43",
       "last_action": "대기"
     },
     "max": {
@@ -219,7 +219,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T15:41:41",
+      "since": "2026-11-18T15:46:43",
       "last_action": "대기"
     },
     "rina": {
@@ -230,7 +230,7 @@
       "room": "portfolio",
       "automated": true,
       "status": "idle",
-      "since": "2026-11-18T15:41:41",
+      "since": "2026-11-18T15:46:43",
       "last_action": "대기"
     },
     "trend_bot": {
@@ -246,62 +246,6 @@
     }
   },
   "activity_log": [
-    {
-      "time": "2026-11-18T15:00:07",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "뉴스·공시·리포트 수집",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-18T15:00:07",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "수급 데이터 운영",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-18T15:00:24",
-      "employee": "scout",
-      "name": "스카우트",
-      "role": "뉴스·공시·리포트 수집",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-18T15:00:24",
-      "employee": "milo",
-      "name": "마일로",
-      "role": "수급 데이터 운영",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-18T15:00:24",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "working",
-      "action": "작업 중"
-    },
-    {
-      "time": "2026-11-18T15:00:24",
-      "employee": "chip",
-      "name": "칩",
-      "role": "D램·낸드 현물가 분석",
-      "status": "done",
-      "action": "작업 완료"
-    },
-    {
-      "time": "2026-11-18T15:00:24",
-      "employee": "callie",
-      "name": "캘리",
-      "role": "시장 이벤트·공시 일정 관리",
-      "status": "working",
-      "action": "작업 중"
-    },
     {
       "time": "2026-11-18T15:00:26",
       "employee": "callie",
@@ -645,6 +589,62 @@
       "role": "성과 측정·결산 운영",
       "status": "working",
       "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T15:46:04",
+      "employee": "rewind",
+      "name": "리와인드",
+      "role": "성과 측정·결산 운영",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-18T15:46:04",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 적중·원인 분석",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T15:46:09",
+      "employee": "sage",
+      "name": "세이지",
+      "role": "판단 적중·원인 분석",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-18T15:46:09",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T15:46:09",
+      "employee": "leo",
+      "name": "레오",
+      "role": "매수·매도 의견 통합",
+      "status": "done",
+      "action": "작업 완료"
+    },
+    {
+      "time": "2026-11-18T15:46:09",
+      "employee": "dawn",
+      "name": "던",
+      "role": "성과 회고·개선 총괄",
+      "status": "working",
+      "action": "작업 중"
+    },
+    {
+      "time": "2026-11-18T15:46:11",
+      "employee": "dawn",
+      "name": "던",
+      "role": "성과 회고·개선 총괄",
+      "status": "done",
+      "action": "작업 완료"
     }
   ],
   "strategy_room": {
