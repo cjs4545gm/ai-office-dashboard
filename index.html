@@ -315,6 +315,19 @@
     padding:9px 16px; cursor:pointer;
   }
   .strategy-form button:hover{ filter:brightness(1.08); }
+  .aic-bar{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:12px; }
+  .aic-providers{ display:flex; gap:6px; flex-wrap:wrap; }
+  .aic-web{ font-size:12px; color:var(--muted); display:flex; align-items:center; gap:4px; }
+  .aic-clear{ margin-left:auto; background:none; border:1px solid var(--line); color:var(--muted); border-radius:6px; padding:4px 10px; font-size:11.5px; cursor:pointer; }
+  .aic-log{ display:flex; flex-direction:column; gap:10px; max-width:860px; max-height:58vh; overflow-y:auto; margin-bottom:12px; }
+  .aic-msg{ padding:10px 13px; border-radius:10px; font-size:13.5px; line-height:1.65; white-space:pre-wrap; word-break:break-word; }
+  .aic-msg.user{ align-self:flex-end; max-width:80%; background:var(--accent); color:#fff; }
+  .aic-msg.ai{ align-self:flex-start; max-width:92%; background:rgba(255,255,255,.04); border:1px solid var(--line); }
+  .aic-msg.err{ border-color:var(--error); color:var(--error); }
+  .aic-msg .aic-who{ display:block; font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-bottom:4px; white-space:normal; }
+  .aic-msg a{ color:#8fc3ff; }
+  .aic-form{ max-width:860px; }
+  .aic-form textarea{ min-height:64px; }
   .strategy-hint{ font-family:var(--mono); font-size:10.5px; color:var(--muted); margin:-2px 0 14px; line-height:1.6; max-width:720px; }
   .strategy-qa{ border-top:1px dashed var(--line); padding-top:12px; display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:14px; }
   .qa-row{ background:var(--wall); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
@@ -882,6 +895,7 @@
     <button class="tab-btn active" type="button" data-tab="live" aria-current="page">라이브 오피스</button>
     <button class="tab-btn" type="button" data-tab="dashboard">대시보드</button>
     <button class="tab-btn" type="button" data-tab="ceo">대표 채팅</button>
+    <button class="tab-btn" type="button" data-tab="ai-chat" id="ai-chat-tab-btn">AI 채팅</button>
     <button class="tab-btn" type="button" data-tab="analysis">종목 분석</button>
     <button class="tab-btn" type="button" data-tab="live-prices">시세</button>
     <button class="tab-btn" type="button" data-tab="chart-analysis">차트 분석</button>
@@ -1011,8 +1025,29 @@
       <textarea id="strategy-input" maxlength="2000" aria-label="전략실 질문" placeholder="포트폴리오 전략에 대해 궁금한 점을 적어주세요"></textarea>
       <button id="strategy-submit" type="button">질문 남기기</button>
     </div>
-    <div class="strategy-hint" id="strategy-hint">로컬 서버로 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 이 화면과 GitHub 이슈에 답변을 남깁니다.</div>
+    <div class="strategy-hint" id="strategy-hint">로컬 서버로 바로 접수됩니다. 아이비·맥스·리나가 5~10분 내 검토 후 이 화면에 답변을 남깁니다. 답변 AI: Codex 우선 → Gemini → Claude 순.</div>
     <div id="strategy-qa"><div class="panel-empty">아직 남긴 질문 없음</div></div>
+  </div>
+  </div>
+
+  <div class="tab-panel" data-tab-panel="ai-chat">
+  <div class="strategy-panel-full">
+    <div class="dept-head"><h2>AI 채팅</h2><span class="dept-desc">구독 중인 AI에게 바로 질문 — 구독 로그인으로 동작(추가 과금 없음)·읽기 전용</span></div>
+    <div class="aic-bar">
+      <div class="aic-providers" role="radiogroup" aria-label="AI 선택">
+        <button type="button" class="stock-btn" data-provider="codex" role="radio">Codex (ChatGPT)</button>
+        <button type="button" class="stock-btn" data-provider="gemini" role="radio">Gemini</button>
+        <button type="button" class="stock-btn" data-provider="claude" role="radio">Claude</button>
+      </div>
+      <label class="aic-web"><input type="checkbox" id="aic-web" checked> 웹검색</label>
+      <button type="button" class="aic-clear" id="aic-clear">대화 지우기</button>
+    </div>
+    <div class="aic-log" id="aic-log" aria-live="polite"></div>
+    <div class="strategy-form aic-form">
+      <textarea id="aic-input" maxlength="8000" aria-label="AI에게 질문" placeholder="무엇이든 물어보세요 (Enter 전송 · Shift+Enter 줄바꿈)"></textarea>
+      <button id="aic-send" type="button">보내기</button>
+    </div>
+    <div class="strategy-hint" id="aic-hint">대화는 이 브라우저에만 저장되고, 보낼 때 최근 대화만 함께 전달됩니다. 답변은 보통 10초~2분 걸립니다.</div>
   </div>
   </div>
 
@@ -4016,6 +4051,81 @@
   requestAnimationFrame(frame);
   if (reduceMotion) frame(0);
 })();
+
+  // ---- AI 채팅 탭 (2026-11-21) — office_analysis_server.py POST /ai-chat. 구독 중인 Codex·Gemini·Claude CLI를 그대로 쓴다.
+  (function(){
+    const btn = document.getElementById("ai-chat-tab-btn");
+    if (location.hostname.endsWith("github.io")){ btn.hidden = true; return; }  // 로컬 서버가 있어야만 동작
+    const ANALYSIS_ORIGIN = "http://127.0.0.1:8769";
+    const escapeHtml = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const LS_KEY = "aiChat.v1", LS_PROV = "aiChat.provider";
+    const LABEL = { codex: "Codex (ChatGPT)", gemini: "Gemini", claude: "Claude" };
+    let msgs = [];
+    try { msgs = JSON.parse(localStorage.getItem(LS_KEY) || "[]"); } catch { msgs = []; }
+    let provider = localStorage.getItem(LS_PROV) || "codex";
+    let busy = false;
+    const logEl = document.getElementById("aic-log"), input = document.getElementById("aic-input"),
+          sendBtn = document.getElementById("aic-send"), hint = document.getElementById("aic-hint");
+
+    function md(text){
+      let h = escapeHtml(text);
+      h = h.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      h = h.replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>');
+      h = h.replace(/\*\*([^*\n]+)\*\*/g, "<b>$1</b>");
+      h = h.replace(/^#{1,4}\s+(.+)$/gm, "<b>$1</b>");
+      return h;
+    }
+    function render(){
+      logEl.innerHTML = msgs.length ? msgs.map(m => m.role === "user"
+          ? `<div class="aic-msg user">${escapeHtml(m.text)}</div>`
+          : `<div class="aic-msg ai${m.error ? " err" : ""}"><span class="aic-who">${escapeHtml(LABEL[m.provider] || "AI")}${m.secs ? ` · ${m.secs}초` : ""}</span>${md(m.text)}</div>`).join("")
+        + (busy ? `<div class="aic-msg ai"><span class="aic-who">${escapeHtml(LABEL[provider])}</span>답변 작성 중…</div>` : "")
+        : '<div class="panel-empty">위에서 AI를 고르고 질문을 보내보세요</div>';
+      logEl.scrollTop = logEl.scrollHeight;
+      document.querySelectorAll(".aic-providers .stock-btn").forEach(b => {
+        const on = b.dataset.provider === provider;
+        b.classList.toggle("active", on); b.setAttribute("aria-checked", on);
+      });
+      sendBtn.disabled = busy; sendBtn.textContent = busy ? "답변 기다리는 중…" : "보내기";
+    }
+    function save(){ localStorage.setItem(LS_KEY, JSON.stringify(msgs.slice(-60))); }
+
+    async function send(){
+      const text = input.value.trim();
+      if (!text || busy) return;
+      msgs.push({ role: "user", text }); input.value = ""; busy = true; save(); render();
+      const started = Date.now(), asked = provider;
+      try {
+        const r = await fetch(`${ANALYSIS_ORIGIN}/ai-chat`, {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ provider: asked, web: document.getElementById("aic-web").checked,
+            messages: msgs.filter(m => !m.error).slice(-12).map(m => ({ role: m.role, text: m.text })) }),
+          signal: AbortSignal.timeout(180000),
+        });
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok || !data.ok) throw new Error(data.error || `서버 오류 ${r.status}`);
+        msgs.push({ role: "ai", provider: data.provider, text: data.answer, secs: Math.round((Date.now() - started) / 1000) });
+      } catch (e) {
+        const msg = e.name === "TimeoutError" ? "시간 초과(3분) — 다시 시도하거나 다른 AI를 골라보세요"
+          : e instanceof TypeError ? "로컬 분석 서버(8769)에 연결할 수 없습니다" : e.message;
+        msgs.push({ role: "ai", provider: asked, text: msg, error: true });
+      } finally {
+        busy = false; save(); render();
+      }
+    }
+
+    document.querySelectorAll(".aic-providers .stock-btn").forEach(b => b.addEventListener("click", () => {
+      provider = b.dataset.provider; localStorage.setItem(LS_PROV, provider); render();
+    }));
+    sendBtn.addEventListener("click", send);
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey && !e.isComposing){ e.preventDefault(); send(); }
+    });
+    document.getElementById("aic-clear").addEventListener("click", () => {
+      if (busy) return; msgs = []; save(); render();
+    });
+    render();
+  })();
 </script>
 </body>
 </html>
