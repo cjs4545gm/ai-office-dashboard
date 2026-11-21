@@ -1035,10 +1035,12 @@
 
   <div class="tab-panel" data-tab-panel="live-prices">
   <div class="strategy-panel-full">
-    <div class="dept-head"><h2>시세 <span id="live-prices-updated" role="status" aria-live="polite">수신 대기 중</span></h2><span class="dept-desc">보유종목·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
+    <div class="dept-head"><h2>시세 <span id="live-prices-updated" role="status" aria-live="polite">수신 대기 중</span></h2><span class="dept-desc">보유종목·코스피 시총 상위 20·나스닥 관심종목·지수 실시간가 — 3초마다 갱신, 카드를 클릭하면 캔들차트 표시</span></div>
     <div class="analysis-error" id="live-prices-state" role="status" hidden></div>
     <div class="quote-grid-label">보유종목</div>
     <div class="quote-grid" id="live-portfolio-grid"><div class="panel-empty">불러오는 중…</div></div>
+    <div class="quote-grid-label">코스피 시가총액 상위 20</div>
+    <div class="quote-grid" id="live-top20-grid"><div class="panel-empty">불러오는 중…</div></div>
     <div class="quote-grid-label">나스닥 관심종목 (USD · 토스 현재가)</div>
     <div class="us-add">
       <input id="us-add-input" aria-label="나스닥 관심종목 추가" placeholder="미국 티커·종목 추가 (예: TSLA, 엔비디아)" autocomplete="off">
@@ -2346,11 +2348,17 @@
     const focusedKey = document.activeElement?.closest(".quote-grid") ? document.activeElement.dataset.key : null;
     portfolioEl.innerHTML = data.portfolio.map(item => quoteCardHTML(item, `p-${item.symbol}`, true)).join("");
     indicesEl.innerHTML = data.indices.map(item => quoteCardHTML(item, `i-${item.name}`, false)).join("");
+    const top20El = document.getElementById("live-top20-grid");
+    top20El.innerHTML = (data.top20 || []).length
+      ? data.top20.map((item, i) => quoteCardHTML({ ...item, name: `${i + 1}. ${item.name}` }, `t-${item.symbol}`, true)).join("")
+      : '<div class="panel-empty">상위 20 종목을 불러오지 못했습니다</div>';
+    // 카드엔 순위를 붙여 보여주되, 차트 제목(data-name)은 종목명만 쓴다
+    top20El.querySelectorAll(".quote-card").forEach((card, i) => { card.dataset.name = data.top20[i].name; });
     const usEl = document.getElementById("live-us-grid");
     usEl.innerHTML = usWatchlist.length
       ? (data.us || []).map(item => `<div class="quote-cell">${quoteCardHTML(item, `u-${item.symbol}`, true)}<button type="button" class="q-remove" data-remove="${escapeHtml(item.symbol)}" data-key="rm-${escapeHtml(item.symbol)}" title="관심종목에서 빼기" aria-label="${escapeHtml(item.symbol)} 관심종목에서 빼기">✕</button></div>`).join("")
       : '<div class="panel-empty">위 검색창에서 미국 종목을 추가해주세요</div>';
-    [portfolioEl, usEl].forEach(el => el.querySelectorAll(".quote-card[data-symbol]").forEach(card => {
+    [portfolioEl, top20El, usEl].forEach(el => el.querySelectorAll(".quote-card[data-symbol]").forEach(card => {
       card.classList.toggle("active", selectedChartTarget && card.dataset.symbol === selectedChartTarget.symbol);
       card.addEventListener("click", () => loadChart(card.dataset.symbol, card.dataset.name));
     }));
@@ -2490,7 +2498,7 @@
 
   async function loadChart(symbol, name, quiet){
     selectedChartTarget = { symbol, name };
-    document.querySelectorAll("#live-portfolio-grid .quote-card, #live-us-grid .quote-card").forEach(card => {
+    document.querySelectorAll("#live-portfolio-grid .quote-card, #live-top20-grid .quote-card, #live-us-grid .quote-card").forEach(card => {
       card.classList.toggle("active", card.dataset.symbol === symbol);
     });
     const iv = chartInterval;
